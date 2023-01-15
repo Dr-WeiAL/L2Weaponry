@@ -2,21 +2,25 @@ package dev.xkmc.l2weaponry.content.item.base;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import dev.xkmc.l2library.init.events.attack.AttackCache;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.enchantment.DamageEnchantment;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
+import net.minecraftforge.event.entity.player.CriticalHitEvent;
 
 public class WeaponItem extends TieredItem {
 
@@ -25,9 +29,11 @@ public class WeaponItem extends TieredItem {
 	 * Modifiers applied when the item is in the mainhand of a user.
 	 */
 	private final Multimap<Attribute, AttributeModifier> defaultModifiers;
+	private final TagKey<Block> blocks;
 
-	public WeaponItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Item.Properties pProperties) {
+	public WeaponItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties, TagKey<Block> blocks) {
 		super(pTier, pProperties);
+		this.blocks = blocks;
 		this.attackDamage = (float) pAttackDamageModifier + pTier.getAttackDamageBonus();
 		this.attackSpeed = pAttackSpeedModifier;
 		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
@@ -45,9 +51,33 @@ public class WeaponItem extends TieredItem {
 		return !pPlayer.isCreative();
 	}
 
+
 	public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-		Material material = pState.getMaterial();
-		return material != Material.PLANT && material != Material.REPLACEABLE_PLANT && !pState.is(BlockTags.LEAVES) && material != Material.VEGETABLE ? 1.0F : 1.5F;
+		return pState.is(this.blocks) ? this.getTier().getSpeed() : 1.0F;
+	}
+
+	/**
+	 * Check whether this Item can harvest the given Block
+	 */
+	@Deprecated // FORGE: Use stack sensitive variant below
+	public boolean isCorrectToolForDrops(BlockState pBlock) {
+		if (net.minecraftforge.common.TierSortingRegistry.isTierSorted(getTier())) {
+			return net.minecraftforge.common.TierSortingRegistry.isCorrectTierForDrops(getTier(), pBlock) && pBlock.is(this.blocks);
+		}
+		int i = this.getTier().getLevel();
+		if (i < 3 && pBlock.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+			return false;
+		} else if (i < 2 && pBlock.is(BlockTags.NEEDS_IRON_TOOL)) {
+			return false;
+		} else {
+			return (i >= 1 || !pBlock.is(BlockTags.NEEDS_STONE_TOOL)) && pBlock.is(this.blocks);
+		}
+	}
+
+	// FORGE START
+	@Override
+	public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
+		return state.is(blocks) && net.minecraftforge.common.TierSortingRegistry.isCorrectTierForDrops(getTier(), state);
 	}
 
 	/**
@@ -64,7 +94,7 @@ public class WeaponItem extends TieredItem {
 	 */
 	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
 		if (pState.getDestroySpeed(pLevel, pPos) != 0.0F) {
-			pStack.hurtAndBreak(2, pEntityLiving, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+			pStack.hurtAndBreak(1, pEntityLiving, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		}
 		return true;
 	}
@@ -74,6 +104,19 @@ public class WeaponItem extends TieredItem {
 	 */
 	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
 		return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
+	}
+
+	public float getMultiplier(AttackCache event) {
+		return 1;
+	}
+
+	protected boolean isSharp() {
+		return true;
+	}
+
+	@Override
+	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		return isSharp() && enchantment instanceof DamageEnchantment || super.canApplyAtEnchantingTable(stack, enchantment);
 	}
 
 }

@@ -4,15 +4,18 @@ import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2complements.init.materials.api.ITool;
 import dev.xkmc.l2complements.init.materials.vanilla.RawToolFactory;
 import dev.xkmc.l2weaponry.content.item.types.ClawItem;
+import dev.xkmc.l2weaponry.content.item.types.DaggerItem;
+import dev.xkmc.l2weaponry.content.item.types.HammerItem;
+import dev.xkmc.l2weaponry.content.item.types.LargeAxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
 
 public enum LWToolTypes implements ITool {
 	CLAW(ClawItem::new, 0.7f, 2),
-	DAGGER(ClawItem::new, 0.7f, 2),
-	HAMMER(ClawItem::new, 2f, 0.7f),
-	LARGE_AXE(ClawItem::new, 2f, 0.7f);
+	DAGGER(DaggerItem::new, 0.7f, 2),
+	HAMMER(HammerItem::new, 2f, 0.7f),
+	LARGE_AXE(LargeAxeItem::new, 2f, 0.7f);
 
 	private final RawToolFactory fac;
 	private final float damage, speed;

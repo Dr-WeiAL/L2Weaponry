@@ -3,15 +3,17 @@ package dev.xkmc.l2weaponry.content.item.base;
 import com.google.common.collect.ImmutableMultimap;
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.math.MathHelper;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.level.block.Block;
 
 public class SlowWieldItem extends GenericWeaponItem {
 
-	public SlowWieldItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config);
+	public SlowWieldItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
+		super(tier, damage, speed, prop, config, blocks);
 	}
 
 	@Override
