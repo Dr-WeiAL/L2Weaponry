@@ -1,0 +1,15 @@
+{
+  "item.l2weaponry": {
+  },
+  "-cartesian": {
+	"gen_item": {
+	  "path": "item.l2weaponry",
+	  "list": [
+		{
+		},
+		{
+		}
+	  ]
+	}
+  }
+}

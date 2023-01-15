@@ -1,0 +1,79 @@
+package dev.xkmc.l2weaponry.content.item.base;
+
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+
+public class WeaponItem extends TieredItem {
+
+	protected float attackDamage, attackSpeed;
+	/**
+	 * Modifiers applied when the item is in the mainhand of a user.
+	 */
+	private final Multimap<Attribute, AttributeModifier> defaultModifiers;
+
+	public WeaponItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Item.Properties pProperties) {
+		super(pTier, pProperties);
+		this.attackDamage = (float) pAttackDamageModifier + pTier.getAttackDamageBonus();
+		this.attackSpeed = pAttackSpeedModifier;
+		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+		addModifiers(builder);
+		this.defaultModifiers = builder.build();
+	}
+
+	protected void addModifiers(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
+		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", attackDamage, AttributeModifier.Operation.ADDITION));
+		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", attackSpeed, AttributeModifier.Operation.ADDITION));
+
+	}
+
+	public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
+		return !pPlayer.isCreative();
+	}
+
+	public float getDestroySpeed(ItemStack pStack, BlockState pState) {
+		Material material = pState.getMaterial();
+		return material != Material.PLANT && material != Material.REPLACEABLE_PLANT && !pState.is(BlockTags.LEAVES) && material != Material.VEGETABLE ? 1.0F : 1.5F;
+	}
+
+	/**
+	 * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
+	 * the damage on the stack.
+	 */
+	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+		pStack.hurtAndBreak(1, pAttacker, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+		return true;
+	}
+
+	/**
+	 * Called when a Block is destroyed using this Item. Return true to trigger the "Use Item" statistic.
+	 */
+	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
+		if (pState.getDestroySpeed(pLevel, pPos) != 0.0F) {
+			pStack.hurtAndBreak(2, pEntityLiving, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+		}
+		return true;
+	}
+
+	/**
+	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
+	 */
+	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
+		return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
+	}
+
+}
