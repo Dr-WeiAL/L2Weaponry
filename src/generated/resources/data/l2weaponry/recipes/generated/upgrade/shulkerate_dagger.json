@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "l2complements:shulkerate_ingot"
+  },
+  "base": {
+    "tag": "l2weaponry:dagger"
+  },
+  "result": {
+    "item": "l2weaponry:shulkerate_dagger"
+  }
+}

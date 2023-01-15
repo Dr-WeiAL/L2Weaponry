@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "l2complements:sculkium_ingot"
+  },
+  "base": {
+    "tag": "l2weaponry:battle_axe"
+  },
+  "result": {
+    "item": "l2weaponry:sculkium_battle_axe"
+  }
+}

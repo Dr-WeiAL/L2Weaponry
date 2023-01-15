@@ -1,24 +1,23 @@
 package dev.xkmc.l2weaponry.init.data;
 
-import dev.xkmc.l2complements.content.recipe.BurntRecipeBuilder;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2library.repack.registrate.util.DataIngredient;
-import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
-import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
-import dev.xkmc.l2library.repack.registrate.util.nullness.NonNullSupplier;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
+import dev.xkmc.l2weaponry.init.materials.LWToolMats;
+import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
+import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.UpgradeRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.BiFunction;
@@ -27,38 +26,71 @@ public class RecipeGen {
 
 	private static String currentFolder = "";
 
-	@SuppressWarnings("ConstantConditions")
 	public static void genRecipe(RegistrateRecipeProvider pvd) {
-
+		currentFolder = "misc/";
+		{
+			unlock(pvd, new ShapedRecipeBuilder(LWItems.HANDLE.get(), 2)::unlockedBy, Items.STICK)
+					.pattern(" SI").pattern("SIS").pattern("IS ")
+					.define('S', Items.STICK)
+					.define('I', Items.COPPER_INGOT)
+					.save(pvd, getID(LWItems.HANDLE.get()));
+		}
+		currentFolder = "generated/";
+		{
+			for (LWToolMats mat : LWToolMats.values()) {
+				if (mat == LWToolMats.NETHERITE) {
+					upgrade(pvd, LWToolMats.DIAMOND, LWToolMats.NETHERITE);
+				} else {
+					tools(pvd, mat);
+				}
+			}
+		}
 	}
 
+	@SuppressWarnings("ConstantConditions")
 	private static ResourceLocation getID(Enchantment item) {
 		return new ResourceLocation(L2Weaponry.MODID, currentFolder + ForgeRegistries.ENCHANTMENTS.getKey(item).getPath());
 	}
 
+	@SuppressWarnings("ConstantConditions")
 	private static ResourceLocation getID(Item item) {
 		return new ResourceLocation(L2Weaponry.MODID, currentFolder + ForgeRegistries.ITEMS.getKey(item).getPath());
 	}
 
-	private static void convert(RegistrateRecipeProvider pvd, Item in, Item out, int count) {
-		unlock(pvd, new BurntRecipeBuilder(Ingredient.of(in), out.getDefaultInstance(), count)::unlockedBy, in).save(pvd, getID(in));
-	}
-
-	private static void storage(RegistrateRecipeProvider pvd, ItemEntry<?> nugget, ItemEntry<?> ingot, BlockEntry<?> block) {
-		storage(pvd, nugget::get, ingot::get);
-		storage(pvd, ingot::get, block::get);
-	}
-
-	public static void storage(RegistrateRecipeProvider pvd, NonNullSupplier<ItemLike> from, NonNullSupplier<ItemLike> to) {
-		unlock(pvd, new ShapedRecipeBuilder(to.get(), 1)::unlockedBy, from.get().asItem())
-				.pattern("XXX").pattern("XXX").pattern("XXX").define('X', from.get())
-				.save(pvd, getID(to.get().asItem()) + "_storage");
-		unlock(pvd, new ShapelessRecipeBuilder(from.get(), 9)::unlockedBy, to.get().asItem())
-				.requires(to.get()).save(pvd, getID(to.get().asItem()) + "_unpack");
-	}
-
 	public static <T> T unlock(RegistrateRecipeProvider pvd, BiFunction<String, InventoryChangeTrigger.TriggerInstance, T> func, Item item) {
 		return func.apply("has_" + pvd.safeName(item), DataIngredient.items(item).getCritereon(pvd));
+	}
+
+	private static void buildTool(RegistrateRecipeProvider pvd, LWToolMats mat, LWToolTypes type, String... strs) {
+		var b = unlock(pvd, new ShapedRecipeBuilder(mat.getTool(type), 1)::unlockedBy, mat.getIngot());
+		for (String str : strs) b = b.pattern(str);
+		b.define('I', mat.getIngot()).define('H', LWItems.HANDLE.get())
+				.save(pvd, getID(mat.getTool(type)));
+	}
+
+	public static void upgrade(RegistrateRecipeProvider pvd, LWToolMats base, LWToolMats mat) {
+		currentFolder = "generated/upgrade/";
+		smithing(pvd, base.getTool(LWToolTypes.CLAW), mat.getIngot(), mat.getTool(LWToolTypes.CLAW));
+		smithing(pvd, base.getTool(LWToolTypes.DAGGER), mat.getIngot(), mat.getTool(LWToolTypes.DAGGER));
+		smithing(pvd, base.getTool(LWToolTypes.HAMMER), mat.getIngot(), mat.getTool(LWToolTypes.HAMMER));
+		smithing(pvd, base.getTool(LWToolTypes.BATTLE_AXE), mat.getIngot(), mat.getTool(LWToolTypes.BATTLE_AXE));
+		smithing(pvd, base.getTool(LWToolTypes.SPEAR), mat.getIngot(), mat.getTool(LWToolTypes.SPEAR));
+	}
+
+	public static void tools(RegistrateRecipeProvider pvd, LWToolMats mat) {
+		currentFolder = "generated/craft/";
+		buildTool(pvd, mat, LWToolTypes.CLAW, "III", "HIH", "H H");
+		buildTool(pvd, mat, LWToolTypes.DAGGER, " I", "H ");
+		buildTool(pvd, mat, LWToolTypes.HAMMER, "III", "IHI", " H ");
+		buildTool(pvd, mat, LWToolTypes.BATTLE_AXE, "III", "IH ", "H  ");
+		buildTool(pvd, mat, LWToolTypes.SPEAR, " II", " HI", "H  ");
+		currentFolder = "generated/upgrade/";
+		smithing(pvd, TagGen.CLAW, mat.getBlock(), mat.getTool(LWToolTypes.CLAW));
+		smithing(pvd, TagGen.DAGGER, mat.getIngot(), mat.getTool(LWToolTypes.DAGGER));
+		smithing(pvd, TagGen.HAMMER, mat.getIngot(), mat.getTool(LWToolTypes.HAMMER));
+		smithing(pvd, TagGen.BATTLE_AXE, mat.getIngot(), mat.getTool(LWToolTypes.BATTLE_AXE));
+		smithing(pvd, TagGen.SPEAR, mat.getIngot(), mat.getTool(LWToolTypes.SPEAR));
+
 	}
 
 	public static void smithing(RegistrateRecipeProvider pvd, TagKey<Item> in, Item mat, Item out) {

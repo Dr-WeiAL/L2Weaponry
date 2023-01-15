@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "l2complements:poseidite_ingot"
+  },
+  "base": {
+    "tag": "l2weaponry:spear"
+  },
+  "result": {
+    "item": "l2weaponry:poseidite_spear"
+  }
+}

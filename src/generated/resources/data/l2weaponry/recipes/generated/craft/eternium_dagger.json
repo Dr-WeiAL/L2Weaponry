@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "l2complements:eternium_ingot"
+    }
+  },
+  "pattern": [
+    " I",
+    "H "
+  ],
+  "result": {
+    "item": "l2weaponry:eternium_dagger"
+  }
+}

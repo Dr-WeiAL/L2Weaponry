@@ -38,14 +38,12 @@ public class LWItems {
 		L2Weaponry.REGISTRATE.creativeModeTab(() -> TAB_GENERATED);
 	}
 
+	public static final ItemEntry<Item> HANDLE;
 	public static final ItemEntry<Item>[][] GEN_ITEM;
 
 	static {
+		HANDLE = L2Weaponry.REGISTRATE.item("reinforced_handle", Item::new).register();
 		GEN_ITEM = LWGenItem.generate();
-	}
-
-	public static <T extends Item> ItemEntry<T> simpleItem(String id, BiFunction<Item.Properties, Supplier<MutableComponent>, T> func, Rarity r, Supplier<MutableComponent> sup) {
-		return L2Weaponry.REGISTRATE.item(id, p -> func.apply(p.fireResistant().rarity(r), sup)).defaultModel().defaultLang().register();
 	}
 
 	public static void register() {

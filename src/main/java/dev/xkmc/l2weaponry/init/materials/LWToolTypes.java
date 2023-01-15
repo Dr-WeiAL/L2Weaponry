@@ -3,24 +3,26 @@ package dev.xkmc.l2weaponry.init.materials;
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2complements.init.materials.api.ITool;
 import dev.xkmc.l2complements.init.materials.vanilla.RawToolFactory;
-import dev.xkmc.l2weaponry.content.item.types.ClawItem;
-import dev.xkmc.l2weaponry.content.item.types.DaggerItem;
-import dev.xkmc.l2weaponry.content.item.types.HammerItem;
-import dev.xkmc.l2weaponry.content.item.types.LargeAxeItem;
+import dev.xkmc.l2weaponry.content.item.types.*;
+import dev.xkmc.l2weaponry.init.data.TagGen;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
 
 public enum LWToolTypes implements ITool {
-	CLAW(ClawItem::new, 0.7f, 2),
-	DAGGER(DaggerItem::new, 0.7f, 2),
-	HAMMER(HammerItem::new, 2f, 0.7f),
-	LARGE_AXE(LargeAxeItem::new, 2f, 0.7f);
+	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 2),
+	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 2),
+	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f),
+	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f),
+	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1.2f);
 
+	public final TagKey<Item> tag;
 	private final RawToolFactory fac;
 	private final float damage, speed;
 
-	LWToolTypes(RawToolFactory fac, float damage, float speed) {
+	LWToolTypes(TagKey<Item> tag, RawToolFactory fac, float damage, float speed) {
+		this.tag = tag;
 		this.fac = fac;
 		this.damage = damage;
 		this.speed = speed;

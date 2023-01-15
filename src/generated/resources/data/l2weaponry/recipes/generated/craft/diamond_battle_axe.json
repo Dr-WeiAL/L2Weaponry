@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "III",
+    "IH ",
+    "H  "
+  ],
+  "result": {
+    "item": "l2weaponry:diamond_battle_axe"
+  }
+}

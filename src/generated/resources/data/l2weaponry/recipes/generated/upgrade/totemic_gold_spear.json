@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "l2complements:totemic_gold_ingot"
+  },
+  "base": {
+    "tag": "l2weaponry:spear"
+  },
+  "result": {
+    "item": "l2weaponry:totemic_gold_spear"
+  }
+}

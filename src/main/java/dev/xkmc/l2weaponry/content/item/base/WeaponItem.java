@@ -106,17 +106,4 @@ public class WeaponItem extends TieredItem {
 		return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
 	}
 
-	public float getMultiplier(AttackCache event) {
-		return 1;
-	}
-
-	protected boolean isSharp() {
-		return true;
-	}
-
-	@Override
-	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-		return isSharp() && enchantment instanceof DamageEnchantment || super.canApplyAtEnchantingTable(stack, enchantment);
-	}
-
 }

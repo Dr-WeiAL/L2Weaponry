@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "l2complements:poseidite_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "IH ",
+    "H  "
+  ],
+  "result": {
+    "item": "l2weaponry:poseidite_battle_axe"
+  }
+}

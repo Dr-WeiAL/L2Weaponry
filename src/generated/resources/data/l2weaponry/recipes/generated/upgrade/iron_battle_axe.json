@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:iron_ingot"
+  },
+  "base": {
+    "tag": "l2weaponry:battle_axe"
+  },
+  "result": {
+    "item": "l2weaponry:iron_battle_axe"
+  }
+}
