@@ -14,11 +14,11 @@ public class ClientRenderEvents {
 		if (event.getHand() == InteractionHand.OFF_HAND) {
 			if (event.getItemStack().getItem() instanceof DoubleHandItem item) {
 				if (item.disableOffHand(Proxy.getClientPlayer())) {
-					event.setCanceled(true);
+					//event.setCanceled(true);
 				}
 			} else if (Proxy.getClientPlayer().getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof DoubleHandItem item) {
 				if (item.disableOffHand(Proxy.getClientPlayer())) {
-					event.setCanceled(true);
+					//event.setCanceled(true);
 				}
 			}
 		}

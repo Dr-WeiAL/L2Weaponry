@@ -17,7 +17,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.BiFunction;
@@ -41,7 +40,7 @@ public class RecipeGen {
 				if (mat == LWToolMats.NETHERITE) {
 					upgrade(pvd, LWToolMats.DIAMOND, LWToolMats.NETHERITE);
 				} else {
-					tools(pvd, mat);
+					tools(pvd, mat.getStick(), mat.getToolIngot(), mat);
 				}
 			}
 		}
@@ -61,11 +60,16 @@ public class RecipeGen {
 		return func.apply("has_" + pvd.safeName(item), DataIngredient.items(item).getCritereon(pvd));
 	}
 
-	private static void buildTool(RegistrateRecipeProvider pvd, LWToolMats mat, LWToolTypes type, String... strs) {
+	private static void buildTool(RegistrateRecipeProvider pvd, Item handle, Item ingot, LWToolMats mat, LWToolTypes type, String... strs) {
 		var b = unlock(pvd, new ShapedRecipeBuilder(mat.getTool(type), 1)::unlockedBy, mat.getIngot());
-		for (String str : strs) b = b.pattern(str);
-		b.define('I', mat.getIngot()).define('H', LWItems.HANDLE.get())
-				.save(pvd, getID(mat.getTool(type)));
+		boolean leather = false;
+		for (String str : strs) {
+			b = b.pattern(str);
+			leather |= str.indexOf('L') >= 0;
+		}
+		b.define('I', ingot).define('H', handle);
+		if (leather) b = b.define('L', Items.LEATHER);
+		b.save(pvd, getID(mat.getTool(type)));
 	}
 
 	public static void upgrade(RegistrateRecipeProvider pvd, LWToolMats base, LWToolMats mat) {
@@ -77,13 +81,13 @@ public class RecipeGen {
 		smithing(pvd, base.getTool(LWToolTypes.SPEAR), mat.getIngot(), mat.getTool(LWToolTypes.SPEAR));
 	}
 
-	public static void tools(RegistrateRecipeProvider pvd, LWToolMats mat) {
+	public static void tools(RegistrateRecipeProvider pvd, Item handle, Item ingot, LWToolMats mat) {
 		currentFolder = "generated/craft/";
-		buildTool(pvd, mat, LWToolTypes.CLAW, "III", "HIH", "H H");
-		buildTool(pvd, mat, LWToolTypes.DAGGER, " I", "H ");
-		buildTool(pvd, mat, LWToolTypes.HAMMER, "III", "IHI", " H ");
-		buildTool(pvd, mat, LWToolTypes.BATTLE_AXE, "III", "IH ", "H  ");
-		buildTool(pvd, mat, LWToolTypes.SPEAR, " II", " HI", "H  ");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.CLAW, "III", "HLH", "H H");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.DAGGER, " I", "H ");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.HAMMER, "III", "IHI", " H ");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.BATTLE_AXE, "III", "IH ", "H  ");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.SPEAR, " II", " HI", "H  ");
 		currentFolder = "generated/upgrade/";
 		smithing(pvd, TagGen.CLAW, mat.getBlock(), mat.getTool(LWToolTypes.CLAW));
 		smithing(pvd, TagGen.DAGGER, mat.getIngot(), mat.getTool(LWToolTypes.DAGGER));

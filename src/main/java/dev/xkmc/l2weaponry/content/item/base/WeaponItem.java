@@ -2,7 +2,6 @@ package dev.xkmc.l2weaponry.content.item.base;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import dev.xkmc.l2library.init.events.attack.AttackCache;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -15,12 +14,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
-import net.minecraft.world.item.enchantment.DamageEnchantment;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.entity.player.CriticalHitEvent;
 
 public class WeaponItem extends TieredItem {
 
@@ -34,7 +30,7 @@ public class WeaponItem extends TieredItem {
 	public WeaponItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties, TagKey<Block> blocks) {
 		super(pTier, pProperties);
 		this.blocks = blocks;
-		this.attackDamage = (float) pAttackDamageModifier + pTier.getAttackDamageBonus();
+		this.attackDamage = pAttackDamageModifier;
 		this.attackSpeed = pAttackSpeedModifier;
 		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
 		addModifiers(builder);

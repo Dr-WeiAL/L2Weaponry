@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 import com.google.common.collect.ImmutableMultimap;
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.math.MathHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -16,6 +17,8 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 
@@ -44,4 +47,14 @@ public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 		return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
 	}
 
+	@OnlyIn(Dist.CLIENT)
+	@Override
+	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+		if (super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged)) {
+			Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer()
+					.offHandItem.getOrCreateTag().putBoolean("reequip", true);
+			return true;
+		}
+		return false;
+	}
 }

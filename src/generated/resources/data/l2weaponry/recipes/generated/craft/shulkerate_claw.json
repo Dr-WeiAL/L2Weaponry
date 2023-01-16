@@ -2,15 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "H": {
-      "item": "l2weaponry:reinforced_handle"
+      "item": "minecraft:iron_ingot"
     },
     "I": {
       "item": "l2complements:shulkerate_ingot"
+    },
+    "L": {
+      "item": "minecraft:leather"
     }
   },
   "pattern": [
     "III",
-    "HIH",
+    "HLH",
     "H H"
   ],
   "result": {

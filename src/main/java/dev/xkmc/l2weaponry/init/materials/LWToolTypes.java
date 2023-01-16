@@ -11,8 +11,8 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
 
 public enum LWToolTypes implements ITool {
-	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 2),
-	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 2),
+	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 4),
+	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4),
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f),
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f),
 	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1.2f);

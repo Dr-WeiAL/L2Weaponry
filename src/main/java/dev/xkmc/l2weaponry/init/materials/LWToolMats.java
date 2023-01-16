@@ -21,22 +21,34 @@ public enum LWToolMats {
 	ETERNIUM(LCMats.ETERNIUM);
 
 	public final IMatToolType type;
-	private final Supplier<Item> ingot, block;
+	private final Supplier<Item> ingot, block, toolIngot, handle;
 
 	LWToolMats(IMatToolType type, Item ingot, Item block) {
 		this.type = type;
 		this.ingot = () -> ingot;
 		this.block = () -> block;
+		this.toolIngot = this.ingot;
+		this.handle = LWItems.HANDLE;
 	}
 
 	LWToolMats(LCMats type) {
 		this.type = type;
 		ingot = type::getIngot;
 		block = () -> type.getBlock().asItem();
+		toolIngot = type::getToolIngot;
+		handle = type::getToolStick;
 	}
 
 	public Item getIngot() {
 		return ingot.get();
+	}
+
+	public Item getToolIngot(){
+		return toolIngot.get();
+	}
+
+	public Item getStick(){
+		return handle.get();
 	}
 
 	public Item getBlock() {

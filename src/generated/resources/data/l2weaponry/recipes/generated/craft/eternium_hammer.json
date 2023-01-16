@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "H": {
-      "item": "l2weaponry:reinforced_handle"
+      "item": "l2complements:explosion_shard"
     },
     "I": {
       "item": "l2complements:eternium_ingot"

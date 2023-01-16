@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "H": {
-      "item": "l2weaponry:reinforced_handle"
+      "item": "l2complements:totemic_gold_ingot"
     },
     "I": {
-      "item": "l2complements:totemic_gold_ingot"
+      "item": "minecraft:emerald"
     }
   },
   "pattern": [

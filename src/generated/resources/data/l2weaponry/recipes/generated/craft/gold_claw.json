@@ -6,11 +6,14 @@
     },
     "I": {
       "item": "minecraft:gold_ingot"
+    },
+    "L": {
+      "item": "minecraft:leather"
     }
   },
   "pattern": [
     "III",
-    "HIH",
+    "HLH",
     "H H"
   ],
   "result": {

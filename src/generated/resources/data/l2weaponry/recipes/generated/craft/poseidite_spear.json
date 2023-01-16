@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "H": {
-      "item": "l2weaponry:reinforced_handle"
+      "item": "minecraft:prismarine_shard"
     },
     "I": {
       "item": "l2complements:poseidite_ingot"
