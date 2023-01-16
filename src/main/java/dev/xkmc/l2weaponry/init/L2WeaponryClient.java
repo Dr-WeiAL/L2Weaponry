@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.init;
 
 import dev.xkmc.l2complements.content.item.misc.LCBEWLR;
 import dev.xkmc.l2complements.init.registrate.LCParticle;
+import dev.xkmc.l2weaponry.events.ClientRenderEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
@@ -16,6 +17,7 @@ public class L2WeaponryClient {
 		bus.addListener(L2WeaponryClient::clientSetup);
 		bus.addListener(L2WeaponryClient::onResourceReload);
 		bus.addListener(L2WeaponryClient::onParticleRegistryEvent);
+		eventBus.register(ClientRenderEvents.class);
 	}
 
 

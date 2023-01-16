@@ -3,14 +3,13 @@ package dev.xkmc.l2weaponry.init.registrate;
 import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWGenItem;
+import dev.xkmc.l2weaponry.init.materials.LWToolMats;
+import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 
-import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
 @SuppressWarnings({"rawtypes", "unsafe"})
@@ -32,7 +31,7 @@ public class LWItems {
 		}
 	}
 
-	public static final Tab TAB_GENERATED = new Tab("generated", () -> null);
+	public static final Tab TAB_GENERATED = new Tab("generated", () -> LWItems.GEN_ITEM[LWToolMats.DIAMOND.ordinal()][LWToolTypes.CLAW.ordinal()]);
 
 	static {
 		L2Weaponry.REGISTRATE.creativeModeTab(() -> TAB_GENERATED);
