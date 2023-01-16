@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 
 import com.google.common.collect.ImmutableMultimap;
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
+import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2library.util.math.MathHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.tags.TagKey;
@@ -50,11 +51,10 @@ public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 	@OnlyIn(Dist.CLIENT)
 	@Override
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
-		if (super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged)) {
-			Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer()
-					.offHandItem.getOrCreateTag().putBoolean("reequip", true);
-			return true;
-		}
-		return false;
+		ItemStack off = Proxy.getClientPlayer().getOffhandItem().copy();
+		Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer().offHandItem = off;
+		off.getOrCreateTag().putBoolean("reequip",true);
+		return super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged);
 	}
+
 }

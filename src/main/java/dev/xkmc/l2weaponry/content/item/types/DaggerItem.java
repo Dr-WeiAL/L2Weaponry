@@ -5,13 +5,13 @@ import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2library.init.events.attack.AttackCache;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
+import dev.xkmc.l2weaponry.init.data.LWConfig;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.Tier;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.event.entity.player.CriticalHitEvent;
 
 public class DaggerItem extends GenericWeaponItem {
 
@@ -28,7 +28,7 @@ public class DaggerItem extends GenericWeaponItem {
 	}
 
 	public float getMultiplier(AttackCache event) {
-		return event.getAttackTarget() instanceof Mob le && le.getTarget() != event.getAttacker() ? 2 : 1; //TODO to config
+		return event.getAttackTarget() instanceof Mob le && le.getTarget() != event.getAttacker() ? (float) (double) LWConfig.COMMON.dagger_bonus.get() : 1;
 	}
 
 }

@@ -16,8 +16,9 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.enchantment.DamageEnchantment;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -101,7 +102,13 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-		return isSharp() && enchantment instanceof DamageEnchantment || super.canApplyAtEnchantingTable(stack, enchantment);
+		if (enchantment == Enchantments.SHARPNESS) {
+			return isSharp();
+		}
+		if (enchantment.category == EnchantmentCategory.WEAPON) {
+			return true;
+		}
+		return super.canApplyAtEnchantingTable(stack, enchantment);
 	}
 
 }
