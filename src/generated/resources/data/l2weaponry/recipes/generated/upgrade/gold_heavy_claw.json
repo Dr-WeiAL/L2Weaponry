@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:gold_block"
+  },
+  "base": {
+    "tag": "l2weaponry:heavy_claw"
+  },
+  "result": {
+    "item": "l2weaponry:gold_heavy_claw"
+  }
+}

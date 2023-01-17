@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_shulkerate_ingot": {
+    "has_shulkerate_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "l2complements:shulkerate_ingot"
+              "l2complements:shulkerate_block"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_shulkerate_ingot",
+      "has_shulkerate_block",
       "has_the_recipe"
     ]
   ],

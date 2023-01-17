@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "l2complements:eternium_ingot"
+    "item": "l2complements:eternium_block"
   },
   "base": {
     "tag": "l2weaponry:dagger"

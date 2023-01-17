@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sculkium_ingot": {
+    "has_sculkium_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "l2complements:sculkium_ingot"
+              "l2complements:sculkium_block"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_sculkium_ingot",
+      "has_sculkium_block",
       "has_the_recipe"
     ]
   ],

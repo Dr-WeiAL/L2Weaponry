@@ -40,12 +40,16 @@ public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
-		return InteractionResult.CONSUME;
+		if (pContext.getPlayer() == null || disableOffHand(pContext.getPlayer()))
+			return InteractionResult.CONSUME;
+		return super.useOn(pContext);
 	}
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-		return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
+		if (disableOffHand(pPlayer))
+			return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
+		return super.use(pLevel, pPlayer, pUsedHand);
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -53,7 +57,7 @@ public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
 		ItemStack off = Proxy.getClientPlayer().getOffhandItem().copy();
 		Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer().offHandItem = off;
-		off.getOrCreateTag().putBoolean("reequip",true);
+		off.getOrCreateTag().putBoolean("reequip", true);
 		return super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged);
 	}
 

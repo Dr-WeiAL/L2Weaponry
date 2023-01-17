@@ -7,12 +7,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_totemic_gold_ingot": {
+    "has_totemic_gold_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "l2complements:totemic_gold_ingot"
+              "l2complements:totemic_gold_block"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_totemic_gold_ingot",
+      "has_totemic_gold_block",
       "has_the_recipe"
     ]
   ],

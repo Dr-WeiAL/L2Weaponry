@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "l2complements:shulkerate_ingot"
+    "item": "l2complements:shulkerate_block"
   },
   "base": {
     "tag": "l2weaponry:dagger"

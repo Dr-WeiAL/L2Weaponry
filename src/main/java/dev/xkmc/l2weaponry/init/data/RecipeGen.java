@@ -79,6 +79,7 @@ public class RecipeGen {
 		smithing(pvd, base.getTool(LWToolTypes.HAMMER), mat.getIngot(), mat.getTool(LWToolTypes.HAMMER));
 		smithing(pvd, base.getTool(LWToolTypes.BATTLE_AXE), mat.getIngot(), mat.getTool(LWToolTypes.BATTLE_AXE));
 		smithing(pvd, base.getTool(LWToolTypes.SPEAR), mat.getIngot(), mat.getTool(LWToolTypes.SPEAR));
+		smithing(pvd, base.getTool(LWToolTypes.HEAVY_CLAW), mat.getIngot(), mat.getTool(LWToolTypes.HEAVY_CLAW));
 	}
 
 	public static void tools(RegistrateRecipeProvider pvd, Item handle, Item ingot, LWToolMats mat) {
@@ -88,12 +89,14 @@ public class RecipeGen {
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.HAMMER, "III", "IHI", " H ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.BATTLE_AXE, "III", "IH ", "H  ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.SPEAR, " II", " HI", "H  ");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.HEAVY_CLAW, "III", "ILI", "H H");
 		currentFolder = "generated/upgrade/";
 		smithing(pvd, TagGen.CLAW, mat.getBlock(), mat.getTool(LWToolTypes.CLAW));
-		smithing(pvd, TagGen.DAGGER, mat.getIngot(), mat.getTool(LWToolTypes.DAGGER));
-		smithing(pvd, TagGen.HAMMER, mat.getIngot(), mat.getTool(LWToolTypes.HAMMER));
-		smithing(pvd, TagGen.BATTLE_AXE, mat.getIngot(), mat.getTool(LWToolTypes.BATTLE_AXE));
-		smithing(pvd, TagGen.SPEAR, mat.getIngot(), mat.getTool(LWToolTypes.SPEAR));
+		smithing(pvd, TagGen.DAGGER, mat.getBlock(), mat.getTool(LWToolTypes.DAGGER));
+		smithing(pvd, TagGen.HAMMER, mat.getBlock(), mat.getTool(LWToolTypes.HAMMER));
+		smithing(pvd, TagGen.BATTLE_AXE, mat.getBlock(), mat.getTool(LWToolTypes.BATTLE_AXE));
+		smithing(pvd, TagGen.SPEAR, mat.getBlock(), mat.getTool(LWToolTypes.SPEAR));
+		smithing(pvd, TagGen.HAEVY_CLAW, mat.getBlock(), mat.getTool(LWToolTypes.HEAVY_CLAW));
 
 	}
 

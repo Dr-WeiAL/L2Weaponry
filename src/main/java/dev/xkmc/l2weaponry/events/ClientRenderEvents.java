@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.events;
 
 import dev.xkmc.l2library.util.Proxy;
+import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
 import dev.xkmc.l2weaponry.content.item.types.ClawItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
@@ -16,7 +17,7 @@ public class ClientRenderEvents {
 		LocalPlayer player = Proxy.getClientPlayer();
 		Item main = player.getMainHandItem().getItem();
 		Item off = player.getOffhandItem().getItem();
-		if (main instanceof ClawItem && main == off) {
+		if (main instanceof DoubleWieldItem && main == off) {
 			if (event.getHand() == InteractionHand.MAIN_HAND) {
 				Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer()
 						.renderArmWithItem(player,

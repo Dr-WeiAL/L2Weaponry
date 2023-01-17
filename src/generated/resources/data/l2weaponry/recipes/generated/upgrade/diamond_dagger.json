@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "minecraft:diamond"
+    "item": "minecraft:diamond_block"
   },
   "base": {
     "tag": "l2weaponry:dagger"

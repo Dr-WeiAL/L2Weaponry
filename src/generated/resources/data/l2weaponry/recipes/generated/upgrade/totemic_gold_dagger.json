@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "l2complements:totemic_gold_ingot"
+    "item": "l2complements:totemic_gold_block"
   },
   "base": {
     "tag": "l2weaponry:dagger"

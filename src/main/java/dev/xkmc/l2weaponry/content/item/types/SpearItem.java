@@ -34,13 +34,8 @@ public class SpearItem extends GenericWeaponItem {
 	}
 
 	@Override
-	public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
-		return toolAction == ToolActions.SWORD_SWEEP;
-	}
-
-	@Override
-	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-		return enchantment == Enchantments.SWEEPING_EDGE || super.canApplyAtEnchantingTable(stack, enchantment);
+	protected boolean canSweep() {
+		return true;
 	}
 
 }

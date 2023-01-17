@@ -22,6 +22,8 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -92,6 +94,13 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 		config.addTooltip(pStack, pTooltipComponents);
 	}
 
+
+	@Override
+	public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+		if (toolAction == ToolActions.SWORD_SWEEP) return canSweep();
+		return false;
+	}
+
 	public float getMultiplier(AttackCache event) {
 		return 1;
 	}
@@ -100,8 +109,15 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 		return true;
 	}
 
+	protected boolean canSweep() {
+		return false;
+	}
+
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		if (enchantment == Enchantments.SWEEPING_EDGE){
+			return canSweep();
+		}
 		if (enchantment == Enchantments.SHARPNESS) {
 			return isSharp();
 		}

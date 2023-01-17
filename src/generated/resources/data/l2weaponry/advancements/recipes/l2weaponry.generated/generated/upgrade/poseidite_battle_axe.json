@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_poseidite_ingot": {
+    "has_poseidite_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "l2complements:poseidite_ingot"
+              "l2complements:poseidite_block"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_poseidite_ingot",
+      "has_poseidite_block",
       "has_the_recipe"
     ]
   ],

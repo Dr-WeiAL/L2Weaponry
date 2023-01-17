@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "minecraft:iron_ingot"
+    "item": "minecraft:iron_block"
   },
   "base": {
     "tag": "l2weaponry:hammer"
