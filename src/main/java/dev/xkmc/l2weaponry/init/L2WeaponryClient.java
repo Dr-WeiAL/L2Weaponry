@@ -1,11 +1,12 @@
 package dev.xkmc.l2weaponry.init;
 
-import dev.xkmc.l2complements.content.item.misc.LCBEWLR;
-import dev.xkmc.l2complements.init.registrate.LCParticle;
+import dev.xkmc.l2weaponry.content.client.ShieldItemDecorationRenderer;
 import dev.xkmc.l2weaponry.events.ClientRenderEvents;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import dev.xkmc.l2weaponry.init.materials.LWToolMats;
+import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
+import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
+import net.minecraftforge.client.event.RegisterItemDecorationsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,26 +15,29 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class L2WeaponryClient {
 
 	public static void onCtorClient(IEventBus bus, IEventBus eventBus) {
-		bus.addListener(L2WeaponryClient::clientSetup);
-		bus.addListener(L2WeaponryClient::onResourceReload);
-		bus.addListener(L2WeaponryClient::onParticleRegistryEvent);
+		bus.register(L2WeaponryClient.class);
 		eventBus.register(ClientRenderEvents.class);
 	}
 
-
+	@SubscribeEvent
 	public static void onParticleRegistryEvent(RegisterParticleProvidersEvent event) {
 
 	}
 
+	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
-		L2WeaponryClient.registerItemProperties();
 	}
 
-	@OnlyIn(Dist.CLIENT)
-	public static void registerItemProperties() {
+	@SubscribeEvent
+	public static void registerItemDecoration(RegisterItemDecorationsEvent event) {
+		for (LWToolMats mat : LWToolMats.values()) {
+			event.register(LWItems.GEN_ITEM[mat.ordinal()][LWToolTypes.LIGHT_SHIELD.ordinal()].get(),
+					ShieldItemDecorationRenderer::renderShieldBar);
+			event.register(LWItems.GEN_ITEM[mat.ordinal()][LWToolTypes.HEAVY_SHIELD.ordinal()].get(),
+					ShieldItemDecorationRenderer::renderShieldBar);
+		}
 	}
 
-	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public static void onResourceReload(RegisterClientReloadListenersEvent event) {
 

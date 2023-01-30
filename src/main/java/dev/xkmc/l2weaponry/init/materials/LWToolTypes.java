@@ -16,7 +16,9 @@ public enum LWToolTypes implements ITool {
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f),
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f),
 	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1.2f),
-	HEAVY_CLAW(TagGen.HAEVY_CLAW, HeavyClawItem::new, 1.4f, 0.7f);
+	HEAVY_CLAW(TagGen.HAEVY_CLAW, HeavyClawItem::new, 1.4f, 0.7f),
+	LIGHT_SHIELD(TagGen.LIGHT_SHIELD, LightShieldItem::new, 5f, 1f),
+	HEAVY_SHIELD(TagGen.HEAVY_SHIELD, HeavyShieldItem::new, 20f, 1f);
 
 	public final TagKey<Item> tag;
 	private final RawToolFactory fac;
@@ -40,7 +42,7 @@ public enum LWToolTypes implements ITool {
 	}
 
 	@Override
-	public TieredItem create(Tier tier, int i, float v, Item.Properties properties, ExtraToolConfig extraToolConfig) {
+	public Item create(Tier tier, int i, float v, Item.Properties properties, ExtraToolConfig extraToolConfig) {
 		return fac.get(tier, i, v, properties, extraToolConfig);
 	}
 }

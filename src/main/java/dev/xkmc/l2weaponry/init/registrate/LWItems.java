@@ -1,14 +1,18 @@
 package dev.xkmc.l2weaponry.init.registrate;
 
 import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
+import dev.xkmc.l2library.repack.registrate.util.entry.RegistryEntry;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWGenItem;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Supplier;
 
@@ -36,6 +40,10 @@ public class LWItems {
 	static {
 		L2Weaponry.REGISTRATE.creativeModeTab(() -> TAB_GENERATED);
 	}
+
+	public static final RegistryEntry<Attribute> SHIELD_DEFENSE = L2Weaponry.REGISTRATE.simple("shield_defense",
+			ForgeRegistries.ATTRIBUTES.getRegistryKey(), () -> new RangedAttribute(
+					"attribute.name.shield_defense", 0, 0, 1000).setSyncable(true));
 
 	public static final ItemEntry<Item> HANDLE;
 	public static final ItemEntry<Item>[][] GEN_ITEM;

@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.init;
 
 import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2library.base.tabs.contents.AttributeEntry;
 import dev.xkmc.l2library.init.events.attack.AttackEventHandler;
 import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
@@ -42,6 +43,7 @@ public class L2Weaponry {
 
 	private static void registerForgeEvents() {
 		LWConfig.init();
+		//MinecraftForge.EVENT_BUS.register(ShieldEventHandler.class);
 	}
 
 	private static void registerModBusEvents(IEventBus bus) {
@@ -61,6 +63,7 @@ public class L2Weaponry {
 	private static void setup(final FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			AttackEventHandler.LISTENERS.add(new LWAttackEventListener());
+			AttributeEntry.add(LWItems.SHIELD_DEFENSE, false, 14000);
 		});
 	}
 

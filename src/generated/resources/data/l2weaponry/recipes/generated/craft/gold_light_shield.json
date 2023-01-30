@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    " I ",
+    "IHI",
+    " I "
+  ],
+  "result": {
+    "item": "l2weaponry:gold_light_shield"
+  }
+}
