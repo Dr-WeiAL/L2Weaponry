@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "l2complements:poseidite_block"
+  },
+  "base": {
+    "tag": "l2weaponry:plate_shield"
+  },
+  "result": {
+    "item": "l2weaponry:poseidite_plate_shield"
+  }
+}

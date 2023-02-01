@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "l2weaponry:diamond_machete"
+  },
+  "result": {
+    "item": "l2weaponry:netherite_machete"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "l2complements:totemic_gold_block"
+  },
+  "base": {
+    "tag": "l2weaponry:round_shield"
+  },
+  "result": {
+    "item": "l2weaponry:totemic_gold_round_shield"
+  }
+}

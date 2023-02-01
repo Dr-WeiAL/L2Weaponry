@@ -40,14 +40,14 @@ public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
-		if (pContext.getPlayer() == null || disableOffHand(pContext.getPlayer()))
+		if (pContext.getPlayer() == null || disableOffHand(pContext.getPlayer(), pContext.getItemInHand()))
 			return InteractionResult.CONSUME;
 		return super.useOn(pContext);
 	}
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-		if (disableOffHand(pPlayer))
+		if (disableOffHand(pPlayer, pPlayer.getItemInHand(pUsedHand)))
 			return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
 		return super.use(pLevel, pPlayer, pUsedHand);
 	}

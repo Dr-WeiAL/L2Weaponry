@@ -11,9 +11,11 @@ import dev.xkmc.l2weaponry.init.data.RecipeGen;
 import dev.xkmc.l2weaponry.init.data.TagGen;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.l2weaponry.network.NetworkManager;
+import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -48,6 +50,7 @@ public class L2Weaponry {
 
 	private static void registerModBusEvents(IEventBus bus) {
 		bus.addListener(L2Weaponry::setup);
+		bus.addListener(L2Weaponry::modifyAttributes);
 		bus.addListener(EventPriority.LOWEST, L2Weaponry::gatherData);
 	}
 
@@ -65,6 +68,10 @@ public class L2Weaponry {
 			AttackEventHandler.LISTENERS.add(new LWAttackEventListener());
 			AttributeEntry.add(LWItems.SHIELD_DEFENSE, false, 14000);
 		});
+	}
+
+	private static void modifyAttributes(EntityAttributeModificationEvent event) {
+		event.add(EntityType.PLAYER, LWItems.SHIELD_DEFENSE.get());
 	}
 
 	public static void gatherData(GatherDataEvent event) {

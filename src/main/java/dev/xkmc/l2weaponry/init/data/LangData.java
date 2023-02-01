@@ -54,6 +54,7 @@ public class LangData {
 		}
 
 		pvd.add("itemGroup.l2weaponry.generated", "L2Weaponry Items");
+		pvd.add("attribute.name.shield_defense", "Shield Defense");
 
 	}
 

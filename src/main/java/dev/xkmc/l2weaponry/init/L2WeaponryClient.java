@@ -31,9 +31,9 @@ public class L2WeaponryClient {
 	@SubscribeEvent
 	public static void registerItemDecoration(RegisterItemDecorationsEvent event) {
 		for (LWToolMats mat : LWToolMats.values()) {
-			event.register(LWItems.GEN_ITEM[mat.ordinal()][LWToolTypes.LIGHT_SHIELD.ordinal()].get(),
+			event.register(LWItems.GEN_ITEM[mat.ordinal()][LWToolTypes.ROUND_SHIELD.ordinal()].get(),
 					ShieldItemDecorationRenderer::renderShieldBar);
-			event.register(LWItems.GEN_ITEM[mat.ordinal()][LWToolTypes.HEAVY_SHIELD.ordinal()].get(),
+			event.register(LWItems.GEN_ITEM[mat.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()].get(),
 					ShieldItemDecorationRenderer::renderShieldBar);
 		}
 	}

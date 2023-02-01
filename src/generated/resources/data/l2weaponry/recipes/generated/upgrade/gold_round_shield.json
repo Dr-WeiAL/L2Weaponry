@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:gold_block"
+  },
+  "base": {
+    "tag": "l2weaponry:round_shield"
+  },
+  "result": {
+    "item": "l2weaponry:gold_round_shield"
+  }
+}

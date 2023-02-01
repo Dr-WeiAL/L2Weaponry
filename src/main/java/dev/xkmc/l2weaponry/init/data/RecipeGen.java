@@ -79,9 +79,9 @@ public class RecipeGen {
 		smithing(pvd, base.getTool(LWToolTypes.HAMMER), mat.getIngot(), mat.getTool(LWToolTypes.HAMMER));
 		smithing(pvd, base.getTool(LWToolTypes.BATTLE_AXE), mat.getIngot(), mat.getTool(LWToolTypes.BATTLE_AXE));
 		smithing(pvd, base.getTool(LWToolTypes.SPEAR), mat.getIngot(), mat.getTool(LWToolTypes.SPEAR));
-		smithing(pvd, base.getTool(LWToolTypes.HEAVY_CLAW), mat.getIngot(), mat.getTool(LWToolTypes.HEAVY_CLAW));
-		smithing(pvd, base.getTool(LWToolTypes.LIGHT_SHIELD), mat.getIngot(), mat.getTool(LWToolTypes.LIGHT_SHIELD));
-		smithing(pvd, base.getTool(LWToolTypes.HEAVY_SHIELD), mat.getIngot(), mat.getTool(LWToolTypes.HEAVY_SHIELD));
+		smithing(pvd, base.getTool(LWToolTypes.MACHETE), mat.getIngot(), mat.getTool(LWToolTypes.MACHETE));
+		smithing(pvd, base.getTool(LWToolTypes.ROUND_SHIELD), mat.getIngot(), mat.getTool(LWToolTypes.ROUND_SHIELD));
+		smithing(pvd, base.getTool(LWToolTypes.PLATE_SHIELD), mat.getIngot(), mat.getTool(LWToolTypes.PLATE_SHIELD));
 	}
 
 	public static void tools(RegistrateRecipeProvider pvd, Item handle, Item ingot, LWToolMats mat) {
@@ -91,18 +91,18 @@ public class RecipeGen {
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.HAMMER, "III", "IHI", " H ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.BATTLE_AXE, "III", "IH ", "H  ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.SPEAR, " II", " HI", "H  ");
-		buildTool(pvd, handle, ingot, mat, LWToolTypes.HEAVY_CLAW, "III", "ILI", "H H");
-		buildTool(pvd, handle, ingot, mat, LWToolTypes.LIGHT_SHIELD, " I ", "IHI", " I ");
-		buildTool(pvd, handle, ingot, mat, LWToolTypes.HEAVY_SHIELD, "III", "IHI", " I ");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.MACHETE, "III", "ILI", "H H");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.ROUND_SHIELD, " I ", "IHI", " I ");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.PLATE_SHIELD, "III", "IHI", " I ");
 		currentFolder = "generated/upgrade/";
 		smithing(pvd, TagGen.CLAW, mat.getBlock(), mat.getTool(LWToolTypes.CLAW));
 		smithing(pvd, TagGen.DAGGER, mat.getBlock(), mat.getTool(LWToolTypes.DAGGER));
 		smithing(pvd, TagGen.HAMMER, mat.getBlock(), mat.getTool(LWToolTypes.HAMMER));
 		smithing(pvd, TagGen.BATTLE_AXE, mat.getBlock(), mat.getTool(LWToolTypes.BATTLE_AXE));
 		smithing(pvd, TagGen.SPEAR, mat.getBlock(), mat.getTool(LWToolTypes.SPEAR));
-		smithing(pvd, TagGen.HAEVY_CLAW, mat.getBlock(), mat.getTool(LWToolTypes.HEAVY_CLAW));
-		smithing(pvd, TagGen.LIGHT_SHIELD, mat.getBlock(), mat.getTool(LWToolTypes.LIGHT_SHIELD));
-		smithing(pvd, TagGen.HEAVY_SHIELD, mat.getBlock(), mat.getTool(LWToolTypes.HEAVY_SHIELD));
+		smithing(pvd, TagGen.MACHETE, mat.getBlock(), mat.getTool(LWToolTypes.MACHETE));
+		smithing(pvd, TagGen.ROUND_SHIELD, mat.getBlock(), mat.getTool(LWToolTypes.ROUND_SHIELD));
+		smithing(pvd, TagGen.PLATE_SHIELD, mat.getBlock(), mat.getTool(LWToolTypes.PLATE_SHIELD));
 	}
 
 	public static void smithing(RegistrateRecipeProvider pvd, TagKey<Item> in, Item mat, Item out) {

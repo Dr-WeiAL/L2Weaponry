@@ -16,7 +16,8 @@ public class ShieldItemDecorationRenderer {
 		if (!(stack.getItem() instanceof BaseShieldItem shield)) return false;
 		double defenseLost = shield.getDefenseLost(stack);
 		int w = Mth.ceil(12.0F * (1 - defenseLost));
-		fillRect(builder, x + 2, y + 13, w, 1, 1, 255, 255, 255, 255);
+		fillRect(builder, x + 2, y + 14, w, 1, 0, 255, 255, 255, 255);
+		fillRect(builder, x + 2 + w, y + 14, 12 - w, 1, 0, 0, 0, 0, 255);
 		return true;
 	}
 
@@ -24,6 +25,7 @@ public class ShieldItemDecorationRenderer {
 	 * Draw with the WorldRenderer
 	 */
 	private static void fillRect(BufferBuilder buffer, int x, int y, int w, int h, int z, int r, int g, int b, int a) {
+		RenderSystem.disableDepthTest();
 		RenderSystem.disableTexture();
 		RenderSystem.setShader(GameRenderer::getPositionColorShader);
 		buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);

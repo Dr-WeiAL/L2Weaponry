@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "l2complements:explosion_shard"
+    },
+    "I": {
+      "item": "l2complements:eternium_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "IHI",
+    " I "
+  ],
+  "result": {
+    "item": "l2weaponry:eternium_plate_shield"
+  }
+}

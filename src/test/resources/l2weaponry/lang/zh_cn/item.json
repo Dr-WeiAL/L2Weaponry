@@ -1,0 +1,33 @@
+{
+  "item.l2weaponry": {
+	"reinforced_handle": "强化手柄"
+  },
+  "-cartesian": {
+	"gen_item": {
+	  "path": "item.l2weaponry",
+	  "list": [
+		{
+		  "iron": "铁",
+		  "gold": "金",
+		  "diamond": "钻石",
+		  "netherite": "下界合金",
+		  "totemic_gold": "生命",
+		  "poseidite": "海神",
+		  "shulkerate": "潜影",
+		  "sculkium": "幽匿",
+		  "eternium": "永恒"
+		},
+		{
+		  "claw": "刃爪",
+		  "dagger": "匕首",
+		  "hammer": "锤子",
+		  "battle_axe": "战斧",
+		  "spear": "长枪",
+		  "machete": "弯刀",
+		  "round_shield": "圆盾",
+		  "plate_shield": "重盾"
+		}
+	  ]
+	}
+  }
+}

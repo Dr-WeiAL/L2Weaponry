@@ -27,7 +27,7 @@ public class GenericShieldItem extends BaseShieldItem implements GenericTieredIt
 	private final ExtraToolConfig config;
 
 	public GenericShieldItem(Tier tier, Properties prop, ExtraToolConfig config, int maxDefense, double recover, boolean lightWeight) {
-		super(prop, maxDefense, recover, lightWeight);
+		super(prop.defaultDurability(tier.getUses()), maxDefense, (4 + recover) * 0.2, lightWeight);
 		this.tier = tier;
 		this.config = config;
 	}
