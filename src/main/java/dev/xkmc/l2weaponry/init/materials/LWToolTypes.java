@@ -15,9 +15,9 @@ public enum LWToolTypes implements ITool {
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f),
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f),
 	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1.2f),
-	MACHETE(TagGen.MACHETE, HeavyClawItem::new, 1.4f, 0.7f),
-	ROUND_SHIELD(TagGen.ROUND_SHIELD, LightShieldItem::new, 5f, 1f / 2),
-	PLATE_SHIELD(TagGen.PLATE_SHIELD, HeavyShieldItem::new, 20f, 1f / 8);
+	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.4f, 0.7f),
+	ROUND_SHIELD(TagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 1f / 2),
+	PLATE_SHIELD(TagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 1f / 8);
 
 	public final TagKey<Item> tag;
 	private final RawToolFactory fac;

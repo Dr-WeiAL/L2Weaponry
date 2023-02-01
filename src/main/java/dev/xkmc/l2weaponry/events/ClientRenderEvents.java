@@ -2,7 +2,6 @@ package dev.xkmc.l2weaponry.events;
 
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
-import dev.xkmc.l2weaponry.content.item.types.ClawItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.InteractionHand;

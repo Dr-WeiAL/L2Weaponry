@@ -115,7 +115,7 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-		if (enchantment == Enchantments.SWEEPING_EDGE){
+		if (enchantment == Enchantments.SWEEPING_EDGE) {
 			return canSweep();
 		}
 		if (enchantment == Enchantments.SHARPNESS) {

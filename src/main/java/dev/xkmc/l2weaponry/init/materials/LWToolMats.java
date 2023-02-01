@@ -43,11 +43,11 @@ public enum LWToolMats {
 		return ingot.get();
 	}
 
-	public Item getToolIngot(){
+	public Item getToolIngot() {
 		return toolIngot.get();
 	}
 
-	public Item getStick(){
+	public Item getStick() {
 		return handle.get();
 	}
 

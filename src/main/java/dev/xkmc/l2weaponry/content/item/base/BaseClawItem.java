@@ -5,13 +5,8 @@ import dev.xkmc.l2library.init.events.attack.AttackCache;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
-import net.minecraft.world.phys.AABB;
-import net.minecraftforge.common.ForgeMod;
-import org.jetbrains.annotations.NotNull;
 
 public class BaseClawItem extends DoubleWieldItem {
 

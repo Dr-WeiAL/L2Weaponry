@@ -73,5 +73,13 @@
   "item.l2weaponry.eternium_round_shield": "永恒圆盾",
   "item.l2weaponry.eternium_plate_shield": "永恒重盾",
   "itemGroup.l2weaponry.generated": "莱特兰·武器",
+  "l2weaponry.tool.battle_axe": "双手武器。能进行横扫攻击",
+  "l2weaponry.tool.claw": "全方位横扫攻击。连续攻击增幅伤害。双持增幅横扫范围和增幅上限。",
+  "l2weaponry.tool.dagger": "对仇恨不在攻击者身上的敌人造成高倍伤害",
+  "l2weaponry.tool.hammer": "双手武器。攻击穿透护甲",
+  "l2weaponry.tool.machete": "全方位横扫攻击。连续攻击增幅伤害。双持增幅横扫范围和增幅上限。",
+  "l2weaponry.tool.plate_shield": "对破盾攻击有高抗性",
+  "l2weaponry.tool.round_shield": "持盾防御时不减速",
+  "l2weaponry.tool.spear": "长距离横扫攻击",
   "attribute.name.shield_defense": "盾值"
 }

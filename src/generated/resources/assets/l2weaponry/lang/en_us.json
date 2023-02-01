@@ -73,5 +73,13 @@
   "item.l2weaponry.totemic_gold_plate_shield": "Totemic Gold Plate Shield",
   "item.l2weaponry.totemic_gold_round_shield": "Totemic Gold Round Shield",
   "item.l2weaponry.totemic_gold_spear": "Totemic Gold Spear",
-  "itemGroup.l2weaponry.generated": "L2Weaponry Items"
+  "itemGroup.l2weaponry.generated": "L2Weaponry Items",
+  "l2weaponry.tool.battle_axe": "Double Hand weapon. Sweeping attack",
+  "l2weaponry.tool.claw": "Deal damage to all surrounding mobs. Increase damage for consecutive attack. Double weld for larger sweep range and higher damage stack limit.",
+  "l2weaponry.tool.dagger": "Deal high damage to enemies not targeting attacker",
+  "l2weaponry.tool.hammer": "Double hand weapon. Break through armors",
+  "l2weaponry.tool.machete": "Deal damage to all surrounding mobs. Increase damage for consecutive attack. Double weld for larger sweep range and higher damage stack limit.",
+  "l2weaponry.tool.plate_shield": "Resistant against attacks that would break regular shields.",
+  "l2weaponry.tool.round_shield": "Move fast while blocking.",
+  "l2weaponry.tool.spear": "Sweeping attack, long attack range."
 }

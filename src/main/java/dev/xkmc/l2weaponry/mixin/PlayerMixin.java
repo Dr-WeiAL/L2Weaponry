@@ -17,7 +17,7 @@ public class PlayerMixin {
 		Player player = (Player) (Object) this;
 		ItemStack stack = player.getUseItem();
 		if (stack.getItem() instanceof BaseShieldItem) {
-			pEntity.knockback(0.5D, pEntity.getX() - player.getX(), pEntity.getZ() - player.getZ());
+			pEntity.knockback(0.5D, player.getX() - pEntity.getX(), player.getZ() - pEntity.getZ());
 			if (pEntity.canDisableShield()) {
 				player.disableShield(true);
 			}

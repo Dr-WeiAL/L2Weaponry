@@ -1,6 +1,6 @@
-// 1.19.2	2023-01-31T18:27:36.625713	Registrate Provider for l2weaponry [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-5edc1a632450bb23773be5d37b35b461314626ca assets/l2weaponry/lang/en_ud.json
-59a47ac36417783f39e42408beabdb112961b47a assets/l2weaponry/lang/en_us.json
+// 1.19.2	2023-01-31T23:17:09.725052	Registrate Provider for l2weaponry [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+5dc946f20ba0bed697e3c3f83902cdf13532d67b assets/l2weaponry/lang/en_ud.json
+0946956b76f9df49a876d599bd8f752f6f1f2dfe assets/l2weaponry/lang/en_us.json
 6adf1c10ed6a32a68c4906ef39a8cca30fd1f230 assets/l2weaponry/models/item/diamond_battle_axe.json
 f9599d9031ee1aabdf7d63cdcee6ee56f25eec18 assets/l2weaponry/models/item/diamond_claw.json
 806475bad1d3ce6b454c9d32c87e9db5d54112a6 assets/l2weaponry/models/item/diamond_dagger.json

@@ -2,52 +2,46 @@ package dev.xkmc.l2weaponry.init.data;
 
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
-import javax.annotation.Nullable;
 import java.util.Locale;
 
-public class LangData {
+public enum LangData {
 
-	public enum IDS {
-		;
+	TOOL_DAGGER("tool.dagger", "Deal high damage to enemies not targeting attacker", 0),
+	TOOL_CLAW("tool.claw", "Deal damage to all surrounding mobs. Increase damage for consecutive attack. Double weld for larger sweep range and higher damage stack limit.", 0),
+	TOOL_HAMMER("tool.hammer", "Double hand weapon. Break through armors", 0),
+	TOOL_BATTLE_AXE("tool.battle_axe", "Double Hand weapon. Sweeping attack", 0),
+	TOOL_SPEAR("tool.spear", "Sweeping attack, long attack range.", 0),
+	TOOL_MACHETE("tool.machete", "Deal damage to all surrounding mobs. Increase damage for consecutive attack. Double weld for larger sweep range and higher damage stack limit.", 0),
+	TOOL_ROUND_SHIELD("tool.round_shield", "Move fast while blocking.", 0),
+	TOOL_PLATE_SHIELD("tool.plate_shield", "Resistant against attacks that would break regular shields.", 0),
+	;
 
-		final String id, def;
-		final int count;
+	private final String id, def;
+	private final int count;
 
-		IDS(String id, String def, int count) {
-			this.id = id;
-			this.def = def;
-			this.count = count;
-		}
-
-		public MutableComponent get(Object... objs) {
-			if (objs.length != count)
-				throw new IllegalArgumentException("for " + name() + ": expect " + count + " parameters, got " + objs.length);
-			return translate(L2Weaponry.MODID + "." + id, objs);
-		}
-
+	LangData(String id, String def, int count) {
+		this.id = id;
+		this.def = def;
+		this.count = count;
 	}
 
-	public interface LangEnum<T extends Enum<T> & LangEnum<T>> {
-
-		int getCount();
-
-		@Nullable
-		default Class<? extends Enum<?>> mux() {
-			return null;
+	public MutableComponent get(Object... objs) {
+		if (objs.length != count)
+			throw new IllegalArgumentException("for " + name() + ": expect " + count + " parameters, got " + objs.length);
+		var ans = translate(L2Weaponry.MODID + "." + id, objs);
+		if (id.startsWith("tool.")) {
+			ans = ans.withStyle(ChatFormatting.DARK_GREEN);
 		}
-
-		@SuppressWarnings({"unchecked"})
-		default T getThis() {
-			return (T) this;
-		}
-
+		return ans;
 	}
+
 
 	public static void addTranslations(RegistrateLangProvider pvd) {
-		for (IDS id : IDS.values()) {
+		for (LangData id : LangData.values()) {
 			String[] strs = id.id.split("\\.");
 			String str = strs[strs.length - 1];
 			pvd.add(L2Weaponry.MODID + "." + id.id, id.def);

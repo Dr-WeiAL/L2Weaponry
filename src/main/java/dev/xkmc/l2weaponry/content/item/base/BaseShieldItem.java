@@ -3,10 +3,11 @@ package dev.xkmc.l2weaponry.content.item.base;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import dev.xkmc.l2library.util.math.MathHelper;
+import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -21,7 +22,6 @@ import java.util.function.Consumer;
 public class BaseShieldItem extends ShieldItem {
 
 	private static final String KEY_LAST_DAMAGE = "last_damage";
-	private static final String KEY_DEFENSE_LOST = "defense_lost";
 
 	private static final String NAME_ATTR = "shield_defense";
 
@@ -68,48 +68,43 @@ public class BaseShieldItem extends ShieldItem {
 	@Override
 	public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
 		stack.getOrCreateTag().putInt(KEY_LAST_DAMAGE, amount);
-		if (lightWeight(stack)) {
-			damageShield(entity, stack, 1);
+		if (entity instanceof Player player && lightWeight(stack)) {
+			int cd = damageShield(player, stack, -1);
+			if (cd > 0 && player instanceof ServerPlayer) {
+				player.getCooldowns().addCooldown(this, cd);
+				player.level.broadcastEntityEvent(player, (byte) 30);
+			}
 		}
 		return super.damageItem(stack, amount, entity, onBroken);
 	}
 
-	public int damageShield(LivingEntity player, ItemStack stack, double v) {
+	@Override
+	public void onUseTick(Level pLevel, LivingEntity entity, ItemStack pStack, int pRemainingUseDuration) {
+		if (entity instanceof ServerPlayer player) {
+			if (player.getCooldowns().isOnCooldown(this)) {
+				player.stopUsingItem();
+			}
+		}
+	}
+
+	public int damageShield(Player player, ItemStack stack, double v) {
 		var c = stack.getOrCreateTag();
 		int damage = c.getInt(KEY_LAST_DAMAGE);
 		c.putInt(KEY_LAST_DAMAGE, 0);
-		double defense = c.getDouble(KEY_DEFENSE_LOST);
-		defense += lightWeight(stack) ? v : damage * v / getMaxDefense(player);
+		var cap = LWPlayerData.HOLDER.get(player);
+		double defense = cap.getShieldDefense();
+		defense += v < 0 ? damage / getMaxDefense(player) : lightWeight(stack) ? v : damage * v / getMaxDefense(player);
 		if (defense >= 1) {
-			c.putDouble(KEY_DEFENSE_LOST, 1);
-			return Math.min(100, (int) Math.round(20 / getDefenseRecover(stack)));
+			cap.setShieldDefense(1);
+			return 100;
 		}
-		c.putDouble(KEY_DEFENSE_LOST, defense);
+		cap.setShieldDefense(defense);
 		return 0;
-	}
-
-	@Override
-	public void inventoryTick(ItemStack stack, Level pLevel, Entity user, int pSlotId, boolean pIsSelected) {
-		if (user instanceof LivingEntity le) {
-			if (le.getMainHandItem() == stack || le.getOffhandItem() == stack) {
-				if (user.tickCount % 20 == 0) {
-					var c = stack.getOrCreateTag();
-					double defense = c.getDouble(KEY_DEFENSE_LOST);
-					defense -= getDefenseRecover(stack);
-					if (defense < 0) defense = 0;
-					c.putDouble(KEY_DEFENSE_LOST, defense);
-				}
-			}
-		}
 	}
 
 	@Override
 	public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
 		return slot == EquipmentSlot.MAINHAND || lightWeight(stack) && slot == EquipmentSlot.OFFHAND ? defaultModifiers : ImmutableMultimap.of();
-	}
-
-	public double getDefenseLost(ItemStack stack) {
-		return stack.getOrCreateTag().getDouble(KEY_DEFENSE_LOST);
 	}
 
 }
