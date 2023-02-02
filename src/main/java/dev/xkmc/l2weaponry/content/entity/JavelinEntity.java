@@ -14,7 +14,7 @@ public class JavelinEntity extends BaseThrownWeaponEntity<JavelinEntity> {
 
 	public JavelinEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
 		super(LWEntities.TE_JAVELIN.get(), pLevel, pShooter, pStack);
-		setPierceLevel((byte) 5);
+		setPierceLevel((byte) 32);
 	}
 
 }

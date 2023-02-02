@@ -14,6 +14,8 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
@@ -65,4 +67,8 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem {
 
 	protected abstract BaseThrownWeaponEntity<?> getProjectile(Level level, Player player, ItemStack stack);
 
+	@Override
+	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		return enchantment == Enchantments.LOYALTY || super.canApplyAtEnchantingTable(stack, enchantment);
+	}
 }

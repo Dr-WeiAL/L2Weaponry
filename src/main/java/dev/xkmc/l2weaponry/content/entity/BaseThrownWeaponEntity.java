@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.content.entity;
 
+import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -62,6 +63,13 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 
 	public ItemStack getItem() {
 		return item;
+	}
+
+	@Override
+	public void setPierceLevel(byte lv) {
+		super.setPierceLevel(lv);
+		this.remainingHit = lv + 1;
+
 	}
 
 	// ------ default trident code
@@ -138,8 +146,12 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 			this.remainingHit--;
 			if (this.getPierceLevel() > 0) {
 				if (this.piercingIgnoreEntityIds == null) {
-					this.piercingIgnoreEntityIds = new IntOpenHashSet(10);
+					this.piercingIgnoreEntityIds = new IntOpenHashSet(getPierceLevel() + 1);
 				}
+				if (this.piercedAndKilledEntities == null) {
+					this.piercedAndKilledEntities = Lists.newArrayListWithCapacity(5);
+				}
+
 				this.piercingIgnoreEntityIds.add(entity.getId());
 			}
 		}
@@ -155,9 +167,15 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 				}
 
 				this.doPostHurtEffects(le);
+
+
+				if (!entity.isAlive() && this.piercedAndKilledEntities != null) {
+					this.piercedAndKilledEntities.add(entity);
+				}
 			}
 		}
-		this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
+		if (this.remainingHit == 0)
+			this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
 		float f1 = 1.0F;
 		this.playSound(soundevent, f1, 1.0F);
 	}
