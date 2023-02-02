@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "minecraft:iron_ingot"
+    },
+    "I": {
+      "item": "l2complements:shulkerate_ingot"
+    }
+  },
+  "pattern": [
+    "II",
+    "IH"
+  ],
+  "result": {
+    "item": "l2weaponry:shulkerate_throwing_axe"
+  }
+}

@@ -17,7 +17,7 @@ import java.util.List;
 public class BattleAxeItem extends SlowWieldItem {
 
 	public BattleAxeItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_PICKAXE);
+		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_AXE);
 	}
 
 	@Override

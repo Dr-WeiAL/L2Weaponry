@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "I": {
+      "item": "l2complements:poseidite_ingot"
+    }
+  },
+  "pattern": [
+    "II",
+    "IH"
+  ],
+  "result": {
+    "item": "l2weaponry:poseidite_throwing_axe"
+  }
+}

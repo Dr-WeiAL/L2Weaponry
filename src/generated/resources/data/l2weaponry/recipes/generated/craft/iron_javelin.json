@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "  I",
+    " H ",
+    "I  "
+  ],
+  "result": {
+    "item": "l2weaponry:iron_javelin"
+  }
+}

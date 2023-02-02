@@ -1,0 +1,56 @@
+package dev.xkmc.l2weaponry.content.item.base;
+
+import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
+import dev.xkmc.l2weaponry.content.entity.BaseThrownWeapon;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+
+public abstract class BaseThrowableWeaponItem extends GenericWeaponItem {
+
+	public BaseThrowableWeaponItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
+		super(tier, damage, speed, prop, config, blocks);
+	}
+
+	public UseAnim getUseAnimation(ItemStack pStack) {
+		return UseAnim.SPEAR;
+	}
+
+	public int getUseDuration(ItemStack pStack) {
+		return 72000;
+	}
+
+	public void releaseUsing(ItemStack stack, Level level, LivingEntity user, int timeLeft) {
+		if (user instanceof Player player) {
+			int time = this.getUseDuration(stack) - timeLeft;
+			if (time >= 10) {
+				if (!level.isClientSide) {
+					stack.hurtAndBreak(1, player, pl -> pl.broadcastBreakEvent(user.getUsedItemHand()));
+					AbstractArrow proj = getProjectile(level, player, stack);
+					proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+					if (player.getAbilities().instabuild) {
+						proj.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+					}
+					level.addFreshEntity(proj);
+					level.playSound(null, proj, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+					if (!player.getAbilities().instabuild) {
+						player.getInventory().removeItem(stack);
+					}
+					player.awardStat(Stats.ITEM_USED.get(this));
+				}
+			}
+		}
+	}
+
+	protected abstract BaseThrownWeapon getProjectile(Level level, Player player, ItemStack stack);
+
+}

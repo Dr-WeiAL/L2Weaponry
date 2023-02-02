@@ -16,8 +16,12 @@ public enum LWToolTypes implements ITool {
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f),
 	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1.2f),
 	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.4f, 0.7f),
+
 	ROUND_SHIELD(TagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 1f / 2),
-	PLATE_SHIELD(TagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 1f / 8);
+	PLATE_SHIELD(TagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 1f / 8),
+
+	THROWING_AXE(TagGen.THROWIG_AXE, ThrowingAxeItem::new, 1.4f, 1f),
+	JAVELIN(TagGen.JAVELIN, JavelinItem::new, 1f, 1.2f);
 
 	public final TagKey<Item> tag;
 	private final RawToolFactory fac;
@@ -44,4 +48,5 @@ public enum LWToolTypes implements ITool {
 	public Item create(Tier tier, int i, float v, Item.Properties properties, ExtraToolConfig extraToolConfig) {
 		return fac.get(tier, i, v, properties, extraToolConfig);
 	}
+
 }

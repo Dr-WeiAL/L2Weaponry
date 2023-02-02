@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "l2complements:eternium_block"
+  },
+  "base": {
+    "tag": "l2weaponry:throwing_axe"
+  },
+  "result": {
+    "item": "l2weaponry:eternium_throwing_axe"
+  }
+}

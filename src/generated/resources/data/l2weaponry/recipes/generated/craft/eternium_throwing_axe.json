@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "l2complements:explosion_shard"
+    },
+    "I": {
+      "item": "l2complements:eternium_ingot"
+    }
+  },
+  "pattern": [
+    "II",
+    "IH"
+  ],
+  "result": {
+    "item": "l2weaponry:eternium_throwing_axe"
+  }
+}

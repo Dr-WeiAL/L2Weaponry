@@ -1,7 +1,7 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-package dev.xkmc.l2weaponry.content;
+package dev.xkmc.l2weaponry.content.entity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 

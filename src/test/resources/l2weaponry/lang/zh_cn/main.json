@@ -11,7 +11,9 @@
       "machete": "全方位横扫攻击。连续攻击增幅伤害。双持增幅横扫范围和增幅上限。",
       "plate_shield": "对破盾攻击有高抗性",
       "round_shield": "持盾防御时不减速",
-      "spear": "长距离横扫攻击"
+      "spear": "长距离横扫攻击",
+      "throwing_axe": "可以丢出去",
+      "javelin": "投掷时穿透多个敌人"
     }
   },
   "attribute.name.shield_defense": "盾值"

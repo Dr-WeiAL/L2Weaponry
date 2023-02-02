@@ -94,7 +94,6 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 		config.addTooltip(pStack, pTooltipComponents);
 	}
 
-
 	@Override
 	public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
 		if (toolAction == ToolActions.SWORD_SWEEP) return canSweep();

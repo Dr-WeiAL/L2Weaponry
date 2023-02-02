@@ -20,6 +20,9 @@ public class TagGen {
 	public static final TagKey<Item> ROUND_SHIELD = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "round_shield"));
 	public static final TagKey<Item> PLATE_SHIELD = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "plate_shield"));
 
+	public static final TagKey<Item> THROWIG_AXE = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "throwing_axe"));
+	public static final TagKey<Item> JAVELIN = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "javelin"));
+
 	public static void onBlockTagGen(RegistrateTagsProvider<Block> pvd) {
 	}
 

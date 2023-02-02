@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:iron_block"
+  },
+  "base": {
+    "tag": "l2weaponry:javelin"
+  },
+  "result": {
+    "item": "l2weaponry:iron_javelin"
+  }
+}
