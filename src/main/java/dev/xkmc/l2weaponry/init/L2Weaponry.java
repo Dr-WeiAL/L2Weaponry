@@ -10,6 +10,7 @@ import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.data.RecipeGen;
 import dev.xkmc.l2weaponry.init.data.TagGen;
+import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.l2weaponry.network.NetworkManager;
 import net.minecraft.world.entity.EntityType;
@@ -37,6 +38,7 @@ public class L2Weaponry {
 
 	private static void registerRegistrates(IEventBus bus) {
 		LWItems.register();
+		LWEntities.register();
 		NetworkManager.register();
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::addTranslations);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipe);

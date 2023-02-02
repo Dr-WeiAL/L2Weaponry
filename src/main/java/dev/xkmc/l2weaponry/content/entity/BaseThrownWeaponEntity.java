@@ -2,6 +2,8 @@ package dev.xkmc.l2weaponry.content.entity;
 
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -17,28 +19,30 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.entity.IEntityAdditionalSpawnData;
+import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public class BaseThrownWeapon<T extends BaseThrownWeapon<T>> extends AbstractArrow {
-	private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(BaseThrownWeapon.class, EntityDataSerializers.BYTE);
-	private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(BaseThrownWeapon.class, EntityDataSerializers.BOOLEAN);
+public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends AbstractArrow implements IEntityAdditionalSpawnData {
+	private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(BaseThrownWeaponEntity.class, EntityDataSerializers.BYTE);
+	private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(BaseThrownWeaponEntity.class, EntityDataSerializers.BOOLEAN);
 	private ItemStack item;
 	private int remainingHit = 1;
 	public int clientSideReturnTridentTickCount;
 
-	public BaseThrownWeapon(EntityType<T> type, Level pLevel, Item def) {
+	public BaseThrownWeaponEntity(EntityType<T> type, Level pLevel) {
 		super(type, pLevel);
-		item = new ItemStack(def);
+		item = new ItemStack(Items.TRIDENT);
 	}
 
-	public BaseThrownWeapon(EntityType<T> type, Level pLevel, LivingEntity pShooter, ItemStack pStack) {
+	public BaseThrownWeaponEntity(EntityType<T> type, Level pLevel, LivingEntity pShooter, ItemStack pStack) {
 		super(type, pShooter, pLevel);
 		this.item = pStack.copy();
 		this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(pStack));
@@ -56,7 +60,7 @@ public class BaseThrownWeapon<T extends BaseThrownWeapon<T>> extends AbstractArr
 		return (float) ins.getValue();
 	}
 
-	public ItemStack getItem(){
+	public ItemStack getItem() {
 		return item;
 	}
 
@@ -134,7 +138,7 @@ public class BaseThrownWeapon<T extends BaseThrownWeapon<T>> extends AbstractArr
 			this.remainingHit--;
 			if (this.getPierceLevel() > 0) {
 				if (this.piercingIgnoreEntityIds == null) {
-					this.piercingIgnoreEntityIds = new IntOpenHashSet(5);
+					this.piercingIgnoreEntityIds = new IntOpenHashSet(10);
 				}
 				this.piercingIgnoreEntityIds.add(entity.getId());
 			}
@@ -196,6 +200,21 @@ public class BaseThrownWeapon<T extends BaseThrownWeapon<T>> extends AbstractArr
 
 	public boolean shouldRender(double pX, double pY, double pZ) {
 		return true;
+	}
+
+	@Override
+	public final Packet<?> getAddEntityPacket() {
+		return NetworkHooks.getEntitySpawningPacket(this);
+	}
+
+	@Override
+	public void writeSpawnData(FriendlyByteBuf buffer) {
+		buffer.writeItem(item);
+	}
+
+	@Override
+	public void readSpawnData(FriendlyByteBuf buffer) {
+		item = buffer.readItem();
 	}
 
 }

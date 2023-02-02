@@ -1,11 +1,13 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
-import dev.xkmc.l2weaponry.content.entity.BaseThrownWeapon;
+import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -51,6 +53,16 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem {
 		}
 	}
 
-	protected abstract BaseThrownWeapon getProjectile(Level level, Player player, ItemStack stack);
+	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
+		ItemStack itemstack = pPlayer.getItemInHand(pHand);
+		if (itemstack.getDamageValue() >= itemstack.getMaxDamage() - 1) {
+			return InteractionResultHolder.fail(itemstack);
+		} else {
+			pPlayer.startUsingItem(pHand);
+			return InteractionResultHolder.consume(itemstack);
+		}
+	}
+
+	protected abstract BaseThrownWeaponEntity<?> getProjectile(Level level, Player player, ItemStack stack);
 
 }

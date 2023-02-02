@@ -3,7 +3,7 @@ package dev.xkmc.l2weaponry.content.item.types;
 import com.google.common.collect.ImmutableMultimap;
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.math.MathHelper;
-import dev.xkmc.l2weaponry.content.entity.BaseThrownWeapon;
+import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
@@ -41,8 +41,8 @@ public class JavelinItem extends BaseThrowableWeaponItem {
 	}
 
 	@Override
-	protected BaseThrownWeapon getProjectile(Level level, Player player, ItemStack stack) {
-		return null;//TODO
+	protected JavelinEntity getProjectile(Level level, Player player, ItemStack stack) {
+		return new JavelinEntity(level, player, stack);
 	}
 
 }
