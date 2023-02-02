@@ -26,12 +26,10 @@ public class ThrownWeaponRenderer<T extends BaseThrownWeaponEntity<T>> extends E
 	public void render(T entity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
 		pMatrixStack.pushPose();
 		pMatrixStack.translate(0, 0.25, 0);
-		float time = entity.tickCount + pPartialTicks;
 		pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(Mth.lerp(pPartialTicks, entity.yRotO, entity.getYRot()) - 90.0F));
 		pMatrixStack.mulPose(Vector3f.ZP.rotationDegrees(Mth.lerp(pPartialTicks, entity.xRotO, entity.getXRot()) - 90.0F));
 		pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(180));
 		pMatrixStack.mulPose(Vector3f.ZP.rotationDegrees(45));
-		//pMatrixStack.translate(0,0,0);
 
 		var ir = Minecraft.getInstance().getItemRenderer();
 		var model = ir.getModel(entity.getItem(), entity.level, null, entity.getId());
