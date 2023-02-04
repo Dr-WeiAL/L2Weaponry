@@ -9,6 +9,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
@@ -40,6 +41,7 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem {
 				if (!level.isClientSide) {
 					stack.hurtAndBreak(1, player, pl -> pl.broadcastBreakEvent(user.getUsedItemHand()));
 					AbstractArrow proj = getProjectile(level, player, stack);
+					proj.setBaseDamage(player.getAttributeValue(Attributes.ATTACK_DAMAGE));
 					proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
 					if (player.getAbilities().instabuild) {
 						proj.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;

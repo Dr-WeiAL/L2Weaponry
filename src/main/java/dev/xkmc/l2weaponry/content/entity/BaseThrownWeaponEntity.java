@@ -14,10 +14,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
@@ -51,15 +48,6 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	}
 
 	// ------ base weapon code
-
-	protected float getDamage() {
-		var list = item.getAttributeModifiers(EquipmentSlot.MAINHAND).get(Attributes.ATTACK_DAMAGE);
-		AttributeInstance ins = new AttributeInstance(Attributes.ATTACK_DAMAGE, e -> {
-		});
-		ins.setBaseValue(1);
-		list.forEach(ins::addTransientModifier);
-		return (float) ins.getValue();
-	}
 
 	public ItemStack getItem() {
 		return item;
@@ -136,7 +124,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 
 	protected void onHitEntity(EntityHitResult pResult) {
 		Entity entity = pResult.getEntity();
-		float damage = getDamage();
+		float damage = (float) getBaseDamage();
 		if (entity instanceof LivingEntity livingentity) {
 			damage += EnchantmentHelper.getDamageBonus(this.item, livingentity.getMobType());
 		}
