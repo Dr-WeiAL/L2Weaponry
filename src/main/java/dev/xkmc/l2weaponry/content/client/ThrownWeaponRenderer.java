@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
+import dev.xkmc.l2weaponry.init.data.TagGen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
@@ -26,9 +27,13 @@ public class ThrownWeaponRenderer<T extends BaseThrownWeaponEntity<T>> extends E
 	public void render(T entity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
 		pMatrixStack.pushPose();
 		pMatrixStack.translate(0, 0.25, 0);
+		pMatrixStack.scale(1.47f, 1.47f, 1.47f);
 		pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(Mth.lerp(pPartialTicks, entity.yRotO, entity.getYRot()) - 90.0F));
 		pMatrixStack.mulPose(Vector3f.ZP.rotationDegrees(Mth.lerp(pPartialTicks, entity.xRotO, entity.getXRot()) - 90.0F));
 		pMatrixStack.mulPose(Vector3f.YP.rotationDegrees(180));
+		if (entity.getItem().is(TagGen.JAVELIN)) {
+			pMatrixStack.translate(0, -0.4, 0);
+		}
 		pMatrixStack.mulPose(Vector3f.ZP.rotationDegrees(45));
 
 		var ir = Minecraft.getInstance().getItemRenderer();
