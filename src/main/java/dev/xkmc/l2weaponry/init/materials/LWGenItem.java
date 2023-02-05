@@ -21,16 +21,22 @@ public class LWGenItem {
 				String tool_name = type.name().toLowerCase(Locale.ROOT);
 				ans[i][j] = L2Weaponry.REGISTRATE.item(mat_name + "_" + tool_name,
 								p -> mat.type.getToolConfig().sup().get(mat.type, type, p))
-						.model((ctx, pvd) -> handHeld(ctx, pvd, mat_name, tool_name))
-						.tag(type.tag).defaultLang().register();
+						.model((ctx, pvd) -> {
+							if (type.longItem()) longItem(ctx, pvd, mat_name, tool_name);
+							else handHeld(ctx, pvd, mat_name, tool_name);
+						}).tag(type.tag).defaultLang().register();
 			}
 		}
 		return ans;
 	}
 
-
 	public static <T extends Item> void handHeld(DataGenContext<Item, T> ctx, RegistrateItemModelProvider pvd, String id, String suf) {
 		pvd.handheld(ctx, pvd.modLoc("item/generated/" + id + "/" + suf));
+	}
+
+	public static <T extends Item> void longItem(DataGenContext<Item, T> ctx, RegistrateItemModelProvider pvd, String id, String suf) {
+		pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/long_weapon"))
+				.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf));
 	}
 
 }
