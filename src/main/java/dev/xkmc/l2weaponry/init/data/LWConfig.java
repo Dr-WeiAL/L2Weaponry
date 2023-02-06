@@ -24,7 +24,7 @@ public class LWConfig {
 			dagger_bonus = builder.comment("Dagger damage multiplier when hitting targets not targeting user")
 					.defineInRange("dagger_bonus", 2d, 1, 1000);
 			claw_bonus = builder.comment("Claw damage bonus for each consecutive hit")
-					.defineInRange("dagger_bonus", 0.1d, 0, 10);
+					.defineInRange("claw_bonus", 0.1d, 0, 10);
 			claw_max = builder.comment("Claw damage bonus maximum hit for one claw (two claw has double maximum)")
 					.defineInRange("claw_max", 5, 1, 1000);
 			claw_timeout = builder.comment("Claw damage bonus timeout")

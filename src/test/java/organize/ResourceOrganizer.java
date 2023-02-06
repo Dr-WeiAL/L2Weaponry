@@ -3,6 +3,7 @@ package organize;
 import com.google.common.io.Files;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import organize.sub.BetterCombat;
 import organize.sub.ItemFileOrganizer;
 import organize.sub.LangFileOrganizer;
 
@@ -32,6 +33,7 @@ public abstract class ResourceOrganizer {
 
 	public static void main(String[] args) throws Exception {
 		new LangFileOrganizer();
+		new BetterCombat();
 		//new ItemFileOrganizer();
 		//new BlockFileOrganizer();
 		//new ArmorFileOrganizer();
@@ -43,8 +45,7 @@ public abstract class ResourceOrganizer {
 		File f = new File("./src/test/resources");
 		for (File fi : f.listFiles()) {
 			MODID = fi.getName();
-			// delete(new File("./src/main/resources/assets/l2complements/"));
-			// delete(new File("./src/main/resources/data/l2complements/recipes"));
+			delete(new File("./src/main/resources/data/l2weaponry/"));
 			if (!fi.isDirectory())
 				continue;
 			for (ResourceOrganizer obj : MAP.values()) {

@@ -22,7 +22,8 @@ import java.util.List;
 
 public class JavelinItem extends BaseThrowableWeaponItem {
 
-	public static final AttributeModifier RANGE = new AttributeModifier(MathHelper.getUUIDFromString("javelin_reach"), "javelin_reach", 2, AttributeModifier.Operation.ADDITION);
+	public static final AttributeModifier RANGE = new AttributeModifier(MathHelper.getUUIDFromString("javelin_range"), "javelin_range", 2, AttributeModifier.Operation.ADDITION);
+	public static final AttributeModifier REACH = new AttributeModifier(MathHelper.getUUIDFromString("javelin_reach"), "javelin_reach", 2, AttributeModifier.Operation.ADDITION);
 
 	public JavelinItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
 		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_HOE);
@@ -32,6 +33,7 @@ public class JavelinItem extends BaseThrowableWeaponItem {
 	protected void addModifiers(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
 		super.addModifiers(builder);
 		builder.put(ForgeMod.ATTACK_RANGE.get(), RANGE);
+		builder.put(ForgeMod.REACH_DISTANCE.get(), REACH);
 	}
 
 	@Override

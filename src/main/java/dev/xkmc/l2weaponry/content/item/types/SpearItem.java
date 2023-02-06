@@ -24,7 +24,8 @@ import java.util.List;
 
 public class SpearItem extends GenericWeaponItem {
 
-	public static final AttributeModifier RANGE = new AttributeModifier(MathHelper.getUUIDFromString("spear_reach"), "spear_reach", 2, AttributeModifier.Operation.ADDITION);
+	public static final AttributeModifier RANGE = new AttributeModifier(MathHelper.getUUIDFromString("spear_range"), "spear_range", 2, AttributeModifier.Operation.ADDITION);
+	public static final AttributeModifier REACH = new AttributeModifier(MathHelper.getUUIDFromString("spear_reach"), "spear_reach", 2, AttributeModifier.Operation.ADDITION);
 
 	public SpearItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
 		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_SHOVEL);
@@ -34,6 +35,7 @@ public class SpearItem extends GenericWeaponItem {
 	protected void addModifiers(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
 		super.addModifiers(builder);
 		builder.put(ForgeMod.ATTACK_RANGE.get(), RANGE);
+		builder.put(ForgeMod.REACH_DISTANCE.get(), REACH);
 	}
 
 	@Override
