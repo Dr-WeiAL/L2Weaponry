@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.content.entity;
 
 import com.google.common.collect.Lists;
+import dev.xkmc.l2weaponry.content.item.base.IThrowableCallback;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -21,6 +22,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
@@ -29,11 +31,17 @@ import net.minecraftforge.network.NetworkHooks;
 import javax.annotation.Nullable;
 
 public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends AbstractArrow implements IEntityAdditionalSpawnData {
+
+	private static final int LOWEST_HEIGHT = -32, MAX_DIST = 400, MAX_HOR_DIST = 100;
+
 	private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(BaseThrownWeaponEntity.class, EntityDataSerializers.BYTE);
 	private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(BaseThrownWeaponEntity.class, EntityDataSerializers.BOOLEAN);
 	private ItemStack item;
-	private int remainingHit = 1;
+	public int remainingHit = 1;
 	public int clientSideReturnTridentTickCount;
+
+	@Nullable
+	private Vec3 origin;
 
 	public BaseThrownWeaponEntity(EntityType<T> type, Level pLevel) {
 		super(type, pLevel);
@@ -60,6 +68,25 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 
 	}
 
+	private void tickEarlyReturn() {
+		Entity entity = this.getOwner();
+		int loyal = this.entityData.get(ID_LOYALTY);
+		if (entity != null && loyal > 0 && remainingHit > 0) {
+			if (origin == null) {
+				origin = position();
+			} else {
+				if (position().y < level.getMinBuildHeight() + LOWEST_HEIGHT) {
+					remainingHit = 0;
+				} else {
+					Vec3 diff = position().subtract(origin);
+					if (diff.horizontalDistance() > MAX_HOR_DIST || diff.length() > MAX_DIST) {
+						remainingHit = 0;
+					}
+				}
+			}
+		}
+	}
+
 	// ------ default trident code
 
 	protected void defineSynchedData() {
@@ -72,7 +99,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 		if (this.inGroundTime > 4) {
 			this.remainingHit = 0;
 		}
-
+		tickEarlyReturn();
 		Entity entity = this.getOwner();
 		int loyal = this.entityData.get(ID_LOYALTY);
 		if (loyal > 0 && (this.remainingHit == 0 || this.isNoPhysics()) && entity != null) {
@@ -153,12 +180,12 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 					EnchantmentHelper.doPostHurtEffects(le, owner);
 					EnchantmentHelper.doPostDamageEffects((LivingEntity) owner, le);
 				}
-
 				this.doPostHurtEffects(le);
-
-
 				if (!entity.isAlive() && this.piercedAndKilledEntities != null) {
 					this.piercedAndKilledEntities.add(entity);
+				}
+				if (item.getItem() instanceof IThrowableCallback cb) {
+					cb.onHitEntity(this, item, le);
 				}
 			}
 		}
@@ -166,6 +193,14 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 			this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
 		float f1 = 1.0F;
 		this.playSound(soundevent, f1, 1.0F);
+	}
+
+	@Override
+	protected void onHitBlock(BlockHitResult pResult) {
+		super.onHitBlock(pResult);
+		if (item.getItem() instanceof IThrowableCallback cb) {
+			cb.onHitBlock(this, item);
+		}
 	}
 
 	protected boolean tryPickup(Player pPlayer) {

@@ -20,7 +20,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
-public abstract class BaseThrowableWeaponItem extends GenericWeaponItem {
+public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implements IThrowableCallback {
 
 	public BaseThrowableWeaponItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
 		super(tier, damage, speed, prop, config, blocks);

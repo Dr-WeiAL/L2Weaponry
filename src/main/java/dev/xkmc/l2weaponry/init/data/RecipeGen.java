@@ -1,5 +1,7 @@
 package dev.xkmc.l2weaponry.init.data;
 
+import dev.xkmc.l2complements.init.registrate.LCItems;
+import dev.xkmc.l2library.base.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2library.repack.registrate.util.DataIngredient;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -17,6 +19,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.BiFunction;
@@ -43,6 +46,26 @@ public class RecipeGen {
 					tools(pvd, mat.getStick(), mat.getToolIngot(), mat);
 				}
 			}
+		}
+		currentFolder = "legendary/";
+		{
+			unlock(pvd, new ShapedRecipeBuilder(LWItems.STORM_JAVELIN.get(), 1)::unlockedBy, LCItems.GUARDIAN_EYE.get())
+					.pattern("cds").pattern("wgd").pattern("jwc")
+					.define('d', LWToolMats.POSEIDITE.getTool(LWToolTypes.DAGGER))
+					.define('j', LWToolMats.POSEIDITE.getTool(LWToolTypes.JAVELIN))
+					.define('s', LWToolMats.POSEIDITE.getTool(LWToolTypes.SPEAR))
+					.define('g', LCItems.GUARDIAN_EYE.get())
+					.define('c', new EnchantmentIngredient(Enchantments.CHANNELING, 3))
+					.define('w', LCItems.STORM_CORE.get())
+					.save(pvd, getID(LWItems.STORM_JAVELIN.get()));
+
+			smithing(pvd, LWToolMats.NETHERITE.getTool(LWToolTypes.BATTLE_AXE), LCItems.SOUL_FLAME.get(), LWItems.FLAME_AXE.get());
+			smithing(pvd, LWToolMats.NETHERITE.getTool(LWToolTypes.HAMMER), LCItems.BLACKSTONE_CORE.get(), LWItems.BLACK_HAMMER.get());
+			smithing(pvd, LWToolMats.DIAMOND.getTool(LWToolTypes.SPEAR), LCItems.HARD_ICE.get(), LWItems.FROZEN_SPEAR.get());
+
+			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.SPEAR), LCItems.VOID_EYE.get(), LWItems.ENDER_SPEAR.get());
+			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.JAVELIN), LCItems.VOID_EYE.get(), LWItems.ENDER_JAVELIN.get());
+			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.DAGGER), LCItems.VOID_EYE.get(), LWItems.ENDER_DAGGER.get());
 		}
 	}
 

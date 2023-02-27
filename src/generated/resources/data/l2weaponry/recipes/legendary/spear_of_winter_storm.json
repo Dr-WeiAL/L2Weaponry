@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "l2complements:hard_ice"
+  },
+  "base": {
+    "item": "l2weaponry:diamond_spear"
+  },
+  "result": {
+    "item": "l2weaponry:spear_of_winter_storm"
+  }
+}

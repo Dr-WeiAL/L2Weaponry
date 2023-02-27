@@ -6,6 +6,7 @@ import dev.xkmc.l2library.init.events.attack.AttackEventHandler;
 import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
+import dev.xkmc.l2weaponry.events.LegendaryWeaponEvents;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.data.RecipeGen;
@@ -49,7 +50,7 @@ public class L2Weaponry {
 	private static void registerForgeEvents() {
 		LWConfig.init();
 		LWPlayerData.register();
-		//MinecraftForge.EVENT_BUS.register(ShieldEventHandler.class);
+		MinecraftForge.EVENT_BUS.register(LegendaryWeaponEvents.class);
 	}
 
 	private static void registerModBusEvents(IEventBus bus) {

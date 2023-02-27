@@ -21,7 +21,7 @@ public class LWGenItem {
 				LWToolTypes type = LWToolTypes.values()[j];
 				String tool_name = type.name().toLowerCase(Locale.ROOT);
 				ans[i][j] = L2Weaponry.REGISTRATE.item(mat_name + "_" + tool_name,
-								p -> mat.type.getToolConfig().sup().get(mat.type, type, p))
+								p -> mat.type.getToolConfig().sup().get(mat.type, type, mat.fireRes ? p.fireResistant() : p))
 						.model((ctx, pvd) -> model(type, ctx, pvd, mat_name, tool_name))
 						.tag(type.tag).defaultLang().register();
 			}

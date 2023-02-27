@@ -1,0 +1,6 @@
+{
+  "parent": "l2weaponry:item/long_weapon_throwing",
+  "textures": {
+    "layer0": "l2weaponry:item/generated/legendary/void_escape"
+  }
+}

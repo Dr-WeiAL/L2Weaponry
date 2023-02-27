@@ -51,8 +51,12 @@ public enum LWToolTypes implements ITool {
 		return fac.get(tier, i, v, properties, extraToolConfig);
 	}
 
-	public boolean longItem(){
+	public boolean longItem() {
 		return longItem;
+	}
+
+	public <T extends Item> LegendaryTool<T> legendary(LegendaryToolFactory<T> fac) {
+		return new LegendaryTool<>(this, fac);
 	}
 
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "l2complements:blackstone_core"
+  },
+  "base": {
+    "item": "l2weaponry:netherite_hammer"
+  },
+  "result": {
+    "item": "l2weaponry:hammer_of_incarceration"
+  }
+}
