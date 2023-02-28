@@ -23,12 +23,12 @@ public enum LangData {
 	TOOL_JAVELIN("tool.javelin", "Pierce through multiple enemies when thrown", 0),
 
 	FLAME_AXE("legendary.axe_of_cursed_flame", "Inflict soul flame on targets. Protect holder from fire damage.", 0),
-	BLACK_HAMMER("legendary.hammer_of_incarceration", "Immobilize surrounding enemies when performed a falling attack.", 0),
+	BLACK_HAMMER("legendary.hammer_of_incarceration", "Immobilize enemies within %s blocks when performed a falling attack.", 1),
 	FROZEN_SPEAR("legendary.spear_of_winter_storm", "Frost targets. Protect holder from powdered snow.", 0),
 	STORM_JAVELIN("legendary.poseidon_madness", "Thunder strike all enemies hit, thrown or sweep, regardless of position and weather. Protect holder from fire and thunder damage.", 0),
-	ENDER_DAGGER("legendary.shadow_hunter", "Right click target to teleport to its back, and wipe its anger. Damage penetrates armor if target does not target you.", 0),
-	ENDER_JAVELIN("legendary.void_escape", "Not affected by gravity. When hit an entity or block, teleport to that position. Holder gets slow falling in void.", 0),
-	ENDER_SPEAR("legendary.haunting_demon_of_the_end", "Aim at a target and right click to teleport near it.", 0),
+	ENDER_DAGGER("legendary.shadow_hunter", "Right click target within %s blocks to teleport to its back, and wipe its anger. Damage penetrates armor if target does not target you.", 1),
+	ENDER_JAVELIN("legendary.void_escape", "Not affected by gravity. When hit a block, teleport to that position. Holder gets levitation and slow falling in void.", 0),
+	ENDER_SPEAR("legendary.haunting_demon_of_the_end", "Aim at a target within %s blocks and right click to teleport near it.", 1),
 	;
 
 	private final String id, def;
@@ -64,6 +64,8 @@ public enum LangData {
 
 		pvd.add("itemGroup.l2weaponry.generated", "L2Weaponry Items");
 		pvd.add("attribute.name.shield_defense", "Shield Defense");
+		pvd.add("entity.l2weaponry.throwing_axe", "Throwing Axe");
+		pvd.add("entity.l2weaponry.javelin", "Javelin");
 
 	}
 

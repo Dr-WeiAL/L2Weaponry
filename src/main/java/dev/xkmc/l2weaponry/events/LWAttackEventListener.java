@@ -14,7 +14,7 @@ public class LWAttackEventListener implements AttackListener {
 		var event = cache.getPlayerAttackEntityEvent();
 		assert event != null;
 		float prog = cache.getStrength();
-		if (event.getEntity().getMainHandItem().getItem() instanceof WeaponItem && prog < 0.95f) {
+		if (event.getEntity().getMainHandItem().getItem() instanceof WeaponItem && prog < 0.5f) {
 			event.setCanceled(true);
 		}
 	}

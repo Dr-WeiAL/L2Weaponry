@@ -65,12 +65,15 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	public void setPierceLevel(byte lv) {
 		super.setPierceLevel(lv);
 		this.remainingHit = lv + 1;
-
 	}
 
 	private void tickEarlyReturn() {
 		Entity entity = this.getOwner();
 		int loyal = this.entityData.get(ID_LOYALTY);
+		if (this.isNoPhysics() && this.getDeltaMovement().length() < 1e-3) {
+			remainingHit = 0;
+			this.setNoPhysics(false);
+		}
 		if (entity != null && loyal > 0 && remainingHit > 0) {
 			if (origin == null) {
 				origin = position();

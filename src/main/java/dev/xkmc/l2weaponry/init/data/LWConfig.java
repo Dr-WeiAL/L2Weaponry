@@ -20,6 +20,11 @@ public class LWConfig {
 		public final ForgeConfigSpec.IntValue claw_max;
 		public final ForgeConfigSpec.IntValue claw_timeout;
 
+		public final ForgeConfigSpec.IntValue shadowHunterDistance;
+		public final ForgeConfigSpec.IntValue hauntingDemonDistance;
+		public final ForgeConfigSpec.IntValue hammerOfIncarcerationRadius;
+		public final ForgeConfigSpec.IntValue hammerOfIncarcerationDuration;
+
 		Common(ForgeConfigSpec.Builder builder) {
 			dagger_bonus = builder.comment("Dagger damage multiplier when hitting targets not targeting user")
 					.defineInRange("dagger_bonus", 2d, 1, 1000);
@@ -29,6 +34,14 @@ public class LWConfig {
 					.defineInRange("claw_max", 5, 1, 1000);
 			claw_timeout = builder.comment("Claw damage bonus timeout")
 					.defineInRange("claw_timeout", 60, 1, 1000);
+			shadowHunterDistance = builder.comment("Shadow Hunter teleport distance")
+					.defineInRange("shadowHunterDistance", 8, 1, 128);
+			hauntingDemonDistance = builder.comment("Haunting Demon of the End teleport distance")
+					.defineInRange("hauntingDemonDistance", 64, 1, 128);
+			hammerOfIncarcerationRadius = builder.comment("Hammer of Incarceration effect radius")
+					.defineInRange("hammerOfIncarcerationRadius", 8, 1, 64);
+			hammerOfIncarcerationDuration = builder.comment("Hammer of Incarceration effect duration")
+					.defineInRange("hammerOfIncarcerationDuration", 60, 1, 60000);
 		}
 
 	}

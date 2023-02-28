@@ -40,7 +40,8 @@ public class LegendaryWeaponEvents {
 	@SubscribeEvent
 	public static void onCriticalHit(CriticalHitEvent event) {
 		if (event.isVanillaCritical() && event.getEntity().getMainHandItem().getItem() instanceof LegendaryWeapon weapon) {
-			weapon.onCrit(event.getEntity(), event.getTarget());
+			if (!event.getEntity().level.isClientSide)
+				weapon.onCrit(event.getEntity(), event.getTarget());
 		}
 	}
 
