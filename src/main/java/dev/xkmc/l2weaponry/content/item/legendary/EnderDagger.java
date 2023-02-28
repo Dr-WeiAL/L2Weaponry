@@ -37,6 +37,7 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 			if (!level.isClientSide && target instanceof Mob mob && mob.getTarget() == player) {
 				mob.setTarget(null);
 			}
+			player.getCooldowns().addCooldown(this, 60);
 			return InteractionResultHolder.success(stack);
 		}
 		return InteractionResultHolder.fail(stack);
@@ -49,6 +50,7 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 			if (target instanceof Mob mob && mob.getTarget() == player) {
 				mob.setTarget(null);
 			}
+			player.getCooldowns().addCooldown(this, 60);
 			return InteractionResult.SUCCESS;
 		}
 		return InteractionResult.FAIL;

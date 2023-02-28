@@ -70,9 +70,9 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	private void tickEarlyReturn() {
 		Entity entity = this.getOwner();
 		int loyal = this.entityData.get(ID_LOYALTY);
-		if (this.isNoPhysics() && this.getDeltaMovement().length() < 1e-3) {
+		if (this.isNoGravity() && this.getDeltaMovement().length() < 1e-2) {
 			remainingHit = 0;
-			this.setNoPhysics(false);
+			this.setNoGravity(false);
 		}
 		if (entity != null && loyal > 0 && remainingHit > 0) {
 			if (origin == null) {
