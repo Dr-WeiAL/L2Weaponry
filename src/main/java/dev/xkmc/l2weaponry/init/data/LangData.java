@@ -29,6 +29,14 @@ public enum LangData {
 	ENDER_DAGGER("legendary.shadow_hunter", "Right click target within %s blocks to teleport to its back, and wipe its anger. Damage penetrates armor if target does not target you.", 1),
 	ENDER_JAVELIN("legendary.void_escape", "Not affected by gravity. When hit a block, teleport to that position. Holder gets levitation and slow falling in void.", 0),
 	ENDER_SPEAR("legendary.haunting_demon_of_the_end", "Aim at a target within %s blocks and right click to teleport near it.", 1),
+
+	ABYSS_DAGGER("legendary.abyss_shock", "Damage dealt to enemies not targeting user will bypass magical protections.", 0),
+	ABYSS_MACHETE("legendary.abyss_resonance", "For over %s consecutive attacks, damage will bypass magical protections.", 1),
+	ABYSS_HAMMER("legendary.abyss_echo", "Falling attack will bypass magical protections.", 0),
+	ABYSS_AXE("legendary.abyss_terror", "Damage dealt to enemies targeting user will bypass magical protections.", 0),
+	BLOOD_CLAW("legendary.vampire_desire", "Restore health based on damage dealt. Increase damage stack limit based on enemies killed. Enemies killed: %s. Damage stack limit: +%s", 0),
+	BLACK_AXE("legendary.barbaric_hallow", "Damage penetrates armor, damage increase target's armor value.", 0),
+	ENDER_MACHETE("legendary.shadow_shredder", "Inflict levitation and slow falling for a short time to enemies.", 0),
 	;
 
 	private final String id, def;

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_storm_core": {
+    "has_cursed_droplet": {
       "conditions": {
         "items": [
           {
             "items": [
-              "l2complements:storm_core"
+              "l2complements:cursed_droplet"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "l2weaponry:legendary/void_escape"
+        "recipe": "l2weaponry:legendary/vampire_desire"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_storm_core",
+      "has_cursed_droplet",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "l2weaponry:legendary/void_escape"
+      "l2weaponry:legendary/vampire_desire"
     ]
   }
 }

@@ -56,7 +56,13 @@ public class LWItems {
 	public static final ItemEntry<EnderSpear> ENDER_SPEAR;
 	public static final ItemEntry<EnderJavelin> ENDER_JAVELIN;
 	public static final ItemEntry<EnderDagger> ENDER_DAGGER;
-
+	public static final ItemEntry<EnderMachete> ENDER_MACHETE;
+	public static final ItemEntry<AbyssDagger> ABYSS_DAGGER;
+	public static final ItemEntry<AbyssMachete> ABYSS_MACHETE;
+	public static final ItemEntry<AbyssHammer> ABYSS_HAMMER;
+	public static final ItemEntry<AbyssAxe> ABYSS_AXE;
+	public static final ItemEntry<BlackAxe> BLACK_AXE;
+	public static final ItemEntry<BloodClaw> BLOOD_CLAW;
 	public static final ItemEntry<Item>[][] GEN_ITEM;
 
 	static {
@@ -68,6 +74,13 @@ public class LWItems {
 		ENDER_SPEAR = regLegendary("haunting_demon_of_the_end", EnderSpear::new, LWToolTypes.SPEAR, LWToolMats.SHULKERATE);
 		ENDER_JAVELIN = regLegendary("void_escape", EnderJavelin::new, LWToolTypes.JAVELIN, LWToolMats.SHULKERATE);
 		ENDER_DAGGER = regLegendary("shadow_hunter", EnderDagger::new, LWToolTypes.DAGGER, LWToolMats.SHULKERATE);
+		ENDER_MACHETE = regLegendary("shadow_shredder", EnderMachete::new, LWToolTypes.MACHETE, LWToolMats.SHULKERATE);
+		ABYSS_DAGGER = regLegendary("abyss_shock", AbyssDagger::new, LWToolTypes.DAGGER, LWToolMats.SCULKIUM);
+		ABYSS_MACHETE = regLegendary("abyss_resonance", AbyssMachete::new, LWToolTypes.MACHETE, LWToolMats.SCULKIUM);
+		ABYSS_HAMMER = regLegendary("abyss_echo", AbyssHammer::new, LWToolTypes.HAMMER, LWToolMats.SCULKIUM);
+		ABYSS_AXE = regLegendary("abyss_terror", AbyssAxe::new, LWToolTypes.BATTLE_AXE, LWToolMats.SCULKIUM);
+		BLACK_AXE = regLegendary("barbaric_hallow", BlackAxe::new, LWToolTypes.THROWING_AXE, LWToolMats.NETHERITE);
+		BLOOD_CLAW = regLegendary("vampire_desire", BloodClaw::new, LWToolTypes.CLAW, LWToolMats.TOTEMIC_GOLD);
 		GEN_ITEM = LWGenItem.generate();
 	}
 

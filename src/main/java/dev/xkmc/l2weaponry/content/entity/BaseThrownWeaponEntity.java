@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.content.entity;
 
 import com.google.common.collect.Lists;
 import dev.xkmc.l2weaponry.content.item.base.IThrowableCallback;
+import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;

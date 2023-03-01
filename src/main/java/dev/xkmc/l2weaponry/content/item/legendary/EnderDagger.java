@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.events.attack.AttackCache;
 import dev.xkmc.l2library.util.raytrace.IGlowingTarget;
 import dev.xkmc.l2library.util.raytrace.RayTraceUtil;
 import dev.xkmc.l2weaponry.content.item.types.DaggerItem;
@@ -57,7 +58,7 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 	}
 
 	@Override
-	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target) {
+	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, AttackCache cache) {
 		if (target instanceof Mob mob && mob.getTarget() != player)
 			source.bypassArmor();
 	}

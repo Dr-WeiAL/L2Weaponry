@@ -4,9 +4,9 @@
     "item": "l2complements:storm_core"
   },
   "base": {
-    "item": "l2weaponry:shulkerate_javelin"
+    "item": "l2weaponry:shulkerate_machete"
   },
   "result": {
-    "item": "l2weaponry:void_escape"
+    "item": "l2weaponry:shadow_shredder"
   }
 }

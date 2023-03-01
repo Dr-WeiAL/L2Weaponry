@@ -59,13 +59,20 @@ public class RecipeGen {
 					.define('w', LCItems.STORM_CORE.get())
 					.save(pvd, getID(LWItems.STORM_JAVELIN.get()));
 
+			smithing(pvd, LWToolMats.IRON.getTool(LWToolTypes.SPEAR), LCItems.HARD_ICE.get(), LWItems.FROZEN_SPEAR.get());
 			smithing(pvd, LWToolMats.NETHERITE.getTool(LWToolTypes.BATTLE_AXE), LCItems.SOUL_FLAME.get(), LWItems.FLAME_AXE.get());
 			smithing(pvd, LWToolMats.NETHERITE.getTool(LWToolTypes.HAMMER), LCItems.BLACKSTONE_CORE.get(), LWItems.BLACK_HAMMER.get());
-			smithing(pvd, LWToolMats.DIAMOND.getTool(LWToolTypes.SPEAR), LCItems.HARD_ICE.get(), LWItems.FROZEN_SPEAR.get());
-
+			smithing(pvd, LWToolMats.NETHERITE.getTool(LWToolTypes.THROWING_AXE), LCItems.EXPLOSION_SHARD.get(), LWItems.BLACK_AXE.get());
 			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.SPEAR), LCItems.VOID_EYE.get(), LWItems.ENDER_SPEAR.get());
-			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.JAVELIN), LCItems.VOID_EYE.get(), LWItems.ENDER_JAVELIN.get());
+			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.JAVELIN), LCItems.STORM_CORE.get(), LWItems.ENDER_JAVELIN.get());
 			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.DAGGER), LCItems.VOID_EYE.get(), LWItems.ENDER_DAGGER.get());
+			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.MACHETE), LCItems.STORM_CORE.get(), LWItems.ENDER_MACHETE.get());
+			smithing(pvd, LWToolMats.SCULKIUM.getTool(LWToolTypes.DAGGER), LCItems.RESONANT_FEATHER.get(), LWItems.ABYSS_DAGGER.get());
+			smithing(pvd, LWToolMats.SCULKIUM.getTool(LWToolTypes.MACHETE), LCItems.RESONANT_FEATHER.get(), LWItems.ABYSS_MACHETE.get());
+			smithing(pvd, LWToolMats.SCULKIUM.getTool(LWToolTypes.HAMMER), LCItems.RESONANT_FEATHER.get(), LWItems.ABYSS_HAMMER.get());
+			smithing(pvd, LWToolMats.SCULKIUM.getTool(LWToolTypes.BATTLE_AXE), LCItems.RESONANT_FEATHER.get(), LWItems.ABYSS_AXE.get());
+			smithing(pvd, LWToolMats.TOTEMIC_GOLD.getTool(LWToolTypes.CLAW), LCItems.CURSED_DROPLET.get(), LWItems.BLOOD_CLAW.get());
+
 		}
 	}
 

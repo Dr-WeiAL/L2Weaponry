@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "l2weaponry:legendary/void_escape"
+        "recipe": "l2weaponry:legendary/shadow_shredder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "l2weaponry:legendary/void_escape"
+      "l2weaponry:legendary/shadow_shredder"
     ]
   }
 }

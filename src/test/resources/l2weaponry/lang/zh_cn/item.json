@@ -7,7 +7,14 @@
 	"poseidon_madness": "海神之怒",
 	"shadow_hunter": "幽影猎手",
 	"spear_of_winter_storm": "霜天画戟",
-	"void_escape": "虚空使者"
+	"void_escape": "虚空使者",
+	"abyss_echo": "深渊回响",
+	"abyss_resonance": "深渊共鸣",
+	"abyss_shock": "深渊惊啸",
+	"abyss_terror": "深渊恐惧",
+	"barbaric_hallow": "蛮荒圣器",
+	"shadow_shredder": "削影之刃",
+	"vampire_desire": "嗜血金爪"
   },
   "-cartesian": {
 	"gen_item": {

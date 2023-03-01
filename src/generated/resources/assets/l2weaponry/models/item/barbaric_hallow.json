@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/handheld",
+  "overrides": [
+    {
+      "model": "l2weaponry:item/barbaric_hallow_throwing",
+      "predicate": {
+        "l2weaponry:throwing": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "l2weaponry:item/generated/legendary/barbaric_hallow"
+  }
+}

@@ -1,10 +1,11 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
+import dev.xkmc.l2library.init.events.attack.AttackCache;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraft.world.item.ItemStack;
 
 public interface LegendaryWeapon {
 
@@ -12,11 +13,11 @@ public interface LegendaryWeapon {
 		return false;
 	}
 
-	default void modifySource(DamageSource source, LivingEntity player, LivingEntity target) {
+	default void modifySource(DamageSource source, LivingEntity player, LivingEntity target, AttackCache cache) {
 
 	}
 
-	default void onHurt(LivingHurtEvent event) {
+	default void onHurt(AttackCache event, LivingEntity le) {
 
 	}
 
@@ -25,6 +26,14 @@ public interface LegendaryWeapon {
 	}
 
 	default void onCrit(Player entity, Entity target) {
+
+	}
+
+	default void onDamageFinal(AttackCache cache, LivingEntity le){
+
+	}
+
+	default void onKill(ItemStack stack, LivingEntity target, LivingEntity user){
 
 	}
 }

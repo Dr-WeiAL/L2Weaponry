@@ -5,6 +5,7 @@ import dev.xkmc.l2library.init.events.attack.AttackCache;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 
@@ -24,14 +25,19 @@ public class BaseClawItem extends DoubleWieldItem {
 		stack.getOrCreateTag().putLong("last_hit_time", gameTime);
 	}
 
+	protected int getMaxStack(ItemStack stack, LivingEntity user) {
+		int max = LWConfig.COMMON.claw_max.get();
+		if (user.getOffhandItem().getItem() == this) {
+			max *= 2;
+		}
+		return max;
+	}
+
 	@Override
 	public float getMultiplier(AttackCache event) {
 		int count = event.getWeapon().getOrCreateTag().getInt("hit_count");
 		if (count > 1) {
-			int max = LWConfig.COMMON.claw_max.get();
-			if (event.getAttacker().getOffhandItem().getItem() == this) {
-				max *= 2;
-			}
+			int max = getMaxStack(event.getWeapon(), event.getAttacker());
 			return (float) (1 + LWConfig.COMMON.claw_bonus.get() * Mth.clamp(count - 1, 0, max));
 		}
 		return super.getMultiplier(event);
