@@ -31,9 +31,7 @@ public class BloodClaw extends ClawItem implements LegendaryWeapon {
 
 	@Override
 	public void onDamageFinal(AttackCache cache, LivingEntity le) {
-		var event = cache.getLivingDamageEvent();
-		assert event != null;
-		le.heal(event.getAmount());
+		le.heal(cache.getDamageDealt());
 	}
 
 	@Override
@@ -48,7 +46,9 @@ public class BloodClaw extends ClawItem implements LegendaryWeapon {
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		int kill = stack.getOrCreateTag().getInt(KEY_KILL);
-		list.add(LangData.BLOOD_CLAW.get(kill, getBonus(kill)));
+		list.add(LangData.BLOOD_CLAW.get());
+		list.add(LangData.STAT_KILL.get(Component.literal("" + kill)));
+		list.add(LangData.STAT_BONUS_CLAW.get(Component.literal("+" + getBonus(kill))));
 	}
 
 	@Override

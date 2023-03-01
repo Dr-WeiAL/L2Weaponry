@@ -36,4 +36,8 @@ public interface LegendaryWeapon {
 	default void onKill(ItemStack stack, LivingEntity target, LivingEntity user){
 
 	}
+
+	default void onHurtMaximized(AttackCache cache, LivingEntity le){
+
+	}
 }

@@ -1,6 +1,6 @@
-// 1.19.2	2023-03-01T12:44:11.136716	Registrate Provider for l2weaponry [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-90b74010dc79c64997f84aad8a9318b3bc784cc4 assets/l2weaponry/lang/en_ud.json
-bdd35f56f7255e76906cac1874e769abf3d0bbcc assets/l2weaponry/lang/en_us.json
+// 1.19.2	2023-03-01T13:31:46.10636	Registrate Provider for l2weaponry [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+787f24be230a3ed625732a9961935774d02da829 assets/l2weaponry/lang/en_ud.json
+fae729b60f61514aa2aef8233634b33b9c062538 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
 22506e91ca3739268a06e9228746033ec8fc719d assets/l2weaponry/models/item/abyss_resonance.json
 d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_shock.json
@@ -8,6 +8,8 @@ d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_sho
 343c01bc489012759683b3150b9364d28c3666c7 assets/l2weaponry/models/item/axe_of_cursed_flame.json
 54ef825581fcfe3e2082032ae501ec76d7c8b80b assets/l2weaponry/models/item/barbaric_hallow.json
 2bd7ffad46fcf23199c84d067e459836bb403bc8 assets/l2weaponry/models/item/barbaric_hallow_throwing.json
+81094316e9621e0ca5cc41d448d2db6c790a4827 assets/l2weaponry/models/item/blade_of_illusion.json
+5f1b31eb74737d14b0e733712b2975501c156e14 assets/l2weaponry/models/item/claw_of_determination.json
 6adf1c10ed6a32a68c4906ef39a8cca30fd1f230 assets/l2weaponry/models/item/diamond_battle_axe.json
 41e1387f442ad1c9f13ebab154b1a5fe475f2eeb assets/l2weaponry/models/item/diamond_claw.json
 806475bad1d3ce6b454c9d32c87e9db5d54112a6 assets/l2weaponry/models/item/diamond_dagger.json
@@ -303,6 +305,8 @@ ee4531a8306d6e30486cca04a7c3b1434d75e153 data/l2weaponry/advancements/recipes/l2
 4d33d08b0010d3d3450bca1fc521a2cabd51b284 data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/abyss_terror.json
 b4dba33515a6fe04b33da51e53c41a93322eb2e8 data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/axe_of_cursed_flame.json
 a3d3d003d1b15250e0937627998e90dfc107f6f5 data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/barbaric_hallow.json
+cc34f8712df74f7bd76f49b483af103149f1785f data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/blade_of_illusion.json
+f990d9e0a9868ff4902091407d934275c5720705 data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/claw_of_determination.json
 bb549e51e75770fc968783d942a5da4dce18c00b data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/hammer_of_incarceration.json
 63faa59a2b3214ba9cc3ebff7e3b4b1693588b76 data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/haunting_demon_of_the_end.json
 7daf0b92e76875371e56b9b24e1aefff25b845a8 data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/poseidon_madness.json
@@ -488,6 +492,8 @@ ed6673632e49f9be637eed1977d4bb96ed4571ab data/l2weaponry/recipes/legendary/abyss
 37e7f09d59b986585a9bbb6e42a54847ffbe23f7 data/l2weaponry/recipes/legendary/abyss_terror.json
 8523b7079c567b5a5c706bd6d04b9676fc3bd07c data/l2weaponry/recipes/legendary/axe_of_cursed_flame.json
 848b1da1c71279b3fc7f116bcbc2a70bc9c73cf1 data/l2weaponry/recipes/legendary/barbaric_hallow.json
+2b824a8f509d2098a3c9e7615ffea0ba732ca10f data/l2weaponry/recipes/legendary/blade_of_illusion.json
+5148cb77da15a644182cf0516021458ae29e9fd4 data/l2weaponry/recipes/legendary/claw_of_determination.json
 7afe06f82a04bd8c939ba27276369925bba640aa data/l2weaponry/recipes/legendary/hammer_of_incarceration.json
 28ae91ce55c91982e8083a94ae961db84aed9177 data/l2weaponry/recipes/legendary/haunting_demon_of_the_end.json
 a9512d2f20edf0c4a65179e93ca19816777974c2 data/l2weaponry/recipes/legendary/poseidon_madness.json
@@ -498,11 +504,11 @@ e64b4acce748bd4e63fbe40c753763e1ad3150df data/l2weaponry/recipes/legendary/shado
 74db163587a86e88a2990560f01acae994024eb0 data/l2weaponry/recipes/legendary/void_escape.json
 56d9424f59eb88bbe8f81b1681b8f7492588f406 data/l2weaponry/recipes/misc/reinforced_handle.json
 e8d408281e1bf425dbba185ab53e55455ff32876 data/l2weaponry/tags/items/battle_axe.json
-76054a9d2e26041a9b342db299767e78b5836d62 data/l2weaponry/tags/items/claw.json
+6f4820b142b01c772079ddf18f314a9685325a3e data/l2weaponry/tags/items/claw.json
 415bc72f47c473f40ed6504a249f34ef97b8ba3b data/l2weaponry/tags/items/dagger.json
 1be5f13aee18dbf76fb405ed375d2da553ac1115 data/l2weaponry/tags/items/hammer.json
 78098cf5b6ff7feb49a053618a1efd5ab71f70e8 data/l2weaponry/tags/items/javelin.json
-f5da3a623197f0c22ab02d611a9dd6d0d2919e53 data/l2weaponry/tags/items/machete.json
+8037d8e64f643955c8a1b36203dcbd1d22aceafc data/l2weaponry/tags/items/machete.json
 e5246222ba1e299ca9162b627635dffa5d338077 data/l2weaponry/tags/items/plate_shield.json
 94bc49f3f27492b13136ef41b76e1afb1cceb028 data/l2weaponry/tags/items/round_shield.json
 7c88a7cc744871435c268324991377ce9b19007e data/l2weaponry/tags/items/spear.json

@@ -34,10 +34,15 @@ public enum LangData {
 	ABYSS_MACHETE("legendary.abyss_resonance", "For over %s consecutive attacks, damage will bypass magical protections.", 1),
 	ABYSS_HAMMER("legendary.abyss_echo", "Falling attack will bypass magical protections.", 0),
 	ABYSS_AXE("legendary.abyss_terror", "Damage dealt to enemies targeting user will bypass magical protections.", 0),
-	BLOOD_CLAW("legendary.vampire_desire", "Restore health based on damage dealt. Increase damage stack limit based on enemies killed. Enemies killed: %s. Damage stack limit: +%s", 0),
+	BLOOD_CLAW("legendary.vampire_desire", "Restore health based on damage dealt. Increase damage stack limit based on enemies killed.", 0),
 	BLACK_AXE("legendary.barbaric_hallow", "Damage penetrates armor, damage increase target's armor value.", 0),
 	ENDER_MACHETE("legendary.shadow_shredder", "Inflict levitation and slow falling for a short time to enemies.", 0),
-	;
+
+	CHEATER_CLAW("legendary.claw_of_determination", "When damage dealt is reduced, next consecutive attack to the same target will increase double of the amount reduced.", 0),
+	CHEATER_MACHETE("legendary.blade_of_illusion", "When target has less lost health than consecutive damage dealt, next consecutive attack to the same target will increase that difference.", 0),
+
+	STAT_KILL("stat.kill_count", "Enemies killed: %s", 1),
+	STAT_BONUS_CLAW("stat.claw_bonus", "Damage stack limit: %s", 1);
 
 	private final String id, def;
 	private final int count;
@@ -58,6 +63,10 @@ public enum LangData {
 
 		if (id.startsWith("legendary.")) {
 			ans = ans.withStyle(ChatFormatting.GOLD);
+		}
+
+		if (id.startsWith("stat.")) {
+			ans = ans.withStyle(ChatFormatting.AQUA);
 		}
 		return ans;
 	}

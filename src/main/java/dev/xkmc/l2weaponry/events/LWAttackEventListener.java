@@ -53,6 +53,21 @@ public class LWAttackEventListener implements AttackListener {
 	}
 
 	@Override
+	public void onHurtMaximized(AttackCache cache, ItemStack stack) {
+		LivingHurtEvent event = cache.getLivingHurtEvent();
+		assert event != null;
+		if (event.getSource().getDirectEntity() instanceof LivingEntity le) {
+			if (stack.getItem() instanceof LegendaryWeapon weapon) {
+				weapon.onHurtMaximized(cache, le);
+			}
+		} else if (event.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?> thrown) {
+			if (thrown.getItem().getItem() instanceof LegendaryWeapon weapon && thrown.getOwner() instanceof LivingEntity le) {
+				weapon.onHurtMaximized(cache, le);
+			}
+		}
+	}
+
+	@Override
 	public void onDamageFinalized(AttackCache cache, ItemStack stack) {
 		LivingDamageEvent event = cache.getLivingDamageEvent();
 		assert event != null;
