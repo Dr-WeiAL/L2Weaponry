@@ -35,7 +35,7 @@ public class BloodClaw extends ClawItem implements LegendaryWeapon {
 	}
 
 	@Override
-	protected int getMaxStack(ItemStack stack, LivingEntity user) {
+	public int getMaxStack(ItemStack stack, LivingEntity user) {
 		int max = LWConfig.COMMON.claw_max.get() + getBonus(stack.getOrCreateTag().getInt(KEY_KILL));
 		if (user.getOffhandItem().getItem() == this) {
 			max *= 2;

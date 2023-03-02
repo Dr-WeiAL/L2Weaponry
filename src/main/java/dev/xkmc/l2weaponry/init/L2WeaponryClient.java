@@ -1,13 +1,12 @@
 package dev.xkmc.l2weaponry.init;
 
+import dev.xkmc.l2weaponry.content.client.ClawItemDecorationRenderer;
 import dev.xkmc.l2weaponry.content.client.ShieldItemDecorationRenderer;
 import dev.xkmc.l2weaponry.events.ClientRenderEvents;
-import dev.xkmc.l2weaponry.init.materials.LWToolMats;
-import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
-import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.client.event.RegisterItemDecorationsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -15,7 +14,14 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class L2WeaponryClient {
+
+	public static final List<Item> BLOCK_DECO = new ArrayList<>();
+	public static final List<Item> THROW_DECO = new ArrayList<>();
+	public static final List<Item> CLAW_DECO = new ArrayList<>();
 
 	public static void onCtorClient(IEventBus bus, IEventBus eventBus) {
 		bus.register(L2WeaponryClient.class);
@@ -32,28 +38,22 @@ public class L2WeaponryClient {
 		event.enqueueWork(() -> {
 			ClampedItemPropertyFunction func = (stack, level, entity, layer) ->
 					entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
-			ResourceLocation blocking = new ResourceLocation(L2Weaponry.MODID, "blocking");
-			ResourceLocation throwing = new ResourceLocation(L2Weaponry.MODID, "throwing");
-			for (LWToolMats mat : LWToolMats.values()) {
-				var set = LWItems.GEN_ITEM[mat.ordinal()];
-				ItemProperties.register(set[LWToolTypes.ROUND_SHIELD.ordinal()].get(), blocking, func);
-				ItemProperties.register(set[LWToolTypes.PLATE_SHIELD.ordinal()].get(), blocking, func);
-				ItemProperties.register(set[LWToolTypes.THROWING_AXE.ordinal()].get(), throwing, func);
-				ItemProperties.register(set[LWToolTypes.JAVELIN.ordinal()].get(), throwing, func);
+			for (Item i : BLOCK_DECO) {
+				ItemProperties.register(i, new ResourceLocation(L2Weaponry.MODID, "blocking"), func);
 			}
-			ItemProperties.register(LWItems.ENDER_JAVELIN.get(), throwing, func);
-			ItemProperties.register(LWItems.STORM_JAVELIN.get(), throwing, func);
-			ItemProperties.register(LWItems.BLACK_AXE.get(), throwing, func);
+			for (Item i : THROW_DECO) {
+				ItemProperties.register(i, new ResourceLocation(L2Weaponry.MODID, "throwing"), func);
+			}
 		});
 	}
 
 	@SubscribeEvent
 	public static void registerItemDecoration(RegisterItemDecorationsEvent event) {
-		for (LWToolMats mat : LWToolMats.values()) {
-			event.register(LWItems.GEN_ITEM[mat.ordinal()][LWToolTypes.ROUND_SHIELD.ordinal()].get(),
-					ShieldItemDecorationRenderer::renderShieldBar);
-			event.register(LWItems.GEN_ITEM[mat.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()].get(),
-					ShieldItemDecorationRenderer::renderShieldBar);
+		for (Item i : BLOCK_DECO) {
+			event.register(i, ShieldItemDecorationRenderer::renderShieldBar);
+		}
+		for (Item i : CLAW_DECO) {
+			event.register(i, ClawItemDecorationRenderer::renderHitCount);
 		}
 	}
 

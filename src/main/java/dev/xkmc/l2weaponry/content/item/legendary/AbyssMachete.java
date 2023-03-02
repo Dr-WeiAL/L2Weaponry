@@ -24,7 +24,7 @@ public class AbyssMachete extends MacheteItem implements LegendaryWeapon {
 
 	@Override
 	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, ItemStack item, AttackCache cache) {
-		int count = item.getOrCreateTag().getInt("hit_count");
+		int count = getHitCount(item);
 		int max = LWConfig.COMMON.claw_max.get();
 		if (count >= max) {
 			source.bypassMagic();

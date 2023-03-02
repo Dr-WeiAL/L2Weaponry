@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
+import dev.xkmc.l2weaponry.init.L2WeaponryClient;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -39,6 +40,7 @@ public class BaseShieldItem extends ShieldItem {
 		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
 		builder.put(LWItems.SHIELD_DEFENSE.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_ATTR), NAME_ATTR, maxDefense, AttributeModifier.Operation.ADDITION));
 		this.defaultModifiers = builder.build();
+		L2WeaponryClient.BLOCK_DECO.add(this);
 	}
 
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {

@@ -25,25 +25,9 @@ public class ShieldItemDecorationRenderer {
 		double defenseLost = cap.getShieldDefense();
 		int w = Mth.ceil(13.0F * (1 - defenseLost));
 		boolean using = cap.getRecoverRate() < 0.01;
-		fillRect(builder, x + 2, y + 14, w, 1, 0, 255, using ? 127 : 255, using ? 127 : 255, 255);
-		fillRect(builder, x + 2 + w, y + 14, 13 - w, 1, 0, 0, 0, 0, 255);
+		CommonDecoUtil.fillRect(builder, x + 2, y + 14, w, 1, 0, 255, using ? 127 : 255, using ? 127 : 255, 255);
+		CommonDecoUtil.fillRect(builder, x + 2 + w, y + 14, 13 - w, 1, 0, 0, 0, 0, 255);
 		return true;
 	}
-
-	/**
-	 * Draw with the WorldRenderer
-	 */
-	private static void fillRect(BufferBuilder buffer, int x, int y, int w, int h, int z, int r, int g, int b, int a) {
-		RenderSystem.disableDepthTest();
-		RenderSystem.disableTexture();
-		RenderSystem.setShader(GameRenderer::getPositionColorShader);
-		buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
-		buffer.vertex(x, y, z).color(r, g, b, a).endVertex();
-		buffer.vertex(x, y + h, z).color(r, g, b, a).endVertex();
-		buffer.vertex(x + w, y + h, z).color(r, g, b, a).endVertex();
-		buffer.vertex(x + w, y, z).color(r, g, b, a).endVertex();
-		BufferUploader.drawWithShader(buffer.end());
-	}
-
 
 }
