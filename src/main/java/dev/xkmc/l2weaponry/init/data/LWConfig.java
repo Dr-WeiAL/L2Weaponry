@@ -24,6 +24,8 @@ public class LWConfig {
 		public final ForgeConfigSpec.IntValue hauntingDemonDistance;
 		public final ForgeConfigSpec.IntValue hammerOfIncarcerationRadius;
 		public final ForgeConfigSpec.IntValue hammerOfIncarcerationDuration;
+		public final ForgeConfigSpec.DoubleValue dogmaticStandoffGain;
+		public final ForgeConfigSpec.DoubleValue dogmaticStandoffMax;
 
 		Common(ForgeConfigSpec.Builder builder) {
 			dagger_bonus = builder.comment("Dagger damage multiplier when hitting targets not targeting user")
@@ -42,6 +44,10 @@ public class LWConfig {
 					.defineInRange("hammerOfIncarcerationRadius", 8, 1, 64);
 			hammerOfIncarcerationDuration = builder.comment("Hammer of Incarceration effect duration")
 					.defineInRange("hammerOfIncarcerationDuration", 60, 1, 60000);
+			dogmaticStandoffGain = builder.comment("Dogmatic Standoff absorption gain percentage")
+					.defineInRange("dogmaticStandoffGain", 0.02, 0.0001, 1);
+			dogmaticStandoffMax = builder.comment("Dogmatic Standoff absorption max percentage")
+					.defineInRange("dogmaticStandoffMax", 0.1, 0.0001, 100);
 		}
 
 	}

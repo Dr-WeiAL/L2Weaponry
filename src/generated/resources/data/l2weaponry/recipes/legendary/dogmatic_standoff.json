@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "l2complements:resonant_feather"
+  },
+  "base": {
+    "item": "l2weaponry:totemic_gold_battle_axe"
+  },
+  "result": {
+    "item": "l2weaponry:dogmatic_standoff"
+  }
+}

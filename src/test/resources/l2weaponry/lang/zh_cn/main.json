@@ -27,11 +27,13 @@
 	  "abyss_resonance": "连击%s次以上时攻击穿透魔法保护",
 	  "abyss_shock": "对仇恨目标不是自己的敌人造成的伤害穿透魔法保护",
 	  "abyss_terror": "对仇恨目标是自己的敌人造成的伤害穿透魔法保护",
-	  "barbaric_hallow": "伤害穿透护甲，并且上升对方对护甲值",
+	  "barbaric_hallow": "伤害穿透护甲，并且基于目标护甲值增加伤害",
 	  "shadow_shredder": "伤害附加漂浮和缓降",
 	  "vampire_desire": "造成伤害时回血。根据击杀数增加连击上限",
 	  "blade_of_illusion": "当目标损失的血量小于这把武器对其造成的连续伤害时，下一次伤害上升这个差值",
-	  "claw_of_determination": "当造成的伤害被减少时，下一击对同一目标的伤害上升减少的部分的两倍"
+	  "claw_of_determination": "当造成的伤害被减少时，下一击对同一目标的伤害上升减少的部分的两倍",
+	  "dogmatic_punishment": "重击伤害上升使用者的伤害吸收数值",
+	  "dogmatic_standoff": "攻击时获得等同于目标血量%s%%的伤害吸收（叠加不超过目标血量的%s%%）"
 	},
 	"stat": {
 	  "claw_bonus": "连击上限：%s",

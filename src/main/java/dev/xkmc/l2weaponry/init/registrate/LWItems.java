@@ -65,6 +65,8 @@ public class LWItems {
 	public static final ItemEntry<BloodClaw> BLOOD_CLAW;
 	public static final ItemEntry<CheaterClaw> CHEATER_CLAW;
 	public static final ItemEntry<CheaterMachete> CHEATER_MACHETE;
+	public static final ItemEntry<HolyAxe> HOLY_AXE;
+	public static final ItemEntry<HolyHammer> HOLY_HAMMER;
 	public static final ItemEntry<Item>[][] GEN_ITEM;
 
 	static {
@@ -85,6 +87,8 @@ public class LWItems {
 		BLOOD_CLAW = regLegendary("vampire_desire", BloodClaw::new, LWToolTypes.CLAW, LWToolMats.TOTEMIC_GOLD);
 		CHEATER_CLAW = regLegendary("claw_of_determination", CheaterClaw::new, LWToolTypes.CLAW, LWToolMats.ETERNIUM);
 		CHEATER_MACHETE = regLegendary("blade_of_illusion", CheaterMachete::new, LWToolTypes.MACHETE, LWToolMats.ETERNIUM);
+		HOLY_AXE = regLegendary("dogmatic_standoff", HolyAxe::new, LWToolTypes.BATTLE_AXE, LWToolMats.TOTEMIC_GOLD);
+		HOLY_HAMMER = regLegendary("dogmatic_punishment", HolyHammer::new, LWToolTypes.HAMMER, LWToolMats.TOTEMIC_GOLD);
 		GEN_ITEM = LWGenItem.generate();
 	}
 

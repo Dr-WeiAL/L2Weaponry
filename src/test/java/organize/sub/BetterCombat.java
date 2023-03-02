@@ -27,7 +27,19 @@ public class BetterCombat extends ResourceOrganizer {
 		poseidon_madness(BCToolTypes.SPEAR, 0),
 		shadow_hunter(BCToolTypes.DAGGER, 1),
 		spear_of_winter_storm(BCToolTypes.SPEAR, 0),
-		void_escape(BCToolTypes.JAVELIN, 1);
+		void_escape(BCToolTypes.JAVELIN, 1),
+		abyss_echo(BCToolTypes.HAMMER, 0),
+		abyss_resonance(BCToolTypes.MACHETE, 0),
+		abyss_shock(BCToolTypes.DAGGER, 0),
+		abyss_terror(BCToolTypes.BATTLE_AXE, 0),
+		barbaric_hallow(BCToolTypes.THROWING_AXE, 0),
+		shadow_shredder(BCToolTypes.MACHETE, 1),
+		vampire_desire(BCToolTypes.CLAW, 0),
+		blade_of_illusion(BCToolTypes.MACHETE, 0),
+		claw_of_determination(BCToolTypes.CLAW, 0),
+		dogmatic_standoff(BCToolTypes.BATTLE_AXE, 0),
+		dogmatic_punishment(BCToolTypes.HAMMER, 0),
+		;
 
 		private final BCToolTypes type;
 		private final int range;

@@ -32,7 +32,7 @@ public enum LangData {
 
 	ABYSS_DAGGER("legendary.abyss_shock", "Damage dealt to enemies not targeting user will bypass magical protections.", 0),
 	ABYSS_MACHETE("legendary.abyss_resonance", "For over %s consecutive attacks, damage will bypass magical protections.", 1),
-	ABYSS_HAMMER("legendary.abyss_echo", "Falling attack will bypass magical protections.", 0),
+	ABYSS_HAMMER("legendary.abyss_echo", "Critical hit will bypass magical protections.", 0),
 	ABYSS_AXE("legendary.abyss_terror", "Damage dealt to enemies targeting user will bypass magical protections.", 0),
 	BLOOD_CLAW("legendary.vampire_desire", "Restore health based on damage dealt. Increase damage stack limit based on enemies killed.", 0),
 	BLACK_AXE("legendary.barbaric_hallow", "Damage penetrates armor, damage increase target's armor value.", 0),
@@ -40,6 +40,8 @@ public enum LangData {
 
 	CHEATER_CLAW("legendary.claw_of_determination", "When damage dealt is reduced, next consecutive attack to the same target will increase double of the amount reduced.", 0),
 	CHEATER_MACHETE("legendary.blade_of_illusion", "When target has less lost health than consecutive damage dealt, next consecutive attack to the same target will increase that difference.", 0),
+	HOLY_AXE("legendary.dogmatic_standoff", "Gain damage absorption equal to %s%% of target health. Would not exceed %s%% of target health.", 2),
+	HOLY_HAMMER("legendary.dogmatic_punishment", "On critical hit, increase damage by user's damage absorption.", 0),
 
 	STAT_KILL("stat.kill_count", "Enemies killed: %s", 1),
 	STAT_BONUS_CLAW("stat.claw_bonus", "Damage stack limit: %s", 1);

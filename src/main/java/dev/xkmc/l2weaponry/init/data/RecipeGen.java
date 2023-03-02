@@ -72,6 +72,8 @@ public class RecipeGen {
 			smithing(pvd, LWToolMats.SCULKIUM.getTool(LWToolTypes.HAMMER), LCItems.RESONANT_FEATHER.get(), LWItems.ABYSS_HAMMER.get());
 			smithing(pvd, LWToolMats.SCULKIUM.getTool(LWToolTypes.BATTLE_AXE), LCItems.RESONANT_FEATHER.get(), LWItems.ABYSS_AXE.get());
 			smithing(pvd, LWToolMats.TOTEMIC_GOLD.getTool(LWToolTypes.CLAW), LCItems.CURSED_DROPLET.get(), LWItems.BLOOD_CLAW.get());
+			smithing(pvd, LWToolMats.TOTEMIC_GOLD.getTool(LWToolTypes.BATTLE_AXE), LCItems.RESONANT_FEATHER.get(), LWItems.HOLY_AXE.get());
+			smithing(pvd, LWToolMats.TOTEMIC_GOLD.getTool(LWToolTypes.HAMMER), LCItems.SUN_MEMBRANE.get(), LWItems.HOLY_HAMMER.get());
 			smithing(pvd, LWToolMats.ETERNIUM.getTool(LWToolTypes.CLAW), LCItems.SUN_MEMBRANE.get(), LWItems.CHEATER_CLAW.get());
 			smithing(pvd, LWToolMats.ETERNIUM.getTool(LWToolTypes.MACHETE), LCItems.VOID_EYE.get(), LWItems.CHEATER_MACHETE.get());
 
