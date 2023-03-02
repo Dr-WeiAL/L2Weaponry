@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "l2complements:resonant_feather"
+    "item": "l2complements:life_essence"
   },
   "base": {
     "item": "l2weaponry:totemic_gold_battle_axe"

@@ -1,4 +1,4 @@
-// 1.19.2	2023-03-02T03:03:04.069027	Registrate Provider for l2weaponry [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.19.2	2023-03-02T03:23:03.4129	Registrate Provider for l2weaponry [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 1d868811241b7f5690254099748d4b913b21078d assets/l2weaponry/lang/en_ud.json
 63ec7b2965d0c72c151b4880eafddd75b91f35ee assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
@@ -310,7 +310,7 @@ a3d3d003d1b15250e0937627998e90dfc107f6f5 data/l2weaponry/advancements/recipes/l2
 cc34f8712df74f7bd76f49b483af103149f1785f data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/blade_of_illusion.json
 f990d9e0a9868ff4902091407d934275c5720705 data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/claw_of_determination.json
 5adcf26a98a0380fed02f9f25930fa253efc6984 data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/dogmatic_punishment.json
-803b30a85c2336a14f6b2d7dea15269e0ce6e56c data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/dogmatic_standoff.json
+00ca4898bb238b3debb9153f8d236966488dd92c data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/dogmatic_standoff.json
 bb549e51e75770fc968783d942a5da4dce18c00b data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/hammer_of_incarceration.json
 63faa59a2b3214ba9cc3ebff7e3b4b1693588b76 data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/haunting_demon_of_the_end.json
 7daf0b92e76875371e56b9b24e1aefff25b845a8 data/l2weaponry/advancements/recipes/l2weaponry.generated/legendary/poseidon_madness.json
@@ -499,7 +499,7 @@ ed6673632e49f9be637eed1977d4bb96ed4571ab data/l2weaponry/recipes/legendary/abyss
 2b824a8f509d2098a3c9e7615ffea0ba732ca10f data/l2weaponry/recipes/legendary/blade_of_illusion.json
 5148cb77da15a644182cf0516021458ae29e9fd4 data/l2weaponry/recipes/legendary/claw_of_determination.json
 407a8be278263c190ac17223bebcfd0da4b7c483 data/l2weaponry/recipes/legendary/dogmatic_punishment.json
-df743a900656adedc8b83ac108de7b4dc044918a data/l2weaponry/recipes/legendary/dogmatic_standoff.json
+8b9a0deb6033a5eb024b5e2dea34a35e13c98725 data/l2weaponry/recipes/legendary/dogmatic_standoff.json
 7afe06f82a04bd8c939ba27276369925bba640aa data/l2weaponry/recipes/legendary/hammer_of_incarceration.json
 28ae91ce55c91982e8083a94ae961db84aed9177 data/l2weaponry/recipes/legendary/haunting_demon_of_the_end.json
 a9512d2f20edf0c4a65179e93ca19816777974c2 data/l2weaponry/recipes/legendary/poseidon_madness.json

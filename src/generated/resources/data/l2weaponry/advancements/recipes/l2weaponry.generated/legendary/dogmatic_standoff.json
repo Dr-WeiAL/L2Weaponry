@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_resonant_feather": {
+    "has_life_essence": {
       "conditions": {
         "items": [
           {
             "items": [
-              "l2complements:resonant_feather"
+              "l2complements:life_essence"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_resonant_feather",
+      "has_life_essence",
       "has_the_recipe"
     ]
   ],
