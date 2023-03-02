@@ -22,7 +22,7 @@ public class AbyssHammer extends HammerItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, AttackCache cache) {
+	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, ItemStack item, AttackCache cache) {
 		var crit = cache.getCriticalHitEvent();
 		if (crit != null && crit.isVanillaCritical()) {
 			source.bypassMagic();

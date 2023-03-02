@@ -23,14 +23,14 @@ public class BlackAxe extends ThrowingAxeItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, AttackCache cache) {
+	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, ItemStack item, AttackCache cache) {
 		source.bypassArmor();
 	}
 
 	@Override
 	public void onHurt(AttackCache event, LivingEntity le) {
 		if (event.getCriticalHitEvent() != null && event.getStrength() < 0.9f) return;
-		event.setDamageModified((float) (event.getDamageModified() + le.getAttributeValue(Attributes.ARMOR)));
+		event.setDamageModified((float) (event.getDamageModified() + event.getAttackTarget().getAttributeValue(Attributes.ARMOR)));
 	}
 
 	@Override

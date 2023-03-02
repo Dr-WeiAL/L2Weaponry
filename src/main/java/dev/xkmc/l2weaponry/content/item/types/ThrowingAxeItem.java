@@ -8,6 +8,7 @@ import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
@@ -16,6 +17,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.common.ToolAction;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -23,7 +25,6 @@ import java.util.List;
 public class ThrowingAxeItem extends BaseThrowableWeaponItem {
 
 	public static final AttributeModifier RANGE = new AttributeModifier(MathHelper.getUUIDFromString("throwing_axe_reach"), "throwing_axe_reach", -0.5, AttributeModifier.Operation.ADDITION);
-
 
 	public ThrowingAxeItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
 		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_AXE);
@@ -40,6 +41,11 @@ public class ThrowingAxeItem extends BaseThrowableWeaponItem {
 	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.TOOL_THROWING_AXE.get());
 		super.appendHoverText(pStack, pLevel, list, pIsAdvanced);
+	}
+
+	@Override
+	public boolean canDisableShield(ItemStack stack, ItemStack shield, LivingEntity entity, LivingEntity attacker) {
+		return true;
 	}
 
 	@Override

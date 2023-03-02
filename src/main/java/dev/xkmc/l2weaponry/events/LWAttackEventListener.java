@@ -7,6 +7,7 @@ import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -19,12 +20,12 @@ public class LWAttackEventListener implements AttackListener {
 		assert event != null;
 		if (event.getSource().getDirectEntity() instanceof LivingEntity le) {
 			if (le.getMainHandItem().getItem() instanceof LegendaryWeapon weapon) {
-				weapon.modifySource(event.getSource(), le, event.getEntity(), cache);
+				weapon.modifySource(event.getSource(), le, event.getEntity(), le.getMainHandItem(), cache);
 			}
 		} else if (event.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?> thrown) {
 			if (thrown.getItem().getItem() instanceof LegendaryWeapon weapon) {
 				if (thrown.getOwner() instanceof LivingEntity le) {
-					weapon.modifySource(event.getSource(), le, event.getEntity(), cache);
+					weapon.modifySource(event.getSource(), le, event.getEntity(), thrown.getItem(), cache);
 				}
 			}
 		}
@@ -35,12 +36,17 @@ public class LWAttackEventListener implements AttackListener {
 		LivingHurtEvent event = cache.getLivingHurtEvent();
 		assert event != null;
 		if (event.getSource().getDirectEntity() instanceof LivingEntity le) {
+			if (!stack.isEmpty() && stack.getItem() instanceof GenericWeaponItem w) {
+				if (le instanceof Player && cache.getCriticalHitEvent() != null) {
+					if (cache.getStrength() < 0.7f) {
+						cache.setDamageModified(0.1f);
+						return;
+					}
+				}
+				cache.setDamageModified(cache.getDamageModified() * w.getMultiplier(cache));
+			}
 			if (!stack.isEmpty() && stack.getItem() instanceof BaseClawItem claw) {
 				claw.accumulateDamage(stack, cache.getAttacker().getLevel().getGameTime());
-			}
-			if (!stack.isEmpty() && stack.getItem() instanceof GenericWeaponItem w) {
-				cache.setDamageModified(cache.getStrength() < 0.7f ? 0.1f : cache.getDamageModified() * w.getMultiplier(cache));
-				return;
 			}
 			if (stack.getItem() instanceof LegendaryWeapon weapon) {
 				weapon.onHurt(cache, le);

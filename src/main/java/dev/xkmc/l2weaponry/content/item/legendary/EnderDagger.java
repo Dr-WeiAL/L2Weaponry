@@ -58,7 +58,7 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 	}
 
 	@Override
-	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, AttackCache cache) {
+	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, ItemStack item, AttackCache cache) {
 		if (target instanceof Mob mob && mob.getTarget() != player)
 			source.bypassArmor();
 	}

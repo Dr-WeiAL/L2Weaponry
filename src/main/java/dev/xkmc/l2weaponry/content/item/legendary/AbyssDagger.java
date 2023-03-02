@@ -23,7 +23,7 @@ public class AbyssDagger extends DaggerItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, AttackCache cache) {
+	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, ItemStack item, AttackCache cache) {
 		if (target instanceof Mob mob && mob.getTarget() != player) {
 			source.bypassMagic();
 		}
