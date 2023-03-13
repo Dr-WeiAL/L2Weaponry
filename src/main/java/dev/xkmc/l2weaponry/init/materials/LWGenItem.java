@@ -31,8 +31,12 @@ public class LWGenItem {
 
 
 	public static <T extends Item> void model(LWToolTypes type, DataGenContext<Item, T> ctx, RegistrateItemModelProvider pvd, String id, String suf) {
-		if (type == LWToolTypes.ROUND_SHIELD || type == LWToolTypes.PLATE_SHIELD) {
-			pvd.handheld(ctx, pvd.modLoc("item/generated/" + id + "/" + suf));//TODO
+		if (type == LWToolTypes.ROUND_SHIELD) {
+			pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/round_shield_blocking"))
+					.texture("0", pvd.modLoc("item/generated/" + id + "/" + suf));
+		} else if (type == LWToolTypes.PLATE_SHIELD) {
+			pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/plate_shield_blocking"))
+					.texture("0", pvd.modLoc("item/generated/" + id + "/" + suf));
 		} else if (type == LWToolTypes.THROWING_AXE) {
 			pvd.handheld(ctx, pvd.modLoc("item/generated/" + id + "/" + suf))
 					.override().predicate(pvd.modLoc("throwing"), 1)
