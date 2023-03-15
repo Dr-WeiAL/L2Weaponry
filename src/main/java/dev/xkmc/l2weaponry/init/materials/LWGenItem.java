@@ -58,11 +58,8 @@ public class LWGenItem {
 					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
 			pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/long_weapon_throwing"))
 					.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf));
-		} else if (type == LWToolTypes.CLAW) {
-			pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/claw_base"))
-					.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf));
-		} else if (type.longItem()) {
-			pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/long_weapon"))
+		} else if (type.customModel() != null) {
+			pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + type.customModel()))
 					.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf));
 		} else {
 			pvd.handheld(ctx, pvd.modLoc("item/generated/" + id + "/" + suf));
