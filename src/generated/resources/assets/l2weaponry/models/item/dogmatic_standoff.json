@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "l2weaponry:item/long_weapon",
   "textures": {
     "layer0": "l2weaponry:item/generated/legendary/dogmatic_standoff"
   }
