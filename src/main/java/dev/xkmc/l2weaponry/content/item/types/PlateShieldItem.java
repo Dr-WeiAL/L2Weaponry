@@ -28,8 +28,10 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
-		if (pContext.getPlayer() == null || disableOffHand(pContext.getPlayer(), pContext.getItemInHand()))
+		if (pContext.getPlayer() == null || disableOffHand(pContext.getPlayer(), pContext.getItemInHand())) {
+			pContext.getPlayer().startUsingItem(pContext.getHand());
 			return InteractionResult.CONSUME;
+		}
 		return super.useOn(pContext);
 	}
 

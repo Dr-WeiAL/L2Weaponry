@@ -13,7 +13,7 @@ public enum LWToolTypes implements ITool {
 	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 2, false),
 	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4, false),
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, false),
-	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, false),
+	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, true),
 	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1.2f, true),
 	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.4f, 0.7f, false),
 
