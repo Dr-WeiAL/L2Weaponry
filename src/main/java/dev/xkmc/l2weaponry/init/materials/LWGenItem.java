@@ -32,10 +32,18 @@ public class LWGenItem {
 
 	public static <T extends Item> void model(LWToolTypes type, DataGenContext<Item, T> ctx, RegistrateItemModelProvider pvd, String id, String suf) {
 		if (type == LWToolTypes.ROUND_SHIELD) {
-			pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/round_shield_blocking"))
+			pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/round_shield"))
+					.texture("0", pvd.modLoc("item/generated/" + id + "/" + suf))
+					.override().predicate(pvd.modLoc("blocking"), 1)
+					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_blocking"))).end();
+			pvd.withExistingParent(pvd.name(ctx) + "_blocking", pvd.modLoc("item/round_shield_blocking"))
 					.texture("0", pvd.modLoc("item/generated/" + id + "/" + suf));
 		} else if (type == LWToolTypes.PLATE_SHIELD) {
-			pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/plate_shield_blocking"))
+			pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/plate_shield"))
+					.texture("0", pvd.modLoc("item/generated/" + id + "/" + suf))
+					.override().predicate(pvd.modLoc("blocking"), 1)
+					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_blocking"))).end();
+			pvd.withExistingParent(pvd.name(ctx) + "_blocking", pvd.modLoc("item/plate_shield_blocking"))
 					.texture("0", pvd.modLoc("item/generated/" + id + "/" + suf));
 		} else if (type == LWToolTypes.THROWING_AXE) {
 			pvd.handheld(ctx, pvd.modLoc("item/generated/" + id + "/" + suf))

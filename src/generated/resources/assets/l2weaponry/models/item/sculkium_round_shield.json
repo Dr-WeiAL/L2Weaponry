@@ -1,5 +1,13 @@
 {
-  "parent": "l2weaponry:item/round_shield_blocking",
+  "parent": "l2weaponry:item/round_shield",
+  "overrides": [
+    {
+      "model": "l2weaponry:item/sculkium_round_shield_blocking",
+      "predicate": {
+        "l2weaponry:blocking": 1.0
+      }
+    }
+  ],
   "textures": {
     "0": "l2weaponry:item/generated/sculkium/round_shield"
   }

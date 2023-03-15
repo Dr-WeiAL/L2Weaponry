@@ -1,0 +1,6 @@
+{
+  "parent": "l2weaponry:item/plate_shield_blocking",
+  "textures": {
+    "0": "l2weaponry:item/generated/iron/plate_shield"
+  }
+}
