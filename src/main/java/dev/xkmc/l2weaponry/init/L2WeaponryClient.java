@@ -7,6 +7,8 @@ import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.client.event.RegisterItemDecorationsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -23,16 +25,19 @@ public class L2WeaponryClient {
 	public static final List<Item> THROW_DECO = new ArrayList<>();
 	public static final List<Item> CLAW_DECO = new ArrayList<>();
 
+	@OnlyIn(Dist.CLIENT)
 	public static void onCtorClient(IEventBus bus, IEventBus eventBus) {
 		bus.register(L2WeaponryClient.class);
 		eventBus.register(ClientRenderEvents.class);
 	}
 
+	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public static void onParticleRegistryEvent(RegisterParticleProvidersEvent event) {
 
 	}
 
+	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
@@ -47,6 +52,7 @@ public class L2WeaponryClient {
 		});
 	}
 
+	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public static void registerItemDecoration(RegisterItemDecorationsEvent event) {
 		for (Item i : BLOCK_DECO) {
@@ -57,6 +63,7 @@ public class L2WeaponryClient {
 		}
 	}
 
+	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public static void onResourceReload(RegisterClientReloadListenersEvent event) {
 
