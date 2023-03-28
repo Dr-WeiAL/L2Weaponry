@@ -69,7 +69,7 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 		}
 	}
 
-	protected abstract BaseThrownWeaponEntity<?> getProjectile(Level level, Player player, ItemStack stack);
+	public abstract BaseThrownWeaponEntity<?> getProjectile(Level level, LivingEntity player, ItemStack stack);
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {

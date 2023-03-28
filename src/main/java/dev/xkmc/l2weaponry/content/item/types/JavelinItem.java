@@ -8,6 +8,7 @@ import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
@@ -43,7 +44,7 @@ public class JavelinItem extends BaseThrowableWeaponItem {
 	}
 
 	@Override
-	protected JavelinEntity getProjectile(Level level, Player player, ItemStack stack) {
+	public JavelinEntity getProjectile(Level level, LivingEntity player, ItemStack stack) {
 		return new JavelinEntity(level, player, stack);
 	}
 

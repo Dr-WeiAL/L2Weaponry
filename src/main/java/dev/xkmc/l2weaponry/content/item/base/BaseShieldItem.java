@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import dev.xkmc.l2library.util.math.MathHelper;
+import dev.xkmc.l2weaponry.content.capability.IShieldData;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.init.L2WeaponryClient;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
@@ -90,10 +91,13 @@ public class BaseShieldItem extends ShieldItem {
 	}
 
 	public int damageShield(Player player, ItemStack stack, double v) {
+		return damageShieldImpl(player, LWPlayerData.HOLDER.get(player), stack, v);
+	}
+
+	public int damageShieldImpl(LivingEntity player, IShieldData cap, ItemStack stack, double v) {
 		var c = stack.getOrCreateTag();
 		int damage = c.getInt(KEY_LAST_DAMAGE);
 		c.putInt(KEY_LAST_DAMAGE, 0);
-		var cap = LWPlayerData.HOLDER.get(player);
 		double defense = cap.getShieldDefense();
 		defense += v < 0 ? damage / getMaxDefense(player) : lightWeight(stack) ? v : damage * v / getMaxDefense(player);
 		if (defense >= 1) {

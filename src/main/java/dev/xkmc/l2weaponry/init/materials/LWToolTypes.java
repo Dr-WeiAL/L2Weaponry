@@ -16,7 +16,7 @@ public enum LWToolTypes implements ITool {
 	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4, null),
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, null),
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, "battle_axe"),
-	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1.2f, "long_weapon"),
+	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1f, "long_weapon"),
 	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.4f, 0.7f, null),
 
 	ROUND_SHIELD(TagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 1f / 2, null),

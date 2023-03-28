@@ -83,8 +83,6 @@ public enum LangData {
 
 		pvd.add("itemGroup.l2weaponry.generated", "L2Weaponry Items");
 		pvd.add("attribute.name.shield_defense", "Shield Defense");
-		pvd.add("entity.l2weaponry.throwing_axe", "Throwing Axe");
-		pvd.add("entity.l2weaponry.javelin", "Javelin");
 
 	}
 

@@ -14,7 +14,7 @@ import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.CapabilityToken;
 
 @SerialClass
-public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> {
+public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> implements IShieldData {
 
 	public static final Capability<LWPlayerData> CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {
 	});

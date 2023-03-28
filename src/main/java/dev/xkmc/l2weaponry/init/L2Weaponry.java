@@ -4,6 +4,7 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.base.tabs.contents.AttributeEntry;
 import dev.xkmc.l2library.init.events.attack.AttackEventHandler;
 import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
+import dev.xkmc.l2weaponry.content.capability.GolemCompat;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
 import dev.xkmc.l2weaponry.events.LegendaryWeaponEvents;
@@ -41,6 +42,7 @@ public class L2Weaponry {
 		LWItems.register();
 		LWEntities.register();
 		NetworkManager.register();
+		GolemCompat.register();
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::addTranslations);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipe);
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
