@@ -4,6 +4,9 @@
 	32,
 	32
   ],
+  "textures": {
+	"particles": "#0"
+  },
   "elements": [
 	{
 	  "from": [7, 6, 7],

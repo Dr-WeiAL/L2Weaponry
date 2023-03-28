@@ -32,7 +32,7 @@ public class EnderSpear extends SpearItem implements LegendaryWeapon, IGlowingTa
 		ItemStack stack = player.getItemInHand(hand);
 		var target = RayTraceUtil.serverGetTarget(player);
 		if (target != null && (level.isClientSide() || TeleportUtil.teleport(player, target, false))) {
-			player.getCooldowns().addCooldown(this, 60);
+			if (!level.isClientSide()) player.getCooldowns().addCooldown(this, 60);
 			return InteractionResultHolder.success(stack);
 		}
 		return InteractionResultHolder.fail(stack);
@@ -40,6 +40,8 @@ public class EnderSpear extends SpearItem implements LegendaryWeapon, IGlowingTa
 
 	@Override
 	public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
+		if (player.getCooldowns().getCooldownPercent(this, 0) > 0)
+			return InteractionResult.PASS;
 		if (player.level.isClientSide) return InteractionResult.SUCCESS;
 		if (TeleportUtil.teleport(player, target, false)) {
 			player.getCooldowns().addCooldown(this, 60);

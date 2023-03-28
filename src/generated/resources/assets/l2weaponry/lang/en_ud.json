@@ -141,5 +141,11 @@
   "l2weaponry.tool.plate_shield": "˙spןǝıɥs ɹɐןnbǝɹ ʞɐǝɹq pןnoʍ ʇɐɥʇ sʞɔɐʇʇɐ ʇsuıɐbɐ ʇuɐʇsısǝᴚ",
   "l2weaponry.tool.round_shield": "˙buıʞɔoןq ǝןıɥʍ ʇsɐɟ ǝʌoW",
   "l2weaponry.tool.spear": "˙ǝbuɐɹ ʞɔɐʇʇɐ buoן 'ʞɔɐʇʇɐ buıdǝǝʍS",
-  "l2weaponry.tool.throwing_axe": "˙ʇǝbɹɐʇ pɹɐʍoʇ ǝxɐ sıɥʇ ʍoɹɥʇ uɐɔ noʎ"
+  "l2weaponry.tool.throwing_axe": "˙ʇǝbɹɐʇ pɹɐʍoʇ ǝxɐ sıɥʇ ʍoɹɥʇ uɐɔ noʎ",
+  "subtitles.item.trident.hit": "sqɐʇs uodɐǝʍ uʍoɹɥ⟘",
+  "subtitles.item.trident.hit_ground": "sǝʇɐɹqıʌ uodɐǝʍ uʍoɹɥ⟘",
+  "subtitles.item.trident.return": "suɹnʇǝɹ uodɐǝʍ uʍoɹɥ⟘",
+  "subtitles.item.trident.riptide": "sɯooz uodɐǝʍ uʍoɹɥ⟘",
+  "subtitles.item.trident.throw": "sbuɐןɔ uodɐǝʍ uʍoɹɥ⟘",
+  "subtitles.item.trident.thunder": "sʞɔɐɹɔ ɹǝpunɥʇ uodɐǝʍ uʍoɹɥ⟘"
 }

@@ -2,15 +2,19 @@ package dev.xkmc.l2weaponry.content.capability;
 
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericShieldItem;
+import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.modulargolems.events.event.GolemDisableShieldEvent;
 import dev.xkmc.modulargolems.events.event.GolemEquipEvent;
 import dev.xkmc.modulargolems.events.event.GolemThrowableEvent;
+import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 
@@ -18,14 +22,19 @@ import net.minecraftforge.fml.ModList;
 
 public class GolemCompat {
 
-	public static void register() {
+	public static void register(IEventBus bus) {
 		if (ModList.get().isLoaded("modulargolems")) {
-			registerImpl();
+			registerImpl(bus);
 		}
 	}
 
-	private static void registerImpl() {
+	private static void registerImpl(IEventBus bus) {
 		MinecraftForge.EVENT_BUS.register(GolemCompat.class);
+		bus.addListener(GolemCompat::onGolemSpawn);
+	}
+
+	public static void onGolemSpawn(EntityAttributeModificationEvent event) {
+		event.add(GolemTypes.ENTITY_HUMANOID.get(), LWItems.SHIELD_DEFENSE.get());
 	}
 
 	@SubscribeEvent

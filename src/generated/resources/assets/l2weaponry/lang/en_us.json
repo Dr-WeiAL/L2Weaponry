@@ -141,5 +141,11 @@
   "l2weaponry.tool.plate_shield": "Resistant against attacks that would break regular shields.",
   "l2weaponry.tool.round_shield": "Move fast while blocking.",
   "l2weaponry.tool.spear": "Sweeping attack, long attack range.",
-  "l2weaponry.tool.throwing_axe": "You can throw this axe toward target."
+  "l2weaponry.tool.throwing_axe": "You can throw this axe toward target.",
+  "subtitles.item.trident.hit": "Thrown weapon stabs",
+  "subtitles.item.trident.hit_ground": "Thrown weapon vibrates",
+  "subtitles.item.trident.return": "Thrown weapon returns",
+  "subtitles.item.trident.riptide": "Thrown weapon zooms",
+  "subtitles.item.trident.throw": "Thrown weapon clangs",
+  "subtitles.item.trident.thunder": "Thrown weapon thunder cracks"
 }

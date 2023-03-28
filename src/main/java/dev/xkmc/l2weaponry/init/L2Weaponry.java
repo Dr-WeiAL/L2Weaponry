@@ -42,7 +42,7 @@ public class L2Weaponry {
 		LWItems.register();
 		LWEntities.register();
 		NetworkManager.register();
-		GolemCompat.register();
+		GolemCompat.register(bus);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::addTranslations);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipe);
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);

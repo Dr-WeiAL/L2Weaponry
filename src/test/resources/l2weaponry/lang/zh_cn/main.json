@@ -42,5 +42,13 @@
   },
   "attribute.name.shield_defense": "盾值",
   "entity.l2weaponry.javelin": "标枪",
-  "entity.l2weaponry.throwing_axe": "短柄斧"
+  "entity.l2weaponry.throwing_axe": "短柄斧",
+  "subtitles.item.trident": {
+	"hit": "投掷武器：突刺",
+	"hit_ground": "投掷武器：振动",
+	"return": "投掷武器：收回",
+	"riptide": "投掷武器：突进",
+	"throw": "投掷武器：铿锵",
+	"thunder": "投掷武器：电闪雷鸣"
+  }
 }

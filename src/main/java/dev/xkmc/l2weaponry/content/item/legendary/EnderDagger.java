@@ -46,6 +46,8 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 
 	@Override
 	public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
+		if (player.getCooldowns().getCooldownPercent(this, 0) > 0)
+			return InteractionResult.PASS;
 		if (player.level.isClientSide) return InteractionResult.SUCCESS;
 		if (TeleportUtil.teleport(player, target, true)) {
 			if (target instanceof Mob mob && mob.getTarget() == player) {

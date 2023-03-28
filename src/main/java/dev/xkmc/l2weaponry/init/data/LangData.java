@@ -84,6 +84,13 @@ public enum LangData {
 		pvd.add("itemGroup.l2weaponry.generated", "L2Weaponry Items");
 		pvd.add("attribute.name.shield_defense", "Shield Defense");
 
+		pvd.add("subtitles.item.trident.hit", "Thrown weapon stabs");
+		pvd.add("subtitles.item.trident.hit_ground", "Thrown weapon vibrates");
+		pvd.add("subtitles.item.trident.return", "Thrown weapon returns");
+		pvd.add("subtitles.item.trident.riptide", "Thrown weapon zooms");
+		pvd.add("subtitles.item.trident.throw", "Thrown weapon clangs");
+		pvd.add("subtitles.item.trident.thunder", "Thrown weapon thunder cracks");
+
 	}
 
 	public static String asId(String name) {
