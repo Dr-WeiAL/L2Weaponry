@@ -14,10 +14,10 @@ public class LWGenItem {
 	@SuppressWarnings({"unchecked", "unsafe", "rawtypes"})
 	public static ItemEntry<Item>[][] generate() {
 		ItemEntry[][] ans = new ItemEntry[LWToolMats.values().length][LWToolTypes.values().length];
-		for (int i = 0; i < LWToolMats.values().length; i++) {
-			LWToolMats mat = LWToolMats.values()[i];
-			String mat_name = mat.name().toLowerCase(Locale.ROOT);
-			for (int j = 0; j < LWToolTypes.values().length; j++) {
+		for (int j = 0; j < LWToolTypes.values().length; j++) {
+			for (int i = 0; i < LWToolMats.values().length; i++) {
+				LWToolMats mat = LWToolMats.values()[i];
+				String mat_name = mat.name().toLowerCase(Locale.ROOT);
 				LWToolTypes type = LWToolTypes.values()[j];
 				String tool_name = type.name().toLowerCase(Locale.ROOT);
 				ans[i][j] = L2Weaponry.REGISTRATE.item(mat_name + "_" + tool_name,

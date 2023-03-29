@@ -14,16 +14,14 @@ import javax.annotation.Nullable;
 public enum LWToolTypes implements ITool {
 	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 2, "claw_base"),
 	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4, null),
+	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.4f, 0.7f, null),
+	THROWING_AXE(TagGen.THROWIG_AXE, ThrowingAxeItem::new, 1.4f, 1f, null),
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, null),
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, "battle_axe"),
 	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1f, "long_weapon"),
-	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.4f, 0.7f, null),
-
+	JAVELIN(TagGen.JAVELIN, JavelinItem::new, 1f, 1.2f, "long_weapon"),
 	ROUND_SHIELD(TagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 1f / 2, null),
-	PLATE_SHIELD(TagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 1f / 8, null),
-
-	THROWING_AXE(TagGen.THROWIG_AXE, ThrowingAxeItem::new, 1.4f, 1f, null),
-	JAVELIN(TagGen.JAVELIN, JavelinItem::new, 1f, 1.2f, "long_weapon");
+	PLATE_SHIELD(TagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 1f / 8, null);
 
 	public final TagKey<Item> tag;
 	private final RawToolFactory fac;

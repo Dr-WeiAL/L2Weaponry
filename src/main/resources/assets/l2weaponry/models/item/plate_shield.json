@@ -5,7 +5,7 @@
 	64
   ],
   "textures": {
-	"particles": "#0"
+	"particle": "#0"
   },
   "elements": [
 	{
