@@ -34,3 +34,9 @@ description='''
     versionRange="[1.0.6,)"
     ordering="AFTER"
     side="BOTH"
+[[dependencies.l2weaponry]]
+    modId="modulargolems"
+    mandatory=false
+    versionRange="[1.7.3,)"
+    ordering="AFTER"
+    side="BOTH"
