@@ -2,7 +2,6 @@ package dev.xkmc.l2weaponry.events;
 
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -33,7 +32,7 @@ public class LegendaryWeaponEvents {
 	public static void onDeath(LivingDeathEvent event) {
 		if (event.getSource().getDirectEntity() instanceof LivingEntity le) {
 			ItemStack stack = le.getMainHandItem();
-			if (stack.getItem() instanceof LegendaryWeapon weapon){
+			if (stack.getItem() instanceof LegendaryWeapon weapon) {
 				weapon.onKill(stack, event.getEntity(), le);
 			}
 		}

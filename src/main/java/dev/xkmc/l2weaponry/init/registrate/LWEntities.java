@@ -1,6 +1,5 @@
 package dev.xkmc.l2weaponry.init.registrate;
 
-import dev.xkmc.l2complements.init.L2Complements;
 import dev.xkmc.l2library.repack.registrate.util.entry.EntityEntry;
 import dev.xkmc.l2weaponry.content.client.ThrownWeaponRenderer;
 import dev.xkmc.l2weaponry.content.entity.JavelinEntity;

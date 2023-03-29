@@ -1,5 +1,6 @@
-package dev.xkmc.l2weaponry.content.capability;
+package dev.xkmc.l2weaponry.compat;
 
+import dev.xkmc.l2weaponry.content.capability.IShieldData;
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericShieldItem;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
@@ -18,7 +19,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 
-;
 
 public class GolemCompat {
 

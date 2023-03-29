@@ -4,7 +4,7 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.base.tabs.contents.AttributeEntry;
 import dev.xkmc.l2library.init.events.attack.AttackEventHandler;
 import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
-import dev.xkmc.l2weaponry.content.capability.GolemCompat;
+import dev.xkmc.l2weaponry.compat.GolemCompat;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
 import dev.xkmc.l2weaponry.events.LegendaryWeaponEvents;

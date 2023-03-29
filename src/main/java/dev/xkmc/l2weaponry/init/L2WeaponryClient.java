@@ -45,7 +45,8 @@ public class L2WeaponryClient {
 					entity != null && entity.isBlocking() && entity.getUseItem() == stack ? 1.0F : 0.0F;
 			for (Item i : BLOCK_DECO) {
 				ItemProperties.register(i, new ResourceLocation(L2Weaponry.MODID, "blocking"), func);
-			}func = (stack, level, entity, layer) ->
+			}
+			func = (stack, level, entity, layer) ->
 					entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
 			for (Item i : THROW_DECO) {
 				ItemProperties.register(i, new ResourceLocation(L2Weaponry.MODID, "throwing"), func);

@@ -6,7 +6,6 @@ import dev.xkmc.l2weaponry.content.item.types.MacheteItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;

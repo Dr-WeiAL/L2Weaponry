@@ -51,7 +51,8 @@ public enum LWToolTypes implements ITool {
 		return fac.get(tier, i, v, properties, extraToolConfig);
 	}
 
-	public @Nullable String customModel() {
+	public @Nullable
+	String customModel() {
 		return customModel;
 	}
 

@@ -39,7 +39,7 @@ public class CheaterClaw extends ClawItem implements LegendaryWeapon {
 		if (event.getWeapon().getOrCreateTag().hasUUID(KEY_TARGET) &&
 				event.getAttackTarget().getUUID().equals(
 						event.getWeapon().getOrCreateTag().getUUID(KEY_TARGET))) {
-			event.setDamageModified(event.getDamageModified()+event.getWeapon().getOrCreateTag().getFloat(KEY_DAMAGE));
+			event.setDamageModified(event.getDamageModified() + event.getWeapon().getOrCreateTag().getFloat(KEY_DAMAGE));
 		}
 	}
 }

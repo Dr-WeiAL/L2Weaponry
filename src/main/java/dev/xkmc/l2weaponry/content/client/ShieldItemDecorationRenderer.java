@@ -1,12 +1,11 @@
 package dev.xkmc.l2weaponry.content.client;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.*;
+import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.Tesselator;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 

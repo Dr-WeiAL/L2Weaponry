@@ -29,15 +29,15 @@ public interface LegendaryWeapon {
 
 	}
 
-	default void onDamageFinal(AttackCache cache, LivingEntity le){
+	default void onDamageFinal(AttackCache cache, LivingEntity le) {
 
 	}
 
-	default void onKill(ItemStack stack, LivingEntity target, LivingEntity user){
+	default void onKill(ItemStack stack, LivingEntity target, LivingEntity user) {
 
 	}
 
-	default void onHurtMaximized(AttackCache cache, LivingEntity le){
+	default void onHurtMaximized(AttackCache cache, LivingEntity le) {
 
 	}
 }

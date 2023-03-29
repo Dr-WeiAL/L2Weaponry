@@ -38,7 +38,7 @@ public class LWItems {
 		}
 	}
 
-	public static final Tab TAB_GENERATED = new Tab("generated", () -> LWItems.GEN_ITEM[LWToolMats.DIAMOND.ordinal()][LWToolTypes.CLAW.ordinal()]);
+	public static final Tab TAB_GENERATED = new Tab("generated", () -> LWItems.GEN_ITEM[LWToolMats.SCULKIUM.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()]);
 
 	static {
 		L2Weaponry.REGISTRATE.creativeModeTab(() -> TAB_GENERATED);
