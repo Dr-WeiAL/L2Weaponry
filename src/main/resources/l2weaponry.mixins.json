@@ -9,6 +9,7 @@
 	"PlayerMixin"
   ],
   "client": [
+	"ClientLocalPlayerMixin"
   ],
   "injectors": {
 	"defaultRequire": 1

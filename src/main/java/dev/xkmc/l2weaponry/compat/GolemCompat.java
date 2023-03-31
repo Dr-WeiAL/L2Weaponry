@@ -23,12 +23,6 @@ import net.minecraftforge.fml.ModList;
 public class GolemCompat {
 
 	public static void register(IEventBus bus) {
-		if (ModList.get().isLoaded("modulargolems")) {
-			registerImpl(bus);
-		}
-	}
-
-	private static void registerImpl(IEventBus bus) {
 		MinecraftForge.EVENT_BUS.register(GolemCompat.class);
 		bus.addListener(GolemCompat::onGolemSpawn);
 	}
