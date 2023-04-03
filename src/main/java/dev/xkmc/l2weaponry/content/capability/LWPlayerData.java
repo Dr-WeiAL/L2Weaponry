@@ -1,4 +1,4 @@
-package dev.xkmc.l2weaponry.init.materials.capability;
+package dev.xkmc.l2weaponry.content.capability;
 
 import dev.xkmc.l2library.capability.player.PlayerCapabilityHolder;
 import dev.xkmc.l2library.capability.player.PlayerCapabilityNetworkHandler;
@@ -71,6 +71,9 @@ public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> impleme
 		}
 		if (reflectTimer > 0) {
 			reflectTimer--;
+			if (reflectTimer == 0) {
+				shieldRetain = 0;
+			}
 		}
 	}
 
@@ -95,6 +98,7 @@ public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> impleme
 	public double popRetain() {
 		double ans = shieldRetain;
 		shieldRetain = 0;
+		reflectTimer = 0;
 		return ans;
 	}
 

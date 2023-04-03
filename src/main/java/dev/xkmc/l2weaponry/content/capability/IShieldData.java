@@ -1,4 +1,4 @@
-package dev.xkmc.l2weaponry.init.materials.capability;
+package dev.xkmc.l2weaponry.content.capability;
 
 public interface IShieldData {
 

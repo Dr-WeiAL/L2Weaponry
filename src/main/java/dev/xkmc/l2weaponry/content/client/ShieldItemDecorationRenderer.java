@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.Tesselator;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
-import dev.xkmc.l2weaponry.init.materials.capability.LWPlayerData;
+import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.gui.Font;
 import net.minecraft.world.item.ItemStack;

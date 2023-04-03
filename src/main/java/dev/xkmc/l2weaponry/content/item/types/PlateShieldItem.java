@@ -7,7 +7,6 @@ import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.item.base.DoubleHandItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericShieldItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
-import dev.xkmc.l2weaponry.init.materials.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;

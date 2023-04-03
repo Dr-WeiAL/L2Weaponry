@@ -3,9 +3,9 @@ package dev.xkmc.l2weaponry.content.item.base;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import dev.xkmc.l2library.util.math.MathHelper;
+import dev.xkmc.l2weaponry.content.capability.IShieldData;
+import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.init.L2WeaponryClient;
-import dev.xkmc.l2weaponry.init.materials.capability.IShieldData;
-import dev.xkmc.l2weaponry.init.materials.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -15,6 +15,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
@@ -133,15 +134,17 @@ public class BaseShieldItem extends ShieldItem {
 	}
 
 	public double reflect(ItemStack stack, Player player, LivingEntity target) {
-		return reflectImpl(stack, DamageSource.playerAttack(player), LWPlayerData.HOLDER.get(player), target);
+		return reflectImpl(stack, DamageSource.playerAttack(player),
+				player.getAttributeValue(Attributes.ATTACK_DAMAGE),
+				LWPlayerData.HOLDER.get(player), target);
 	}
 
-	public double reflectImpl(ItemStack stack, DamageSource source, IShieldData data, LivingEntity target) {
+	public double reflectImpl(ItemStack stack, DamageSource source, double additional, IShieldData data, LivingEntity target) {
 		if (!data.canReflect()) return 0.5;
 		if (data.getReflectTimer() > 0) {
 			var c = stack.getOrCreateTag();
-			int damage = c.getInt(KEY_LAST_DAMAGE);
-			target.hurt(source, damage);
+			double damage = c.getInt(KEY_LAST_DAMAGE) + additional;
+			target.hurt(source, (float) damage);
 			return 2;
 		}
 		return 0.5;

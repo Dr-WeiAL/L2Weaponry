@@ -17,7 +17,7 @@ public enum LangData {
 	TOOL_SPEAR("tool.spear", "Sweeping attack, long attack range.", 0),
 	TOOL_MACHETE("tool.machete", "Deal damage to all surrounding mobs. Increase damage for consecutive attack. Double weld for larger sweep range and higher damage stack limit.", 0),
 	TOOL_ROUND_SHIELD("tool.round_shield", "Move fast while blocking.", 0),
-	TOOL_PLATE_SHIELD("tool.plate_shield", "Resistant against attacks that would break regular shields.", 0),
+	TOOL_PLATE_SHIELD("tool.plate_shield", "Resistant against attacks that would break regular shields. Reflect damage with right timing.", 0),
 
 	TOOL_THROWING_AXE("tool.throwing_axe", "You can throw this axe toward target.", 0),
 	TOOL_JAVELIN("tool.javelin", "Pierce through multiple enemies when thrown", 0),
