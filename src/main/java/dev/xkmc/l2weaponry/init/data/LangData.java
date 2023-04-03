@@ -83,6 +83,7 @@ public enum LangData {
 
 		pvd.add("itemGroup.l2weaponry.generated", "L2Weaponry Items");
 		pvd.add("attribute.name.shield_defense", "Shield Defense");
+		pvd.add("attribute.name.reflect_time", "Reflect Time");
 
 		pvd.add("subtitles.item.trident.hit", "Thrown weapon stabs");
 		pvd.add("subtitles.item.trident.hit_ground", "Thrown weapon vibrates");

@@ -48,6 +48,10 @@ public class LWItems {
 			ForgeRegistries.ATTRIBUTES.getRegistryKey(), () -> new RangedAttribute(
 					"attribute.name.shield_defense", 0, 0, 1000).setSyncable(true));
 
+	public static final RegistryEntry<Attribute> REFLECT_TIME = L2Weaponry.REGISTRATE.simple("reflect_time",
+			ForgeRegistries.ATTRIBUTES.getRegistryKey(), () -> new RangedAttribute(
+					"attribute.name.reflect_time", 0, 0, 1000).setSyncable(true));
+
 	public static final ItemEntry<Item> HANDLE;
 
 	public static final ItemEntry<StormJavelin> STORM_JAVELIN;

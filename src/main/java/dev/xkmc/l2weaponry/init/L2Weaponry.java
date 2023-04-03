@@ -5,7 +5,7 @@ import dev.xkmc.l2library.base.tabs.contents.AttributeEntry;
 import dev.xkmc.l2library.init.events.attack.AttackEventHandler;
 import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
 import dev.xkmc.l2weaponry.compat.GolemCompat;
-import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
+import dev.xkmc.l2weaponry.init.materials.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
 import dev.xkmc.l2weaponry.events.LegendaryWeaponEvents;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
@@ -80,6 +80,7 @@ public class L2Weaponry {
 
 	private static void modifyAttributes(EntityAttributeModificationEvent event) {
 		event.add(EntityType.PLAYER, LWItems.SHIELD_DEFENSE.get());
+		event.add(EntityType.PLAYER, LWItems.REFLECT_TIME.get());
 	}
 
 	public static void gatherData(GatherDataEvent event) {

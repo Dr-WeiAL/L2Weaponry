@@ -1,6 +1,6 @@
-// 1.19.2	2023-03-28T11:03:38.558497	Registrate Provider for l2weaponry [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-3995350c7005053c7ffa2f909503464a0741ff65 assets/l2weaponry/lang/en_ud.json
-fe3ae4ae593780ba295c361248de9bc53eee4d78 assets/l2weaponry/lang/en_us.json
+// 1.19.2	2023-04-02T18:44:57.091693	Registrate Provider for l2weaponry [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+b84c85300811eb75f4bb1b8eb13d37a636f470ab assets/l2weaponry/lang/en_ud.json
+90e00a702576f604b77c020c83d29b62c414fb92 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
 22506e91ca3739268a06e9228746033ec8fc719d assets/l2weaponry/models/item/abyss_resonance.json
 d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_shock.json

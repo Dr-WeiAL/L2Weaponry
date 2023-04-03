@@ -1,9 +1,12 @@
 package dev.xkmc.l2weaponry.compat;
 
-import dev.xkmc.l2weaponry.content.capability.IShieldData;
+import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericShieldItem;
+import dev.xkmc.l2weaponry.init.materials.capability.IShieldData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
+import dev.xkmc.modulargolems.content.entity.humanoid.HumanoidGolemEntity;
+import dev.xkmc.modulargolems.events.event.GolemDamageShieldEvent;
 import dev.xkmc.modulargolems.events.event.GolemDisableShieldEvent;
 import dev.xkmc.modulargolems.events.event.GolemEquipEvent;
 import dev.xkmc.modulargolems.events.event.GolemThrowableEvent;
@@ -17,7 +20,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 
 
 public class GolemCompat {
@@ -29,7 +31,10 @@ public class GolemCompat {
 
 	public static void onGolemSpawn(EntityAttributeModificationEvent event) {
 		event.add(GolemTypes.ENTITY_HUMANOID.get(), LWItems.SHIELD_DEFENSE.get());
+		event.add(GolemTypes.ENTITY_HUMANOID.get(), LWItems.REFLECT_TIME.get());
 	}
+
+	// TODO hurt shield event
 
 	@SubscribeEvent
 	public static void onEquip(GolemEquipEvent event) {
@@ -56,10 +61,21 @@ public class GolemCompat {
 	public static void onBlock(GolemDisableShieldEvent event) {
 		ItemStack stack = event.getStack();
 		if (stack.getItem() instanceof GenericShieldItem item) {
-			if (!event.shouldDisable() && !item.lightWeight(stack)) return;
+			if (!event.shouldDisable() && !item.lightWeight(stack)) {
+				return;
+			}
 			GolemShieldGoal goal = getShieldGoal(event.getEntity());
-			item.damageShieldImpl(event.getEntity(), goal, stack, event.shouldDisable() ? 1 : -1);
-			event.setDisabled(false);
+			int cd = item.damageShieldImpl(event.getEntity(), goal, stack, event.shouldDisable() ? 1 : -1);
+			event.setDisabled(cd > 0);
+		}
+	}
+
+	@SubscribeEvent
+	public static void onDamageShield(GolemDamageShieldEvent event) {
+		ItemStack stack = event.getStack();
+		HumanoidGolemEntity golem = event.getEntity();
+		if (stack.getItem() instanceof BaseShieldItem shieldItem) {
+			stack.getOrCreateTag().putInt(BaseShieldItem.KEY_LAST_DAMAGE, (int) event.getDamage());
 		}
 	}
 
@@ -69,7 +85,7 @@ public class GolemCompat {
 		if (opt.isPresent()) {
 			return (GolemShieldGoal) opt.get().getGoal();
 		} else {
-			var ans = new GolemShieldGoal();
+			var ans = new GolemShieldGoal(mob);
 			mob.goalSelector.addGoal(0, ans);
 			return ans;
 		}
@@ -77,8 +93,13 @@ public class GolemCompat {
 
 	private static class GolemShieldGoal extends Goal implements IShieldData {
 
+		private final Mob mob;
 
 		private double shieldDefense;
+
+		private GolemShieldGoal(Mob mob) {
+			this.mob = mob;
+		}
 
 		@Override
 		public boolean canUse() {
@@ -103,6 +124,21 @@ public class GolemCompat {
 		@Override
 		public void setShieldDefense(double i) {
 			shieldDefense = i;
+		}
+
+		@Override
+		public boolean canReflect() {
+			return false;
+		}
+
+		@Override
+		public double popRetain() {
+			return 0;
+		}
+
+		@Override
+		public int getReflectTimer() {
+			return 0;
 		}
 
 	}

@@ -11,7 +11,10 @@ public class CommonDecoUtil {
 	/**
 	 * Draw with the WorldRenderer
 	 */
-	public static void fillRect(BufferBuilder buffer, int x, int y, int w, int h, int z, int r, int g, int b, int a) {
+	public static void fillRect(BufferBuilder buffer, double x, double y, double w, double h, double z, int color, int a) {
+		int r = (color >> 16) & 0xff;
+		int g = (color >> 8) & 0xff;
+		int b = color & 0xff;
 		RenderSystem.disableDepthTest();
 		RenderSystem.disableTexture();
 		RenderSystem.setShader(GameRenderer::getPositionColorShader);

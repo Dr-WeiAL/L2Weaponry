@@ -41,6 +41,7 @@
 	}
   },
   "attribute.name.shield_defense": "盾值",
+  "attribute.name.reflect_time": "盾反时间",
   "entity.l2weaponry.javelin": "标枪",
   "entity.l2weaponry.throwing_axe": "短柄斧",
   "subtitles.item.trident": {

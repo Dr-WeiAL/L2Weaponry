@@ -1,4 +1,4 @@
-package dev.xkmc.l2weaponry.content.capability;
+package dev.xkmc.l2weaponry.init.materials.capability;
 
 import dev.xkmc.l2library.capability.player.PlayerCapabilityHolder;
 import dev.xkmc.l2library.capability.player.PlayerCapabilityNetworkHandler;
@@ -6,6 +6,8 @@ import dev.xkmc.l2library.capability.player.PlayerCapabilityTemplate;
 import dev.xkmc.l2library.serial.SerialClass;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
+import dev.xkmc.l2weaponry.init.data.LWConfig;
+import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
@@ -29,6 +31,10 @@ public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> impleme
 
 	@SerialClass.SerialField
 	private double shieldDefense = 0;
+	@SerialClass.SerialField
+	private int reflectTimer = 0;
+
+	private double shieldRetain = 0;
 
 	public double getShieldDefense() {
 		return shieldDefense;
@@ -38,6 +44,11 @@ public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> impleme
 		this.shieldDefense = shieldDefense;
 		if (player instanceof ServerPlayer sp)
 			HOLDER.network.toClientSyncAll(sp);
+	}
+
+	@Override
+	public int getReflectTimer() {
+		return reflectTimer;
 	}
 
 	public double getRecoverRate() {
@@ -58,5 +69,33 @@ public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> impleme
 				shieldDefense = 0;
 			}
 		}
+		if (reflectTimer > 0) {
+			reflectTimer--;
+		}
 	}
+
+	public boolean canReflect() {
+		return !player.isShiftKeyDown() && player.isOnGround();
+	}
+
+	public void startReflectTimer() {
+		if (!canReflect() || shieldDefense > 0) {
+			return;
+		}
+		shieldDefense += LWConfig.COMMON.reflectCost.get();
+		shieldRetain = shieldDefense * player.getAttributeValue(LWItems.SHIELD_DEFENSE.get());
+		reflectTimer = (int) player.getAttributeValue(LWItems.REFLECT_TIME.get());
+	}
+
+	public void clearReflectTimer() {
+		reflectTimer = 0;
+		shieldRetain = 0;
+	}
+
+	public double popRetain() {
+		double ans = shieldRetain;
+		shieldRetain = 0;
+		return ans;
+	}
+
 }

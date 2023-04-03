@@ -16,7 +16,7 @@ public class BetterCombatDataGen implements DataProvider {
 	private final DataGenerator generator;
 	private final String folder_path;
 	private final String name;
-	private final Map<String, JsonElement> map = new HashMap();
+	private final Map<String, JsonElement> map = new HashMap<>();
 
 	public BetterCombatDataGen(DataGenerator generator) {
 		this.generator = generator;

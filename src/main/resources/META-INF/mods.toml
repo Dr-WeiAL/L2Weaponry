@@ -37,6 +37,6 @@ description='''
 [[dependencies.l2weaponry]]
     modId="modulargolems"
     mandatory=false
-    versionRange="[1.7.3,)"
+    versionRange="[1.7.5,)"
     ordering="AFTER"
     side="BOTH"
