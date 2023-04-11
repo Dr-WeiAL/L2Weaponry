@@ -10,6 +10,7 @@ import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -38,16 +39,6 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 		super.buildAttributes(builder);
 		//TODO config
 		builder.put(LWItems.REFLECT_TIME.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_ATTR), NAME_ATTR, 20, AttributeModifier.Operation.ADDITION));
-	}
-
-	@Override
-	public InteractionResult useOn(UseOnContext pContext) {
-		if (pContext.getPlayer() == null || disableOffHand(pContext.getPlayer(), pContext.getItemInHand())) {
-			pContext.getPlayer().startUsingItem(pContext.getHand());
-			startUse(pContext.getPlayer());
-			return InteractionResult.CONSUME;
-		}
-		return super.useOn(pContext);
 	}
 
 	@Override

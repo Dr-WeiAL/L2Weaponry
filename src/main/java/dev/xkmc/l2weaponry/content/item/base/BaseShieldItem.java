@@ -9,6 +9,7 @@ import dev.xkmc.l2weaponry.init.L2WeaponryClient;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -19,6 +20,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
 public class BaseShieldItem extends ShieldItem {
@@ -66,6 +68,21 @@ public class BaseShieldItem extends ShieldItem {
 		pPlayer.startUsingItem(pHand);
 		startUse(pPlayer);
 		return InteractionResultHolder.consume(itemstack);
+	}
+
+	@Override
+	public InteractionResult useOn(UseOnContext pContext) {
+		ItemStack stack = pContext.getItemInHand();
+		InteractionHand hand = pContext.getHand();
+		Player player = pContext.getPlayer();
+		if (!lightWeight(stack) && hand == InteractionHand.OFF_HAND)
+			return InteractionResult.PASS;
+		if (player != null) {
+			player.startUsingItem(hand);
+			startUse(player);
+			return InteractionResult.CONSUME;
+		}
+		return super.useOn(pContext);
 	}
 
 	protected void startUse(Player player) {

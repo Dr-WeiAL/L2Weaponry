@@ -24,11 +24,11 @@ public class DoubleWieldItem extends GenericWeaponItem {
 
 	@Override
 	public @NotNull AABB getSweepHitBox(@NotNull ItemStack stack, @NotNull Player player, @NotNull Entity target) {
+		double r = player.getAttributeValue(ForgeMod.ATTACK_RANGE.get());
 		if (player.getOffhandItem().getItem() == this) {
-			double r = player.getAttributeValue(ForgeMod.ATTACK_RANGE.get());
-			return player.getBoundingBox().inflate(r, r, r);
+			return player.getBoundingBox().inflate(r + 1, r + 0.25, r + 1);
 		} else {
-			return player.getBoundingBox().inflate(1, 0.25, 1);
+			return super.getSweepHitBox(stack, player, target);
 		}
 	}
 
