@@ -6,15 +6,12 @@
     },
     "I": {
       "item": "l2complements:poseidite_ingot"
-    },
-    "L": {
-      "item": "minecraft:leather"
     }
   },
   "pattern": [
-    "III",
-    "ILI",
-    "H H"
+    "  I",
+    " I ",
+    " H "
   ],
   "result": {
     "item": "l2weaponry:poseidite_machete"

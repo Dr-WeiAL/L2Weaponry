@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.content.item.legendary;
 
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
+import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.item.types.JavelinItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.core.BlockPos;
@@ -82,4 +83,10 @@ public class StormJavelin extends JavelinItem implements LegendaryWeapon {
 		list.add(LangData.STORM_JAVELIN.get());
 	}
 
+	@Override
+	public JavelinEntity getProjectile(Level level, LivingEntity player, ItemStack stack) {
+		JavelinEntity ans = super.getProjectile(level, player, stack);
+		ans.waterInertia = 0.99f;
+		return ans;
+	}
 }

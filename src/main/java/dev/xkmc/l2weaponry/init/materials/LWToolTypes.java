@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 public enum LWToolTypes implements ITool {
 	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 2, "claw_base"),
 	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4, null),
-	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.4f, 0.7f, null),
+	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.2f, 1f, null),
 	THROWING_AXE(TagGen.THROWIG_AXE, ThrowingAxeItem::new, 1.4f, 1f, null),
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, null),
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, "battle_axe"),

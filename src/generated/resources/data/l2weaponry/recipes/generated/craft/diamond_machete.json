@@ -6,15 +6,12 @@
     },
     "I": {
       "item": "minecraft:diamond"
-    },
-    "L": {
-      "item": "minecraft:leather"
     }
   },
   "pattern": [
-    "III",
-    "ILI",
-    "H H"
+    "  I",
+    " I ",
+    " H "
   ],
   "result": {
     "item": "l2weaponry:diamond_machete"

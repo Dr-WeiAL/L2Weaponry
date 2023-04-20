@@ -1,4 +1,4 @@
-// 1.19.2	2023-04-02T19:54:44.618282	Registrate Provider for l2weaponry [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.19.2	2023-04-13T10:12:48.903082	Registrate Provider for l2weaponry [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 85fc93101bc14a054a9948cfbad4270e0e0674cf assets/l2weaponry/lang/en_ud.json
 aaa20afc59d902b0c366eacf717074f5ca62ff5d assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
@@ -343,7 +343,7 @@ e77b14d107729a33f48cbcbcc463bd5bea8519cf data/l2weaponry/recipes/generated/craft
 8740ed9a429026d622b0f7bc80f354178b0342aa data/l2weaponry/recipes/generated/craft/diamond_dagger.json
 afb33079a63e7b3ef0398ca5d2c6ced77c670518 data/l2weaponry/recipes/generated/craft/diamond_hammer.json
 6f2f1561720a66804198d4b23b283b40be6cb964 data/l2weaponry/recipes/generated/craft/diamond_javelin.json
-d6240549cdc8eab561180ba46e65aaa235ec7667 data/l2weaponry/recipes/generated/craft/diamond_machete.json
+0bf637d3054f54bdb752100dd17c3aaeae3c9231 data/l2weaponry/recipes/generated/craft/diamond_machete.json
 e9a25561a690a2f7f624d8ae18c9a3d80b0d7954 data/l2weaponry/recipes/generated/craft/diamond_plate_shield.json
 6d2bf160bd7c18260044446aacf239a8c13a589a data/l2weaponry/recipes/generated/craft/diamond_round_shield.json
 62b63c0e0900f47d7c8fdbb7e595c3a49b3bb136 data/l2weaponry/recipes/generated/craft/diamond_spear.json
@@ -353,7 +353,7 @@ d62a142a0b5426aacba187549f5195a5d08518ac data/l2weaponry/recipes/generated/craft
 605c441c59d57d0f3ec0b2d077f3dc40bfbf8d7d data/l2weaponry/recipes/generated/craft/eternium_dagger.json
 ab726fff1393b9719eb0f3753235dcb446626d41 data/l2weaponry/recipes/generated/craft/eternium_hammer.json
 878cba34f9c9baadfef6ea233aa92f00225ccfa4 data/l2weaponry/recipes/generated/craft/eternium_javelin.json
-16ac5aa0a9e7d93120052883b31658ba9a9abc1b data/l2weaponry/recipes/generated/craft/eternium_machete.json
+5f89f831c583381467af12cc5b1fd7b4b7cd1ef6 data/l2weaponry/recipes/generated/craft/eternium_machete.json
 a2b35d011d5443c98d416cfa67b6a22c27f27ce6 data/l2weaponry/recipes/generated/craft/eternium_plate_shield.json
 c0858e6047d863fe6df7749b1f09841ecf9d8d1a data/l2weaponry/recipes/generated/craft/eternium_round_shield.json
 a7883e79b439a27b6d73fe7a4c059956d6861bb3 data/l2weaponry/recipes/generated/craft/eternium_spear.json
@@ -363,7 +363,7 @@ fd11f35949338db6c724499729eba57fce0dd3f0 data/l2weaponry/recipes/generated/craft
 fde7a90adbf155a7104ad1a7ea7c02bae7ca2f34 data/l2weaponry/recipes/generated/craft/gold_dagger.json
 4e5a63c20265b18f7d22a591c3fc0f58e4da4b0b data/l2weaponry/recipes/generated/craft/gold_hammer.json
 cb33ab1b700c49e7714481028386c5806d7eb26f data/l2weaponry/recipes/generated/craft/gold_javelin.json
-ddacd1eca595f44e224c7fe7b1d61d4b08f19c21 data/l2weaponry/recipes/generated/craft/gold_machete.json
+a659a2891d0ab9edf76bd385097232a81afe87f2 data/l2weaponry/recipes/generated/craft/gold_machete.json
 76068060ab360f794e9c5362cfafb7f4d970dd89 data/l2weaponry/recipes/generated/craft/gold_plate_shield.json
 049b4fc9932dfdd8a9bab1ad1bb78484d48d4520 data/l2weaponry/recipes/generated/craft/gold_round_shield.json
 5a72d4b23b9b52618c2fde86b30c02e8ffdae9ca data/l2weaponry/recipes/generated/craft/gold_spear.json
@@ -373,7 +373,7 @@ ae924c65506de7a21693d854288df109b6a087eb data/l2weaponry/recipes/generated/craft
 50f3858457cf34711bce4d448bc44041b2e4f33f data/l2weaponry/recipes/generated/craft/iron_dagger.json
 21c9d1ab9118ba9ee10c3418d4b2b47d6824f452 data/l2weaponry/recipes/generated/craft/iron_hammer.json
 0cf3855c463dc3afd4f2186b00e4dc20c81f0c94 data/l2weaponry/recipes/generated/craft/iron_javelin.json
-7e4b966a482518d6731ac4ee759b0f46b16e2f4e data/l2weaponry/recipes/generated/craft/iron_machete.json
+21c44b87860cbda257ca8bd45679461bacbce098 data/l2weaponry/recipes/generated/craft/iron_machete.json
 918b3bfccf656a5a0d67c9c5d86dfcd9382a9f46 data/l2weaponry/recipes/generated/craft/iron_plate_shield.json
 a66cb9db4beb89048db06ce7890cd6f5338a5cec data/l2weaponry/recipes/generated/craft/iron_round_shield.json
 99838fa34c44ea2e58b18fc80535f4902d72c8c7 data/l2weaponry/recipes/generated/craft/iron_spear.json
@@ -383,7 +383,7 @@ a66cb9db4beb89048db06ce7890cd6f5338a5cec data/l2weaponry/recipes/generated/craft
 b62e8ded7fc039948421881bef9c35950432918f data/l2weaponry/recipes/generated/craft/poseidite_dagger.json
 5a31814ba3ca848508f64a83992fa4d6fb356da4 data/l2weaponry/recipes/generated/craft/poseidite_hammer.json
 2847d745516f5df6f22bd916ffb4128f42392a10 data/l2weaponry/recipes/generated/craft/poseidite_javelin.json
-49562d9247ec1c965a3202b821a67094cc560b53 data/l2weaponry/recipes/generated/craft/poseidite_machete.json
+80001f9633bb77f196827dc53eba980dcf514491 data/l2weaponry/recipes/generated/craft/poseidite_machete.json
 01bca7f9df90da7227d37b6b8a5fb64410d8cb0a data/l2weaponry/recipes/generated/craft/poseidite_plate_shield.json
 4bab3a983743b97caff881e1e89652e1fcff3ef9 data/l2weaponry/recipes/generated/craft/poseidite_round_shield.json
 a5317129fbf15e2ae739ba60a7db407e1ed10b7d data/l2weaponry/recipes/generated/craft/poseidite_spear.json
@@ -393,7 +393,7 @@ b65e0031135009659b0320764f212d557620e310 data/l2weaponry/recipes/generated/craft
 908a93ea0cd4d1d0c1c06090b91029d32c56a768 data/l2weaponry/recipes/generated/craft/sculkium_dagger.json
 9b8e25a4a7cbd8c63448b89fc000c0336417ace3 data/l2weaponry/recipes/generated/craft/sculkium_hammer.json
 7f481b6febe8a3a5647bf5e8b5b6eaef9dbd8932 data/l2weaponry/recipes/generated/craft/sculkium_javelin.json
-0e51dd0be0e88258d11ada87f92329fee9582f61 data/l2weaponry/recipes/generated/craft/sculkium_machete.json
+b8e54b815587137382ae0c29cd6c5217009f3239 data/l2weaponry/recipes/generated/craft/sculkium_machete.json
 bc6d9702ecb1c89fef07068b34a904145110e9a4 data/l2weaponry/recipes/generated/craft/sculkium_plate_shield.json
 0750facc6e99c69b60800d8d072fba5d19f79a2d data/l2weaponry/recipes/generated/craft/sculkium_round_shield.json
 a43dbdd5c4927171238c985da0328ed06b58c388 data/l2weaponry/recipes/generated/craft/sculkium_spear.json
@@ -403,7 +403,7 @@ cf7c9deda2ca271f4df04222b43cf1a9601c3889 data/l2weaponry/recipes/generated/craft
 eb75210e2af3af9bf75f2b7713e1d3002768a7ec data/l2weaponry/recipes/generated/craft/shulkerate_dagger.json
 b874f7f75fece621930dbff15a26e2752e8e7b07 data/l2weaponry/recipes/generated/craft/shulkerate_hammer.json
 abce3dc741764157ed3165d68900137abda72417 data/l2weaponry/recipes/generated/craft/shulkerate_javelin.json
-ce6ad75362ff6512819412668bcc2b7cb3362010 data/l2weaponry/recipes/generated/craft/shulkerate_machete.json
+a9fd24ea5c0b27c5e81cf8eccc5066414ef53e08 data/l2weaponry/recipes/generated/craft/shulkerate_machete.json
 a77b58ca836639916267f0a6dff0031789916e2a data/l2weaponry/recipes/generated/craft/shulkerate_plate_shield.json
 a96f84e62e90874c87a65e2f66ca2490bfa47d5b data/l2weaponry/recipes/generated/craft/shulkerate_round_shield.json
 899d89fcd12d0a6f64abde9340d89719dbf77254 data/l2weaponry/recipes/generated/craft/shulkerate_spear.json
@@ -413,7 +413,7 @@ a96f84e62e90874c87a65e2f66ca2490bfa47d5b data/l2weaponry/recipes/generated/craft
 c887f86affb429bd262006be4f50895a0f1146b5 data/l2weaponry/recipes/generated/craft/totemic_gold_dagger.json
 67ff49c8808dc8182795b92f1a27fde0ca92d21e data/l2weaponry/recipes/generated/craft/totemic_gold_hammer.json
 bcc495d2acd10ac4f7919f08c6912022e00012ef data/l2weaponry/recipes/generated/craft/totemic_gold_javelin.json
-05efb76a6e30155f428fee93112b9e8c5f5d40ed data/l2weaponry/recipes/generated/craft/totemic_gold_machete.json
+763a1be1df92270e562f1d00aeedec26ee7d2bc0 data/l2weaponry/recipes/generated/craft/totemic_gold_machete.json
 248758834ac972e494264458859bd9094c026bd5 data/l2weaponry/recipes/generated/craft/totemic_gold_plate_shield.json
 94d4feaa81fcaec0bbb2f824d34035d3c2640d92 data/l2weaponry/recipes/generated/craft/totemic_gold_round_shield.json
 64589cd16c621197a661a2190023f334e4fe7d0c data/l2weaponry/recipes/generated/craft/totemic_gold_spear.json

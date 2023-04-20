@@ -6,15 +6,12 @@
     },
     "I": {
       "item": "minecraft:emerald"
-    },
-    "L": {
-      "item": "minecraft:leather"
     }
   },
   "pattern": [
-    "III",
-    "ILI",
-    "H H"
+    "  I",
+    " I ",
+    " H "
   ],
   "result": {
     "item": "l2weaponry:totemic_gold_machete"

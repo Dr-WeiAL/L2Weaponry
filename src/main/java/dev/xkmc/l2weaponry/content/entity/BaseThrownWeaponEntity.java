@@ -40,6 +40,8 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	public int remainingHit = 1;
 	public int clientSideReturnTridentTickCount;
 
+	public float waterInertia = 0.6f;
+
 	@Nullable
 	private Vec3 origin;
 
@@ -259,6 +261,10 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	@Override
 	public void readSpawnData(FriendlyByteBuf buffer) {
 		item = buffer.readItem();
+	}
+
+	protected float getWaterInertia() {
+		return waterInertia;
 	}
 
 }
