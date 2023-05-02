@@ -47,8 +47,8 @@ public class ThrowingAxeItem extends BaseThrowableWeaponItem {
 	}
 
 	@Override
-	public ThrowingAxeEntity getProjectile(Level level, LivingEntity player, ItemStack stack) {
-		return new ThrowingAxeEntity(level, player, stack);
+	public ThrowingAxeEntity getProjectile(Level level, LivingEntity player, ItemStack stack, int slot) {
+		return new ThrowingAxeEntity(level, player, stack, slot);
 	}
 
 }

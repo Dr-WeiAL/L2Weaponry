@@ -46,7 +46,7 @@ public class GolemCompat {
 		var golem = event.getEntity();
 		if (event.getStack().getItem() instanceof BaseThrowableWeaponItem item) {
 			event.setThrowable(level -> {
-				var ans = item.getProjectile(level, golem, event.getStack());
+				var ans = item.getProjectile(level, golem, event.getStack(), 0);
 				ans.setBaseDamage(golem.getAttributeValue(Attributes.ATTACK_DAMAGE));
 				return ans;
 			});

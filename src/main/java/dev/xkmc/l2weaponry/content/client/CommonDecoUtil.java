@@ -30,7 +30,7 @@ public class CommonDecoUtil {
 		PoseStack pose = new PoseStack();
 		pose.translate(0, 0, blitOffset + 202);
 		MultiBufferSource.BufferSource buffer = MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
-		font.drawInBatch(s, x, y, 0xff7f7f, true, pose.last().pose(), buffer,
+		font.drawInBatch(s, x, y, col, true, pose.last().pose(), buffer,
 				false, 0, 0xF000F0);
 		buffer.endBatch();
 	}

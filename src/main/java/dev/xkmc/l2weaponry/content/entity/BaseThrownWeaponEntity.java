@@ -12,6 +12,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -39,6 +40,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	private ItemStack item;
 	public int remainingHit = 1;
 	public int clientSideReturnTridentTickCount;
+	public int slot;
 
 	public float waterInertia = 0.6f;
 
@@ -50,9 +52,10 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 		item = new ItemStack(Items.TRIDENT);
 	}
 
-	public BaseThrownWeaponEntity(EntityType<T> type, Level pLevel, LivingEntity pShooter, ItemStack pStack) {
+	public BaseThrownWeaponEntity(EntityType<T> type, Level pLevel, LivingEntity pShooter, ItemStack pStack, int slot) {
 		super(type, pShooter, pLevel);
 		this.item = pStack.copy();
+		this.slot = slot;
 		this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(pStack));
 		this.entityData.set(ID_FOIL, pStack.hasFoil());
 	}
@@ -208,8 +211,28 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 		}
 	}
 
-	protected boolean tryPickup(Player pPlayer) {
-		return super.tryPickup(pPlayer) || this.isNoPhysics() && this.ownedBy(pPlayer) && pPlayer.getInventory().add(this.getPickupItem());
+	protected boolean tryPickup(Player player) {
+		if (pickup == Pickup.CREATIVE_ONLY) {
+			return player.getAbilities().instabuild;
+		}
+		if (pickup == Pickup.ALLOWED || isNoPhysics() && ownedBy(player)) {
+			return addToPlayer(player, getPickupItem());
+		}
+		return false;
+	}
+
+	protected boolean addToPlayer(Player player, ItemStack stack) {
+		if (slot == 40) {
+			if (player.getOffhandItem().isEmpty()) {
+				player.setItemInHand(InteractionHand.OFF_HAND, stack.copy());
+				stack.setCount(0);
+				return true;
+			}
+		} else if (player.getInventory().getItem(slot).isEmpty()) {
+			if (player.getInventory().add(slot, stack))
+				return true;
+		}
+		return player.getInventory().add(stack);
 	}
 
 	protected SoundEvent getDefaultHitGroundSoundEvent() {
@@ -228,6 +251,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 			this.item = ItemStack.of(pCompound.getCompound("Item"));
 		}
 		this.remainingHit = pCompound.getInt("RemainingHit");
+		this.slot = pCompound.getInt("playerSlot");
 		this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(this.item));
 	}
 
@@ -235,6 +259,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 		super.addAdditionalSaveData(pCompound);
 		pCompound.put("Item", this.item.save(new CompoundTag()));
 		pCompound.putInt("RemainingHit", this.remainingHit);
+		pCompound.putInt("playerSlot", slot);
 	}
 
 	public void tickDespawn() {

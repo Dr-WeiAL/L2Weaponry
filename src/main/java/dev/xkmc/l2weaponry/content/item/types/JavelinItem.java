@@ -43,8 +43,8 @@ public class JavelinItem extends BaseThrowableWeaponItem {
 	}
 
 	@Override
-	public JavelinEntity getProjectile(Level level, LivingEntity player, ItemStack stack) {
-		return new JavelinEntity(level, player, stack);
+	public JavelinEntity getProjectile(Level level, LivingEntity player, ItemStack stack, int slot) {
+		return new JavelinEntity(level, player, stack, slot);
 	}
 
 }

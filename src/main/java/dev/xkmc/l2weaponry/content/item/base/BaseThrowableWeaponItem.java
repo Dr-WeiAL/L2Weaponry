@@ -41,8 +41,9 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 			int time = this.getUseDuration(stack) - timeLeft;
 			if (time >= 10) {
 				if (!level.isClientSide) {
+					int slot = user.getUsedItemHand() == InteractionHand.OFF_HAND ? 40 : player.getInventory().selected;
 					stack.hurtAndBreak(1, player, pl -> pl.broadcastBreakEvent(user.getUsedItemHand()));
-					AbstractArrow proj = getProjectile(level, player, stack);
+					AbstractArrow proj = getProjectile(level, player, stack, slot);
 					proj.setBaseDamage(player.getAttributeValue(Attributes.ATTACK_DAMAGE));
 					proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
 					if (player.getAbilities().instabuild) {
@@ -69,7 +70,7 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 		}
 	}
 
-	public abstract BaseThrownWeaponEntity<?> getProjectile(Level level, LivingEntity player, ItemStack stack);
+	public abstract BaseThrownWeaponEntity<?> getProjectile(Level level, LivingEntity player, ItemStack stack, int slot);
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {

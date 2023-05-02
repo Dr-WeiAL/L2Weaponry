@@ -12,8 +12,8 @@ public class ThrowingAxeEntity extends BaseThrownWeaponEntity<ThrowingAxeEntity>
 		super(type, pLevel);
 	}
 
-	public ThrowingAxeEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-		super(LWEntities.ET_AXE.get(), pLevel, pShooter, pStack);
+	public ThrowingAxeEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack, int slot) {
+		super(LWEntities.ET_AXE.get(), pLevel, pShooter, pStack, slot);
 	}
 
 }

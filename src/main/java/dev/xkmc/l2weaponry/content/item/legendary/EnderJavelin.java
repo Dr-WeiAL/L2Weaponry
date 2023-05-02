@@ -28,8 +28,8 @@ public class EnderJavelin extends JavelinItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public JavelinEntity getProjectile(Level level, LivingEntity player, ItemStack stack) {
-		JavelinEntity entity = super.getProjectile(level, player, stack);
+	public JavelinEntity getProjectile(Level level, LivingEntity player, ItemStack stack, int slot) {
+		JavelinEntity entity = super.getProjectile(level, player, stack, slot);
 		entity.setNoGravity(true);
 		return entity;
 	}

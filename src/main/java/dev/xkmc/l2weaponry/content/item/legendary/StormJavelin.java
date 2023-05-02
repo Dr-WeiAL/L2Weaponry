@@ -84,8 +84,8 @@ public class StormJavelin extends JavelinItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public JavelinEntity getProjectile(Level level, LivingEntity player, ItemStack stack) {
-		JavelinEntity ans = super.getProjectile(level, player, stack);
+	public JavelinEntity getProjectile(Level level, LivingEntity player, ItemStack stack, int slot) {
+		JavelinEntity ans = super.getProjectile(level, player, stack, slot);
 		ans.waterInertia = 0.99f;
 		return ans;
 	}
