@@ -1,16 +1,18 @@
 package dev.xkmc.l2weaponry.content.item.types;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
-import dev.xkmc.l2library.init.events.attack.AttackCache;
+import dev.xkmc.l2library.init.events.attack.CreateSourceEvent;
+import dev.xkmc.l2library.init.events.damage.DefaultDamageState;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.base.SlowWieldItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -27,11 +29,8 @@ public class HammerItem extends SlowWieldItem {
 	}
 
 	@Override
-	public float getMultiplier(AttackCache cache) {
-		LivingHurtEvent event = cache.getLivingHurtEvent();
-		assert event != null;
-		event.getSource().bypassArmor();
-		return 1;
+	public void modifySource(LivingEntity attacker, CreateSourceEvent event, ItemStack item, @Nullable Entity target) {
+		event.enable(DefaultDamageState.BYPASS_ARMOR);
 	}
 
 	@Override

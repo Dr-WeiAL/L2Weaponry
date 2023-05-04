@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.raytrace.IGlowingTarget;
 import dev.xkmc.l2library.util.raytrace.RayTraceUtil;
 import dev.xkmc.l2weaponry.content.item.types.SpearItem;

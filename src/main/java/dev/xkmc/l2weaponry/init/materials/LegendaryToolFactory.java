@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.init.materials;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 

@@ -1,13 +1,14 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2complements.init.data.LCConfig;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
 import dev.xkmc.l2library.base.effects.EffectUtil;
 import dev.xkmc.l2library.init.events.attack.AttackCache;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.SpearItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -35,7 +36,7 @@ public class FrozenSpear extends SpearItem implements LegendaryWeapon {
 
 	@Override
 	public boolean isImmuneTo(DamageSource source) {
-		return source == DamageSource.FREEZE;
+		return source.is(DamageTypeTags.IS_FREEZING);
 	}
 
 	@Override

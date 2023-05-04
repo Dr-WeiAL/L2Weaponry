@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "I": {
       "item": "minecraft:copper_ingot"
@@ -16,5 +17,6 @@
   "result": {
     "count": 2,
     "item": "l2weaponry:reinforced_handle"
-  }
+  },
+  "show_notification": true
 }

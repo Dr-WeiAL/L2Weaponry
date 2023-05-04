@@ -1,7 +1,8 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2library.init.events.attack.AttackCache;
+import dev.xkmc.l2library.init.events.attack.DamageModifier;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.ClawItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
@@ -24,7 +25,7 @@ public class CheaterClaw extends ClawItem implements LegendaryWeapon {
 
 	@Override
 	public void onDamageFinal(AttackCache cache, LivingEntity le) {
-		float diff = cache.getDamageModified() - cache.getDamageDealt();
+		float diff = cache.getPreDamage() - cache.getDamageDealt();
 		cache.getWeapon().getOrCreateTag().putUUID(KEY_TARGET, cache.getAttackTarget().getUUID());
 		cache.getWeapon().getOrCreateTag().putFloat(KEY_DAMAGE, diff * 2);
 	}
@@ -39,7 +40,7 @@ public class CheaterClaw extends ClawItem implements LegendaryWeapon {
 		if (event.getWeapon().getOrCreateTag().hasUUID(KEY_TARGET) &&
 				event.getAttackTarget().getUUID().equals(
 						event.getWeapon().getOrCreateTag().getUUID(KEY_TARGET))) {
-			event.setDamageModified(event.getDamageModified() + event.getWeapon().getOrCreateTag().getFloat(KEY_DAMAGE));
+			event.addHurtModifier(DamageModifier.addPost(event.getWeapon().getOrCreateTag().getFloat(KEY_DAMAGE)));
 		}
 	}
 }

@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
 import com.google.common.collect.ImmutableMultimap;
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2library.util.math.MathHelper;
 import net.minecraft.client.Minecraft;

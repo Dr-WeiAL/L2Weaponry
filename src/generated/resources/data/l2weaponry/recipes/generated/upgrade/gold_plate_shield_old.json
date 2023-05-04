@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_block"
+  },
+  "base": {
+    "tag": "l2weaponry:plate_shield"
+  },
+  "result": {
+    "item": "l2weaponry:gold_plate_shield"
+  },
+  "template": {
+    "item": "minecraft:paper"
+  }
+}

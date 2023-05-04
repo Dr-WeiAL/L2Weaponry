@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "l2complements:poseidite_block"
+  },
+  "base": {
+    "tag": "l2weaponry:throwing_axe"
+  },
+  "result": {
+    "item": "l2weaponry:poseidite_throwing_axe"
+  },
+  "template": {
+    "item": "minecraft:paper"
+  }
+}

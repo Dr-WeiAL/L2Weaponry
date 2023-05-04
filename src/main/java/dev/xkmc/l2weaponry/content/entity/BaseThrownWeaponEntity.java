@@ -6,6 +6,7 @@ import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -43,6 +44,9 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	public int slot;
 
 	public float waterInertia = 0.6f;
+
+	@Nullable
+	public Entity targetCache;
 
 	@Nullable
 	private Vec3 origin;
@@ -164,7 +168,9 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 			damage += EnchantmentHelper.getDamageBonus(this.item, livingentity.getMobType());
 		}
 		Entity owner = this.getOwner();
-		DamageSource damagesource = DamageSource.trident(this, owner == null ? this : owner);
+		targetCache = entity;
+		DamageSource damagesource = level.damageSources().trident(this, owner == null ? this : owner);
+		targetCache = null;
 		if (this.remainingHit > 0) {
 			this.remainingHit--;
 			if (this.getPierceLevel() > 0) {
@@ -274,7 +280,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	}
 
 	@Override
-	public final Packet<?> getAddEntityPacket() {
+	public final Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 

@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.init.L2WeaponryClient;
 import net.minecraft.sounds.SoundEvents;

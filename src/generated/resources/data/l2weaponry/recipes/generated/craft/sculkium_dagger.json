@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "H": {
       "item": "minecraft:netherite_ingot"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "l2weaponry:sculkium_dagger"
-  }
+  },
+  "show_notification": true
 }

@@ -1,7 +1,8 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2library.init.events.attack.AttackCache;
+import dev.xkmc.l2library.init.events.attack.DamageModifier;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.HammerItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
@@ -22,7 +23,7 @@ public class HolyHammer extends HammerItem implements LegendaryWeapon {
 
 	@Override
 	public void onHurt(AttackCache event, LivingEntity le) {
-		event.setDamageModified(event.getDamageModified() + le.getAbsorptionAmount());
+		event.addHurtModifier(DamageModifier.addPost(le.getAbsorptionAmount()));
 	}
 
 	@Override

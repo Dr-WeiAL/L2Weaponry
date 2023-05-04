@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2library.base.effects.EffectUtil;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.item.types.JavelinItem;

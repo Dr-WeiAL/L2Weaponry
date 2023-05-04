@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:diamond_block"
+  },
+  "base": {
+    "tag": "l2weaponry:throwing_axe"
+  },
+  "result": {
+    "item": "l2weaponry:diamond_throwing_axe"
+  },
+  "template": {
+    "item": "minecraft:paper"
+  }
+}

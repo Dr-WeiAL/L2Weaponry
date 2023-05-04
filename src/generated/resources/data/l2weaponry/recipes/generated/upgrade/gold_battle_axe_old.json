@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_block"
+  },
+  "base": {
+    "tag": "l2weaponry:battle_axe"
+  },
+  "result": {
+    "item": "l2weaponry:gold_battle_axe"
+  },
+  "template": {
+    "item": "minecraft:paper"
+  }
+}

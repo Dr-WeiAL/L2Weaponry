@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.content.client;
 
 import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
@@ -8,10 +9,12 @@ import dev.xkmc.l2weaponry.init.data.LWConfig;
 import net.minecraft.client.gui.Font;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.client.IItemDecorator;
 
-public class ClawItemDecorationRenderer {
+public class ClawItemDecorationRenderer implements IItemDecorator {
 
-	public static boolean renderHitCount(Font font, ItemStack stack, int x, int y, float blitOffset) {
+	@Override
+	public boolean render(PoseStack poseStack, Font font, ItemStack stack, int x, int y) {
 		Tesselator t = Tesselator.getInstance();
 		BufferBuilder builder = t.getBuilder();
 		ItemStack main = Proxy.getClientPlayer().getMainHandItem();
@@ -33,7 +36,7 @@ public class ClawItemDecorationRenderer {
 		int hit = Math.min(max_hit, stored_hit);
 		String s = "" + hit;
 		int col = hit < max_hit ? 0xff7fff : 0xff7f7f;
-		CommonDecoUtil.drawText(x + 17 - font.width(s), y + 9, font, col, s, blitOffset);
+		CommonDecoUtil.drawText(poseStack,x + 17 - font.width(s), y + 9, font, col, s);
 		return true;
 	}
 

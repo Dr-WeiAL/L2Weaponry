@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "H": {
       "item": "l2weaponry:reinforced_handle"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "l2weaponry:gold_claw"
-  }
+  },
+  "show_notification": true
 }

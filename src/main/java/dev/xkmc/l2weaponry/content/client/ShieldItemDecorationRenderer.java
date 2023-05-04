@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.content.client;
 
 import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
@@ -8,13 +9,15 @@ import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.gui.Font;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.client.IItemDecorator;
 
-public class ShieldItemDecorationRenderer {
+public class ShieldItemDecorationRenderer implements IItemDecorator {
 
 	private static final int COLOR_REFLECT = 0x00ffff;
 	private static final int COLOR_USING = 0xff7f7f;
 
-	public static boolean renderShieldBar(Font font, ItemStack stack, int x, int y, float blitOffset) {
+	@Override
+	public boolean render(PoseStack poseStack, Font font, ItemStack stack, int x, int y) {
 		Tesselator t = Tesselator.getInstance();
 		BufferBuilder builder = t.getBuilder();
 		ItemStack main = Proxy.getClientPlayer().getMainHandItem();
@@ -38,5 +41,4 @@ public class ShieldItemDecorationRenderer {
 		}
 		return true;
 	}
-
 }

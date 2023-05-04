@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "H": {
       "item": "minecraft:iron_ingot"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "l2weaponry:shulkerate_round_shield"
-  }
+  },
+  "show_notification": true
 }

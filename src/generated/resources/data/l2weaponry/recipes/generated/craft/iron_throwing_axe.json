@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "H": {
       "item": "l2weaponry:reinforced_handle"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "l2weaponry:iron_throwing_axe"
-  }
+  },
+  "show_notification": true
 }

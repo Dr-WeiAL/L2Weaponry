@@ -16,7 +16,6 @@ public class CommonDecoUtil {
 		int g = (color >> 8) & 0xff;
 		int b = color & 0xff;
 		RenderSystem.disableDepthTest();
-		RenderSystem.disableTexture();
 		RenderSystem.setShader(GameRenderer::getPositionColorShader);
 		buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
 		buffer.vertex(x, y, z).color(r, g, b, a).endVertex();
@@ -26,12 +25,10 @@ public class CommonDecoUtil {
 		BufferUploader.drawWithShader(buffer.end());
 	}
 
-	public static void drawText(int x, int y, Font font, int col, String s, float blitOffset) {
-		PoseStack pose = new PoseStack();
-		pose.translate(0, 0, blitOffset + 202);
+	public static void drawText(PoseStack poseStack, int x, int y, Font font, int col, String s) {
 		MultiBufferSource.BufferSource buffer = MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
-		font.drawInBatch(s, x, y, col, true, pose.last().pose(), buffer,
-				false, 0, 0xF000F0);
+		font.drawInBatch(s, x, y, col, true, poseStack.last().pose(), buffer,
+				Font.DisplayMode.NORMAL, 0, 0xF000F0);
 		buffer.endBatch();
 	}
 

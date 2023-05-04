@@ -2,9 +2,10 @@ package dev.xkmc.l2weaponry.content.item.base;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
-import dev.xkmc.l2complements.content.item.generic.GenericTieredItem;
 import dev.xkmc.l2library.init.events.attack.AttackCache;
+import dev.xkmc.l2library.init.events.attack.CreateSourceEvent;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.materials.generic.GenericTieredItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
@@ -102,6 +103,10 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 
 	public float getMultiplier(AttackCache event) {
 		return 1;
+	}
+
+	public void modifySource(LivingEntity attacker, CreateSourceEvent event, ItemStack item, @Nullable Entity target) {
+
 	}
 
 	protected boolean isSharp() {

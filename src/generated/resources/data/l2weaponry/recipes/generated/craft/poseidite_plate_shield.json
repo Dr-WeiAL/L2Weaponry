@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "H": {
       "item": "minecraft:prismarine_shard"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "l2weaponry:poseidite_plate_shield"
-  }
+  },
+  "show_notification": true
 }

@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.init.data;
 
-import dev.xkmc.l2library.repack.registrate.providers.RegistrateLangProvider;
+import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;

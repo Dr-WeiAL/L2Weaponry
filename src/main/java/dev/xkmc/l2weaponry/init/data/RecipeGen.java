@@ -1,29 +1,27 @@
 package dev.xkmc.l2weaponry.init.data;
 
+import com.tterrag.registrate.providers.RegistrateRecipeProvider;
+import com.tterrag.registrate.util.DataIngredient;
 import dev.xkmc.l2complements.init.registrate.LCItems;
 import dev.xkmc.l2library.base.ingredients.EnchantmentIngredient;
-import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
-import dev.xkmc.l2library.repack.registrate.util.DataIngredient;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.data.recipes.UpgradeRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.BiFunction;
 
+@SuppressWarnings("removal")
 public class RecipeGen {
 
 	private static String currentFolder = "";
@@ -31,7 +29,7 @@ public class RecipeGen {
 	public static void genRecipe(RegistrateRecipeProvider pvd) {
 		currentFolder = "misc/";
 		{
-			unlock(pvd, new ShapedRecipeBuilder(LWItems.HANDLE.get(), 2)::unlockedBy, Items.STICK)
+			unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.MISC, LWItems.HANDLE.get(), 2)::unlockedBy, Items.STICK)
 					.pattern(" SI").pattern("SIS").pattern("IS ")
 					.define('S', Items.STICK)
 					.define('I', Items.COPPER_INGOT)
@@ -49,7 +47,7 @@ public class RecipeGen {
 		}
 		currentFolder = "legendary/";
 		{
-			unlock(pvd, new ShapedRecipeBuilder(LWItems.STORM_JAVELIN.get(), 1)::unlockedBy, LCItems.GUARDIAN_EYE.get())
+			unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, LWItems.STORM_JAVELIN.get(), 1)::unlockedBy, LCItems.GUARDIAN_EYE.get())
 					.pattern("cds").pattern("wgd").pattern("jwc")
 					.define('d', LWToolMats.POSEIDITE.getTool(LWToolTypes.DAGGER))
 					.define('j', LWToolMats.POSEIDITE.getTool(LWToolTypes.JAVELIN))
@@ -90,12 +88,17 @@ public class RecipeGen {
 		return new ResourceLocation(L2Weaponry.MODID, currentFolder + ForgeRegistries.ITEMS.getKey(item).getPath());
 	}
 
+	@SuppressWarnings("ConstantConditions")
+	private static ResourceLocation getID(Item item, String suffix) {
+		return new ResourceLocation(L2Weaponry.MODID, currentFolder + ForgeRegistries.ITEMS.getKey(item).getPath() + suffix);
+	}
+
 	public static <T> T unlock(RegistrateRecipeProvider pvd, BiFunction<String, InventoryChangeTrigger.TriggerInstance, T> func, Item item) {
 		return func.apply("has_" + pvd.safeName(item), DataIngredient.items(item).getCritereon(pvd));
 	}
 
 	private static void buildTool(RegistrateRecipeProvider pvd, Item handle, Item ingot, LWToolMats mat, LWToolTypes type, String... strs) {
-		var b = unlock(pvd, new ShapedRecipeBuilder(mat.getTool(type), 1)::unlockedBy, mat.getIngot());
+		var b = unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.TOOLS, mat.getTool(type), 1)::unlockedBy, mat.getIngot());
 		boolean leather = false;
 		for (String str : strs) {
 			b = b.pattern(str);
@@ -132,20 +135,26 @@ public class RecipeGen {
 	}
 
 	public static void smithing(RegistrateRecipeProvider pvd, TagKey<Item> in, Item mat, Item out) {
-		unlock(pvd, UpgradeRecipeBuilder.smithing(Ingredient.of(in), Ingredient.of(mat), out)::unlocks, mat).save(pvd, getID(out));
+		unlock(pvd, LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(in), Ingredient.of(mat),
+				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out));
+		unlock(pvd, SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.PAPER), Ingredient.of(in), Ingredient.of(mat),
+				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out, "_old"));
 	}
 
 	public static void smithing(RegistrateRecipeProvider pvd, Item in, Item mat, Item out) {
-		unlock(pvd, UpgradeRecipeBuilder.smithing(Ingredient.of(in), Ingredient.of(mat), out)::unlocks, mat).save(pvd, getID(out));
+		unlock(pvd, LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(in), Ingredient.of(mat),
+				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out));
+		unlock(pvd, SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.PAPER), Ingredient.of(in), Ingredient.of(mat),
+				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out, "_old"));
 	}
 
 	public static void smelting(RegistrateRecipeProvider pvd, Item source, Item result, float experience) {
-		unlock(pvd, SimpleCookingRecipeBuilder.cooking(Ingredient.of(source), result, experience, 200, RecipeSerializer.SMELTING_RECIPE)::unlockedBy, source)
+		unlock(pvd, SimpleCookingRecipeBuilder.smelting(Ingredient.of(source), RecipeCategory.MISC, result, experience, 200)::unlockedBy, source)
 				.save(pvd, getID(source));
 	}
 
 	public static void blasting(RegistrateRecipeProvider pvd, Item source, Item result, float experience) {
-		unlock(pvd, SimpleCookingRecipeBuilder.cooking(Ingredient.of(source), result, experience, 200, RecipeSerializer.BLASTING_RECIPE)::unlockedBy, source)
+		unlock(pvd, SimpleCookingRecipeBuilder.smelting(Ingredient.of(source), RecipeCategory.MISC, result, experience, 200)::unlockedBy, source)
 				.save(pvd, getID(source));
 	}
 

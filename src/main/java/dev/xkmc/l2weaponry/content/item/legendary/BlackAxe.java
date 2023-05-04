@@ -1,11 +1,14 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
 import dev.xkmc.l2library.init.events.attack.AttackCache;
+import dev.xkmc.l2library.init.events.attack.CreateSourceEvent;
+import dev.xkmc.l2library.init.events.attack.DamageModifier;
+import dev.xkmc.l2library.init.events.damage.DefaultDamageState;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.ThrowingAxeItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
@@ -23,14 +26,14 @@ public class BlackAxe extends ThrowingAxeItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, ItemStack item, AttackCache cache) {
-		source.bypassArmor();
+	public void modifySource(LivingEntity attacker, CreateSourceEvent event, ItemStack item, @Nullable Entity target) {
+		event.enable(DefaultDamageState.BYPASS_ARMOR);
 	}
 
 	@Override
 	public void onHurt(AttackCache event, LivingEntity le) {
 		if (event.getCriticalHitEvent() != null && event.getStrength() < 0.9f) return;
-		event.setDamageModified((float) (event.getDamageModified() + event.getAttackTarget().getAttributeValue(Attributes.ARMOR)));
+		event.addHurtModifier(DamageModifier.addPost((float) event.getAttackTarget().getAttributeValue(Attributes.ARMOR)));
 	}
 
 	@Override

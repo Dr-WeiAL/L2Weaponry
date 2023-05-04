@@ -13,10 +13,6 @@ public interface LegendaryWeapon {
 		return false;
 	}
 
-	default void modifySource(DamageSource source, LivingEntity player, LivingEntity target, ItemStack item, AttackCache cache) {
-
-	}
-
 	default void onHurt(AttackCache event, LivingEntity le) {
 
 	}

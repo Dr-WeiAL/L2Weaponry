@@ -1,8 +1,8 @@
 package dev.xkmc.l2weaponry.init.materials;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
-import dev.xkmc.l2complements.init.materials.api.ITool;
-import dev.xkmc.l2complements.init.materials.vanilla.RawToolFactory;
+import dev.xkmc.l2library.init.materials.api.ITool;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.materials.vanilla.RawToolFactory;
 import dev.xkmc.l2weaponry.content.item.types.*;
 import dev.xkmc.l2weaponry.init.data.TagGen;
 import net.minecraft.tags.TagKey;

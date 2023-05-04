@@ -1,8 +1,8 @@
 package dev.xkmc.l2weaponry.init.materials;
 
-import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
-import dev.xkmc.l2library.repack.registrate.providers.RegistrateItemModelProvider;
-import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
+import com.tterrag.registrate.providers.DataGenContext;
+import com.tterrag.registrate.providers.RegistrateItemModelProvider;
+import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ModelFile;

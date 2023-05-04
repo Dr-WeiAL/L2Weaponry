@@ -57,11 +57,13 @@ public class L2WeaponryClient {
 	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public static void registerItemDecoration(RegisterItemDecorationsEvent event) {
+		var shield = new ShieldItemDecorationRenderer();
+		var claw = new ClawItemDecorationRenderer();
 		for (Item i : BLOCK_DECO) {
-			event.register(i, ShieldItemDecorationRenderer::renderShieldBar);
+			event.register(i, shield);
 		}
 		for (Item i : CLAW_DECO) {
-			event.register(i, ClawItemDecorationRenderer::renderHitCount);
+			event.register(i, claw);
 		}
 	}
 

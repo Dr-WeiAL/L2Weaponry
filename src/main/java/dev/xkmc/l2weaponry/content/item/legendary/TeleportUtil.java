@@ -18,14 +18,14 @@ public class TeleportUtil {
 			return true;
 		}
 		Vec3 tPos = target.position();
-		double reach = player.getAttributeValue(ForgeMod.ATTACK_RANGE.get()) - 0.5;
+		double reach = player.getAttributeValue(ForgeMod.ENTITY_REACH.get()) - 0.5;
 		Vec3 end;
 		if (back) {
 			end = RayTraceUtil.getRayTerm(tPos, target.getXRot(), target.getYRot(), -reach);
 		} else {
 			end = RayTraceUtil.getRayTerm(tPos, player.getXRot(), player.getYRot(), -reach);
 		}
-		BlockPos pos = new BlockPos(end);
+		BlockPos pos = BlockPos.containing(end);
 		AABB aabb = player.getBoundingBox();
 		for (int i = 0; i < 5; i++) {
 			BlockPos iPos = pos.above(i);

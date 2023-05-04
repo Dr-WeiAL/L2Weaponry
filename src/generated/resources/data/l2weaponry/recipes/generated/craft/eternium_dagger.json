@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "H": {
       "item": "l2complements:explosion_shard"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "l2weaponry:eternium_dagger"
-  }
+  },
+  "show_notification": true
 }

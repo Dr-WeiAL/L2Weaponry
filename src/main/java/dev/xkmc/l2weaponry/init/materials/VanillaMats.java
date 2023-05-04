@@ -1,11 +1,11 @@
 package dev.xkmc.l2weaponry.init.materials;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
-import dev.xkmc.l2complements.init.materials.api.IMatToolType;
-import dev.xkmc.l2complements.init.materials.api.ITool;
-import dev.xkmc.l2complements.init.materials.api.IToolStats;
-import dev.xkmc.l2complements.init.materials.api.ToolConfig;
-import dev.xkmc.l2complements.init.materials.vanilla.GenItemVanillaType;
+import dev.xkmc.l2library.init.materials.api.IMatToolType;
+import dev.xkmc.l2library.init.materials.api.ITool;
+import dev.xkmc.l2library.init.materials.api.IToolStats;
+import dev.xkmc.l2library.init.materials.api.ToolConfig;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.materials.vanilla.GenItemVanillaType;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
 

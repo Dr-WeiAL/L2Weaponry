@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:diamond_block"
+  },
+  "base": {
+    "tag": "l2weaponry:javelin"
+  },
+  "result": {
+    "item": "l2weaponry:diamond_javelin"
+  },
+  "template": {
+    "item": "minecraft:paper"
+  }
+}

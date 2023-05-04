@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.init.registrate;
 
-import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
-import dev.xkmc.l2library.repack.registrate.util.entry.RegistryEntry;
+import com.tterrag.registrate.util.entry.ItemEntry;
+import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWGenItem;
@@ -9,39 +9,21 @@ import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.materials.LegendaryToolFactory;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.function.Supplier;
 
 @SuppressWarnings({"rawtypes", "unsafe"})
 @MethodsReturnNonnullByDefault
 public class LWItems {
 
-	public static class Tab extends CreativeModeTab {
-
-		private final Supplier<ItemEntry> icon;
-
-		public Tab(String id, Supplier<ItemEntry> icon) {
-			super(L2Weaponry.MODID + "." + id);
-			this.icon = icon;
-		}
-
-		@Override
-		public ItemStack makeIcon() {
-			return icon.get().asStack();
-		}
-	}
-
-	public static final Tab TAB_GENERATED = new Tab("generated", () -> LWItems.GEN_ITEM[LWToolMats.SCULKIUM.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()]);
-
 	static {
-		L2Weaponry.REGISTRATE.creativeModeTab(() -> TAB_GENERATED);
+		L2Weaponry.REGISTRATE.creativeModeTab("artifacts", b -> b
+				.icon(LWItems.GEN_ITEM[LWToolMats.SCULKIUM.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()]::asStack)
+				.title(Component.translatable("itemGroup.l2weaponry.generated")));
 	}
 
 	public static final RegistryEntry<Attribute> SHIELD_DEFENSE = L2Weaponry.REGISTRATE.simple("shield_defense",

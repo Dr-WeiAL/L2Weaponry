@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "l2complements:eternium_block"
+  },
+  "base": {
+    "tag": "l2weaponry:machete"
+  },
+  "result": {
+    "item": "l2weaponry:eternium_machete"
+  },
+  "template": {
+    "item": "minecraft:paper"
+  }
+}

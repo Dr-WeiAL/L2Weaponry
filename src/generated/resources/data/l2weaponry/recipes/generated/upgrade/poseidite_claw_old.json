@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "l2complements:poseidite_block"
+  },
+  "base": {
+    "tag": "l2weaponry:claw"
+  },
+  "result": {
+    "item": "l2weaponry:poseidite_claw"
+  },
+  "template": {
+    "item": "minecraft:paper"
+  }
+}

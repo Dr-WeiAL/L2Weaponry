@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.types;
 
 import com.google.common.collect.ImmutableMultimap;
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
@@ -28,7 +28,7 @@ public class ClawItem extends BaseClawItem {
 	@Override
 	protected void addModifiers(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
 		super.addModifiers(builder);
-		builder.put(ForgeMod.ATTACK_RANGE.get(), RANGE);
+		builder.put(ForgeMod.ENTITY_REACH.get(), RANGE);
 	}
 
 	@Override

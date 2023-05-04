@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.init.data;
 
-import dev.xkmc.l2library.repack.registrate.providers.RegistrateTagsProvider;
+import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;

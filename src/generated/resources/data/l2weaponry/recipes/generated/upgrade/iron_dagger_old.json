@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:iron_block"
+  },
+  "base": {
+    "tag": "l2weaponry:dagger"
+  },
+  "result": {
+    "item": "l2weaponry:iron_dagger"
+  },
+  "template": {
+    "item": "minecraft:paper"
+  }
+}

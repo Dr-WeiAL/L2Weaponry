@@ -151,7 +151,7 @@ public class BaseShieldItem extends ShieldItem {
 	}
 
 	public double reflect(ItemStack stack, Player player, LivingEntity target) {
-		return reflectImpl(stack, DamageSource.playerAttack(player),
+		return reflectImpl(stack, player.level.damageSources().playerAttack(player),
 				player.getAttributeValue(Attributes.ATTACK_DAMAGE),
 				LWPlayerData.HOLDER.get(player), target);
 	}

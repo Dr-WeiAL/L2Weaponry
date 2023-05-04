@@ -1,11 +1,12 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
-import dev.xkmc.l2library.init.events.attack.AttackCache;
+import dev.xkmc.l2library.init.events.attack.CreateSourceEvent;
+import dev.xkmc.l2library.init.events.damage.DefaultDamageState;
+import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.BattleAxeItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.ItemStack;
@@ -23,9 +24,10 @@ public class AbyssAxe extends BattleAxeItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void modifySource(DamageSource source, LivingEntity player, LivingEntity target, ItemStack item, AttackCache cache) {
-		if (target instanceof Mob mob && mob.getTarget() == player) {
-			source.bypassMagic();
+	public void modifySource(LivingEntity attacker, CreateSourceEvent event, ItemStack item, @Nullable Entity target) {
+		super.modifySource(attacker, event, item, target);
+		if (target instanceof Mob mob && mob.getTarget() == attacker) {
+			event.enable(DefaultDamageState.BYPASS_MAGIC);
 		}
 	}
 
