@@ -10,10 +10,10 @@ import net.minecraft.world.item.Tiers;
 import java.util.function.Supplier;
 
 public enum LWToolMats {
-	IRON(new VanillaMats(Tiers.IRON), Items.IRON_INGOT, Items.IRON_BLOCK, false),
-	GOLD(new VanillaMats(Tiers.GOLD), Items.GOLD_INGOT, Items.GOLD_BLOCK, false),
-	DIAMOND(new VanillaMats(Tiers.DIAMOND), Items.DIAMOND, Items.DIAMOND_BLOCK, false),
-	NETHERITE(new VanillaMats(Tiers.NETHERITE), Items.NETHERITE_INGOT, Items.NETHERITE_BLOCK, true),
+	IRON(new VanillaMats(Tiers.IRON), Items.IRON_NUGGET, Items.IRON_INGOT, Items.IRON_BLOCK, false),
+	GOLD(new VanillaMats(Tiers.GOLD), Items.GOLD_NUGGET, Items.GOLD_INGOT, Items.GOLD_BLOCK, false),
+	DIAMOND(new VanillaMats(Tiers.DIAMOND), Items.AIR, Items.DIAMOND, Items.DIAMOND_BLOCK, false),
+	NETHERITE(new VanillaMats(Tiers.NETHERITE), Items.AIR, Items.NETHERITE_INGOT, Items.NETHERITE_BLOCK, true),
 	TOTEMIC_GOLD(LCMats.TOTEMIC_GOLD, false),
 	POSEIDITE(LCMats.POSEIDITE, false),
 	SHULKERATE(LCMats.SHULKERATE, false),
@@ -21,11 +21,12 @@ public enum LWToolMats {
 	ETERNIUM(LCMats.ETERNIUM, false);
 
 	public final IMatToolType type;
-	private final Supplier<Item> ingot, block, toolIngot, handle;
+	private final Supplier<Item> nugget, ingot, block, toolIngot, handle;
 	final boolean fireRes;
 
-	LWToolMats(IMatToolType type, Item ingot, Item block, boolean fireRes) {
+	LWToolMats(IMatToolType type, Item nugget, Item ingot, Item block, boolean fireRes) {
 		this.type = type;
+		this.nugget = () -> nugget;
 		this.ingot = () -> ingot;
 		this.block = () -> block;
 		this.fireRes = fireRes;
@@ -35,6 +36,7 @@ public enum LWToolMats {
 
 	LWToolMats(LCMats type, boolean fireRes) {
 		this.type = type;
+		nugget = type::getNugget;
 		ingot = type::getIngot;
 		block = () -> type.getBlock().asItem();
 		toolIngot = type::getToolIngot;
@@ -62,4 +64,7 @@ public enum LWToolMats {
 		return LWItems.GEN_ITEM[ordinal()][type.ordinal()].get();
 	}
 
+	public Item getNugget() {
+		return nugget.get();
+	}
 }
