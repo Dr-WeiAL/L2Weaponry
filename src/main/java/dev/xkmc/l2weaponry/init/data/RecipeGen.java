@@ -43,6 +43,11 @@ public class RecipeGen {
 				} else {
 					tools(pvd, mat.getStick(), mat.getToolIngot(), mat);
 				}
+				if (mat.getNugget() != Items.AIR) {
+					for (LWToolTypes type : LWToolTypes.values()) {
+						smelting(pvd, mat.getTool(type), mat.getNugget(), 0.1f);
+					}
+				}
 			}
 		}
 		currentFolder = "legendary/";
@@ -150,7 +155,7 @@ public class RecipeGen {
 
 	public static void smelting(RegistrateRecipeProvider pvd, Item source, Item result, float experience) {
 		unlock(pvd, SimpleCookingRecipeBuilder.smelting(Ingredient.of(source), RecipeCategory.MISC, result, experience, 200)::unlockedBy, source)
-				.save(pvd, getID(source));
+				.save(pvd, getID(source, "_smelt"));
 	}
 
 	public static void blasting(RegistrateRecipeProvider pvd, Item source, Item result, float experience) {
