@@ -15,7 +15,7 @@ public class ClientLocalPlayerMixin {
 	@Shadow private boolean startedUsingItem;
 
 	@WrapOperation(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;isUsingItem()Z"))
-	private boolean canSprint(LocalPlayer player, Operation<Boolean> op) {
+	private boolean l2weaponry_canSprint(LocalPlayer player, Operation<Boolean> op) {
 		if (startedUsingItem) {
 			ItemStack stack = player.getUseItem();
 			if (stack.getItem() instanceof FastItem fast) {

@@ -29,8 +29,8 @@ public class ClawItemDecorationRenderer implements IItemDecorator {
 		if (time - last > timeout) return false;
 		double defenseLost = Mth.clamp(time - last, 0, timeout) * 1d / timeout;
 		int w = Mth.ceil(13.0F * (1 - defenseLost));
-		CommonDecoUtil.fillRect(builder, x + 2, y + 14, w, 1, 0, 0xffffff, 0xff);
-		CommonDecoUtil.fillRect(builder, x + 2 + w, y + 14, 13 - w, 1, 0, 0x000000, 0xff);
+		CommonDecoUtil.fillRect(poseStack, builder, x + 2, y + 14, w, 1, 0, 0xffffff, 0xff);
+		CommonDecoUtil.fillRect(poseStack, builder, x + 2 + w, y + 14, 13 - w, 1, 0, 0x000000, 0xff);
 		int stored_hit = BaseClawItem.getHitCount(main);
 		int max_hit = claw.getMaxStack(main, Proxy.getClientPlayer());
 		int hit = Math.min(max_hit, stored_hit);

@@ -11,17 +11,17 @@ public class CommonDecoUtil {
 	/**
 	 * Draw with the WorldRenderer
 	 */
-	public static void fillRect(BufferBuilder buffer, double x, double y, double w, double h, double z, int color, int a) {
+	public static void fillRect(PoseStack pose, BufferBuilder buffer, float x, float y, float w, float h, float z, int color, int a) {
 		int r = (color >> 16) & 0xff;
 		int g = (color >> 8) & 0xff;
 		int b = color & 0xff;
 		RenderSystem.disableDepthTest();
 		RenderSystem.setShader(GameRenderer::getPositionColorShader);
 		buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
-		buffer.vertex(x, y, z).color(r, g, b, a).endVertex();
-		buffer.vertex(x, y + h, z).color(r, g, b, a).endVertex();
-		buffer.vertex(x + w, y + h, z).color(r, g, b, a).endVertex();
-		buffer.vertex(x + w, y, z).color(r, g, b, a).endVertex();
+		buffer.vertex(pose.last().pose(), x, y, z).color(r, g, b, a).endVertex();
+		buffer.vertex(pose.last().pose(), x, y + h, z).color(r, g, b, a).endVertex();
+		buffer.vertex(pose.last().pose(), x + w, y + h, z).color(r, g, b, a).endVertex();
+		buffer.vertex(pose.last().pose(), x + w, y, z).color(r, g, b, a).endVertex();
 		BufferUploader.drawWithShader(buffer.end());
 	}
 

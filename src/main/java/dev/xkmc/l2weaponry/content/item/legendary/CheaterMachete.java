@@ -42,6 +42,8 @@ public class CheaterMachete extends MacheteItem implements LegendaryWeapon {
 
 	@Override
 	public void onHurtMaximized(AttackCache cache, LivingEntity le) {
+		if (cache.getStrength() < 0.95f) return;
+		if (cache.getAttackTarget().hurtTime > 0) return;
 		var ctag = cache.getWeapon().getOrCreateTag();
 		if (ctag.hasUUID(KEY_TARGET) && cache.getAttackTarget().getUUID().equals(ctag.getUUID(KEY_TARGET))) {
 			float damage = ctag.getFloat(KEY_DAMAGE);

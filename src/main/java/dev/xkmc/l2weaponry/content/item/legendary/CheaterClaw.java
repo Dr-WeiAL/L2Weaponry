@@ -25,6 +25,8 @@ public class CheaterClaw extends ClawItem implements LegendaryWeapon {
 
 	@Override
 	public void onDamageFinal(AttackCache cache, LivingEntity le) {
+		if (cache.getStrength() < 0.95f) return;
+		if (cache.getAttackTarget().hurtTime > 0) return;
 		float diff = cache.getPreDamage() - cache.getDamageDealt();
 		cache.getWeapon().getOrCreateTag().putUUID(KEY_TARGET, cache.getAttackTarget().getUUID());
 		cache.getWeapon().getOrCreateTag().putFloat(KEY_DAMAGE, diff * 2);
