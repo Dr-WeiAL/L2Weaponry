@@ -44,6 +44,7 @@ public class RecipeGen {
 					tools(pvd, mat.getStick(), mat.getToolIngot(), mat);
 				}
 				if (mat.getNugget() != Items.AIR) {
+					currentFolder = "generated/recycle/";
 					for (LWToolTypes type : LWToolTypes.values()) {
 						smelting(pvd, mat.getTool(type), mat.getNugget(), 0.1f);
 					}
@@ -155,7 +156,7 @@ public class RecipeGen {
 
 	public static void smelting(RegistrateRecipeProvider pvd, Item source, Item result, float experience) {
 		unlock(pvd, SimpleCookingRecipeBuilder.smelting(Ingredient.of(source), RecipeCategory.MISC, result, experience, 200)::unlockedBy, source)
-				.save(pvd, getID(source, "_smelt"));
+				.save(pvd, getID(source));
 	}
 
 	public static void blasting(RegistrateRecipeProvider pvd, Item source, Item result, float experience) {
