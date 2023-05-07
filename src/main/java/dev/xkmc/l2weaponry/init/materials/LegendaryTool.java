@@ -2,7 +2,7 @@ package dev.xkmc.l2weaponry.init.materials;
 
 import dev.xkmc.l2library.init.materials.api.ITool;
 import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2library.util.code.Wrappers;
+import dev.xkmc.l2serial.util.Wrappers;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 
