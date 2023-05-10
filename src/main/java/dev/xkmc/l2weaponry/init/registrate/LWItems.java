@@ -21,7 +21,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class LWItems {
 
 	static {
-		L2Weaponry.REGISTRATE.creativeModeTab("artifacts", b -> b
+		L2Weaponry.REGISTRATE.creativeModeTab("weaponry", b -> b
 				.icon(LWItems.GEN_ITEM[LWToolMats.SCULKIUM.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()]::asStack)
 				.title(Component.translatable("itemGroup.l2weaponry.generated")));
 	}

@@ -8,10 +8,7 @@ import dev.xkmc.l2weaponry.compat.GolemCompat;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
 import dev.xkmc.l2weaponry.events.LegendaryWeaponEvents;
-import dev.xkmc.l2weaponry.init.data.LWConfig;
-import dev.xkmc.l2weaponry.init.data.LangData;
-import dev.xkmc.l2weaponry.init.data.RecipeGen;
-import dev.xkmc.l2weaponry.init.data.TagGen;
+import dev.xkmc.l2weaponry.init.data.*;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.l2weaponry.network.NetworkManager;
@@ -37,11 +34,11 @@ public class L2Weaponry {
 	public static final String MODID = "l2weaponry";
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
-	//public static final GenItem MATS = new GenItem(MODID, REGISTRATE);
 
 	private static void registerRegistrates(IEventBus bus) {
 		LWItems.register();
 		LWEntities.register();
+		LWDamageTypeGen.register();
 		NetworkManager.register();
 		if (ModList.get().isLoaded("modulargolems")) GolemCompat.register(bus);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::addTranslations);
@@ -84,6 +81,11 @@ public class L2Weaponry {
 	}
 
 	public static void gatherData(GatherDataEvent event) {
+		boolean gen = event.includeServer();
+		var output = event.getGenerator().getPackOutput();
+		var lookup = event.getLookupProvider();
+		var helper = event.getExistingFileHelper();
+		new LWDamageTypeGen(output, lookup, helper).generate(gen, event.getGenerator());
 	}
 
 }
