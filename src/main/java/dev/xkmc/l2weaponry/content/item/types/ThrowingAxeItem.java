@@ -51,4 +51,8 @@ public class ThrowingAxeItem extends BaseThrowableWeaponItem {
 		return new ThrowingAxeEntity(level, player, stack, slot);
 	}
 
+	@Override
+	public boolean isSwordLike() {
+		return false;
+	}
 }

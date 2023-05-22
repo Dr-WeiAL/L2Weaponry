@@ -16,6 +16,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class WeaponItem extends TieredItem {
@@ -43,12 +44,19 @@ public class WeaponItem extends TieredItem {
 
 	}
 
+	public boolean isSwordLike() {
+		return true;
+	}
+
 	public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
-		return !pPlayer.isCreative();
+		return !isSwordLike() || !pPlayer.isCreative();
 	}
 
 
 	public float getDestroySpeed(ItemStack pStack, BlockState pState) {
+		if (isSwordLike() && pState.is(Blocks.COBWEB)) {
+			return 15;
+		}
 		return pState.is(this.blocks) ? this.getTier().getSpeed() : 1.0F;
 	}
 
