@@ -31,7 +31,7 @@ public class BlackAxe extends ThrowingAxeItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le) {
+	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
 		if (event.getCriticalHitEvent() != null && event.getStrength() < 0.9f) return;
 		event.addHurtModifier(DamageModifier.addPost((float) event.getAttackTarget().getAttributeValue(Attributes.ARMOR)));
 	}

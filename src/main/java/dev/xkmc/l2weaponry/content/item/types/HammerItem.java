@@ -20,7 +20,7 @@ import java.util.List;
 public class HammerItem extends SlowWieldItem {
 
 	public HammerItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_AXE);
+		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_PICKAXE);
 	}
 
 	@Override

@@ -7,19 +7,15 @@ import dev.xkmc.l2library.init.events.attack.AttackEventHandler;
 import dev.xkmc.l2weaponry.compat.GolemCompat;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
-import dev.xkmc.l2weaponry.events.LegendaryWeaponEvents;
 import dev.xkmc.l2weaponry.init.data.*;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.l2weaponry.network.NetworkManager;
 import net.minecraft.world.entity.EntityType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -29,6 +25,7 @@ import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(L2Weaponry.MODID)
+@Mod.EventBusSubscriber(modid = L2Weaponry.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class L2Weaponry {
 
 	public static final String MODID = "l2weaponry";
@@ -40,46 +37,37 @@ public class L2Weaponry {
 		LWEntities.register();
 		LWDamageTypeGen.register();
 		NetworkManager.register();
+		LWConfig.init();
+		LWPlayerData.register();
 		if (ModList.get().isLoaded("modulargolems")) GolemCompat.register(bus);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::addTranslations);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipe);
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
-	}
-
-	private static void registerForgeEvents() {
-		LWConfig.init();
-		LWPlayerData.register();
-		MinecraftForge.EVENT_BUS.register(LegendaryWeaponEvents.class);
-	}
-
-	private static void registerModBusEvents(IEventBus bus) {
-		bus.addListener(L2Weaponry::setup);
-		bus.addListener(L2Weaponry::modifyAttributes);
-		bus.addListener(EventPriority.LOWEST, L2Weaponry::gatherData);
+		REGISTRATE.addDataGenerator(ProviderType.ENTITY_TAGS, TagGen::onEntityTagGen);
 	}
 
 	public L2Weaponry() {
 		FMLJavaModLoadingContext ctx = FMLJavaModLoadingContext.get();
 		IEventBus bus = ctx.getModEventBus();
-		registerModBusEvents(bus);
-		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> L2WeaponryClient.onCtorClient(bus, MinecraftForge.EVENT_BUS));
 		registerRegistrates(bus);
-		registerForgeEvents();
 	}
 
-	private static void setup(final FMLCommonSetupEvent event) {
+	@SubscribeEvent
+	public static void setup(final FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			AttackEventHandler.register(4000, new LWAttackEventListener());
 			AttributeEntry.add(LWItems.SHIELD_DEFENSE, false, 14000);
 		});
 	}
 
-	private static void modifyAttributes(EntityAttributeModificationEvent event) {
+	@SubscribeEvent
+	public static void modifyAttributes(EntityAttributeModificationEvent event) {
 		event.add(EntityType.PLAYER, LWItems.SHIELD_DEFENSE.get());
 		event.add(EntityType.PLAYER, LWItems.REFLECT_TIME.get());
 	}
 
+	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
 		boolean gen = event.includeServer();
 		var output = event.getGenerator().getPackOutput();

@@ -22,7 +22,7 @@ public class HolyHammer extends HammerItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le) {
+	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
 		event.addHurtModifier(DamageModifier.addPost(le.getAbsorptionAmount()));
 	}
 

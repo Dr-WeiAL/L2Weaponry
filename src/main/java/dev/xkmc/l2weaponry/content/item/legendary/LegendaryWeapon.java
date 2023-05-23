@@ -13,7 +13,7 @@ public interface LegendaryWeapon {
 		return false;
 	}
 
-	default void onHurt(AttackCache event, LivingEntity le) {
+	default void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
 
 	}
 

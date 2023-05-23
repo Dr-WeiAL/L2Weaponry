@@ -27,7 +27,7 @@ public class FlameAxe extends BattleAxeItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le) {
+	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
 		int time = LCConfig.COMMON.flameEnchantDuration.get();
 		EffectUtil.addEffect(event.getAttackTarget(), new MobEffectInstance(LCEffects.FLAME.get(), time),
 				EffectUtil.AddReason.NONE, le);

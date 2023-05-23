@@ -24,7 +24,7 @@ public class EnderMachete extends MacheteItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le) {
+	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
 		EffectUtil.addEffect(event.getAttackTarget(), new MobEffectInstance(MobEffects.LEVITATION, 20), EffectUtil.AddReason.NONE, le);
 		EffectUtil.addEffect(event.getAttackTarget(), new MobEffectInstance(MobEffects.SLOW_FALLING, 40), EffectUtil.AddReason.NONE, le);
 	}

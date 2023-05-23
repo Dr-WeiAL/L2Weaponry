@@ -2,9 +2,12 @@ package dev.xkmc.l2weaponry.init.data;
 
 import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
+import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
@@ -27,6 +30,10 @@ public class TagGen {
 	}
 
 	public static void onItemTagGen(RegistrateTagsProvider<Item> pvd) {
+	}
+
+	public static void onEntityTagGen(RegistrateTagsProvider.IntrinsicImpl<EntityType<?>> pvd) {
+		pvd.addTag(EntityTypeTags.IMPACT_PROJECTILES).add(LWEntities.ET_AXE.get(), LWEntities.TE_JAVELIN.get());
 	}
 
 }

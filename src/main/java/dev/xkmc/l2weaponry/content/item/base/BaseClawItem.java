@@ -2,8 +2,8 @@ package dev.xkmc.l2weaponry.content.item.base;
 
 import dev.xkmc.l2library.init.events.attack.AttackCache;
 import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2weaponry.init.L2WeaponryClient;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
+import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,7 +24,7 @@ public class BaseClawItem extends DoubleWieldItem {
 
 	public BaseClawItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
 		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_HOE);
-		L2WeaponryClient.CLAW_DECO.add(this);
+		LWItems.CLAW_DECO.add(this);
 	}
 
 	public void accumulateDamage(ItemStack stack, long gameTime) {

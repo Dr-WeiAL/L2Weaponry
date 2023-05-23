@@ -22,7 +22,7 @@ public class HolyAxe extends BattleAxeItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le) {
+	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
 		if (event.getCriticalHitEvent() != null && event.getStrength() < 0.9) return;
 		float ans = le.getAbsorptionAmount();
 		float health = event.getAttackTarget().getHealth();

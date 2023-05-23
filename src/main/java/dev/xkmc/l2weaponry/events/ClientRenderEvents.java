@@ -2,13 +2,17 @@ package dev.xkmc.l2weaponry.events;
 
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
+import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
+@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = L2Weaponry.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ClientRenderEvents {
 
 	@SubscribeEvent

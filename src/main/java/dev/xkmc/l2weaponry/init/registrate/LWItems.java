@@ -16,9 +16,16 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.ForgeRegistries;
 
-@SuppressWarnings({"rawtypes", "unsafe"})
+import java.util.ArrayList;
+import java.util.List;
+
+@SuppressWarnings({"unsafe"})
 @MethodsReturnNonnullByDefault
 public class LWItems {
+
+	public static final List<Item> BLOCK_DECO = new ArrayList<>();
+	public static final List<Item> THROW_DECO = new ArrayList<>();
+	public static final List<Item> CLAW_DECO = new ArrayList<>();
 
 	static {
 		L2Weaponry.REGISTRATE.creativeModeTab("weaponry", b -> b

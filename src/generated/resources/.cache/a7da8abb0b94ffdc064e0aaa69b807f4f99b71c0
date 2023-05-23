@@ -1,4 +1,4 @@
-// 1.19.4	2023-05-04T18:14:06.83956	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.19.4	2023-05-22T21:02:20.430304	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 85fc93101bc14a054a9948cfbad4270e0e0674cf assets/l2weaponry/lang/en_ud.json
 aaa20afc59d902b0c366eacf717074f5ca62ff5d assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
@@ -891,3 +891,4 @@ e5246222ba1e299ca9162b627635dffa5d338077 data/l2weaponry/tags/items/plate_shield
 94bc49f3f27492b13136ef41b76e1afb1cceb028 data/l2weaponry/tags/items/round_shield.json
 7c88a7cc744871435c268324991377ce9b19007e data/l2weaponry/tags/items/spear.json
 abe8f6d13d7390bab9718f6c1603394ea6870e7c data/l2weaponry/tags/items/throwing_axe.json
+4ab37eb3dc580ff1ff88e814ca291a0192381718 data/minecraft/tags/entity_types/impact_projectiles.json

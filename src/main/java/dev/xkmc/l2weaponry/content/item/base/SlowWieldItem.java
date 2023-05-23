@@ -61,4 +61,9 @@ public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 		return super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged);
 	}
 
+	@Override
+	public boolean isSwordLike() {
+		return false;
+	}
+
 }

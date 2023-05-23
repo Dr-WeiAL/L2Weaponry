@@ -1,14 +1,18 @@
 package dev.xkmc.l2weaponry.events;
 
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
+import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.CriticalHitEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
+@Mod.EventBusSubscriber( modid = L2Weaponry.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class LegendaryWeaponEvents {
 
 	@SubscribeEvent(priority = EventPriority.LOW)

@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.events;
 
 import dev.xkmc.l2library.init.events.attack.*;
+import dev.xkmc.l2library.init.materials.generic.GenericTieredItem;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
@@ -9,6 +10,7 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -55,11 +57,17 @@ public class LWAttackEventListener implements AttackListener {
 				claw.accumulateDamage(stack, cache.getAttacker().getLevel().getGameTime());
 			}
 			if (stack.getItem() instanceof LegendaryWeapon weapon) {
-				weapon.onHurt(cache, le);
+				weapon.onHurt(cache, le, stack);
 			}
 		} else if (event.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?> thrown) {
-			if (thrown.getItem().getItem() instanceof LegendaryWeapon weapon && thrown.getOwner() instanceof LivingEntity le) {
-				weapon.onHurt(cache, le);
+			if (thrown.getOwner() instanceof LivingEntity le) {
+				Item item = thrown.getItem().getItem();
+				if (item instanceof GenericTieredItem tiered){
+					tiered.getExtraConfig().onDamage(cache, thrown.getItem());
+				}
+				if (thrown.getItem().getItem() instanceof LegendaryWeapon weapon) {
+					weapon.onHurt(cache, le, thrown.getItem());
+				}
 			}
 		}
 	}

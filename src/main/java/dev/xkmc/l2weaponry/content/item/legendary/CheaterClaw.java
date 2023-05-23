@@ -38,11 +38,11 @@ public class CheaterClaw extends ClawItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le) {
-		if (event.getWeapon().getOrCreateTag().hasUUID(KEY_TARGET) &&
+	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
+		if (stack.getOrCreateTag().hasUUID(KEY_TARGET) &&
 				event.getAttackTarget().getUUID().equals(
-						event.getWeapon().getOrCreateTag().getUUID(KEY_TARGET))) {
-			event.addHurtModifier(DamageModifier.addPost(event.getWeapon().getOrCreateTag().getFloat(KEY_DAMAGE)));
+						stack.getOrCreateTag().getUUID(KEY_TARGET))) {
+			event.addHurtModifier(DamageModifier.addPost(stack.getOrCreateTag().getFloat(KEY_DAMAGE)));
 		}
 	}
 }

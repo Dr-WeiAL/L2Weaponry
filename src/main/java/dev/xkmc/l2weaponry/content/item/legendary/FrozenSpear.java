@@ -28,7 +28,7 @@ public class FrozenSpear extends SpearItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le) {
+	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
 		int time = LCConfig.COMMON.iceEnchantDuration.get();
 		EffectUtil.addEffect(event.getAttackTarget(), new MobEffectInstance(LCEffects.ICE.get(), time),
 				EffectUtil.AddReason.NONE, le);
