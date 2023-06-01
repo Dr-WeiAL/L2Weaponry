@@ -7,6 +7,7 @@ import dev.xkmc.l2library.util.raytrace.RayTraceUtil;
 import dev.xkmc.l2weaponry.content.item.types.DaggerItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
+import dev.xkmc.l2weaponry.mixin.TargetGoalAccessor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -15,6 +16,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
@@ -35,10 +37,7 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 		ItemStack stack = player.getItemInHand(hand);
 		var target = RayTraceUtil.serverGetTarget(player);
 		if (target != null && (level.isClientSide() || TeleportUtil.teleport(player, target, true))) {
-			if (!level.isClientSide && target instanceof Mob mob && mob.getTarget() == player) {
-				mob.setTarget(null);
-			}
-			player.getCooldowns().addCooldown(this, 60);
+			clearTarget(target, player);
 			return InteractionResultHolder.success(stack);
 		}
 		return InteractionResultHolder.fail(stack);
@@ -50,10 +49,7 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 			return InteractionResult.PASS;
 		if (player.level.isClientSide) return InteractionResult.SUCCESS;
 		if (TeleportUtil.teleport(player, target, true)) {
-			if (target instanceof Mob mob && mob.getTarget() == player) {
-				mob.setTarget(null);
-			}
-			player.getCooldowns().addCooldown(this, 60);
+			clearTarget(target, player);
 			return InteractionResult.SUCCESS;
 		}
 		return InteractionResult.FAIL;
@@ -80,6 +76,20 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 		if (selected && level.isClientSide() && entity instanceof Player player) {
 			RayTraceUtil.clientUpdateTarget(player, getDistance(stack));
 		}
+	}
+
+	private void clearTarget(LivingEntity target, Player player) {
+		if (target instanceof Mob mob && mob.getTarget() == player) {
+			mob.setTarget(null);
+			mob.setLastHurtByMob(null);
+			mob.setLastHurtByPlayer(null);
+			for (var e : mob.targetSelector.getAvailableGoals()) {
+				if (e.getGoal() instanceof TargetGoal t) {
+					((TargetGoalAccessor)t).setTargetMob(null);
+				}
+			}
+		}
+		player.getCooldowns().addCooldown(this, 60);
 	}
 
 }

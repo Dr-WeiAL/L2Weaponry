@@ -122,7 +122,7 @@ dependencies {
 
     implementation fg.deobf("dev.xkmc.l2library:l2library:${l2library_version}")
     implementation fg.deobf("dev.xkmc.l2complements:l2complements:${l2complements_version}")
-    implementation fg.deobf('dev.xkmc.modulargolems:modulargolems:1.7.5')
+    implementation fg.deobf('dev.xkmc.modulargolems:modulargolems:1.9.0')
 
     runtimeOnly fg.deobf("dev.xkmc.l2backpack:l2backpack:1.7.0")
     runtimeOnly fg.deobf("dev.xkmc.l2artifacts:l2artifacts:1.5.0")

@@ -1,11 +1,13 @@
 package dev.xkmc.l2weaponry.events;
 
+import dev.xkmc.l2complements.content.item.generic.GenericTieredItem;
 import dev.xkmc.l2library.init.events.attack.AttackCache;
 import dev.xkmc.l2library.init.events.attack.AttackListener;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
+import dev.xkmc.l2weaponry.content.item.types.PlateShieldItem;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -36,13 +38,15 @@ public class LWAttackEventListener implements AttackListener {
 		LivingHurtEvent event = cache.getLivingHurtEvent();
 		assert event != null;
 		if (event.getSource().getDirectEntity() instanceof LivingEntity le) {
-			if (!stack.isEmpty() && stack.getItem() instanceof GenericWeaponItem w) {
+			if (!stack.isEmpty() && stack.getItem() instanceof GenericTieredItem) {
 				if (le instanceof Player && cache.getCriticalHitEvent() != null) {
 					if (cache.getStrength() < 0.7f) {
 						cache.setDamageModified(0.1f);
 						return;
 					}
 				}
+			}
+			if (!stack.isEmpty() && stack.getItem() instanceof GenericWeaponItem w) {
 				cache.setDamageModified(cache.getDamageModified() * w.getMultiplier(cache));
 			}
 			if (!stack.isEmpty() && stack.getItem() instanceof BaseClawItem claw) {
@@ -88,4 +92,13 @@ public class LWAttackEventListener implements AttackListener {
 		}
 	}
 
+	@Override
+	public void onCriticalHit(AttackCache cache) {
+		var event = cache.getCriticalHitEvent();
+		assert event != null;
+		if (!event.isVanillaCritical()) return;
+		if (event.getEntity().getMainHandItem().getItem() instanceof PlateShieldItem) {
+			event.setDamageModifier(event.getDamageModifier() * 2);
+		}
+	}
 }

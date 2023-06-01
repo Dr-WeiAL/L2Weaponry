@@ -41,6 +41,7 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
 		config.inventoryTick(stack, level, entity, slot, selected);
+		super.inventoryTick(stack, level, entity, slot, selected);
 	}
 
 	@Override

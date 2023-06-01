@@ -10,15 +10,13 @@ import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -29,6 +27,7 @@ import java.util.List;
 public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem {
 
 	private static final String NAME_ATTR = "shield_defense";
+	private static final String NAME_KB = "shield_knockback";
 
 	public PlateShieldItem(Tier tier, int maxDefense, float recover, Properties prop, ExtraToolConfig config) {
 		super(tier, prop, config, maxDefense, recover, false);
@@ -37,7 +36,9 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 	@Override
 	protected void buildAttributes(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
 		super.buildAttributes(builder);
-		//TODO config
+		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", Math.round(maxDefense * 0.035), AttributeModifier.Operation.ADDITION));
+		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", -3, AttributeModifier.Operation.ADDITION));
+		builder.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(MathHelper.getUUIDFromString(NAME_KB), NAME_KB, 4, AttributeModifier.Operation.ADDITION));
 		builder.put(LWItems.REFLECT_TIME.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_ATTR), NAME_ATTR, 20, AttributeModifier.Operation.ADDITION));
 	}
 

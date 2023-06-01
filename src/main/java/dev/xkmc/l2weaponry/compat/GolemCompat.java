@@ -4,12 +4,10 @@ import dev.xkmc.l2weaponry.content.capability.MobShieldGoal;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericShieldItem;
+import dev.xkmc.l2weaponry.content.item.base.WeaponItem;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.modulargolems.content.entity.humanoid.HumanoidGolemEntity;
-import dev.xkmc.modulargolems.events.event.GolemDamageShieldEvent;
-import dev.xkmc.modulargolems.events.event.GolemDisableShieldEvent;
-import dev.xkmc.modulargolems.events.event.GolemEquipEvent;
-import dev.xkmc.modulargolems.events.event.GolemThrowableEvent;
+import dev.xkmc.modulargolems.events.event.*;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -70,6 +68,13 @@ public class GolemCompat {
 			HumanoidGolemEntity golem = event.getEntity();
 			MobShieldGoal goal = MobShieldGoal.getShieldGoal(golem);
 			goal.onShieldDamage(stack, item, event.getDamage());
+		}
+	}
+
+	@SubscribeEvent
+	public static void onSweep(GolemSweepEvent event) {
+		if (event.getStack().getItem() instanceof WeaponItem weapon) {
+			event.setBox(weapon.getSweepHitBoxImpl(event.getStack(), event.getEntity(), event.getTarget()));
 		}
 	}
 

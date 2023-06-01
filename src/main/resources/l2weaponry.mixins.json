@@ -6,7 +6,8 @@
   "refmap": "l2weaponry.refmap.json",
   "mixins": [
 	"LivingEntityMixin",
-	"PlayerMixin"
+	"PlayerMixin",
+	"TargetGoalAccessor"
   ],
   "client": [
 	"ClientLocalPlayerMixin"
