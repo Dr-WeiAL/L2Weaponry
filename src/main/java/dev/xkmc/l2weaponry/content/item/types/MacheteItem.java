@@ -21,6 +21,7 @@ public class MacheteItem extends BaseClawItem {
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.TOOL_MACHETE.get());
+		list.add(LangData.TOOL_MACHETE_EXTRA.get());
 		super.appendHoverText(pStack, pLevel, list, pIsAdvanced);
 	}
 

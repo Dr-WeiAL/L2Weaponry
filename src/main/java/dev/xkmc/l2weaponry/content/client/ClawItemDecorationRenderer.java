@@ -33,6 +33,9 @@ public class ClawItemDecorationRenderer {
 		int hit = Math.min(max_hit, stored_hit);
 		String s = "" + hit;
 		int col = hit < max_hit ? 0xff7fff : 0xff7f7f;
+		if (time - last <= LWConfig.COMMON.claw_block_time.get()) {
+			col = 0x00ffff;
+		}
 		CommonDecoUtil.drawText(x + 17 - font.width(s), y + 9, font, col, s, blitOffset);
 		return true;
 	}

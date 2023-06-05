@@ -61,6 +61,7 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.TOOL_PLATE_SHIELD.get());
+		list.add(LangData.TOOL_PLATE_SHIELD_EXTRA.get());
 		super.appendHoverText(pStack, pLevel, list, pIsAdvanced);
 	}
 
