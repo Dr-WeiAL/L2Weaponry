@@ -6,6 +6,7 @@ import dev.xkmc.l2library.init.events.attack.AttackListener;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
+import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import dev.xkmc.l2weaponry.content.item.types.PlateShieldItem;
 import net.minecraft.world.entity.LivingEntity;
@@ -46,7 +47,7 @@ public class LWAttackEventListener implements AttackListener {
 					}
 				}
 			}
-			if (!stack.isEmpty() && stack.getItem() instanceof GenericWeaponItem w) {
+			if (!stack.isEmpty() && stack.getItem() instanceof LWTieredItem w) {
 				cache.setDamageModified(cache.getDamageModified() * w.getMultiplier(cache));
 			}
 			if (!stack.isEmpty() && stack.getItem() instanceof BaseClawItem claw) {

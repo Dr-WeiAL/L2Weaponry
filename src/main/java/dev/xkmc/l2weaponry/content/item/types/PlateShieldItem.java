@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.content.item.types;
 
 import com.google.common.collect.ImmutableMultimap;
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.events.attack.AttackCache;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.item.base.DoubleHandItem;
@@ -20,6 +21,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -40,6 +42,14 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", -3, AttributeModifier.Operation.ADDITION));
 		builder.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(MathHelper.getUUIDFromString(NAME_KB), NAME_KB, 4, AttributeModifier.Operation.ADDITION));
 		builder.put(LWItems.REFLECT_TIME.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_ATTR), NAME_ATTR, 20, AttributeModifier.Operation.ADDITION));
+	}
+
+	@Override
+	public float getMultiplier(AttackCache cache) {
+		LivingHurtEvent event = cache.getLivingHurtEvent();
+		assert event != null;
+		event.getSource().bypassArmor();
+		return 1;
 	}
 
 	@Override

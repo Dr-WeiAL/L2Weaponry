@@ -3,8 +3,6 @@ package dev.xkmc.l2weaponry.content.item.base;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
-import dev.xkmc.l2complements.content.item.generic.GenericTieredItem;
-import dev.xkmc.l2library.init.events.attack.AttackCache;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
@@ -29,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
+public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 
 	private final ExtraToolConfig config;
 
@@ -99,10 +97,6 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 	public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
 		if (toolAction == ToolActions.SWORD_SWEEP) return canSweep();
 		return false;
-	}
-
-	public float getMultiplier(AttackCache event) {
-		return 1;
 	}
 
 	protected boolean isSharp() {
