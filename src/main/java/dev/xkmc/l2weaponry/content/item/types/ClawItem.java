@@ -34,6 +34,7 @@ public class ClawItem extends BaseClawItem {
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.TOOL_CLAW.get());
+		list.add(LangData.TOOL_CLAW_EXTRA.get());
 		super.appendHoverText(pStack, pLevel, list, pIsAdvanced);
 	}
 

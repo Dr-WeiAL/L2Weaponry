@@ -9,15 +9,17 @@ import net.minecraft.network.chat.MutableComponent;
 import java.util.Locale;
 
 public enum LangData {
-
 	TOOL_DAGGER("tool.dagger", "Deal high damage to enemies not targeting attacker", 0),
-	TOOL_CLAW("tool.claw", "Deal damage to all surrounding mobs. Increase damage for consecutive attack. Double weld for larger sweep range and higher damage stack limit.", 0),
+	TOOL_CLAW("tool.claw", "Deal damage to all surrounding mobs. Increase damage for consecutive attack. Block damage shortly after attack.", 0),
+	TOOL_CLAW_EXTRA("tool.claw.extra", "Double weld for larger sweep range, higher damage stack limit, and full angle blocking.", 0),
 	TOOL_HAMMER("tool.hammer", "Double hand weapon. Break through armors", 0),
 	TOOL_BATTLE_AXE("tool.battle_axe", "Double Hand weapon. Sweeping attack", 0),
 	TOOL_SPEAR("tool.spear", "Sweeping attack, long attack range.", 0),
-	TOOL_MACHETE("tool.machete", "Deal damage to all surrounding mobs. Increase damage for consecutive attack. Double weld for larger sweep range and higher damage stack limit.", 0),
-	TOOL_ROUND_SHIELD("tool.round_shield", "Move fast while blocking.", 0),
-	TOOL_PLATE_SHIELD("tool.plate_shield", "Resistant against attacks that would break regular shields. Reflect damage with right timing.", 0),
+	TOOL_MACHETE("tool.machete", "Deal damage to all surrounding mobs. Increase damage for consecutive attack.", 0),
+	TOOL_MACHETE_EXTRA("tool.machete.extra", "Double weld for larger sweep range and higher damage stack limit.", 0),
+	TOOL_ROUND_SHIELD("tool.round_shield", "Blocking would not slow down player, and allow sprinting.", 0),
+	TOOL_PLATE_SHIELD("tool.plate_shield", "Main hand only. Resistant against attacks that would break regular shields. Reflect damage with right timing.", 0),
+	TOOL_PLATE_SHIELD_EXTRA("tool.plate_shield.extra", " Knockback enemies on hit, and deal 3x damage on critical hit. Damage bypass armor.", 0),
 
 	TOOL_THROWING_AXE("tool.throwing_axe", "You can throw this axe toward target.", 0),
 	TOOL_JAVELIN("tool.javelin", "Pierce through multiple enemies when thrown", 0),

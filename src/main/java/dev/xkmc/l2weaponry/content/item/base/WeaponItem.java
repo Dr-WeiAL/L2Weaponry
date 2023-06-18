@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -18,6 +19,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import org.jetbrains.annotations.NotNull;
 
 public class WeaponItem extends TieredItem {
 
@@ -108,6 +111,15 @@ public class WeaponItem extends TieredItem {
 	 */
 	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
 		return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
+	}
+
+	public AABB getSweepHitBoxImpl(ItemStack stack, LivingEntity attacker, Entity target) {
+		return target.getBoundingBox().inflate(1.0D, 0.25D, 1.0D);
+	}
+
+	@Override
+	public final @NotNull AABB getSweepHitBox(@NotNull ItemStack stack, @NotNull Player player, @NotNull Entity target) {
+		return getSweepHitBoxImpl(stack, player, target);
 	}
 
 }

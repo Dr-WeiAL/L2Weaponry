@@ -8,6 +8,7 @@ import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
@@ -50,7 +51,7 @@ public class SpearItem extends GenericWeaponItem {
 	}
 
 	@Override
-	public @NotNull AABB getSweepHitBox(@NotNull ItemStack stack, @NotNull Player player, @NotNull Entity target) {
+	public AABB getSweepHitBoxImpl(ItemStack stack, LivingEntity player, Entity target) {
 		return target.getBoundingBox().inflate(3.0D, 0.5D, 3.0D);
 	}
 

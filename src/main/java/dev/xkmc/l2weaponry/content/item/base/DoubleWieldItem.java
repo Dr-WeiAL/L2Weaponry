@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
@@ -23,12 +24,12 @@ public class DoubleWieldItem extends GenericWeaponItem {
 	}
 
 	@Override
-	public @NotNull AABB getSweepHitBox(@NotNull ItemStack stack, @NotNull Player player, @NotNull Entity target) {
+	public AABB getSweepHitBoxImpl(ItemStack stack, LivingEntity player, Entity target) {
 		double r = player.getAttributeValue(ForgeMod.ENTITY_REACH.get());
 		if (player.getOffhandItem().getItem() == this) {
 			return player.getBoundingBox().inflate(r + 1, r + 0.25, r + 1);
 		} else {
-			return super.getSweepHitBox(stack, player, target);
+			return super.getSweepHitBoxImpl(stack, player, target);
 		}
 	}
 

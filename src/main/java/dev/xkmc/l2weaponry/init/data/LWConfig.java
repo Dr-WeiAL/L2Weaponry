@@ -19,6 +19,7 @@ public class LWConfig {
 		public final ForgeConfigSpec.DoubleValue claw_bonus;
 		public final ForgeConfigSpec.IntValue claw_max;
 		public final ForgeConfigSpec.IntValue claw_timeout;
+		public final ForgeConfigSpec.IntValue claw_block_time;
 		public final ForgeConfigSpec.DoubleValue reflectCost;
 
 		public final ForgeConfigSpec.IntValue shadowHunterDistance;
@@ -37,6 +38,8 @@ public class LWConfig {
 					.defineInRange("claw_max", 5, 1, 1000);
 			claw_timeout = builder.comment("Claw damage bonus timeout")
 					.defineInRange("claw_timeout", 60, 1, 1000);
+			claw_block_time = builder.comment("Claw block damage time")
+					.defineInRange("claw_block_time", 3, 0, 1000);
 			reflectCost = builder.comment("Shield reflect cost")
 					.defineInRange("reflectCost", 0.2, 0, 1);
 			shadowHunterDistance = builder.comment("Shadow Hunter teleport distance")

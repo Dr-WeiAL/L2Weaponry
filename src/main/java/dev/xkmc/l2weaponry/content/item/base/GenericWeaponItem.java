@@ -2,10 +2,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import dev.xkmc.l2library.init.events.attack.AttackCache;
-import dev.xkmc.l2library.init.events.attack.CreateSourceEvent;
 import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2library.init.materials.generic.GenericTieredItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
@@ -30,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
+public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 
 	private final ExtraToolConfig config;
 
@@ -42,6 +39,7 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
 		config.inventoryTick(stack, level, entity, slot, selected);
+		super.inventoryTick(stack, level, entity, slot, selected);
 	}
 
 	@Override
@@ -68,6 +66,14 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 			stack.hurtAndBreak(config.sword_mine, entity, (l) -> l.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		}
 		return true;
+	}
+
+	protected boolean isSharp() {
+		return true;
+	}
+
+	protected boolean canSweep() {
+		return false;
 	}
 
 	@Override
@@ -98,22 +104,6 @@ public class GenericWeaponItem extends WeaponItem implements GenericTieredItem {
 	@Override
 	public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
 		if (toolAction == ToolActions.SWORD_SWEEP) return canSweep();
-		return false;
-	}
-
-	public float getMultiplier(AttackCache event) {
-		return 1;
-	}
-
-	public void modifySource(LivingEntity attacker, CreateSourceEvent event, ItemStack item, @Nullable Entity target) {
-
-	}
-
-	protected boolean isSharp() {
-		return true;
-	}
-
-	protected boolean canSweep() {
 		return false;
 	}
 

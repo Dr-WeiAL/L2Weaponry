@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class GenericShieldItem extends BaseShieldItem implements GenericTieredItem {
+public class GenericShieldItem extends BaseShieldItem implements LWTieredItem {
 
 	private final Tier tier;
 	private final ExtraToolConfig config;
