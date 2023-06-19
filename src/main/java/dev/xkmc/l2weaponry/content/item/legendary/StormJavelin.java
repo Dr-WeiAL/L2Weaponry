@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.item.types.JavelinItem;
@@ -31,40 +31,40 @@ public class StormJavelin extends JavelinItem implements LegendaryWeapon {
 
 	@Override
 	public void onHitBlock(BaseThrownWeaponEntity<?> entity, ItemStack item) {
-		if (entity.level.isClientSide) return;
+		if (entity.level().isClientSide) return;
 		if (entity.remainingHit <= 0) return;
 		BlockPos blockpos = entity.blockPosition();
-		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(entity.level);
+		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(entity.level());
 		assert bolt != null;
 		bolt.moveTo(Vec3.atBottomCenterOf(blockpos));
 		bolt.setCause(entity.getOwner() instanceof ServerPlayer ? (ServerPlayer) entity.getOwner() : null);
-		entity.level.addFreshEntity(bolt);
+		entity.level().addFreshEntity(bolt);
 		entity.playSound(SoundEvents.TRIDENT_THUNDER, 5, 1);
 	}
 
 	@Override
 	public void onHitEntity(BaseThrownWeaponEntity<?> entity, ItemStack item, LivingEntity le) {
-		if (entity.level.isClientSide) return;
+		if (entity.level().isClientSide) return;
 		if (entity.remainingHit <= 0) return;
 		BlockPos blockpos = entity.blockPosition();
-		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(entity.level);
+		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(entity.level());
 		assert bolt != null;
 		bolt.moveTo(Vec3.atBottomCenterOf(blockpos));
 		bolt.setCause(entity.getOwner() instanceof ServerPlayer ? (ServerPlayer) entity.getOwner() : null);
-		entity.level.addFreshEntity(bolt);
+		entity.level().addFreshEntity(bolt);
 		entity.playSound(SoundEvents.TRIDENT_THUNDER, 5, 1);
 	}
 
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity user) {
 		super.hurtEnemy(stack, target, user);
-		if (user.level.isClientSide) return true;
+		if (user.level().isClientSide) return true;
 		BlockPos blockpos = target.blockPosition();
-		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(user.level);
+		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(user.level());
 		assert bolt != null;
 		bolt.moveTo(Vec3.atBottomCenterOf(blockpos));
 		bolt.setCause(user instanceof ServerPlayer serverPlayer ? serverPlayer : null);
-		user.level.addFreshEntity(bolt);
+		user.level().addFreshEntity(bolt);
 		user.playSound(SoundEvents.TRIDENT_THUNDER, 5, 1);
 		return true;
 	}

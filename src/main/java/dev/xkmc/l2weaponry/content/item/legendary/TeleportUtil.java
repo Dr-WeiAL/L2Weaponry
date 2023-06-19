@@ -14,7 +14,7 @@ import net.minecraftforge.common.ForgeMod;
 public class TeleportUtil {
 
 	public static boolean teleport(Player player, LivingEntity target, boolean back) {
-		if (player.level.isClientSide) {
+		if (player.level().isClientSide) {
 			return true;
 		}
 		Vec3 tPos = target.position();
@@ -31,11 +31,11 @@ public class TeleportUtil {
 			BlockPos iPos = pos.above(i);
 			Vec3 cen = new Vec3(iPos.getX() + 0.5, iPos.getY() + 1, iPos.getZ() + 0.5);
 			AABB iab = aabb.move(cen.subtract(aabb.getCenter()));
-			if (player.level.noCollision(player, iab)) {
+			if (player.level().noCollision(player, iab)) {
 				player.teleportTo(iPos.getX() + 0.5, iPos.getY(), iPos.getZ() + 0.5);
 				player.lookAt(EntityAnchorArgument.Anchor.EYES, target.getEyePosition());
 				player.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
-				player.level.gameEvent(GameEvent.TELEPORT, iPos, GameEvent.Context.of(player));
+				player.level().gameEvent(GameEvent.TELEPORT, iPos, GameEvent.Context.of(player));
 				return true;
 			}
 		}

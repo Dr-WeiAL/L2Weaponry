@@ -1,9 +1,8 @@
 package dev.xkmc.l2weaponry.init;
 
 import com.tterrag.registrate.providers.ProviderType;
+import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
-import dev.xkmc.l2library.base.tabs.contents.AttributeEntry;
-import dev.xkmc.l2library.init.events.attack.AttackEventHandler;
 import dev.xkmc.l2weaponry.compat.GolemCompat;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
@@ -55,10 +54,7 @@ public class L2Weaponry {
 
 	@SubscribeEvent
 	public static void setup(final FMLCommonSetupEvent event) {
-		event.enqueueWork(() -> {
-			AttackEventHandler.register(4000, new LWAttackEventListener());
-			AttributeEntry.add(LWItems.SHIELD_DEFENSE, false, 14000);
-		});
+		event.enqueueWork(() -> AttackEventHandler.register(4000, new LWAttackEventListener()));
 	}
 
 	@SubscribeEvent
@@ -74,6 +70,7 @@ public class L2Weaponry {
 		var lookup = event.getLookupProvider();
 		var helper = event.getExistingFileHelper();
 		new LWDamageTypeGen(output, lookup, helper).generate(gen, event.getGenerator());
+		event.getGenerator().addProvider(event.includeServer(), new LWAttributeConfigGen(event.getGenerator()));
 	}
 
 }

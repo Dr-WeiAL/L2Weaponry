@@ -1,10 +1,9 @@
 package dev.xkmc.l2weaponry.events;
 
-import dev.xkmc.l2library.init.events.attack.*;
-import dev.xkmc.l2library.init.materials.generic.GenericTieredItem;
+import dev.xkmc.l2damagetracker.contents.attack.*;
+import dev.xkmc.l2damagetracker.contents.materials.generic.GenericTieredItem;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
-import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import dev.xkmc.l2weaponry.content.item.types.PlateShieldItem;
@@ -50,16 +49,16 @@ public class LWAttackEventListener implements AttackListener {
 			if (!stack.isEmpty() && stack.getItem() instanceof GenericTieredItem) {
 				if (le instanceof Player && cache.getCriticalHitEvent() != null) {
 					if (cache.getStrength() < 0.7f) {
-						cache.addHurtModifier(DamageModifier.nonlinearPost(10000, f -> 0.1f));
+						cache.addHurtModifier(DamageModifier.nonlinearFinal(10000, f -> 0.1f));
 						return;
 					}
 				}
 			}
 			if (!stack.isEmpty() && stack.getItem() instanceof LWTieredItem w) {
-				cache.addHurtModifier(DamageModifier.multPre(w.getMultiplier(cache)));
+				cache.addHurtModifier(DamageModifier.multAttr(w.getMultiplier(cache)));
 			}
 			if (!stack.isEmpty() && stack.getItem() instanceof BaseClawItem claw) {
-				claw.accumulateDamage(stack, cache.getAttacker().getLevel().getGameTime());
+				claw.accumulateDamage(stack, cache.getAttacker().level().getGameTime());
 			}
 			if (stack.getItem() instanceof LegendaryWeapon weapon) {
 				weapon.onHurt(cache, le, stack);

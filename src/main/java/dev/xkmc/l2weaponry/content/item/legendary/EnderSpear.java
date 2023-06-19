@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.raytrace.IGlowingTarget;
 import dev.xkmc.l2library.util.raytrace.RayTraceUtil;
 import dev.xkmc.l2weaponry.content.item.types.SpearItem;
@@ -42,7 +42,7 @@ public class EnderSpear extends SpearItem implements LegendaryWeapon, IGlowingTa
 	public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
 		if (player.getCooldowns().getCooldownPercent(this, 0) > 0)
 			return InteractionResult.PASS;
-		if (player.level.isClientSide) return InteractionResult.SUCCESS;
+		if (player.level().isClientSide) return InteractionResult.SUCCESS;
 		if (TeleportUtil.teleport(player, target, false)) {
 			player.getCooldowns().addCooldown(this, 60);
 			return InteractionResult.SUCCESS;

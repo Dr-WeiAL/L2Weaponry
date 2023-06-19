@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2library.init.events.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;

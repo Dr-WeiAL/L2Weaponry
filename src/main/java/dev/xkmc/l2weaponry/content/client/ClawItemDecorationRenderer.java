@@ -39,7 +39,7 @@ public class ClawItemDecorationRenderer implements IItemDecorator {
 		if (time - last <= LWConfig.COMMON.claw_block_time.get()) {
 			col = 0x00ffff;
 		}
-		CommonDecoUtil.drawText(poseStack,x + 17 - font.width(s), y + 9, font, col, s);
+		CommonDecoUtil.drawText(poseStack, x + 17 - font.width(s), y + 9, font, col, s);
 		return true;
 	}
 

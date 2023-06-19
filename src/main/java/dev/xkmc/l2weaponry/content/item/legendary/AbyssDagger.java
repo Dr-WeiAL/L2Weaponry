@@ -1,8 +1,8 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2library.init.events.attack.CreateSourceEvent;
-import dev.xkmc.l2library.init.events.damage.DefaultDamageState;
-import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
+import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
+import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.DaggerItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;

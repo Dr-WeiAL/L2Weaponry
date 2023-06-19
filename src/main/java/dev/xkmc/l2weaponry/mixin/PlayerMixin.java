@@ -51,7 +51,7 @@ public abstract class PlayerMixin extends LivingEntity {
 			if (cd > 0) {
 				player.getCooldowns().addCooldown(player.getUseItem().getItem(), cd);
 				player.stopUsingItem();
-				player.level.broadcastEntityEvent(player, (byte) 30);
+				player.level().broadcastEntityEvent(player, (byte) 30);
 			}
 			ci.cancel();
 		}

@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.init.materials;
 
 import dev.xkmc.l2complements.init.materials.LCMats;
-import dev.xkmc.l2library.init.materials.api.IMatToolType;
+import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;

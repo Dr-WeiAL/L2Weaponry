@@ -4,17 +4,22 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
 import dev.xkmc.l2complements.init.registrate.LCItems;
 import dev.xkmc.l2library.serial.ingredients.EnchantmentIngredient;
+import dev.xkmc.l2library.serial.recipe.AbstractSmithingRecipe;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.data.recipes.*;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.SmithingTransformRecipe;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -141,16 +146,12 @@ public class RecipeGen {
 	}
 
 	public static void smithing(RegistrateRecipeProvider pvd, TagKey<Item> in, Item mat, Item out) {
-		unlock(pvd, LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(in), Ingredient.of(mat),
-				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out));
-		unlock(pvd, SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.PAPER), Ingredient.of(in), Ingredient.of(mat),
+		unlock(pvd, SmithingTransformRecipeBuilder.smithing(AbstractSmithingRecipe.TEMPLATE_PLACEHOLDER, Ingredient.of(in), Ingredient.of(mat),
 				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out, "_old"));
 	}
 
 	public static void smithing(RegistrateRecipeProvider pvd, Item in, Item mat, Item out) {
-		unlock(pvd, LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(in), Ingredient.of(mat),
-				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out));
-		unlock(pvd, SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.PAPER), Ingredient.of(in), Ingredient.of(mat),
+		unlock(pvd, SmithingTransformRecipeBuilder.smithing(AbstractSmithingRecipe.TEMPLATE_PLACEHOLDER, Ingredient.of(in), Ingredient.of(mat),
 				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out, "_old"));
 	}
 

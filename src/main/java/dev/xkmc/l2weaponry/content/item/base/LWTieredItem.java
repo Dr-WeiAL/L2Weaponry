@@ -1,8 +1,8 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
-import dev.xkmc.l2library.init.events.attack.AttackCache;
-import dev.xkmc.l2library.init.events.attack.CreateSourceEvent;
-import dev.xkmc.l2library.init.materials.generic.GenericTieredItem;
+import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
+import dev.xkmc.l2damagetracker.contents.materials.generic.GenericTieredItem;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;

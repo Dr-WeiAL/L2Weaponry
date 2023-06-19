@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
+import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.base.effects.EffectUtil;
-import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.item.types.JavelinItem;
@@ -36,9 +36,9 @@ public class EnderJavelin extends JavelinItem implements LegendaryWeapon {
 
 	@Override
 	public void onHitBlock(BaseThrownWeaponEntity<?> entity, ItemStack item) {
-		if (entity.level.isClientSide) return;
+		if (entity.level().isClientSide) return;
 		if (!(entity.getOwner() instanceof Player player)) return;
-		if (player.level != entity.level) return;
+		if (player.level() != entity.level()) return;
 		if (!player.isAlive()) return;
 		player.teleportTo(entity.getX(), entity.getY(), entity.getZ());
 		player.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);

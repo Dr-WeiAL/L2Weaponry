@@ -39,7 +39,7 @@ public class ThrownWeaponRenderer<T extends BaseThrownWeaponEntity<T>> extends E
 		pMatrixStack.mulPose(Axis.ZP.rotationDegrees(45));
 
 		var ir = Minecraft.getInstance().getItemRenderer();
-		var model = ir.getModel(entity.getItem(), entity.level, null, entity.getId());
+		var model = ir.getModel(entity.getItem(), entity.level(), null, entity.getId());
 
 		ir.render(entity.getItem(), ItemDisplayContext.GROUND, false,
 				pMatrixStack, pBuffer, pPackedLight, OverlayTexture.NO_OVERLAY, model);

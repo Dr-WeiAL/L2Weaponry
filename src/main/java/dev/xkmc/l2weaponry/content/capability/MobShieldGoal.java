@@ -31,7 +31,7 @@ public class MobShieldGoal extends Goal implements IShieldData {
 	}
 
 	public boolean onBlock(ItemStack stack, BaseShieldItem item, boolean shouldDisable, LivingEntity target) {
-		double strength = item.reflectImpl(stack, mob.level.damageSources().mobAttack(mob),
+		double strength = item.reflectImpl(stack, mob.level().damageSources().mobAttack(mob),
 				mob.getAttributeValue(Attributes.ATTACK_DAMAGE), this, target);
 		target.knockback(strength, mob.getX() - target.getX(), mob.getZ() - target.getZ());
 		if (!shouldDisable && !item.lightWeight(stack)) {
@@ -72,7 +72,7 @@ public class MobShieldGoal extends Goal implements IShieldData {
 
 	@Override
 	public boolean canReflect() {
-		return mob.isOnGround() && mob.getAttribute(LWItems.REFLECT_TIME.get()) != null && mob.getAttributeValue(LWItems.REFLECT_TIME.get()) > 0;
+		return mob.onGround() && mob.getAttribute(LWItems.REFLECT_TIME.get()) != null && mob.getAttributeValue(LWItems.REFLECT_TIME.get()) > 0;
 	}
 
 	@Override

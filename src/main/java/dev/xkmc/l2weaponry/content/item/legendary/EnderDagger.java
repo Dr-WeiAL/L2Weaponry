@@ -1,8 +1,8 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2library.init.events.attack.CreateSourceEvent;
-import dev.xkmc.l2library.init.events.damage.DefaultDamageState;
-import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
+import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
+import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.raytrace.IGlowingTarget;
 import dev.xkmc.l2library.util.raytrace.RayTraceUtil;
 import dev.xkmc.l2weaponry.content.item.types.DaggerItem;
@@ -47,7 +47,7 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 	public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
 		if (player.getCooldowns().getCooldownPercent(this, 0) > 0)
 			return InteractionResult.PASS;
-		if (player.level.isClientSide) return InteractionResult.SUCCESS;
+		if (player.level().isClientSide) return InteractionResult.SUCCESS;
 		if (TeleportUtil.teleport(player, target, true)) {
 			clearTarget(target, player);
 			return InteractionResult.SUCCESS;
@@ -85,7 +85,7 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 			mob.setLastHurtByPlayer(null);
 			for (var e : mob.targetSelector.getAvailableGoals()) {
 				if (e.getGoal() instanceof TargetGoal t) {
-					((TargetGoalAccessor)t).setTargetMob(null);
+					((TargetGoalAccessor) t).setTargetMob(null);
 				}
 			}
 		}

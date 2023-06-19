@@ -2,9 +2,9 @@ package dev.xkmc.l2weaponry.content.item.legendary;
 
 import dev.xkmc.l2complements.init.data.LCConfig;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
+import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.base.effects.EffectUtil;
-import dev.xkmc.l2library.init.events.attack.AttackCache;
-import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.SpearItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;

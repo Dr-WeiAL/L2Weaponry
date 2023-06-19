@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.types;
 
 import com.google.common.collect.ImmutableMultimap;
-import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;

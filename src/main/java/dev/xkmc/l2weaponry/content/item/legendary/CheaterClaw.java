@@ -1,8 +1,8 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2library.init.events.attack.AttackCache;
-import dev.xkmc.l2library.init.events.attack.DamageModifier;
-import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.DamageModifier;
+import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.ClawItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
@@ -42,7 +42,7 @@ public class CheaterClaw extends ClawItem implements LegendaryWeapon {
 		if (stack.getOrCreateTag().hasUUID(KEY_TARGET) &&
 				event.getAttackTarget().getUUID().equals(
 						stack.getOrCreateTag().getUUID(KEY_TARGET))) {
-			event.addHurtModifier(DamageModifier.addPost(stack.getOrCreateTag().getFloat(KEY_DAMAGE)));
+			event.addHurtModifier(DamageModifier.addExtra(stack.getOrCreateTag().getFloat(KEY_DAMAGE)));
 		}
 	}
 }

@@ -44,7 +44,7 @@ public abstract class LivingEntityMixin extends Entity {
 	public void l2weaponry_isDamageSourceBlocked_clawBlock(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
 		ItemStack stack = getMainHandItem();
 		if (stack.getItem() instanceof ClawItem) {
-			long gameTime = level.getGameTime();
+			long gameTime = level().getGameTime();
 			if (gameTime > BaseClawItem.getLastTime(stack) + LWConfig.COMMON.claw_block_time.get()) {
 				return;
 			}

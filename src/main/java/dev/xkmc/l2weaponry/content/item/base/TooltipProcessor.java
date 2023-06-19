@@ -8,8 +8,8 @@ import net.minecraftforge.common.ForgeMod;
 public class TooltipProcessor {
 
 	public static void processTooltip(Multimap<Attribute, AttributeModifier> ans) {
-		sumAddition(ans, ForgeMod.ATTACK_RANGE.get());
-		sumAddition(ans, ForgeMod.REACH_DISTANCE.get());
+		sumAddition(ans, ForgeMod.ENTITY_REACH.get());
+		sumAddition(ans, ForgeMod.BLOCK_REACH.get());
 	}
 
 	private static void sumAddition(Multimap<Attribute, AttributeModifier> ans, Attribute attr) {

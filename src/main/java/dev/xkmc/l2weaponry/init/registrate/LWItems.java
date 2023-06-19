@@ -9,7 +9,6 @@ import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.materials.LegendaryToolFactory;
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.item.Item;
@@ -28,9 +27,8 @@ public class LWItems {
 	public static final List<Item> CLAW_DECO = new ArrayList<>();
 
 	static {
-		L2Weaponry.REGISTRATE.creativeModeTab("weaponry", b -> b
-				.icon(LWItems.GEN_ITEM[LWToolMats.SCULKIUM.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()]::asStack)
-				.title(Component.translatable("itemGroup.l2weaponry.generated")));
+		L2Weaponry.REGISTRATE.buildL2CreativeTab("weaponry", "L2 Weaponry", b -> b
+				.icon(LWItems.GEN_ITEM[LWToolMats.SCULKIUM.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()]::asStack));
 	}
 
 	public static final RegistryEntry<Attribute> SHIELD_DEFENSE = L2Weaponry.REGISTRATE.simple("shield_defense",

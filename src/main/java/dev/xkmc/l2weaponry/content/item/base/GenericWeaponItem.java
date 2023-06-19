@@ -2,7 +2,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;

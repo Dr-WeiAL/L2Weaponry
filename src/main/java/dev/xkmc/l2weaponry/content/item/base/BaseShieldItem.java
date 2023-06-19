@@ -55,7 +55,7 @@ public class BaseShieldItem extends ShieldItem {
 			int cd = damageShield(player, stack, -1);
 			if (cd > 0 && player instanceof ServerPlayer) {
 				player.getCooldowns().addCooldown(this, cd);
-				player.level.broadcastEntityEvent(player, (byte) 30);
+				player.level().broadcastEntityEvent(player, (byte) 30);
 			}
 		}
 	}
@@ -150,7 +150,7 @@ public class BaseShieldItem extends ShieldItem {
 	}
 
 	public double reflect(ItemStack stack, Player player, LivingEntity target) {
-		return reflectImpl(stack, player.level.damageSources().playerAttack(player),
+		return reflectImpl(stack, player.level().damageSources().playerAttack(player),
 				player.getAttributeValue(Attributes.ATTACK_DAMAGE),
 				LWPlayerData.HOLDER.get(player), target);
 	}

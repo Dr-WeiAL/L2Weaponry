@@ -1,16 +1,14 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
-import dev.xkmc.l2library.init.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.ForgeMod;
-import org.jetbrains.annotations.NotNull;
 
 public class DoubleWieldItem extends GenericWeaponItem {
 

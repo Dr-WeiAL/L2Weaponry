@@ -87,7 +87,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 			if (origin == null) {
 				origin = position();
 			} else {
-				if (position().y < level.getMinBuildHeight() + LOWEST_HEIGHT) {
+				if (position().y < level().getMinBuildHeight() + LOWEST_HEIGHT) {
 					remainingHit = 0;
 				} else {
 					Vec3 diff = position().subtract(origin);
@@ -116,7 +116,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 		int loyal = this.entityData.get(ID_LOYALTY);
 		if (loyal > 0 && (this.remainingHit == 0 || this.isNoPhysics()) && entity != null) {
 			if (!this.isAcceptibleReturnOwner()) {
-				if (!this.level.isClientSide && this.pickup == AbstractArrow.Pickup.ALLOWED) {
+				if (!this.level().isClientSide && this.pickup == AbstractArrow.Pickup.ALLOWED) {
 					this.spawnAtLocation(this.getPickupItem(), 0.1F);
 				}
 				this.discard();
@@ -124,7 +124,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 				this.setNoPhysics(true);
 				Vec3 vec3 = entity.getEyePosition().subtract(this.position());
 				this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015D * (double) loyal, this.getZ());
-				if (this.level.isClientSide) {
+				if (this.level().isClientSide) {
 					this.yOld = this.getY();
 				}
 				double d0 = 0.05D * (double) loyal;
@@ -169,7 +169,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 		}
 		Entity owner = this.getOwner();
 		targetCache = entity;
-		DamageSource damagesource = level.damageSources().trident(this, owner == null ? this : owner);
+		DamageSource damagesource = level().damageSources().trident(this, owner == null ? this : owner);
 		targetCache = null;
 		if (this.remainingHit > 0) {
 			this.remainingHit--;
