@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -8,9 +9,11 @@ import net.minecraftforge.common.ForgeMod;
 public class TooltipProcessor {
 
 	public static Multimap<Attribute, AttributeModifier> processTooltip(Multimap<Attribute, AttributeModifier> ans) {
-		sumAddition(ans, ForgeMod.ATTACK_RANGE.get());
-		sumAddition(ans, ForgeMod.REACH_DISTANCE.get());
-		return ans;
+		HashMultimap<Attribute, AttributeModifier> copy = HashMultimap.create();
+		copy.putAll(ans);
+		sumAddition(copy, ForgeMod.ATTACK_RANGE.get());
+		sumAddition(copy, ForgeMod.REACH_DISTANCE.get());
+		return copy;
 	}
 
 	private static void sumAddition(Multimap<Attribute, AttributeModifier> ans, Attribute attr) {
