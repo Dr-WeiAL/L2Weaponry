@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/axe_of_cursed_flame"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

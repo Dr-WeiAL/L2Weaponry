@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/upgrade/sculkium_spear"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

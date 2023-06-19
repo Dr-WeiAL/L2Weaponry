@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:smithing",
+  "type": "minecraft:smithing_transform",
   "addition": {
     "item": "l2complements:soul_flame"
   },
@@ -8,5 +8,6 @@
   },
   "result": {
     "item": "l2weaponry:axe_of_cursed_flame"
-  }
+  },
+  "template": []
 }

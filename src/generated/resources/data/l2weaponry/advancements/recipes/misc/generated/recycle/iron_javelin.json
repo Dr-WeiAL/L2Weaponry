@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/recycle/iron_javelin"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

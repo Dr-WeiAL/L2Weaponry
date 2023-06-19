@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/blade_of_illusion"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/recycle/totemic_gold_machete"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/abyss_terror"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

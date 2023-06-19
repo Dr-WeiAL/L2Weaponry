@@ -4,6 +4,7 @@ import dev.xkmc.l2damagetracker.contents.damage.DamageTypeRoot;
 import dev.xkmc.l2damagetracker.contents.damage.DamageTypeWrapper;
 import dev.xkmc.l2damagetracker.contents.damage.DamageWrapperTagProvider;
 import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
+import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2damagetracker.init.data.DamageTypeAndTagsGen;
 import dev.xkmc.l2library.init.L2Library;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -33,7 +34,7 @@ public class LWDamageTypeGen extends DamageTypeAndTagsGen {
 	public static void register() {
 		TRIDENT.add(DefaultDamageState.BYPASS_MAGIC);
 		TRIDENT.add(DefaultDamageState.BYPASS_ARMOR);
-		DamageTypeRoot.configureGeneration(Set.of(L2Library.MODID, L2Weaponry.MODID), L2Weaponry.MODID, LIST);
+		DamageTypeRoot.configureGeneration(Set.of(L2DamageTracker.MODID, L2Weaponry.MODID), L2Weaponry.MODID, LIST);
 	}
 
 	protected static final List<DamageTypeWrapper> LIST = new ArrayList<>();

@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/spear_of_winter_storm"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

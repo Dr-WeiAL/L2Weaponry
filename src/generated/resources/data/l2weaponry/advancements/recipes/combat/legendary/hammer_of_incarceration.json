@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/hammer_of_incarceration"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

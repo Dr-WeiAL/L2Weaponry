@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/shadow_shredder"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

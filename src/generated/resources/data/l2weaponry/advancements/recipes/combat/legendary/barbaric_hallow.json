@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/barbaric_hallow"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

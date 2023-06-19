@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/poseidon_madness"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

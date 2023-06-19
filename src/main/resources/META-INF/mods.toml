@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[42,)"
+loaderVersion="[46,)"
 license="All rights reserved"
 [[mods]]
 modId="l2weaponry"
@@ -13,30 +13,30 @@ description='''
 [[dependencies.l2weaponry]]
     modId="forge"
     mandatory=true
-    versionRange="[45.0.0,)"
+    versionRange="[46.0.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.l2weaponry]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.4,1.20)"
+    versionRange="[1.20,1.21)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.l2weaponry]]
     modId="l2library"
     mandatory=true
-    versionRange="[2.3.0,)"
+    versionRange="[2.4.0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.l2weaponry]]
     modId="l2complements"
     mandatory=true
-    versionRange="[2.3.0,)"
+    versionRange="[2.4.0-a0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.l2weaponry]]
     modId="modulargolems"
     mandatory=false
-    versionRange="[2.2.5,)"
+    versionRange="[2.4.0-a0,)"
     ordering="AFTER"
     side="BOTH"

@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/upgrade/gold_javelin"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

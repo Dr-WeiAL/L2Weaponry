@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/craft/poseidite_claw"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

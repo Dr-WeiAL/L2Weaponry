@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/vampire_desire"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

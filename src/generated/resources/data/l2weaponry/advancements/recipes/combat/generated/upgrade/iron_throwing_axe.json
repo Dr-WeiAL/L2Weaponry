@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/upgrade/iron_throwing_axe"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

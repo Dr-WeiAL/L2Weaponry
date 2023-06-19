@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:smithing",
+  "type": "minecraft:smithing_transform",
   "addition": {
     "item": "l2complements:life_essence"
   },
@@ -8,5 +8,6 @@
   },
   "result": {
     "item": "l2weaponry:dogmatic_standoff"
-  }
+  },
+  "template": []
 }

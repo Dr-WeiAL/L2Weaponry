@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/haunting_demon_of_the_end"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

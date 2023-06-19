@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/craft/totemic_gold_javelin"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

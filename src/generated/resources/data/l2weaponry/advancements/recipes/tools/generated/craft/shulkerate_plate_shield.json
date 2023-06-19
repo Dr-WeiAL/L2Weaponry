@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/craft/shulkerate_plate_shield"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

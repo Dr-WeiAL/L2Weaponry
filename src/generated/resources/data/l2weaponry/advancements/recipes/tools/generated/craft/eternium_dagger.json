@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/craft/eternium_dagger"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

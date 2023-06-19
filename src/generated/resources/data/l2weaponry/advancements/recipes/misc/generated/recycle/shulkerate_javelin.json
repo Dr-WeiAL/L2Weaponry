@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/recycle/shulkerate_javelin"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

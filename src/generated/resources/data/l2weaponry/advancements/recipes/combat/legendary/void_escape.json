@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:legendary/void_escape"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

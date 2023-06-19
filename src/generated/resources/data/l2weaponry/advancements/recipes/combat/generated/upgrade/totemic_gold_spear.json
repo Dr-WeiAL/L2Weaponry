@@ -30,5 +30,6 @@
     "recipes": [
       "l2weaponry:generated/upgrade/totemic_gold_spear"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

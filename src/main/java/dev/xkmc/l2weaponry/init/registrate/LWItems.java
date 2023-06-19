@@ -62,7 +62,7 @@ public class LWItems {
 	public static final ItemEntry<Item>[][] GEN_ITEM;
 
 	static {
-		HANDLE = L2Weaponry.REGISTRATE.item("reinforced_handle", Item::new).register();
+		HANDLE = L2Weaponry.REGISTRATE.item("reinforced_handle", Item::new).defaultModel().register();
 		BLOOD_CLAW = regLegendary("vampire_desire", BloodClaw::new, LWToolTypes.CLAW, LWToolMats.TOTEMIC_GOLD, Rarity.RARE);
 		CHEATER_CLAW = regLegendary("claw_of_determination", CheaterClaw::new, LWToolTypes.CLAW, LWToolMats.ETERNIUM, Rarity.EPIC);
 		ENDER_DAGGER = regLegendary("shadow_hunter", EnderDagger::new, LWToolTypes.DAGGER, LWToolMats.SHULKERATE, Rarity.EPIC);
