@@ -1,6 +1,7 @@
-// 1.20	2023-06-19T00:35:37.720366	Tags for minecraft:damage_type mod id l2weaponry
-8a9e3896d90294ca0af89cb35c24db83daf65047 data/minecraft/tags/damage_type/bypasses_armor.json
-67d0bf9e22376fcbbc5374fcdfdd8c2d791e5455 data/minecraft/tags/damage_type/bypasses_effects.json
-67d0bf9e22376fcbbc5374fcdfdd8c2d791e5455 data/minecraft/tags/damage_type/bypasses_enchantments.json
-67d0bf9e22376fcbbc5374fcdfdd8c2d791e5455 data/minecraft/tags/damage_type/bypasses_resistance.json
-14e0a0af87c0c807a1b4588c2a081d470595237a data/minecraft/tags/damage_type/is_projectile.json
+// 1.20	2023-06-19T16:21:12.200314	Tags for minecraft:damage_type mod id l2weaponry
+9bebeb711ac3f37832306759bf0c3ffc81c31cde data/minecraft/tags/damage_type/bypasses_armor.json
+cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasses_effects.json
+cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasses_enchantments.json
+cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasses_resistance.json
+0d1afbb4677448f00fc5330455a73d4801eaf658 data/minecraft/tags/damage_type/is_projectile.json
+ca4e7b25a718d611bf6cc485ed6511760d687d16 data/minecraft/tags/damage_type/no_anger.json

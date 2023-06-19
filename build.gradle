@@ -198,13 +198,14 @@ dependencies {
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
     implementation fg.deobf("mezz.jei:jei-${jei_minecraft_version}:${jei_version}")
 
-    //runtimeOnly fg.deobf('curse.maven:wthit-forge-455982:4512108')
-    //runtimeOnly fg.deobf('curse.maven:badpackets-615134:4438956')
-    //runtimeOnly fg.deobf('curse.maven:attributefix-280510:4445193')
+    runtimeOnly fg.deobf("curse.maven:badpackets-615134:4438956")
+    runtimeOnly fg.deobf("curse.maven:wthit-forge-455982:4596739")
+    runtimeOnly fg.deobf("curse.maven:attributefix-280510:4588114")
+    runtimeOnly fg.deobf("curse.maven:bookshelf-228525:4581675")
+    runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4587429")
+
     //runtimeOnly fg.deobf('curse.maven:max-health-fix-492246:4447240')
 
-    //runtimeOnly fg.deobf('curse.maven:bookshelf-228525:4454755')
-    //runtimeOnly fg.deobf('curse.maven:enchantment-descriptions-250419:4445054')
     //runtimeOnly fg.deobf('curse.maven:appleskin-248787:4440123')
     //implementation fg.deobf('curse.maven:the-twilight-forest-227639:4516391')
 

@@ -6,7 +6,7 @@ import dev.xkmc.l2damagetracker.contents.damage.DamageWrapperTagProvider;
 import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
 import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2damagetracker.init.data.DamageTypeAndTagsGen;
-import dev.xkmc.l2library.init.L2Library;
+import dev.xkmc.l2damagetracker.init.data.L2DamageTypes;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -34,6 +34,10 @@ public class LWDamageTypeGen extends DamageTypeAndTagsGen {
 	public static void register() {
 		TRIDENT.add(DefaultDamageState.BYPASS_MAGIC);
 		TRIDENT.add(DefaultDamageState.BYPASS_ARMOR);
+		TRIDENT.add(LWNegateStates.NO_PROJECTILE);
+		TRIDENT.add(LWDamageStates.NO_ANGER);
+		L2DamageTypes.PLAYER_ATTACK.add(LWDamageStates.NO_ANGER);
+		L2DamageTypes.MOB_ATTACK.add(LWDamageStates.NO_ANGER);
 		DamageTypeRoot.configureGeneration(Set.of(L2DamageTracker.MODID, L2Weaponry.MODID), L2Weaponry.MODID, LIST);
 	}
 
