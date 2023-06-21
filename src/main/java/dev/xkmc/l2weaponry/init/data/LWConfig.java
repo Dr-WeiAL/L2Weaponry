@@ -2,6 +2,8 @@ package dev.xkmc.l2weaponry.init.data;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.config.IConfigSpec;
+import net.minecraftforge.fml.config.ModConfig;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class LWConfig {
@@ -89,13 +91,15 @@ public class LWConfig {
 		COMMON = common.getLeft();
 	}
 
-	/**
-	 * Registers any relevant listeners for config
-	 */
 	public static void init() {
-		ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT, LWConfig.CLIENT_SPEC);
-		ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.COMMON, LWConfig.COMMON_SPEC);
+		register(ModConfig.Type.CLIENT, CLIENT_SPEC);
+		register(ModConfig.Type.COMMON, COMMON_SPEC);
 	}
 
+	private static void register(ModConfig.Type type, IConfigSpec<?> spec) {
+		var mod = ModLoadingContext.get().getActiveContainer();
+		String path = "l2_configs/" + mod.getModId() + "-" + type.extension() + ".toml";
+		ModLoadingContext.get().registerConfig(type, spec, path);
+	}
 
 }
