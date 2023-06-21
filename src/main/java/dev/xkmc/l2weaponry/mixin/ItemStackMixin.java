@@ -19,7 +19,7 @@ public class ItemStackMixin {
 	public Multimap<Attribute, AttributeModifier> l2weaponry$simplifyTooltips(ItemStack stack, EquipmentSlot slot, Operation<Multimap<Attribute, AttributeModifier>> prev) {
 		var ans = prev.call(stack, slot);
 		if (stack.getItem() instanceof LWTieredItem) {
-			TooltipProcessor.processTooltip(ans);
+			ans = TooltipProcessor.processTooltip(ans);
 		}
 		return ans;
 	}
