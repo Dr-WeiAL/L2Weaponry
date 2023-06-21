@@ -1,7 +1,9 @@
 package dev.xkmc.l2weaponry.init.data;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
+import dev.xkmc.l2complements.init.registrate.LCEnchantments;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
+import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -83,7 +85,6 @@ public enum LangData {
 			pvd.add(L2Weaponry.MODID + "." + id.id, id.def);
 		}
 
-		pvd.add("itemGroup.l2weaponry.generated", "L2Weaponry Items");
 		pvd.add("attribute.name.shield_defense", "Shield Defense");
 		pvd.add("attribute.name.reflect_time", "Reflect Time");
 
@@ -93,6 +94,14 @@ public enum LangData {
 		pvd.add("subtitles.item.trident.riptide", "Thrown weapon zooms");
 		pvd.add("subtitles.item.trident.throw", "Thrown weapon clangs");
 		pvd.add("subtitles.item.trident.thunder", "Thrown weapon thunder cracks");
+
+
+		pvd.add(LWEnchantments.ENDER_HAND.get().getDescriptionId() + ".desc",
+				"Thrown attacks will appear as direct hit.");
+		pvd.add(LWEnchantments.NO_AGGRO.get().getDescriptionId() + ".desc",
+				"Dagger damage has a chance to not aggravate enemy, but reduce damage.");
+		pvd.add(LWEnchantments.HEAVY.get().getDescriptionId() + ".desc",
+				"Reduce attack speed, increase critical hit and projectile damage. Works on Axe and heavy weapons.");
 
 	}
 

@@ -1,16 +1,14 @@
 package dev.xkmc.l2weaponry.content.client;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.util.FastColor;
 import org.joml.Matrix4f;
 
 public class CommonDecoUtil {
+
+	private static final int Z = -1;
 
 	public static void fillRect(GuiGraphics g, float x, float y, float w, float h, int col) {
 		Matrix4f matrix4f = g.pose().last().pose();
@@ -19,19 +17,11 @@ public class CommonDecoUtil {
 		float f1 = (float) FastColor.ARGB32.green(col) / 255.0F;
 		float f2 = (float) FastColor.ARGB32.blue(col) / 255.0F;
 		VertexConsumer vertexconsumer = g.bufferSource().getBuffer(RenderType.gui());
-		vertexconsumer.vertex(matrix4f, x, y, 0).color(f, f1, f2, f3).endVertex();
-		vertexconsumer.vertex(matrix4f, x, y + h, 0).color(f, f1, f2, f3).endVertex();
-		vertexconsumer.vertex(matrix4f, x + w, y + h, 0).color(f, f1, f2, f3).endVertex();
-		vertexconsumer.vertex(matrix4f, x + w, y, 0).color(f, f1, f2, f3).endVertex();
+		vertexconsumer.vertex(matrix4f, x, y, Z).color(f, f1, f2, f3).endVertex();
+		vertexconsumer.vertex(matrix4f, x, y + h, Z).color(f, f1, f2, f3).endVertex();
+		vertexconsumer.vertex(matrix4f, x + w, y + h, Z).color(f, f1, f2, f3).endVertex();
+		vertexconsumer.vertex(matrix4f, x + w, y, Z).color(f, f1, f2, f3).endVertex();
 		g.flush();
 	}
-
-	public static void drawText(PoseStack poseStack, int x, int y, Font font, int col, String s) {
-		MultiBufferSource.BufferSource buffer = MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
-		font.drawInBatch(s, x, y, col, true, poseStack.last().pose(), buffer,
-				Font.DisplayMode.NORMAL, 0, 0xF000F0);
-		buffer.endBatch();
-	}
-
 
 }

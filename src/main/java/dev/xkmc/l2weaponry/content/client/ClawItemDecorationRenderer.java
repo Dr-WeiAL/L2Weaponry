@@ -23,19 +23,23 @@ public class ClawItemDecorationRenderer implements IItemDecorator {
 		long time = Proxy.getClientWorld().getGameTime();
 		int timeout = LWConfig.COMMON.claw_timeout.get();
 		if (time - last > timeout) return false;
+		g.pose().pushPose();
+		g.pose().translate(0, 0, 300);
 		double defenseLost = Mth.clamp(time - last, 0, timeout) * 1d / timeout;
 		int w = Mth.ceil(13.0F * (1 - defenseLost));
-		CommonDecoUtil.fillRect(g, x + 2, y + 14, w, 1, 0xffffffff);
+		int col = 0xffffffff;
+		if (time - last <= LWConfig.COMMON.claw_block_time.get()) {
+			col = 0xff00ffff;
+		}
+		CommonDecoUtil.fillRect(g, x + 2, y + 14, w, 1, col);
 		CommonDecoUtil.fillRect(g, x + 2 + w, y + 14, 13 - w, 1, 0xff000000);
 		int stored_hit = BaseClawItem.getHitCount(main);
 		int max_hit = claw.getMaxStack(main, Proxy.getClientPlayer());
 		int hit = Math.min(max_hit, stored_hit);
 		String s = "" + hit;
-		int col = hit < max_hit ? 0xff7fff : 0xff7f7f;
-		if (time - last <= LWConfig.COMMON.claw_block_time.get()) {
-			col = 0x00ffff;
-		}
+		col = hit < max_hit ? 0xff7fff : 0xff7f7f;
 		g.drawString(font, s, x + 17 - font.width(s), y + 9, col);
+		g.pose().popPose();
 		return true;
 	}
 

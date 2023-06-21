@@ -62,6 +62,11 @@ public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 	}
 
 	@Override
+	public boolean isHeavy() {
+		return true;
+	}
+
+	@Override
 	public boolean isSwordLike() {
 		return false;
 	}

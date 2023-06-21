@@ -1,6 +1,14 @@
 {
-  "itemGroup.l2weaponry": {
-	"generated": "莱特兰·武器"
+  "itemGroup.l2library": {
+	"weaponry": "莱特兰·武器"
+  },
+  "enchantment.l2weaponry": {
+	"ender_hand": "末影之手",
+	"ender_hand.desc": "投掷武器伤害将视为近战伤害",
+	"heavy": "沉重",
+	"heavy.desc": "降低攻击速度，提升暴击伤害和投射伤害。适用于斧头和重型武器",
+	"stealth": "潜伏",
+	"stealth.desc": "匕首伤害有概率不激怒敌人，但是伤害降低"
   },
   "l2weaponry": {
 	"tool": {

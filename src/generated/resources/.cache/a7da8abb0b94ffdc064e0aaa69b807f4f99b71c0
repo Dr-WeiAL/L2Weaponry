@@ -1,6 +1,6 @@
-// 1.20	2023-06-19T00:36:32.96929	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-346bb22429393680ba0f431599bae42c2364060f assets/l2weaponry/lang/en_ud.json
-97e60b8602fce8e3bd02227c09a64b4c933a3cfa assets/l2weaponry/lang/en_us.json
+// 1.20	2023-06-20T20:22:16.985852	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+9075bbc454d9b281f83bdd925507c7f080064c74 assets/l2weaponry/lang/en_ud.json
+b362a87361a6e5d9b86ebe6ca149c73cbc5759e6 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
 22506e91ca3739268a06e9228746033ec8fc719d assets/l2weaponry/models/item/abyss_resonance.json
 d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_shock.json
@@ -257,6 +257,9 @@ d7c7dcd06d1372a1b58df070de1b9f37cee0dc24 data/l2weaponry/advancements/recipes/co
 2e7bfd467938922637b6aa79e7c7ee9083924d13 data/l2weaponry/advancements/recipes/combat/legendary/spear_of_winter_storm.json
 7da5296a419dabb3f1dbf846765f4423db2d7948 data/l2weaponry/advancements/recipes/combat/legendary/vampire_desire.json
 15e7df87f5c72faa9309f6f5b8932abc685c693f data/l2weaponry/advancements/recipes/combat/legendary/void_escape.json
+861ed92baedf25646b4d5b6fe1f50622427916b2 data/l2weaponry/advancements/recipes/enchantments/enchantments/ender_hand.json
+d5cba1ca6c0b659453a7fd59e615ba27995f04e6 data/l2weaponry/advancements/recipes/enchantments/enchantments/heavy.json
+563549b00c90222b008c07e4253c9e2be1afd54b data/l2weaponry/advancements/recipes/enchantments/enchantments/stealth.json
 23e92c4dd41d35d575f6540cc2e2a3187a1d8406 data/l2weaponry/advancements/recipes/misc/generated/recycle/eternium_battle_axe.json
 64165d55ad3a588ec0031fdfe7f36d818a57848b data/l2weaponry/advancements/recipes/misc/generated/recycle/eternium_claw.json
 0819c6610b24d2402381154a4f468f46502b76be data/l2weaponry/advancements/recipes/misc/generated/recycle/eternium_dagger.json
@@ -408,6 +411,9 @@ eb6a922761a19ad7439eec7d1dd74f8aa14e6206 data/l2weaponry/advancements/recipes/to
 23730c870c50f56075f77d9aca38e10e17a5576f data/l2weaponry/advancements/recipes/tools/generated/craft/totemic_gold_round_shield.json
 1c7195800ec7e6b2396c7e238a4319b444bf9d2f data/l2weaponry/advancements/recipes/tools/generated/craft/totemic_gold_spear.json
 fd558bb5fa6feaf702a8bcc75b075efbe6bac380 data/l2weaponry/advancements/recipes/tools/generated/craft/totemic_gold_throwing_axe.json
+b0f76bdf05200ef2f714808b778e45afee47b0ed data/l2weaponry/recipes/enchantments/ender_hand.json
+1947508f69d611185db26320f2f062bd2f3009af data/l2weaponry/recipes/enchantments/heavy.json
+fe5582f43dc60d1ed40fb3444e27d7df055fd171 data/l2weaponry/recipes/enchantments/stealth.json
 ffb8992cbb8fdf87dce663d7894722be6a9537a0 data/l2weaponry/recipes/generated/craft/diamond_battle_axe.json
 318487bbcf3ac00d83e0a5a6ce3932f426743197 data/l2weaponry/recipes/generated/craft/diamond_claw.json
 f3a488472016ec61f4aa9469956ac518a2ac9972 data/l2weaponry/recipes/generated/craft/diamond_dagger.json

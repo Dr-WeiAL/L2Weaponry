@@ -15,7 +15,7 @@ public class LWAttributeConfigGen extends ConfigDataProvider {
 
     public void add(Collector collector) {
         collector.add(L2Tabs.ATTRIBUTE_ENTRY, new ResourceLocation(L2Weaponry.MODID, L2Weaponry.MODID), new AttributeDisplayConfig()
-                        .add(LWItems.REFLECT_TIME.get(), true, 14000)
-                .add(LWItems.SHIELD_DEFENSE.get(), true, 15000));
+                        .add(LWItems.REFLECT_TIME.get(), false, 14000)
+                .add(LWItems.SHIELD_DEFENSE.get(), false, 15000));
     }
 }

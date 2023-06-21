@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.events;
 
+import dev.xkmc.l2complements.content.enchantment.core.SourceModifierEnchantment;
 import dev.xkmc.l2damagetracker.contents.attack.*;
 import dev.xkmc.l2damagetracker.contents.materials.generic.GenericTieredItem;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
@@ -7,6 +8,7 @@ import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import dev.xkmc.l2weaponry.content.item.types.PlateShieldItem;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,7 +27,8 @@ public class LWAttackEventListener implements AttackListener {
 	@Override
 	public void onCreateSource(CreateSourceEvent event) {
 		if (event.getOriginal().equals(DamageTypes.MOB_ATTACK) || event.getOriginal().equals(DamageTypes.PLAYER_ATTACK)) {
-			if (event.getAttacker().getMainHandItem().getItem() instanceof LWTieredItem item) {
+			ItemStack stack = event.getAttacker().getMainHandItem();
+			if (stack.getItem() instanceof LWTieredItem item) {
 				Entity target = Optional.of(event)
 						.map(CreateSourceEvent::getPlayerAttackCache)
 						.map(PlayerAttackCache::getPlayerAttackEntityEvent)
@@ -36,6 +39,7 @@ public class LWAttackEventListener implements AttackListener {
 			if (thrown.getItem().getItem() instanceof LWTieredItem weapon) {
 				if (thrown.getOwner() instanceof LivingEntity le) {
 					weapon.modifySource(le, event, thrown.getItem(), thrown.targetCache);
+					SourceModifierEnchantment.modifySource(thrown.getItem(), event);
 				}
 			}
 		}
@@ -68,6 +72,9 @@ public class LWAttackEventListener implements AttackListener {
 				Item item = thrown.getItem().getItem();
 				if (item instanceof GenericTieredItem tiered) {
 					tiered.getExtraConfig().onDamage(cache, thrown.getItem());
+				}
+				if (!stack.isEmpty() && stack.getItem() instanceof LWTieredItem w) {
+					cache.addHurtModifier(DamageModifier.multAttr(w.getMultiplier(cache)));
 				}
 				if (thrown.getItem().getItem() instanceof LegendaryWeapon weapon) {
 					weapon.onHurt(cache, le, thrown.getItem());
@@ -109,8 +116,9 @@ public class LWAttackEventListener implements AttackListener {
 	@Override
 	public boolean onCriticalHit(PlayerAttackCache cache, CriticalHitEvent event) {
 		if (!event.isVanillaCritical()) return false;
-		if (event.getEntity().getMainHandItem().getItem() instanceof PlateShieldItem) {
-			event.setDamageModifier(event.getDamageModifier() * 2);
+		if (event.getEntity().level().isClientSide()) return false;
+		if (cache.getWeapon().getItem() instanceof LegendaryWeapon weapon) {
+			weapon.onCrit(event.getEntity(), event.getTarget());
 		}
 		return false;
 	}

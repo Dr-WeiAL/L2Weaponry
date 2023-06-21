@@ -31,6 +31,11 @@ public class GenericShieldItem extends BaseShieldItem implements LWTieredItem {
 		this.config = config;
 	}
 
+	@Override
+	public boolean isHeavy() {
+		return !lightWeight;
+	}
+
 	public int getEnchantmentValue() {
 		return this.tier.getEnchantmentValue();
 	}

@@ -18,5 +18,8 @@ public interface LWTieredItem extends GenericTieredItem {
 
 	}
 
+	default boolean isHeavy() {
+		return false;
+	}
 
 }

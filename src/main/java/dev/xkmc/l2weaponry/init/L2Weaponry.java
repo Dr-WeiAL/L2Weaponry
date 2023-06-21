@@ -7,6 +7,7 @@ import dev.xkmc.l2weaponry.compat.GolemCompat;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
 import dev.xkmc.l2weaponry.init.data.*;
+import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.l2weaponry.network.NetworkManager;
@@ -38,6 +39,7 @@ public class L2Weaponry {
 		NetworkManager.register();
 		LWConfig.init();
 		LWPlayerData.register();
+		LWEnchantments.register();
 		if (ModList.get().isLoaded("modulargolems")) GolemCompat.register(bus);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::addTranslations);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipe);

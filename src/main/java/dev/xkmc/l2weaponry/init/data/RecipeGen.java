@@ -2,12 +2,15 @@ package dev.xkmc.l2weaponry.init.data;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
+import dev.xkmc.l2complements.content.enchantment.core.EnchantmentRecipeBuilder;
+import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2complements.init.registrate.LCItems;
 import dev.xkmc.l2library.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2library.serial.recipe.AbstractSmithingRecipe;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
+import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -19,7 +22,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.SmithingTransformRecipe;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -86,6 +88,34 @@ public class RecipeGen {
 			smithing(pvd, LWToolMats.ETERNIUM.getTool(LWToolTypes.CLAW), LCItems.SUN_MEMBRANE.get(), LWItems.CHEATER_CLAW.get());
 			smithing(pvd, LWToolMats.ETERNIUM.getTool(LWToolTypes.MACHETE), LCItems.VOID_EYE.get(), LWItems.CHEATER_MACHETE.get());
 
+		}
+
+		currentFolder = "enchantments/";
+		{
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.HEAVY.get(), 1)::unlockedBy, Items.ANVIL)
+					.pattern("AAA").pattern("CBC").pattern("LCL")
+					.define('A', Items.ANVIL)
+					.define('B', Items.BOOK)
+					.define('C', LWItems.HANDLE.get())
+					.define('L', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.HEAVY.get()));
+
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.NO_AGGRO.get(), 1)::unlockedBy, LCItems.VOID_EYE.get())
+					.pattern("LAL").pattern("CBC").pattern("LCL")
+					.define('A', LCItems.VOID_EYE)
+					.define('B', Items.BOOK)
+					.define('C', LCMats.SHULKERATE.getIngot())
+					.define('L', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.NO_AGGRO.get()));
+
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.ENDER_HAND.get(), 1)::unlockedBy, LCMats.POSEIDITE.getIngot())
+					.pattern("LAL").pattern("CBC").pattern("LDL")
+					.define('A', LCMats.POSEIDITE.getIngot())
+					.define('B', Items.BOOK)
+					.define('C', Items.ENDER_EYE)
+					.define('D', LWItems.HANDLE.get())
+					.define('L', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.ENDER_HAND.get()));
 		}
 	}
 

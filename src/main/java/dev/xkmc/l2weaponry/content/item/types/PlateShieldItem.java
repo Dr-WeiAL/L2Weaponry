@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMultimap;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
 import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.item.base.DoubleHandItem;
@@ -32,6 +33,7 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 
 	private static final String NAME_ATTR = "shield_defense";
 	private static final String NAME_KB = "shield_knockback";
+	private static final String NAME_CRIT = "shield_crit";
 
 	public PlateShieldItem(Tier tier, int maxDefense, float recover, Properties prop, ExtraToolConfig config) {
 		super(tier, prop, config, maxDefense, recover, false);
@@ -49,6 +51,7 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", -3, AttributeModifier.Operation.ADDITION));
 		builder.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(MathHelper.getUUIDFromString(NAME_KB), NAME_KB, 4, AttributeModifier.Operation.ADDITION));
 		builder.put(LWItems.REFLECT_TIME.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_ATTR), NAME_ATTR, 20, AttributeModifier.Operation.ADDITION));
+		builder.put(L2DamageTracker.CRIT_DMG.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_CRIT), NAME_CRIT, 1.5, AttributeModifier.Operation.ADDITION));
 	}
 
 	@Override

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "l2complements:poseidite_ingot"
+    },
+    "B": {
+      "item": "minecraft:book"
+    },
+    "C": {
+      "item": "minecraft:ender_eye"
+    },
+    "D": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "pattern": [
+    "LAL",
+    "CBC",
+    "LDL"
+  ],
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "nbt": {
+      "StoredEnchantments": [
+        {
+          "id": "l2weaponry:ender_hand",
+          "lvl": 1
+        }
+      ]
+    }
+  }
+}

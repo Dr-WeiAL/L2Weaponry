@@ -29,6 +29,11 @@ public class LWConfig {
 		public final ForgeConfigSpec.DoubleValue dogmaticStandoffGain;
 		public final ForgeConfigSpec.DoubleValue dogmaticStandoffMax;
 
+		public final ForgeConfigSpec.DoubleValue heavySpeedReduction;
+		public final ForgeConfigSpec.DoubleValue heavyCritBonus;
+		public final ForgeConfigSpec.DoubleValue stealthChance;
+		public final ForgeConfigSpec.DoubleValue stealthDamageReduction;
+
 		Common(ForgeConfigSpec.Builder builder) {
 			dagger_bonus = builder.comment("Dagger damage multiplier when hitting targets not targeting user")
 					.defineInRange("dagger_bonus", 2d, 1, 1000);
@@ -54,6 +59,16 @@ public class LWConfig {
 					.defineInRange("dogmaticStandoffGain", 0.02, 0.0001, 1);
 			dogmaticStandoffMax = builder.comment("Dogmatic Standoff absorption max percentage")
 					.defineInRange("dogmaticStandoffMax", 0.1, 0.0001, 100);
+
+			heavySpeedReduction = builder.comment("Heavy enchantment reduction on attack speed")
+					.defineInRange("heavySpeedReduction", 0.2, 0.0001, 100);
+			heavyCritBonus = builder.comment("Heavy enchantment crit damage bonus")
+					.defineInRange("heavyCritBonus", 0.3, 0.0001, 100);
+			stealthChance = builder.comment("Stealth enchantment no aggro chance")
+					.defineInRange("stealthChance", 0.2, 0.0001, 100);
+			stealthDamageReduction = builder.comment("Stealth enchantment damage reduction")
+					.defineInRange("stealthDamageReduction", 0.1, 0.0001, 100);
+
 		}
 
 	}

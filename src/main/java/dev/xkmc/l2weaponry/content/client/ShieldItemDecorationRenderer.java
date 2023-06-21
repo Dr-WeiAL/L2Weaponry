@@ -1,7 +1,5 @@
 package dev.xkmc.l2weaponry.content.client;
 
-import com.mojang.blaze3d.vertex.BufferBuilder;
-import com.mojang.blaze3d.vertex.Tesselator;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
@@ -24,6 +22,8 @@ public class ShieldItemDecorationRenderer implements IItemDecorator {
 			if (main.getItem() instanceof BaseShieldItem) return false;
 		}
 		if (!(stack.getItem() instanceof BaseShieldItem)) return false;
+		g.pose().pushPose();
+		g.pose().translate(0, 0, 300);
 		var cap = LWPlayerData.HOLDER.get(Proxy.getClientPlayer());
 		float defenseLost = (float) cap.getShieldDefense();
 		float w = 13.0f * (1 - defenseLost);
@@ -37,6 +37,7 @@ public class ShieldItemDecorationRenderer implements IItemDecorator {
 			w = 13.0f * reflectTimer / max;
 			CommonDecoUtil.fillRect(g, x + 2, y + 14, w, 1, COLOR_REFLECT);
 		}
+		g.pose().popPose();
 		return true;
 	}
 }

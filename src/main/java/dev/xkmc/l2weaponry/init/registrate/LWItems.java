@@ -2,6 +2,8 @@ package dev.xkmc.l2weaponry.init.registrate;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import dev.xkmc.l2complements.content.enchantment.core.UnobtainableEnchantment;
+import dev.xkmc.l2complements.init.registrate.LCEnchantments;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWGenItem;
@@ -62,7 +64,7 @@ public class LWItems {
 	public static final ItemEntry<Item>[][] GEN_ITEM;
 
 	static {
-		HANDLE = L2Weaponry.REGISTRATE.item("reinforced_handle", Item::new).defaultModel().register();
+		HANDLE = L2Weaponry.REGISTRATE.item("reinforced_handle", Item::new).defaultModel().defaultLang().register();
 		BLOOD_CLAW = regLegendary("vampire_desire", BloodClaw::new, LWToolTypes.CLAW, LWToolMats.TOTEMIC_GOLD, Rarity.RARE);
 		CHEATER_CLAW = regLegendary("claw_of_determination", CheaterClaw::new, LWToolTypes.CLAW, LWToolMats.ETERNIUM, Rarity.EPIC);
 		ENDER_DAGGER = regLegendary("shadow_hunter", EnderDagger::new, LWToolTypes.DAGGER, LWToolMats.SHULKERATE, Rarity.EPIC);
@@ -85,6 +87,7 @@ public class LWItems {
 		ENDER_JAVELIN = regLegendary("void_escape", EnderJavelin::new, LWToolTypes.JAVELIN, LWToolMats.SHULKERATE, Rarity.RARE);
 
 		GEN_ITEM = LWGenItem.generate();
+
 	}
 
 	private static <T extends Item> ItemEntry<T> regLegendary(String name, LegendaryToolFactory<T> fac, LWToolTypes type, LWToolMats mat, Rarity r) {
