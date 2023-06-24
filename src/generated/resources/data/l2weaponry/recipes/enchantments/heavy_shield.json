@@ -8,17 +8,17 @@
       "item": "minecraft:book"
     },
     "C": {
-      "item": "minecraft:gold_ingot"
+      "item": "l2weaponry:reinforced_handle"
     },
     "D": {
-      "item": "l2weaponry:reinforced_handle"
+      "item": "minecraft:netherite_ingot"
     },
     "L": {
       "item": "minecraft:lapis_lazuli"
     }
   },
   "pattern": [
-    "AAA",
+    "DAD",
     "CBC",
     "LDL"
   ],
@@ -27,7 +27,7 @@
     "nbt": {
       "StoredEnchantments": [
         {
-          "id": "l2weaponry:heavy",
+          "id": "l2weaponry:heavy_shield",
           "lvl": 1
         }
       ]

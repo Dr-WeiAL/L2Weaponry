@@ -14,6 +14,7 @@ import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -45,8 +46,9 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 	}
 
 	@Override
-	protected void buildAttributes(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
-		super.buildAttributes(builder);
+	protected void buildAttributes(EquipmentSlot slot, ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
+		if (slot == EquipmentSlot.OFFHAND) return;
+		super.buildAttributes(slot, builder);
 		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", Math.round(maxDefense * 0.035), AttributeModifier.Operation.ADDITION));
 		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", -3, AttributeModifier.Operation.ADDITION));
 		builder.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(MathHelper.getUUIDFromString(NAME_KB), NAME_KB, 4, AttributeModifier.Operation.ADDITION));

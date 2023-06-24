@@ -8,7 +8,11 @@
 	"heavy": "沉重",
 	"heavy.desc": "降低攻击速度，提升暴击伤害和投射伤害。适用于斧头和重型武器",
 	"stealth": "潜伏",
-	"stealth.desc": "匕首伤害有概率不激怒敌人，但是伤害降低"
+	"stealth.desc": "匕首伤害有概率不激怒敌人，但是伤害降低",
+	"hard_shield": "坚硬护盾",
+	"hard_shield.desc": "提升盾值。在任意手上生效",
+	"heavy_shield": "固若金汤",
+	"heavy_shield.desc": "降低移动速度，大量提升盾值。只在主手生效"
   },
   "l2weaponry": {
 	"tool": {

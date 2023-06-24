@@ -102,6 +102,10 @@ public enum LangData {
 				"Dagger damage has a chance to not aggravate enemy, but reduce damage.");
 		pvd.add(LWEnchantments.HEAVY.get().getDescriptionId() + ".desc",
 				"Reduce attack speed, increase critical hit and projectile damage. Works on Axe and heavy weapons.");
+		pvd.add(LWEnchantments.HEAVY_SHIELD.get().getDescriptionId() + ".desc",
+				"Reduce movement speed, increase shield defense by a lot in main hand.");
+		pvd.add(LWEnchantments.HARD_SHIELD.get().getDescriptionId() + ".desc",
+				"Increase shield defense. Works for both hands.");
 
 	}
 

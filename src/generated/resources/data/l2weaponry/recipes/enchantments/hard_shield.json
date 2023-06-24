@@ -1,24 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "A": {
-      "item": "minecraft:anvil"
-    },
     "B": {
       "item": "minecraft:book"
     },
     "C": {
-      "item": "minecraft:gold_ingot"
+      "item": "l2weaponry:reinforced_handle"
     },
     "D": {
-      "item": "l2weaponry:reinforced_handle"
+      "item": "l2complements:shulkerate_ingot"
     },
     "L": {
       "item": "minecraft:lapis_lazuli"
     }
   },
   "pattern": [
-    "AAA",
+    "DLD",
     "CBC",
     "LDL"
   ],
@@ -27,7 +24,7 @@
     "nbt": {
       "StoredEnchantments": [
         {
-          "id": "l2weaponry:heavy",
+          "id": "l2weaponry:hard_shield",
           "lvl": 1
         }
       ]

@@ -28,7 +28,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.BiFunction;
 
-@SuppressWarnings("removal")
 public class RecipeGen {
 
 	private static String currentFolder = "";
@@ -93,10 +92,11 @@ public class RecipeGen {
 		currentFolder = "enchantments/";
 		{
 			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.HEAVY.get(), 1)::unlockedBy, Items.ANVIL)
-					.pattern("AAA").pattern("CBC").pattern("LCL")
+					.pattern("AAA").pattern("CBC").pattern("LDL")
 					.define('A', Items.ANVIL)
 					.define('B', Items.BOOK)
-					.define('C', LWItems.HANDLE.get())
+					.define('C', Items.GOLD_INGOT)
+					.define('D', LWItems.HANDLE.get())
 					.define('L', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.HEAVY.get()));
 
@@ -116,6 +116,23 @@ public class RecipeGen {
 					.define('D', LWItems.HANDLE.get())
 					.define('L', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.ENDER_HAND.get()));
+
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.HEAVY_SHIELD.get(), 1)::unlockedBy, Items.ANVIL)
+					.pattern("DAD").pattern("CBC").pattern("LDL")
+					.define('A', Items.ANVIL)
+					.define('B', Items.BOOK)
+					.define('D', Items.NETHERITE_INGOT)
+					.define('C', LWItems.HANDLE.get())
+					.define('L', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.HEAVY_SHIELD.get()));
+
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.HARD_SHIELD.get(), 1)::unlockedBy, LCMats.SHULKERATE.getIngot())
+					.pattern("DLD").pattern("CBC").pattern("LDL")
+					.define('B', Items.BOOK)
+					.define('D', LCMats.SHULKERATE.getIngot())
+					.define('C', LWItems.HANDLE.get())
+					.define('L', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.HARD_SHIELD.get()));
 		}
 	}
 

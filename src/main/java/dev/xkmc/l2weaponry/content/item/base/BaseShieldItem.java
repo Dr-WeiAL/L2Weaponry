@@ -26,27 +26,39 @@ public class BaseShieldItem extends ShieldItem {
 
 	public static final String KEY_LAST_DAMAGE = "last_damage";
 
-	private static final String NAME_ATTR = "shield_defense";
+	private static final String NAME_ATTR_MAIN = "shield_defense_mainhand";
+	private static final String NAME_ATTR_OFF = "shield_defense_offhand";
 
 	protected final int maxDefense;
 	protected final double recover;
 	protected final boolean lightWeight;
 
-	private final Multimap<Attribute, AttributeModifier> defaultModifiers;
+	private final Multimap<Attribute, AttributeModifier> mainhandModifiers;
+	private final Multimap<Attribute, AttributeModifier> offhandModifiers;
 
 	public BaseShieldItem(Properties pProperties, int maxDefense, double recover, boolean lightWeight) {
 		super(pProperties);
 		this.maxDefense = maxDefense;
 		this.recover = recover;
 		this.lightWeight = lightWeight;
-		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-		buildAttributes(builder);
-		this.defaultModifiers = builder.build();
+		{
+			ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+			buildAttributes(EquipmentSlot.MAINHAND, builder);
+			this.mainhandModifiers = builder.build();
+		}
+		{
+			ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+			buildAttributes(EquipmentSlot.OFFHAND, builder);
+			this.offhandModifiers = builder.build();
+		}
 		LWItems.BLOCK_DECO.add(this);
 	}
 
-	protected void buildAttributes(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
-		builder.put(LWItems.SHIELD_DEFENSE.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_ATTR), NAME_ATTR, maxDefense, AttributeModifier.Operation.ADDITION));
+	protected void buildAttributes(EquipmentSlot slot, ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
+		if (slot == EquipmentSlot.MAINHAND)
+			builder.put(LWItems.SHIELD_DEFENSE.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_ATTR_MAIN), NAME_ATTR_MAIN, maxDefense, AttributeModifier.Operation.ADDITION));
+		if (slot == EquipmentSlot.OFFHAND)
+			builder.put(LWItems.SHIELD_DEFENSE.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_ATTR_OFF), NAME_ATTR_OFF, maxDefense, AttributeModifier.Operation.ADDITION));
 	}
 
 	public void takeDamage(ItemStack stack, Player player, int amount) {
@@ -146,7 +158,7 @@ public class BaseShieldItem extends ShieldItem {
 
 	@Override
 	public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
-		return slot == EquipmentSlot.MAINHAND || lightWeight(stack) && slot == EquipmentSlot.OFFHAND ? defaultModifiers : ImmutableMultimap.of();
+		return slot == EquipmentSlot.MAINHAND ? mainhandModifiers : lightWeight(stack) && slot == EquipmentSlot.OFFHAND ? offhandModifiers : ImmutableMultimap.of();
 	}
 
 	public double reflect(ItemStack stack, Player player, LivingEntity target) {

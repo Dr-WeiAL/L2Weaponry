@@ -35,6 +35,9 @@ public class LWConfig {
 		public final ForgeConfigSpec.DoubleValue heavyCritBonus;
 		public final ForgeConfigSpec.DoubleValue stealthChance;
 		public final ForgeConfigSpec.DoubleValue stealthDamageReduction;
+		public final ForgeConfigSpec.DoubleValue heavyShieldSpeedReduction;
+		public final ForgeConfigSpec.DoubleValue heavyShieldDefenseBonus;
+		public final ForgeConfigSpec.DoubleValue hardShieldDefenseBonus;
 
 		Common(ForgeConfigSpec.Builder builder) {
 			dagger_bonus = builder.comment("Dagger damage multiplier when hitting targets not targeting user")
@@ -70,6 +73,12 @@ public class LWConfig {
 					.defineInRange("stealthChance", 0.2, 0.0001, 100);
 			stealthDamageReduction = builder.comment("Stealth enchantment damage reduction")
 					.defineInRange("stealthDamageReduction", 0.1, 0.0001, 100);
+			heavyShieldSpeedReduction = builder.comment("HeavyShield enchantment reduction on attack speed")
+					.defineInRange("heavyShieldSpeedReduction", 0.1, 0.0001, 100);
+			heavyShieldDefenseBonus = builder.comment("HeavyShield enchantment defense bonus")
+					.defineInRange("heavyShieldDefenseBonus", 0.1, 0.0001, 100);
+			hardShieldDefenseBonus = builder.comment("HardShield enchantment defense bonus")
+					.defineInRange("hardShieldDefenseBonus", 0.05, 0.0001, 100);
 
 		}
 
