@@ -6,6 +6,7 @@ import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.types.DaggerItem;
+import dev.xkmc.l2weaponry.content.item.types.MacheteItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.AxeItem;
@@ -25,6 +26,9 @@ public class LWEnchantments {
 
 	public static final EnchantmentCategory SHIELDS = EnchantmentCategory.create("shields", e ->
 			e instanceof BaseShieldItem);
+
+	public static final EnchantmentCategory MACHETES = EnchantmentCategory.create("machetes", e ->
+			e instanceof MacheteItem);
 
 	public static final RegistryEntry<EnderHandEnchantment> ENDER_HAND = L2Weaponry.REGISTRATE
 			.enchantment("ender_hand", THROWABLE, EnderHandEnchantment::new)
@@ -48,6 +52,16 @@ public class LWEnchantments {
 
 	public static final RegistryEntry<HeavyShieldEnchantment> HEAVY_SHIELD = L2Weaponry.REGISTRATE
 			.enchantment("heavy_shield", SHIELDS, HeavyShieldEnchantment::new)
+			.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+			.defaultLang().register();
+
+	public static final RegistryEntry<EnergizedWillEnchantment> ENERGIZED_WILL = L2Weaponry.REGISTRATE
+			.enchantment("energized_will", MACHETES, EnergizedWillEnchantment::new)
+			.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+			.defaultLang().register();
+
+	public static final RegistryEntry<RaisedSpiritEnchantment> RAISED_SPIRIT = L2Weaponry.REGISTRATE
+			.enchantment("raised_spirit", MACHETES, RaisedSpiritEnchantment::new)
 			.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
 			.defaultLang().register();
 

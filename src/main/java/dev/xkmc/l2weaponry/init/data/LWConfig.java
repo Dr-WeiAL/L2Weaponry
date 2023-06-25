@@ -38,8 +38,11 @@ public class LWConfig {
 		public final ForgeConfigSpec.DoubleValue heavyShieldSpeedReduction;
 		public final ForgeConfigSpec.DoubleValue heavyShieldDefenseBonus;
 		public final ForgeConfigSpec.DoubleValue hardShieldDefenseBonus;
+		public final ForgeConfigSpec.DoubleValue raisedSpiritSpeedBonus;
+		public final ForgeConfigSpec.DoubleValue energizedWillReachBonus;
 
 		Common(ForgeConfigSpec.Builder builder) {
+			builder.push("Weapon Type Features");
 			dagger_bonus = builder.comment("Dagger damage multiplier when hitting targets not targeting user")
 					.defineInRange("dagger_bonus", 2d, 1, 1000);
 			claw_bonus = builder.comment("Claw damage bonus for each consecutive hit")
@@ -52,6 +55,8 @@ public class LWConfig {
 					.defineInRange("claw_block_time", 3, 0, 1000);
 			reflectCost = builder.comment("Shield reflect cost")
 					.defineInRange("reflectCost", 0.2, 0, 1);
+			builder.pop();
+			builder.push("Legendary Weapon Effects");
 			shadowHunterDistance = builder.comment("Shadow Hunter teleport distance")
 					.defineInRange("shadowHunterDistance", 8, 1, 128);
 			hauntingDemonDistance = builder.comment("Haunting Demon of the End teleport distance")
@@ -64,7 +69,8 @@ public class LWConfig {
 					.defineInRange("dogmaticStandoffGain", 0.02, 0.0001, 1);
 			dogmaticStandoffMax = builder.comment("Dogmatic Standoff absorption max percentage")
 					.defineInRange("dogmaticStandoffMax", 0.1, 0.0001, 100);
-
+			builder.pop();
+			builder.push("Enchantments");
 			heavySpeedReduction = builder.comment("Heavy enchantment reduction on attack speed")
 					.defineInRange("heavySpeedReduction", 0.2, 0.0001, 100);
 			heavyCritBonus = builder.comment("Heavy enchantment crit damage bonus")
@@ -79,6 +85,10 @@ public class LWConfig {
 					.defineInRange("heavyShieldDefenseBonus", 0.1, 0.0001, 100);
 			hardShieldDefenseBonus = builder.comment("HardShield enchantment defense bonus")
 					.defineInRange("hardShieldDefenseBonus", 0.05, 0.0001, 100);
+			raisedSpiritSpeedBonus = builder.comment("Raised Spirit enchantment bonus on attack speed per stacking level per enchantment level")
+					.defineInRange("raisedSpiritSpeedBonus", 0.01, 0.0001, 100);
+			energizedWillReachBonus = builder.comment("Energized Will enchantment bonus on attack range per stacking level per enchantment level")
+					.defineInRange("energizedWillReachBonus", 0.02, 0.0001, 100);
 
 		}
 

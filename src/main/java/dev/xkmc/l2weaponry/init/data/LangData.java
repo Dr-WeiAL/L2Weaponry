@@ -1,7 +1,6 @@
 package dev.xkmc.l2weaponry.init.data;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
-import dev.xkmc.l2complements.init.registrate.LCEnchantments;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import net.minecraft.ChatFormatting;
@@ -106,6 +105,10 @@ public enum LangData {
 				"Reduce movement speed, increase shield defense by a lot in main hand.");
 		pvd.add(LWEnchantments.HARD_SHIELD.get().getDescriptionId() + ".desc",
 				"Increase shield defense. Works for both hands.");
+		pvd.add(LWEnchantments.ENERGIZED_WILL.get().getDescriptionId() + ".desc",
+				"Gradually increase machete attack range when stacking consecutive attacks. Conflicts with Raised Spirit.");
+		pvd.add(LWEnchantments.RAISED_SPIRIT.get().getDescriptionId() + ".desc",
+				"Gradually increase machete attack speed when stacking consecutive attacks. Conflicts with Energized Will.");
 
 	}
 

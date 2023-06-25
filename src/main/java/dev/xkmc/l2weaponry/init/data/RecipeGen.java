@@ -133,6 +133,22 @@ public class RecipeGen {
 					.define('C', LWItems.HANDLE.get())
 					.define('L', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.HARD_SHIELD.get()));
+
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.ENERGIZED_WILL.get(), 1)::unlockedBy, LCItems.SOUL_FLAME.get())
+					.pattern("CLC").pattern("DBD").pattern("CLC")
+					.define('B', Items.BOOK)
+					.define('C', Items.REDSTONE)
+					.define('D', LCItems.SOUL_FLAME)
+					.define('L', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.ENERGIZED_WILL.get()));
+
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.RAISED_SPIRIT.get(), 1)::unlockedBy, LCItems.SOUL_FLAME.get())
+					.pattern("CLC").pattern("DBD").pattern("CLC")
+					.define('B', Items.BOOK)
+					.define('C', Items.GLOWSTONE_DUST)
+					.define('D', LCItems.SOUL_FLAME)
+					.define('L', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.RAISED_SPIRIT.get()));
 		}
 	}
 
