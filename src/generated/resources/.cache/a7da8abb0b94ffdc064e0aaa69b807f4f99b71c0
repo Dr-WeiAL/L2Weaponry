@@ -1,4 +1,4 @@
-// 1.20	2023-06-24T13:26:48.138683	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20	2023-06-25T11:23:31.986711	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 dbe974f2789a5ae8c50038615a3f68326eefd686 assets/l2weaponry/lang/en_ud.json
 51a14c96643c63bda88b372211e8c6655bbc94a2 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
@@ -674,7 +674,7 @@ a3c6fdb5192b11827d8f185692f5c6b25e035cbd data/l2weaponry/recipes/legendary/claw_
 1b4909da8f9e0d29b52730d4a3890a103ae613ae data/l2weaponry/recipes/legendary/dogmatic_standoff.json
 968c7d3b590f2721aeee735eca92cc77256a86ff data/l2weaponry/recipes/legendary/hammer_of_incarceration.json
 f43f12305b2ec378598e84d8509d9533c33bbabf data/l2weaponry/recipes/legendary/haunting_demon_of_the_end.json
-6dacb18738f0d442a646b986d5c46eee295adf5d data/l2weaponry/recipes/legendary/poseidon_madness.json
+a3c9555281a5f41be4435c1217374a615ade32cd data/l2weaponry/recipes/legendary/poseidon_madness.json
 0507d61c60736d0635bfdbe9716c4c409636007f data/l2weaponry/recipes/legendary/shadow_hunter.json
 f47050e31a48664a9e7a3cb07e3b2869327bb868 data/l2weaponry/recipes/legendary/shadow_shredder.json
 8f694559bc91eefbda2abf44041ed24a836281be data/l2weaponry/recipes/legendary/spear_of_winter_storm.json

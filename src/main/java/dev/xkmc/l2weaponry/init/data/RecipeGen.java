@@ -65,7 +65,7 @@ public class RecipeGen {
 					.define('j', LWToolMats.POSEIDITE.getTool(LWToolTypes.JAVELIN))
 					.define('s', LWToolMats.POSEIDITE.getTool(LWToolTypes.SPEAR))
 					.define('g', LCItems.GUARDIAN_EYE.get())
-					.define('c', new EnchantmentIngredient(Enchantments.CHANNELING, 3))
+					.define('c', new EnchantmentIngredient(Enchantments.CHANNELING, 1))
 					.define('w', LCItems.STORM_CORE.get())
 					.save(pvd, getID(LWItems.STORM_JAVELIN.get()));
 

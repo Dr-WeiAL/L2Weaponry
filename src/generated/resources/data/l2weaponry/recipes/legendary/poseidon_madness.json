@@ -5,7 +5,7 @@
     "c": {
       "type": "l2library:enchantment",
       "enchantment": "minecraft:channeling",
-      "min_level": 3
+      "min_level": 1
     },
     "d": {
       "item": "l2weaponry:poseidite_dagger"
