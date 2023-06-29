@@ -66,10 +66,6 @@ public class LWAttackEventListener implements AttackListener {
 			}
 		} else if (event.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?> thrown) {
 			if (thrown.getOwner() instanceof LivingEntity le) {
-				Item item = thrown.getItem().getItem();
-				if (item instanceof GenericTieredItem tiered) {
-					tiered.getExtraConfig().onDamage(cache, thrown.getItem());
-				}
 				if (thrown.getItem().getItem() instanceof LegendaryWeapon weapon) {
 					weapon.onHurt(cache, le, thrown.getItem());
 				}
