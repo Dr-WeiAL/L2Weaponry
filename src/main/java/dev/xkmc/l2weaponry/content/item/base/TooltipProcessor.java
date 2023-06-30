@@ -29,7 +29,7 @@ public class TooltipProcessor {
 	}
 
 	private static void sumOp(Multimap<Attribute, AttributeModifier> ans, Attribute attr, AttributeModifier.Operation op) {
-		var list = ans.get(attr);
+		var list = new ArrayList<>(ans.get(attr));
 		AttributeModifier mod = null;
 		double add = 0;
 		for (var e : list) {
