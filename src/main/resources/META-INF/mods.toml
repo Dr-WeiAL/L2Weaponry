@@ -31,12 +31,12 @@ description='''
 [[dependencies.l2weaponry]]
     modId="l2complements"
     mandatory=true
-    versionRange="[2.4.0-a0,)"
+    versionRange="[2.4.6,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.l2weaponry]]
     modId="modulargolems"
     mandatory=false
-    versionRange="[2.4.0-a0,)"
+    versionRange="[2.4.0,)"
     ordering="AFTER"
     side="BOTH"

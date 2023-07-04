@@ -7,20 +7,19 @@ import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
-import dev.xkmc.l2weaponry.content.item.types.PlateShieldItem;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.CriticalHitEvent;
+import net.minecraftforge.eventbus.api.Event;
 
 import java.util.Optional;
+import java.util.function.BiConsumer;
 
 public class LWAttackEventListener implements AttackListener {
 
@@ -46,10 +45,19 @@ public class LWAttackEventListener implements AttackListener {
 	}
 
 	@Override
+	public void setupProfile(AttackCache cache, BiConsumer<LivingEntity, ItemStack> setup) {
+		if (cache.getLivingAttackEvent().getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?> thrown) {
+			if (thrown.getOwner() instanceof LivingEntity le) {
+				setup.accept(le, thrown.getItem());
+			}
+		}
+	}
+
+	@Override
 	public void onHurt(AttackCache cache, ItemStack stack) {
 		LivingHurtEvent event = cache.getLivingHurtEvent();
 		assert event != null;
-		if (event.getSource().getDirectEntity() instanceof LivingEntity le) {
+		if (event.getSource().getDirectEntity() instanceof LivingEntity le && le == cache.getAttacker()) {
 			if (!stack.isEmpty() && stack.getItem() instanceof GenericTieredItem) {
 				if (le instanceof Player && cache.getCriticalHitEvent() != null) {
 					if (cache.getStrength() < 0.7f) {
@@ -58,28 +66,15 @@ public class LWAttackEventListener implements AttackListener {
 					}
 				}
 			}
-			if (!stack.isEmpty() && stack.getItem() instanceof LWTieredItem w) {
-				cache.addHurtModifier(DamageModifier.multAttr(w.getMultiplier(cache)));
-			}
 			if (!stack.isEmpty() && stack.getItem() instanceof BaseClawItem claw) {
 				claw.accumulateDamage(stack, cache.getAttacker().level().getGameTime());
 			}
-			if (stack.getItem() instanceof LegendaryWeapon weapon) {
-				weapon.onHurt(cache, le, stack);
-			}
-		} else if (event.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?> thrown) {
-			if (thrown.getOwner() instanceof LivingEntity le) {
-				Item item = thrown.getItem().getItem();
-				if (item instanceof GenericTieredItem tiered) {
-					tiered.getExtraConfig().onDamage(cache, thrown.getItem());
-				}
-				if (!stack.isEmpty() && stack.getItem() instanceof LWTieredItem w) {
-					cache.addHurtModifier(DamageModifier.multAttr(w.getMultiplier(cache)));
-				}
-				if (thrown.getItem().getItem() instanceof LegendaryWeapon weapon) {
-					weapon.onHurt(cache, le, thrown.getItem());
-				}
-			}
+		}
+		if (!stack.isEmpty() && stack.getItem() instanceof LWTieredItem w) {
+			cache.addHurtModifier(DamageModifier.multAttr(w.getMultiplier(cache)));
+		}
+		if (cache.getAttacker() != null && stack.getItem() instanceof LegendaryWeapon weapon) {
+			weapon.onHurt(cache, cache.getAttacker(), stack);
 		}
 	}
 
@@ -87,14 +82,8 @@ public class LWAttackEventListener implements AttackListener {
 	public void onHurtMaximized(AttackCache cache, ItemStack stack) {
 		LivingHurtEvent event = cache.getLivingHurtEvent();
 		assert event != null;
-		if (event.getSource().getDirectEntity() instanceof LivingEntity le) {
-			if (stack.getItem() instanceof LegendaryWeapon weapon) {
-				weapon.onHurtMaximized(cache, le);
-			}
-		} else if (event.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?> thrown) {
-			if (thrown.getItem().getItem() instanceof LegendaryWeapon weapon && thrown.getOwner() instanceof LivingEntity le) {
-				weapon.onHurtMaximized(cache, le);
-			}
+		if (cache.getAttacker() != null && stack.getItem() instanceof LegendaryWeapon weapon) {
+			weapon.onHurtMaximized(cache, cache.getAttacker());
 		}
 	}
 
@@ -102,20 +91,14 @@ public class LWAttackEventListener implements AttackListener {
 	public void onDamageFinalized(AttackCache cache, ItemStack stack) {
 		LivingDamageEvent event = cache.getLivingDamageEvent();
 		assert event != null;
-		if (event.getSource().getDirectEntity() instanceof LivingEntity le) {
-			if (stack.getItem() instanceof LegendaryWeapon weapon) {
-				weapon.onDamageFinal(cache, le);
-			}
-		} else if (event.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?> thrown) {
-			if (thrown.getItem().getItem() instanceof LegendaryWeapon weapon && thrown.getOwner() instanceof LivingEntity le) {
-				weapon.onDamageFinal(cache, le);
-			}
+		if (cache.getAttacker() != null && stack.getItem() instanceof LegendaryWeapon weapon) {
+			weapon.onDamageFinal(cache, cache.getAttacker());
 		}
 	}
 
 	@Override
 	public boolean onCriticalHit(PlayerAttackCache cache, CriticalHitEvent event) {
-		if (!event.isVanillaCritical()) return false;
+		if (!event.isVanillaCritical() && event.getResult() != Event.Result.ALLOW) return false;
 		if (event.getEntity().level().isClientSide()) return false;
 		if (cache.getWeapon().getItem() instanceof LegendaryWeapon weapon) {
 			weapon.onCrit(event.getEntity(), event.getTarget());
