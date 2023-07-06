@@ -94,22 +94,6 @@ public enum LangData {
 		pvd.add("subtitles.item.trident.throw", "Thrown weapon clangs");
 		pvd.add("subtitles.item.trident.thunder", "Thrown weapon thunder cracks");
 
-
-		pvd.add(LWEnchantments.ENDER_HAND.get().getDescriptionId() + ".desc",
-				"Thrown attacks will appear as direct hit.");
-		pvd.add(LWEnchantments.NO_AGGRO.get().getDescriptionId() + ".desc",
-				"Dagger damage has a chance to not aggravate enemy, but reduce damage.");
-		pvd.add(LWEnchantments.HEAVY.get().getDescriptionId() + ".desc",
-				"Reduce attack speed, increase critical hit and projectile damage. Works on Axe and heavy weapons.");
-		pvd.add(LWEnchantments.HEAVY_SHIELD.get().getDescriptionId() + ".desc",
-				"Reduce movement speed, increase shield defense by a lot in main hand.");
-		pvd.add(LWEnchantments.HARD_SHIELD.get().getDescriptionId() + ".desc",
-				"Increase shield defense. Works for both hands.");
-		pvd.add(LWEnchantments.ENERGIZED_WILL.get().getDescriptionId() + ".desc",
-				"Gradually increase machete attack range when stacking consecutive attacks. Conflicts with Raised Spirit.");
-		pvd.add(LWEnchantments.RAISED_SPIRIT.get().getDescriptionId() + ".desc",
-				"Gradually increase machete attack speed when stacking consecutive attacks. Conflicts with Energized Will.");
-
 	}
 
 	public static String asId(String name) {

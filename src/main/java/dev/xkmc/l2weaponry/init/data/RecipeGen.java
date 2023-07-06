@@ -4,7 +4,9 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
 import dev.xkmc.l2complements.content.enchantment.core.EnchantmentRecipeBuilder;
 import dev.xkmc.l2complements.init.materials.LCMats;
+import dev.xkmc.l2complements.init.registrate.LCEffects;
 import dev.xkmc.l2complements.init.registrate.LCItems;
+import dev.xkmc.l2library.compat.jeed.JeedDataGenerator;
 import dev.xkmc.l2library.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2library.serial.recipe.AbstractSmithingRecipe;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -19,6 +21,7 @@ import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -149,6 +152,17 @@ public class RecipeGen {
 					.define('D', LCItems.SOUL_FLAME)
 					.define('L', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.RAISED_SPIRIT.get()));
+		}
+
+		// jeed
+		{
+			JeedDataGenerator jeed = new JeedDataGenerator(L2Weaponry.MODID);
+			jeed.add(LWItems.BLACK_HAMMER.get(), LCEffects.STONE_CAGE.get());
+			jeed.add(LWItems.ENDER_JAVELIN.get(), MobEffects.SLOW_FALLING, MobEffects.LEVITATION);
+			jeed.add(LWItems.ENDER_MACHETE.get(), MobEffects.SLOW_FALLING, MobEffects.LEVITATION);
+			jeed.add(LWItems.FLAME_AXE.get(), LCEffects.FLAME.get());
+			jeed.add(LWItems.FROZEN_SPEAR.get(), LCEffects.ICE.get());
+			jeed.generate(pvd);
 		}
 	}
 

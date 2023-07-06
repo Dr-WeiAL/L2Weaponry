@@ -1,4 +1,4 @@
-// 1.20	2023-06-25T11:23:31.986711	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20	2023-07-06T23:34:05.33711	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 dbe974f2789a5ae8c50038615a3f68326eefd686 assets/l2weaponry/lang/en_ud.json
 51a14c96643c63bda88b372211e8c6655bbc94a2 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
@@ -662,6 +662,11 @@ d5936d0004c514821042cc24df8689d66164e1e7 data/l2weaponry/recipes/generated/upgra
 3c78a338be4cd5eaa839ff70ed872e49af599f36 data/l2weaponry/recipes/generated/upgrade/totemic_gold_round_shield.json
 e9f0991383dda4b294ae60267857947aea1d7469 data/l2weaponry/recipes/generated/upgrade/totemic_gold_spear.json
 4b2ccd8ce3a6483f3de3013823df788a57b9eea6 data/l2weaponry/recipes/generated/upgrade/totemic_gold_throwing_axe.json
+a8a0811c5e614710c475fc963b311aadc7d80fd7 data/l2weaponry/recipes/jeed/flame.json
+636e7d291d44a2b6d67d138a2ebe2715493bb58c data/l2weaponry/recipes/jeed/frozen.json
+b8b153119710c272f54c2b5f3125b7ddc561812d data/l2weaponry/recipes/jeed/levitation.json
+1e44e37c799458330ecc169fe29d98323047ba7c data/l2weaponry/recipes/jeed/slow_falling.json
+5669d150f4aa44c99085926f38e00b7049528a1d data/l2weaponry/recipes/jeed/stone_cage.json
 3bda62a5c9fd32f17c693c2a7cbbad9492376505 data/l2weaponry/recipes/legendary/abyss_echo.json
 cca42755488e592912f5c8c77a298097453366b3 data/l2weaponry/recipes/legendary/abyss_resonance.json
 d6f410f493a0c0a04baa39b7b7d9ce5713d7e732 data/l2weaponry/recipes/legendary/abyss_shock.json

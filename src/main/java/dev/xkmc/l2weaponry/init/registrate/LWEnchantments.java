@@ -1,6 +1,8 @@
 package dev.xkmc.l2weaponry.init.registrate;
 
+import com.tterrag.registrate.builders.EnchantmentBuilder;
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2weaponry.content.enchantments.*;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
@@ -30,40 +32,55 @@ public class LWEnchantments {
 	public static final EnchantmentCategory MACHETES = EnchantmentCategory.create("machetes", e ->
 			e instanceof MacheteItem);
 
-	public static final RegistryEntry<EnderHandEnchantment> ENDER_HAND = L2Weaponry.REGISTRATE
-			.enchantment("ender_hand", THROWABLE, EnderHandEnchantment::new)
-			.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-			.defaultLang().register();
+	public static final RegistryEntry<EnderHandEnchantment> ENDER_HAND;
+	public static final RegistryEntry<StealthEnchantment> NO_AGGRO;
+	public static final RegistryEntry<HeavyEnchantment> HEAVY;
+	public static final RegistryEntry<HardShieldEnchantment> HARD_SHIELD;
+	public static final RegistryEntry<HeavyShieldEnchantment> HEAVY_SHIELD;
+	public static final RegistryEntry<EnergizedWillEnchantment> ENERGIZED_WILL;
+	public static final RegistryEntry<RaisedSpiritEnchantment> RAISED_SPIRIT;
 
-	public static final RegistryEntry<StealthEnchantment> NO_AGGRO = L2Weaponry.REGISTRATE
-			.enchantment("stealth", DAGGER, StealthEnchantment::new)
-			.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-			.defaultLang().register();
 
-	public static final RegistryEntry<HeavyEnchantment> HEAVY = L2Weaponry.REGISTRATE
-			.enchantment("heavy", HEAVY_WEAPON, HeavyEnchantment::new)
-			.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-			.defaultLang().register();
+	static {
+		ENDER_HAND = reg("ender_hand", THROWABLE, EnderHandEnchantment::new,
+				"Thrown attacks will appear as direct hit.")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+				.defaultLang().register();
 
-	public static final RegistryEntry<HardShieldEnchantment> HARD_SHIELD = L2Weaponry.REGISTRATE
-			.enchantment("hard_shield", SHIELDS, HardShieldEnchantment::new)
-			.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND)
-			.defaultLang().register();
+		NO_AGGRO = reg("stealth", DAGGER, StealthEnchantment::new,
+				"Dagger damage has a chance to not aggravate enemy, but reduce damage.")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+				.defaultLang().register();
 
-	public static final RegistryEntry<HeavyShieldEnchantment> HEAVY_SHIELD = L2Weaponry.REGISTRATE
-			.enchantment("heavy_shield", SHIELDS, HeavyShieldEnchantment::new)
-			.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-			.defaultLang().register();
+		HEAVY = reg("heavy", HEAVY_WEAPON, HeavyEnchantment::new,
+				"Reduce attack speed, increase critical hit and projectile damage. Works on Axe and heavy weapons.")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+				.defaultLang().register();
 
-	public static final RegistryEntry<EnergizedWillEnchantment> ENERGIZED_WILL = L2Weaponry.REGISTRATE
-			.enchantment("energized_will", MACHETES, EnergizedWillEnchantment::new)
-			.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-			.defaultLang().register();
+		HARD_SHIELD = reg("hard_shield", SHIELDS, HardShieldEnchantment::new,
+				"Increase shield defense. Works for both hands.")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND)
+				.defaultLang().register();
 
-	public static final RegistryEntry<RaisedSpiritEnchantment> RAISED_SPIRIT = L2Weaponry.REGISTRATE
-			.enchantment("raised_spirit", MACHETES, RaisedSpiritEnchantment::new)
-			.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-			.defaultLang().register();
+		HEAVY_SHIELD = reg("heavy_shield", SHIELDS, HeavyShieldEnchantment::new,
+				"Reduce movement speed, increase shield defense by a lot in main hand.")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+				.defaultLang().register();
+
+		ENERGIZED_WILL = reg("energized_will", MACHETES, EnergizedWillEnchantment::new,
+				"Gradually increase machete attack range when stacking consecutive attacks. Conflicts with Raised Spirit.")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+				.defaultLang().register();
+
+		RAISED_SPIRIT = reg("raised_spirit", MACHETES, RaisedSpiritEnchantment::new,
+				"Gradually increase machete attack speed when stacking consecutive attacks. Conflicts with Energized Will.")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+				.defaultLang().register();
+	}
+
+	private static <T extends Enchantment> EnchantmentBuilder<T, L2Registrate> reg(String id, EnchantmentCategory category, EnchantmentBuilder.EnchantmentFactory<T> fac, String desc) {
+		return L2Weaponry.REGISTRATE.enchantment(id, category, fac, desc);
+	}
 
 	public static void register() {
 

@@ -1,0 +1,9 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "l2complements:flame",
+  "providers": [
+    {
+      "item": "l2weaponry:axe_of_cursed_flame"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "l2complements:frozen",
+  "providers": [
+    {
+      "item": "l2weaponry:spear_of_winter_storm"
+    }
+  ]
+}
