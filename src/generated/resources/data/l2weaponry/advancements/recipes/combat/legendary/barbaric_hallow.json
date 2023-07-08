@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_explosion_shard": {
+    "has_blackstone_core": {
       "conditions": {
         "items": [
           {
             "items": [
-              "l2complements:explosion_shard"
+              "l2complements:blackstone_core"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_explosion_shard",
+      "has_blackstone_core",
       "has_the_recipe"
     ]
   ],
