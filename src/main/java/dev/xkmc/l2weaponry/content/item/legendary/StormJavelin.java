@@ -29,29 +29,8 @@ public class StormJavelin extends JavelinItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHitBlock(BaseThrownWeaponEntity<?> entity, ItemStack item) {
-		if (entity.level.isClientSide) return;
-		if (entity.remainingHit <= 0) return;
-		BlockPos blockpos = entity.blockPosition();
-		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(entity.level);
-		assert bolt != null;
-		bolt.moveTo(Vec3.atBottomCenterOf(blockpos));
-		bolt.setCause(entity.getOwner() instanceof ServerPlayer ? (ServerPlayer) entity.getOwner() : null);
-		entity.level.addFreshEntity(bolt);
-		entity.playSound(SoundEvents.TRIDENT_THUNDER, 5, 1);
-	}
-
-	@Override
-	public void onHitEntity(BaseThrownWeaponEntity<?> entity, ItemStack item, LivingEntity le) {
-		if (entity.level.isClientSide) return;
-		if (entity.remainingHit <= 0) return;
-		BlockPos blockpos = entity.blockPosition();
-		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(entity.level);
-		assert bolt != null;
-		bolt.moveTo(Vec3.atBottomCenterOf(blockpos));
-		bolt.setCause(entity.getOwner() instanceof ServerPlayer ? (ServerPlayer) entity.getOwner() : null);
-		entity.level.addFreshEntity(bolt);
-		entity.playSound(SoundEvents.TRIDENT_THUNDER, 5, 1);
+	public boolean causeThunder(BaseThrownWeaponEntity<?> entity) {
+		return true;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
 import dev.xkmc.l2complements.content.item.generic.ExtraToolConfig;
+import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.init.L2WeaponryClient;
 import net.minecraft.sounds.SoundEvents;
@@ -74,6 +75,11 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		if (getTier() == LCMats.POSEIDITE.getTier()) {
+			if (enchantment == Enchantments.CHANNELING) {
+				return true;
+			}
+		}
 		return enchantment == Enchantments.LOYALTY || super.canApplyAtEnchantingTable(stack, enchantment);
 	}
 }
