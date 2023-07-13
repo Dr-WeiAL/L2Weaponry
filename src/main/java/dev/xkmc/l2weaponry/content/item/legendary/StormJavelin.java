@@ -2,7 +2,6 @@ package dev.xkmc.l2weaponry.content.item.legendary;
 
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
-import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.item.types.JavelinItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.core.BlockPos;
@@ -30,29 +29,8 @@ public class StormJavelin extends JavelinItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHitBlock(BaseThrownWeaponEntity<?> entity, ItemStack item) {
-		if (entity.level().isClientSide) return;
-		if (entity.remainingHit <= 0) return;
-		BlockPos blockpos = entity.blockPosition();
-		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(entity.level());
-		assert bolt != null;
-		bolt.moveTo(Vec3.atBottomCenterOf(blockpos));
-		bolt.setCause(entity.getOwner() instanceof ServerPlayer ? (ServerPlayer) entity.getOwner() : null);
-		entity.level().addFreshEntity(bolt);
-		entity.playSound(SoundEvents.TRIDENT_THUNDER, 5, 1);
-	}
-
-	@Override
-	public void onHitEntity(BaseThrownWeaponEntity<?> entity, ItemStack item, LivingEntity le) {
-		if (entity.level().isClientSide) return;
-		if (entity.remainingHit <= 0) return;
-		BlockPos blockpos = entity.blockPosition();
-		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(entity.level());
-		assert bolt != null;
-		bolt.moveTo(Vec3.atBottomCenterOf(blockpos));
-		bolt.setCause(entity.getOwner() instanceof ServerPlayer ? (ServerPlayer) entity.getOwner() : null);
-		entity.level().addFreshEntity(bolt);
-		entity.playSound(SoundEvents.TRIDENT_THUNDER, 5, 1);
+	public boolean causeThunder(BaseThrownWeaponEntity<?> entity) {
+		return true;
 	}
 
 	@Override
@@ -84,10 +62,4 @@ public class StormJavelin extends JavelinItem implements LegendaryWeapon {
 		list.add(LangData.STORM_JAVELIN.get());
 	}
 
-	@Override
-	public JavelinEntity getProjectile(Level level, LivingEntity player, ItemStack stack, int slot) {
-		JavelinEntity ans = super.getProjectile(level, player, stack, slot);
-		ans.waterInertia = 0.99f;
-		return ans;
-	}
 }

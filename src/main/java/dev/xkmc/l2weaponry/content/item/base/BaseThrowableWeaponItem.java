@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
+import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
@@ -74,6 +75,11 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		if (getTier() == LCMats.POSEIDITE.getTier()) {
+			if (enchantment == Enchantments.CHANNELING) {
+				return true;
+			}
+		}
 		return enchantment == Enchantments.LOYALTY || super.canApplyAtEnchantingTable(stack, enchantment);
 	}
 }

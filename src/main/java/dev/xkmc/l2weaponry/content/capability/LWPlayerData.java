@@ -78,7 +78,7 @@ public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> impleme
 	}
 
 	public boolean canReflect() {
-		return !player.isShiftKeyDown() && player.onGround() && player.getAttributeValue(LWItems.REFLECT_TIME.get()) > 0;
+		return !player.isShiftKeyDown() && player.getAttributeValue(LWItems.REFLECT_TIME.get()) > 0;
 	}
 
 	public void startReflectTimer() {

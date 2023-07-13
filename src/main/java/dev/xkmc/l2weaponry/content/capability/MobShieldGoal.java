@@ -72,7 +72,7 @@ public class MobShieldGoal extends Goal implements IShieldData {
 
 	@Override
 	public boolean canReflect() {
-		return mob.onGround() && mob.getAttribute(LWItems.REFLECT_TIME.get()) != null && mob.getAttributeValue(LWItems.REFLECT_TIME.get()) > 0;
+		return mob.getAttribute(LWItems.REFLECT_TIME.get()) != null && mob.getAttributeValue(LWItems.REFLECT_TIME.get()) > 0;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.content.entity;
 
 import com.google.common.collect.Lists;
+import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2weaponry.content.item.base.IThrowableCallback;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
@@ -22,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
@@ -62,6 +64,9 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 		this.slot = slot;
 		this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(pStack));
 		this.entityData.set(ID_FOIL, pStack.hasFoil());
+		if (pStack.getItem() instanceof TieredItem tier && tier.getTier() == LCMats.POSEIDITE.getTier()) {
+			waterInertia = 0.99f;
+		}
 	}
 
 	// ------ base weapon code
