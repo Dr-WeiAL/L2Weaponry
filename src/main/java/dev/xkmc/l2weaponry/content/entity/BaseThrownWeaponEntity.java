@@ -55,18 +55,15 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 
 	public BaseThrownWeaponEntity(EntityType<T> type, Level pLevel) {
 		super(type, pLevel);
-		item = new ItemStack(Items.TRIDENT);
+		setItem(new ItemStack(Items.TRIDENT));
 	}
 
 	public BaseThrownWeaponEntity(EntityType<T> type, Level pLevel, LivingEntity pShooter, ItemStack pStack, int slot) {
 		super(type, pShooter, pLevel);
-		this.item = pStack.copy();
+		this.setItem(pStack.copy());
 		this.slot = slot;
 		this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(pStack));
 		this.entityData.set(ID_FOIL, pStack.hasFoil());
-		if (pStack.getItem() instanceof TieredItem tier && tier.getTier() == LCMats.POSEIDITE.getTier()) {
-			waterInertia = 0.99f;
-		}
 	}
 
 	// ------ base weapon code
@@ -259,7 +256,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	public void readAdditionalSaveData(CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);
 		if (pCompound.contains("Item", 10)) {
-			this.item = ItemStack.of(pCompound.getCompound("Item"));
+			this.setItem(ItemStack.of(pCompound.getCompound("Item")));
 		}
 		this.remainingHit = pCompound.getInt("RemainingHit");
 		this.slot = pCompound.getInt("playerSlot");
@@ -296,11 +293,19 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 
 	@Override
 	public void readSpawnData(FriendlyByteBuf buffer) {
-		item = buffer.readItem();
+		setItem(buffer.readItem());
 	}
 
 	protected float getWaterInertia() {
 		return waterInertia;
 	}
 
+	private void setItem(ItemStack item) {
+		this.item = item;
+		if (item.getItem() instanceof TieredItem tier && tier.getTier() == LCMats.POSEIDITE.getTier()) {
+			waterInertia = 0.99f;
+		} else {
+			waterInertia = 0.6f;
+		}
+	}
 }
