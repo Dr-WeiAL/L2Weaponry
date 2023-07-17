@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "twilightforest:knightmetal_block"
+  },
+  "base": {
+    "tag": "l2weaponry:battle_axe"
+  },
+  "result": {
+    "item": "l2weaponry:knightmetal_battle_axe"
+  },
+  "template": []
+}

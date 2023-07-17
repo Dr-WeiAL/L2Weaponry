@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "twilightforest:steeleaf_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "IHI",
+    " I "
+  ],
+  "result": {
+    "item": "l2weaponry:steeleaf_plate_shield",
+    "nbt": "{Damage:0}"
+  },
+  "show_notification": true
+}

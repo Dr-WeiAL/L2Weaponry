@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "twilightforest:steeleaf_block"
+  },
+  "base": {
+    "tag": "l2weaponry:plate_shield"
+  },
+  "result": {
+    "item": "l2weaponry:steeleaf_plate_shield"
+  },
+  "template": []
+}

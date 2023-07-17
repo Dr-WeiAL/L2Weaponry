@@ -41,6 +41,16 @@ public class LWConfig {
 		public final ForgeConfigSpec.DoubleValue raisedSpiritSpeedBonus;
 		public final ForgeConfigSpec.DoubleValue energizedWillReachBonus;
 
+		public final ForgeConfigSpec.DoubleValue knightmetalBonus;
+		public final ForgeConfigSpec.DoubleValue knightmetalReflect;
+		public final ForgeConfigSpec.DoubleValue fieryBonus;
+		public final ForgeConfigSpec.IntValue fieryDuration;
+		public final ForgeConfigSpec.DoubleValue steeleafBonus;
+		public final ForgeConfigSpec.DoubleValue steeleafReflect;
+		public final ForgeConfigSpec.DoubleValue steeleafChance;
+		public final ForgeConfigSpec.IntValue ironwoodRegenDuration;
+		public final ForgeConfigSpec.IntValue ironwoodEffectDuration;
+
 		Common(ForgeConfigSpec.Builder builder) {
 			builder.push("Weapon Type Features");
 			dagger_bonus = builder.comment("Dagger damage multiplier when hitting targets not targeting user")
@@ -89,6 +99,29 @@ public class LWConfig {
 					.defineInRange("raisedSpiritSpeedBonus", 0.01, 0.0001, 100);
 			energizedWillReachBonus = builder.comment("Energized Will enchantment bonus on attack range per stacking level per enchantment level")
 					.defineInRange("energizedWillReachBonus", 0.02, 0.0001, 100);
+
+			builder.pop();
+
+			builder.push("Twilight Forest Compat");
+			knightmetalBonus = builder.comment("Damage bonus to enemies with armor")
+					.defineInRange("knightmetalBonus", 0.2, 0, 1000);
+			knightmetalReflect = builder.comment("Extra damage reflection")
+					.defineInRange("knightmetalReflect", 0.5, 0, 1000);
+			fieryBonus = builder.comment("Damage bonus to enemies not immune to fire")
+					.defineInRange("knightmetalBonus", 0.5, 0, 1000);
+			fieryDuration = builder.comment("Ignite enemy by seconds")
+					.defineInRange("fieryDuration", 15, 0, 1000);
+			steeleafBonus = builder.comment("Damage bonus to enemies without armor")
+					.defineInRange("steeleafBonus", 0.5, 0, 1000);
+			steeleafReflect = builder.comment("Extra damage reflection")
+					.defineInRange("steeleafReflect", 0.5, 0, 1000);
+			steeleafChance = builder.comment("Effect Application Chance")
+					.defineInRange("steeleafChance", 0.5, 0, 1000);
+			ironwoodRegenDuration = builder.comment("Regeneration interval (in ticks)")
+					.defineInRange("ironwoodRegenDuration", 100, 1, 10000);
+			ironwoodEffectDuration = builder.comment("Resistance duration (in ticks)")
+					.defineInRange("ironwoodEffectDuration", 100, 1, 10000);
+			builder.pop();
 
 		}
 

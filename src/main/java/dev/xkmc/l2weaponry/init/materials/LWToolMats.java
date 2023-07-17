@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.init.materials;
 
 import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
+import dev.xkmc.l2damagetracker.contents.materials.vanilla.VanillaMats;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -9,7 +10,7 @@ import net.minecraft.world.item.Tiers;
 
 import java.util.function.Supplier;
 
-public enum LWToolMats {
+public enum LWToolMats implements ILWToolMats {
 	IRON(new VanillaMats(Tiers.IRON), Items.IRON_NUGGET, Items.IRON_INGOT, Items.IRON_BLOCK, false),
 	GOLD(new VanillaMats(Tiers.GOLD), Items.GOLD_NUGGET, Items.GOLD_INGOT, Items.GOLD_BLOCK, false),
 	DIAMOND(new VanillaMats(Tiers.DIAMOND), Items.AIR, Items.DIAMOND, Items.DIAMOND_BLOCK, false),
@@ -66,5 +67,15 @@ public enum LWToolMats {
 
 	public Item getNugget() {
 		return nugget.get();
+	}
+
+	@Override
+	public IMatToolType type() {
+		return type;
+	}
+
+	@Override
+	public boolean fireRes() {
+		return fireRes;
 	}
 }

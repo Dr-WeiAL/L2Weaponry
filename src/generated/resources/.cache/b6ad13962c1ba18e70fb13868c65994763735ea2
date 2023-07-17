@@ -1,4 +1,4 @@
-// 1.20	2023-06-19T16:21:12.200314	Tags for minecraft:damage_type mod id l2weaponry
+// 1.20.1	2023-07-17T14:11:54.340245	Tags for minecraft:damage_type mod id l2weaponry
 9bebeb711ac3f37832306759bf0c3ffc81c31cde data/minecraft/tags/damage_type/bypasses_armor.json
 cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasses_effects.json
 cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasses_enchantments.json

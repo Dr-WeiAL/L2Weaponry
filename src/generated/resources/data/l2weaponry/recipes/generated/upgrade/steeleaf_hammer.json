@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "twilightforest:steeleaf_block"
+  },
+  "base": {
+    "tag": "l2weaponry:hammer"
+  },
+  "result": {
+    "item": "l2weaponry:steeleaf_hammer"
+  },
+  "template": []
+}

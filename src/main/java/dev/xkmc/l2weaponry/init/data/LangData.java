@@ -2,10 +2,12 @@ package dev.xkmc.l2weaponry.init.data;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
-import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffectUtil;
 
 import java.util.Locale;
 
@@ -46,6 +48,13 @@ public enum LangData {
 	HOLY_AXE("legendary.dogmatic_standoff", "Gain damage absorption equal to %s%% of target health. Would not exceed %s%% of target health.", 2),
 	HOLY_HAMMER("legendary.dogmatic_punishment", "On critical hit, increase damage by user's damage absorption.", 0),
 
+	MATS_FIERY("mats.tf.fiery", "Deal %s%% more damage to mobs not immune to fire, and ignite it for %s seconds.", 1),
+	MATS_KNIGHTMETAL("mats.tf.knightmetal", "Increase damage by %s%% of enemy armor.", 1),
+	MATS_REFLECT("mats.tf.shield_reflect", "Shield reflect %s%% damage on blocking.", 1),
+	MATS_STEELEAF("mats.tf.steeleaf", "Deal %s%% more damage to mobs without armor, with %s%% chance to cause bleeding.", 2),
+	MATS_IRONWOOD("mats.tf.ironwood", "Regenerate durability in Twilight Forest.", 0),
+	MATS_EFFECT("mats.tf.shield_effect", "On blocking damage, grant %s to user", 1),
+
 	STAT_KILL("stat.kill_count", "Enemies killed: %s", 1),
 	STAT_BONUS_CLAW("stat.claw_bonus", "Damage stack limit: %s", 1);
 
@@ -65,6 +74,9 @@ public enum LangData {
 		if (id.startsWith("tool.")) {
 			ans = ans.withStyle(ChatFormatting.DARK_GREEN);
 		}
+		if (id.startsWith("mats.")) {
+			ans = ans.withStyle(ChatFormatting.GRAY);
+		}
 
 		if (id.startsWith("legendary.")) {
 			ans = ans.withStyle(ChatFormatting.GOLD);
@@ -75,6 +87,23 @@ public enum LangData {
 		}
 		return ans;
 	}
+
+	public static Component getTooltip(MobEffectInstance eff) {
+		MutableComponent ans = Component.translatable(eff.getDescriptionId());
+		MobEffect mobeffect = eff.getEffect();
+		if (eff.getAmplifier() > 0) {
+			ans = Component.translatable("potion.withAmplifier", ans,
+					Component.translatable("potion.potency." + eff.getAmplifier()));
+		}
+
+		if (eff.getDuration() > 20) {
+			ans = Component.translatable("potion.withDuration", ans,
+					MobEffectUtil.formatDuration(eff, 1));
+		}
+
+		return ans.withStyle(mobeffect.getCategory().getTooltipFormatting());
+	}
+
 
 
 	public static void addTranslations(RegistrateLangProvider pvd) {

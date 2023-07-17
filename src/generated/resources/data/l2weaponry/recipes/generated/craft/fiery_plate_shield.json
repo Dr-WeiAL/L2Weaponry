@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "minecraft:blaze_rod"
+    },
+    "I": {
+      "item": "twilightforest:fiery_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "IHI",
+    " I "
+  ],
+  "result": {
+    "item": "l2weaponry:fiery_plate_shield",
+    "nbt": "{Damage:0}"
+  },
+  "show_notification": true
+}

@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
@@ -100,6 +101,24 @@ public class GenericShieldItem extends BaseShieldItem implements LWTieredItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(stack, level, list, flag);
 		config.addTooltip(stack, list);
+	}
+
+
+	public void onBlock(ItemStack stack, LivingEntity user, LivingEntity target) {
+		if (getExtraConfig() instanceof LWExtraConfig extra) {
+			extra.onShieldBlock(stack, user, target);
+		}
+	}
+
+	public double onReflect(ItemStack stack, LivingEntity user, LivingEntity target, double original, double reflect) {
+		if (getExtraConfig() instanceof LWExtraConfig extra) {
+			return extra.onShieldReflect(stack, user, target, original, reflect);
+		}
+		return reflect;
+	}
+
+	public double getDefenseRecover(ItemStack stack) {
+		return recover;
 	}
 
 }

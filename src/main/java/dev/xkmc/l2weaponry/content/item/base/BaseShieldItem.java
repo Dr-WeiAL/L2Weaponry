@@ -167,13 +167,28 @@ public class BaseShieldItem extends ShieldItem {
 				LWPlayerData.HOLDER.get(player), target);
 	}
 
+	protected void onBlock(ItemStack stack, LivingEntity user, LivingEntity target) {
+
+	}
+
+	protected double onReflect(ItemStack stack, LivingEntity user, LivingEntity target, double original, double reflect) {
+		return reflect;
+	}
+
 	public double reflectImpl(ItemStack stack, DamageSource source, double additional, IShieldData data, LivingEntity target) {
-		if (!data.canReflect()) return 0.5;
-		if (data.getReflectTimer() > 0) {
-			var c = stack.getOrCreateTag();
-			double damage = c.getInt(KEY_LAST_DAMAGE) + additional;
+		LivingEntity user = (LivingEntity) source.getEntity();
+		assert user != null;
+		onBlock(stack, user, target);
+		var c = stack.getOrCreateTag();
+		double damage = c.getInt(KEY_LAST_DAMAGE);
+		if (data.canReflect() && data.getReflectTimer() > 0) {
+			damage = onReflect(stack, user, target, damage, damage + additional);
 			target.hurt(source, (float) damage);
 			return 2;
+		}
+		double extra = onReflect(stack, user, target, damage, 0);
+		if (extra > 0) {
+			target.hurt(source, (float) extra);
 		}
 		return 0.5;
 	}

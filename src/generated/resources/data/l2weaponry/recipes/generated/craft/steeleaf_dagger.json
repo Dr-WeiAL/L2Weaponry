@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "twilightforest:steeleaf_ingot"
+    }
+  },
+  "pattern": [
+    " I",
+    "H "
+  ],
+  "result": {
+    "item": "l2weaponry:steeleaf_dagger",
+    "nbt": "{Damage:0}"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "twilightforest:knightmetal_ingot"
+    }
+  },
+  "pattern": [
+    " II",
+    " HI",
+    "H  "
+  ],
+  "result": {
+    "item": "l2weaponry:knightmetal_spear",
+    "nbt": "{Damage:0}"
+  },
+  "show_notification": true
+}

@@ -9,7 +9,9 @@ import dev.xkmc.l2complements.init.registrate.LCItems;
 import dev.xkmc.l2library.compat.jeed.JeedDataGenerator;
 import dev.xkmc.l2library.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2library.serial.recipe.AbstractSmithingRecipe;
+import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
+import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
@@ -27,7 +29,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
+import twilightforest.TwilightForestMod;
 
 import java.util.function.BiFunction;
 
@@ -57,6 +61,12 @@ public class RecipeGen {
 					for (LWToolTypes type : LWToolTypes.values()) {
 						smelting(pvd, mat.getTool(type), mat.getNugget(), 0.1f);
 					}
+				}
+			}
+
+			if (ModList.get().isLoaded(TwilightForestMod.ID)) {
+				for (ILWToolMats mat : TFToolMats.values()) {
+					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
 		}
@@ -163,6 +173,18 @@ public class RecipeGen {
 			jeed.add(LWItems.FLAME_AXE.get(), LCEffects.FLAME.get());
 			jeed.add(LWItems.FROZEN_SPEAR.get(), LCEffects.ICE.get());
 			jeed.generate(pvd);
+
+			if (ModList.get().isLoaded(TwilightForestMod.ID)) {
+				jeed = new JeedDataGenerator(L2Weaponry.MODID, TwilightForestMod.ID);
+				jeed.add(TFToolMats.IRONWOOD.getTool(LWToolTypes.ROUND_SHIELD), MobEffects.DAMAGE_RESISTANCE);
+				jeed.add(TFToolMats.IRONWOOD.getTool(LWToolTypes.PLATE_SHIELD), MobEffects.DAMAGE_RESISTANCE);
+				jeed.add(TFToolMats.FIERY.getTool(LWToolTypes.ROUND_SHIELD), MobEffects.FIRE_RESISTANCE);
+				jeed.add(TFToolMats.FIERY.getTool(LWToolTypes.PLATE_SHIELD), MobEffects.FIRE_RESISTANCE);
+				for (var e : LWToolTypes.values()) {
+					jeed.add(TFToolMats.STEELEAF.getTool(e), LCEffects.BLEED.get());
+				}
+				jeed.generate(pvd);
+			}
 		}
 	}
 
@@ -185,7 +207,7 @@ public class RecipeGen {
 		return func.apply("has_" + pvd.safeName(item), DataIngredient.items(item).getCritereon(pvd));
 	}
 
-	private static void buildTool(RegistrateRecipeProvider pvd, Item handle, Item ingot, LWToolMats mat, LWToolTypes type, String... strs) {
+	private static void buildTool(RegistrateRecipeProvider pvd, Item handle, Item ingot, ILWToolMats mat, LWToolTypes type, String... strs) {
 		var b = unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.TOOLS, mat.getTool(type), 1)::unlockedBy, mat.getIngot());
 		boolean leather = false;
 		for (String str : strs) {
@@ -194,7 +216,7 @@ public class RecipeGen {
 		}
 		b.define('I', ingot).define('H', handle);
 		if (leather) b = b.define('L', Items.LEATHER);
-		b.save(pvd, getID(mat.getTool(type)));
+		mat.saveRecipe(b, pvd, type, getID(mat.getTool(type)));
 	}
 
 	public static void upgrade(RegistrateRecipeProvider pvd, LWToolMats base, LWToolMats mat) {
@@ -204,7 +226,7 @@ public class RecipeGen {
 		}
 	}
 
-	public static void tools(RegistrateRecipeProvider pvd, Item handle, Item ingot, LWToolMats mat) {
+	public static void tools(RegistrateRecipeProvider pvd, Item handle, Item ingot, ILWToolMats mat) {
 		currentFolder = "generated/craft/";
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.CLAW, "III", "HLH", "H H");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.DAGGER, " I", "H ");
