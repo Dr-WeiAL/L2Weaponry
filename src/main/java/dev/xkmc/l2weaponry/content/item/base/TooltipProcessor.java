@@ -6,6 +6,8 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraftforge.common.ForgeMod;
 
+import java.util.ArrayList;
+
 public class TooltipProcessor {
 
 	public static Multimap<Attribute, AttributeModifier> processTooltip(Multimap<Attribute, AttributeModifier> ans) {
@@ -17,7 +19,7 @@ public class TooltipProcessor {
 	}
 
 	private static void sumAddition(Multimap<Attribute, AttributeModifier> ans, Attribute attr) {
-		var list = ans.get(attr);
+		var list = new ArrayList<>(ans.get(attr));
 		AttributeModifier mod = null;
 		double add = 0;
 		for (var e : list) {
