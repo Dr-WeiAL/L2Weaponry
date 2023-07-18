@@ -48,9 +48,9 @@ public enum LangData {
 	HOLY_AXE("legendary.dogmatic_standoff", "Gain damage absorption equal to %s%% of target health. Would not exceed %s%% of target health.", 2),
 	HOLY_HAMMER("legendary.dogmatic_punishment", "On critical hit, increase damage by user's damage absorption.", 0),
 
-	MATS_FIERY("mats.tf.fiery", "Deal %s%% more damage to mobs not immune to fire, and ignite it for %s seconds.", 1),
+	MATS_FIERY("mats.tf.fiery", "Deal %s%% more damage to mobs not immune to fire, and ignite it for %s seconds.", 2),
 	MATS_KNIGHTMETAL("mats.tf.knightmetal", "Increase damage by %s%% of enemy armor.", 1),
-	MATS_REFLECT("mats.tf.shield_reflect", "Shield reflect %s%% damage on blocking.", 1),
+	MATS_REFLECT("mats.tf.shield_reflect", "Shield reflect %s%% extra damage on blocking.", 1),
 	MATS_STEELEAF("mats.tf.steeleaf", "Deal %s%% more damage to mobs without armor, with %s%% chance to cause bleeding.", 2),
 	MATS_IRONWOOD("mats.tf.ironwood", "Regenerate durability in Twilight Forest.", 0),
 	MATS_EFFECT("mats.tf.shield_effect", "On blocking damage, grant %s to user", 1),
@@ -103,8 +103,6 @@ public enum LangData {
 
 		return ans.withStyle(mobeffect.getCategory().getTooltipFormatting());
 	}
-
-
 
 	public static void addTranslations(RegistrateLangProvider pvd) {
 		for (LangData id : LangData.values()) {

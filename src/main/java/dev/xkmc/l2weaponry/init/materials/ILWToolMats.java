@@ -26,4 +26,8 @@ public interface ILWToolMats {
 		b.save(pvd, id);
 	}
 
+	default String englishName() {
+		return name();
+	}
+
 }

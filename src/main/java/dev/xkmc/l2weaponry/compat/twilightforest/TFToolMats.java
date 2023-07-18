@@ -77,4 +77,9 @@ public enum TFToolMats implements ILWToolMats {
 		}
 	}
 
+	@Override
+	public String englishName() {
+		return this == KNIGHTMETAL ? "knightly" : name();
+	}
+
 }

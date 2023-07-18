@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.init.materials;
 
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateItemModelProvider;
+import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.world.item.Item;
@@ -18,12 +19,13 @@ public class LWGenItem {
 			for (int i = 0; i < values.length; i++) {
 				ILWToolMats mat = values[i];
 				String mat_name = mat.name().toLowerCase(Locale.ROOT);
+				String english = mat.englishName();
 				LWToolTypes type = LWToolTypes.values()[j];
 				String tool_name = type.name().toLowerCase(Locale.ROOT);
 				ans[i][j] = L2Weaponry.REGISTRATE.item(mat_name + "_" + tool_name,
 								p -> mat.type().getToolConfig().sup().get(mat.type(), type, mat.fireRes() ? p.fireResistant() : p))
 						.model((ctx, pvd) -> model(type, ctx, pvd, mat_name, tool_name))
-						.tag(type.tag).defaultLang().register();
+						.tag(type.tag).lang(RegistrateLangProvider.toEnglishName(english + "_" + tool_name)).register();
 			}
 		}
 		return ans;
