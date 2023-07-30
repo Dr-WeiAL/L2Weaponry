@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.capability.IShieldData;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
+import dev.xkmc.l2weaponry.events.LWGeneralEvents;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -182,13 +183,13 @@ public class BaseShieldItem extends ShieldItem {
 		var c = stack.getOrCreateTag();
 		double damage = c.getInt(KEY_LAST_DAMAGE);
 		if (data.canReflect() && data.getReflectTimer() > 0) {
-			damage = onReflect(stack, user, target, damage, damage + additional);
-			target.hurt(source, (float) damage);
+			double finalDamage = onReflect(stack, user, target, damage, damage + additional);
+			LWGeneralEvents.schedule(() -> target.hurt(source, (float) finalDamage));
 			return 2;
 		}
 		double extra = onReflect(stack, user, target, damage, 0);
 		if (extra > 0) {
-			target.hurt(source, (float) extra);
+			LWGeneralEvents.schedule(() -> target.hurt(source, (float) extra));
 		}
 		return 0.5;
 	}
