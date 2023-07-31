@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-17T17:50:12.347067	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-07-30T23:15:23.622786	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 1c63fe4da0937dd04981011c9e1b9382e5027837 assets/l2weaponry/lang/en_ud.json
 b898cf439947f3b49faf9948764c3524ca39ad19 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
@@ -481,6 +481,16 @@ cd0345a13db3be972073ea9120a20ca3d09a5dfb data/l2weaponry/advancements/recipes/to
 71aedfada9819713aa7fc6f107ea88026df7fa2a data/l2weaponry/advancements/recipes/tools/generated/craft/iron_round_shield.json
 a8c403e9ae2c61f99ca2cda28c47d2bb1222618e data/l2weaponry/advancements/recipes/tools/generated/craft/iron_spear.json
 cdc978f9586f8f8a8ebd5f2a4567eb9a865b8988 data/l2weaponry/advancements/recipes/tools/generated/craft/iron_throwing_axe.json
+922aeef2ad059831d56e9d65a60fc97094ae4d5f data/l2weaponry/advancements/recipes/tools/generated/craft/ironwood_battle_axe.json
+fea76b2defb3abc7436923fe5e3f3728f58e925f data/l2weaponry/advancements/recipes/tools/generated/craft/ironwood_claw.json
+f738832916d287faf905087cda4cbcacfcbf1d5f data/l2weaponry/advancements/recipes/tools/generated/craft/ironwood_dagger.json
+4e01b88963403f0a1a8e3330f9ede2d3c5a75164 data/l2weaponry/advancements/recipes/tools/generated/craft/ironwood_hammer.json
+d135607990f60edef81645ddec03ee58cbd69e65 data/l2weaponry/advancements/recipes/tools/generated/craft/ironwood_javelin.json
+98ba9110c048135cefeff43e0f63f2dfceb601d6 data/l2weaponry/advancements/recipes/tools/generated/craft/ironwood_machete.json
+304d2a7c146c3c1a66e8d1988be50c9f924095e2 data/l2weaponry/advancements/recipes/tools/generated/craft/ironwood_plate_shield.json
+49a0f56dfa0ed2276f8b9e876242b7fff1f236a5 data/l2weaponry/advancements/recipes/tools/generated/craft/ironwood_round_shield.json
+9910b7363fcc8bc6aa8a93b3b74cccd397e41b02 data/l2weaponry/advancements/recipes/tools/generated/craft/ironwood_spear.json
+2b6c418bdc3319ede9802ed64c0cfc2e360a1fdd data/l2weaponry/advancements/recipes/tools/generated/craft/ironwood_throwing_axe.json
 f1b07407ea60d2bbf99ffe0b9525854aba74256f data/l2weaponry/advancements/recipes/tools/generated/craft/knightmetal_battle_axe.json
 1ccd89e9dd8b0e1f888589ff6c23d3ad0df71079 data/l2weaponry/advancements/recipes/tools/generated/craft/knightmetal_claw.json
 c1cefffd7d0536fbb14ab73336a9209cfbf1efb7 data/l2weaponry/advancements/recipes/tools/generated/craft/knightmetal_dagger.json
@@ -598,6 +608,16 @@ adbf98e7f30b0a8ed895ac03f2ed102033558000 data/l2weaponry/recipes/generated/craft
 a45c85c1b55909a2421d7b8b4a94b272f9066d76 data/l2weaponry/recipes/generated/craft/iron_round_shield.json
 a356e1b4be34ec0a86659faa3e5b1481a21cac50 data/l2weaponry/recipes/generated/craft/iron_spear.json
 447bbf7b3c0c6b376e797b38131f5b67a30dce24 data/l2weaponry/recipes/generated/craft/iron_throwing_axe.json
+516f412819d8d490762033ad8b93cd70bf6b70f0 data/l2weaponry/recipes/generated/craft/ironwood_battle_axe.json
+c14f391c7952dc0f9b658ad30bd18b7955c6d6f0 data/l2weaponry/recipes/generated/craft/ironwood_claw.json
+7822158c9d9e59aac0bf43d7eb405d44e7b9379b data/l2weaponry/recipes/generated/craft/ironwood_dagger.json
+df614431c5a2e7540b38ca886fa9cdbfb089592d data/l2weaponry/recipes/generated/craft/ironwood_hammer.json
+ca58c546263754102ddd776eec73e3541e2d42e1 data/l2weaponry/recipes/generated/craft/ironwood_javelin.json
+5bd43609520c82ff429ccb7982e271c20ba3f810 data/l2weaponry/recipes/generated/craft/ironwood_machete.json
+241f8732744cf540d38d17e9c27068cad5855336 data/l2weaponry/recipes/generated/craft/ironwood_plate_shield.json
+cc255312630d2da4a486a42a429b80dd10de92bd data/l2weaponry/recipes/generated/craft/ironwood_round_shield.json
+0d84d45e50de73a33c4559eb2b8260eedca521e1 data/l2weaponry/recipes/generated/craft/ironwood_spear.json
+792cc1b6247230c72c2c7b6a04e4eaaef5672d66 data/l2weaponry/recipes/generated/craft/ironwood_throwing_axe.json
 303f96b909cd125fc10d36f633a5319bd0f0164f data/l2weaponry/recipes/generated/craft/knightmetal_battle_axe.json
 8c20a0846c1f66d5bda36920b766e7e497874bb4 data/l2weaponry/recipes/generated/craft/knightmetal_claw.json
 2179e63bce96a0593050bb5673fbdf74a18f47a3 data/l2weaponry/recipes/generated/craft/knightmetal_dagger.json

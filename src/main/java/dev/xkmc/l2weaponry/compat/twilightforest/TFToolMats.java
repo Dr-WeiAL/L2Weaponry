@@ -20,7 +20,7 @@ import twilightforest.util.TwilightItemTier;
 import java.util.function.Supplier;
 
 public enum TFToolMats implements ILWToolMats {
-	IRONWOOD(new TFMats(TwilightItemTier.IRONWOOD, new ExtraToolConfig()), false, TFItems.IRONWOOD_INGOT, TFBlocks.IRONWOOD_BLOCK),
+	IRONWOOD(new TFMats(TwilightItemTier.IRONWOOD, new IronwoodTool()), false, TFItems.IRONWOOD_INGOT, TFBlocks.IRONWOOD_BLOCK),
 	STEELEAF(new TFMats(TwilightItemTier.STEELEAF, new SteeleafTool()), false, TFItems.STEELEAF_INGOT, TFBlocks.STEELEAF_BLOCK),
 	KNIGHTMETAL(new TFMats(TwilightItemTier.KNIGHTMETAL, new KnightmetalTool()), false, TFItems.KNIGHTMETAL_INGOT, TFBlocks.KNIGHTMETAL_BLOCK),
 	FIERY(new TFMats(TwilightItemTier.FIERY, new FieryTool()), true, TFItems.FIERY_INGOT, TFBlocks.FIERY_BLOCK);

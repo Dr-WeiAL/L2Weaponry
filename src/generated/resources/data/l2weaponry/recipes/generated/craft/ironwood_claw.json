@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "twilightforest:ironwood_ingot"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "III",
+    "HLH",
+    "H H"
+  ],
+  "result": {
+    "item": "l2weaponry:ironwood_claw",
+    "nbt": "{Damage:0}"
+  },
+  "show_notification": true
+}
