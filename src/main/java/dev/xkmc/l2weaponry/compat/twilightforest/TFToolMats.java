@@ -2,7 +2,6 @@ package dev.xkmc.l2weaponry.compat.twilightforest;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
-import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
@@ -13,6 +12,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
+import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import twilightforest.init.TFBlocks;
 import twilightforest.init.TFItems;
 import twilightforest.util.TwilightItemTier;
@@ -81,5 +82,15 @@ public enum TFToolMats implements ILWToolMats {
 	public String englishName() {
 		return this == KNIGHTMETAL ? "knightly" : name();
 	}
+
+	@Override
+	public ItemModelBuilder model(ItemModelBuilder b) {
+		if (this == FIERY) {
+			return b.customLoader(ItemLayerModelBuilder::begin).emissive(15, 15, 0).end();
+		} else {
+			return b;
+		}
+	}
+
 
 }

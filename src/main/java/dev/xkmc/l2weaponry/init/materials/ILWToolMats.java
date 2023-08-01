@@ -5,6 +5,7 @@ import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 
 public interface ILWToolMats {
 
@@ -30,4 +31,7 @@ public interface ILWToolMats {
 		return name();
 	}
 
+	default ItemModelBuilder model(ItemModelBuilder b) {
+		return b;
+	}
 }

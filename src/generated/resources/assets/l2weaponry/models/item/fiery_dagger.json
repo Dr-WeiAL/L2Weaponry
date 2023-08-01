@@ -1,5 +1,15 @@
 {
   "parent": "minecraft:item/handheld",
+  "forge_data": {
+    "layers": {
+      "0": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  },
+  "loader": "forge:item_layers",
+  "render_types": {},
   "textures": {
     "layer0": "l2weaponry:item/generated/fiery/dagger"
   }

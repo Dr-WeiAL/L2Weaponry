@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-30T23:15:23.622786	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-08-01T00:42:07.752076	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 1c63fe4da0937dd04981011c9e1b9382e5027837 assets/l2weaponry/lang/en_ud.json
 b898cf439947f3b49faf9948764c3524ca39ad19 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
@@ -40,20 +40,20 @@ ea6ab56b6e33af4c28f62eba9179d735ec2f4075 assets/l2weaponry/models/item/eternium_
 716ac7920acfb8a386179b50b1037e36152ab328 assets/l2weaponry/models/item/eternium_spear.json
 83e334b5c76c1af66a80de120420326c08230e2e assets/l2weaponry/models/item/eternium_throwing_axe.json
 56edee3b256a08a46a83932dd9033773853e83de assets/l2weaponry/models/item/eternium_throwing_axe_throwing.json
-0aed868badcb48695cf586eb20085392853fd25f assets/l2weaponry/models/item/fiery_battle_axe.json
-831a4ebe524a76f4bc5326aaf39a59fe6c0ce867 assets/l2weaponry/models/item/fiery_claw.json
-51118bf431e1c1c8c241a6cc65fbaf5cf1d105d5 assets/l2weaponry/models/item/fiery_dagger.json
-beb857df21db3244649b92e6e8b205e0bdc46dc6 assets/l2weaponry/models/item/fiery_hammer.json
-f8dd1b44d2c6b6a700657563ce619b04918f8092 assets/l2weaponry/models/item/fiery_javelin.json
-f829a14a45d2c2420cb7876714fb93af85c19ead assets/l2weaponry/models/item/fiery_javelin_throwing.json
-6c3db38f5aa3ec28948fa1731b625485d5a586f7 assets/l2weaponry/models/item/fiery_machete.json
-c5cd77e664fa4e6f5a506d479031a976e1b2bc58 assets/l2weaponry/models/item/fiery_plate_shield.json
-124ee86d372ed391557a7403d13d44afa336a318 assets/l2weaponry/models/item/fiery_plate_shield_blocking.json
-48d7f7d9abec60807a8e7070db40198152a22618 assets/l2weaponry/models/item/fiery_round_shield.json
-8dc9434a5563feaf1d9fed5b797eb4bc67c52759 assets/l2weaponry/models/item/fiery_round_shield_blocking.json
-a43c67cae7b3d1cd43394f4908e1c56bdbef6bf0 assets/l2weaponry/models/item/fiery_spear.json
-bb7461c0d6c750b80b23405149fc56fd281a7245 assets/l2weaponry/models/item/fiery_throwing_axe.json
-6ad32f85073ab2fd781a9baf036a57a58463c304 assets/l2weaponry/models/item/fiery_throwing_axe_throwing.json
+7a15728c8183c1c04b022c43d02e6e656dccf8eb assets/l2weaponry/models/item/fiery_battle_axe.json
+6884d431753dc48f66baa2c56f9712b1823d1e73 assets/l2weaponry/models/item/fiery_claw.json
+86eed20527f58be6ef2f447d86bc2716d74ab0f1 assets/l2weaponry/models/item/fiery_dagger.json
+0d723104d822220483f63d9fac09a45e46977ac5 assets/l2weaponry/models/item/fiery_hammer.json
+35f8efc1fd2fcb9c259ed62fb54060871a78571d assets/l2weaponry/models/item/fiery_javelin.json
+277bd7837de4e7758abff4321d5bbc70a4a9f1c4 assets/l2weaponry/models/item/fiery_javelin_throwing.json
+d751ec9cfd2bd372f2eb87c681a3076c42863fc2 assets/l2weaponry/models/item/fiery_machete.json
+a0a7ff2df39d0b5e4636b0015481e6e263354afa assets/l2weaponry/models/item/fiery_plate_shield.json
+7a6143d860930bc5fea996a78e2d02431fca5017 assets/l2weaponry/models/item/fiery_plate_shield_blocking.json
+250d3c8347eb8576c691fd32a290205f73cf5ca6 assets/l2weaponry/models/item/fiery_round_shield.json
+a3563eaa029435b23cf3874a0b8ab0558c621d6f assets/l2weaponry/models/item/fiery_round_shield_blocking.json
+4c7823362de4a50cb98bc54fa167e000a8b3318f assets/l2weaponry/models/item/fiery_spear.json
+6020956187e42178e3cac3058544dde0f573a9f2 assets/l2weaponry/models/item/fiery_throwing_axe.json
+25c150653d7a52d8c5423fd3b7214fadf43053cb assets/l2weaponry/models/item/fiery_throwing_axe_throwing.json
 6e32e4aba6628e5424edbfeb3a7b3fbfea985ef2 assets/l2weaponry/models/item/gold_battle_axe.json
 1594699f90801f99971c3677c588601178675c81 assets/l2weaponry/models/item/gold_claw.json
 7ab62a22fac5f24a1ef22836a528afcce44274f3 assets/l2weaponry/models/item/gold_dagger.json

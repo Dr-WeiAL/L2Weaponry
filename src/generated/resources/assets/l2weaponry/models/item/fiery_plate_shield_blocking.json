@@ -1,5 +1,15 @@
 {
   "parent": "l2weaponry:item/plate_shield_blocking",
+  "forge_data": {
+    "layers": {
+      "0": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  },
+  "loader": "forge:item_layers",
+  "render_types": {},
   "textures": {
     "0": "l2weaponry:item/generated/fiery/plate_shield"
   }
