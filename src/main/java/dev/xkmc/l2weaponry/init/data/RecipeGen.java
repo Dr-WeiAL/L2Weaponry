@@ -48,6 +48,7 @@ public class RecipeGen {
 					.define('I', Items.COPPER_INGOT)
 					.save(pvd, getID(LWItems.HANDLE.get()));
 		}
+
 		currentFolder = "generated/";
 		{
 			for (LWToolMats mat : LWToolMats.values()) {
@@ -70,6 +71,7 @@ public class RecipeGen {
 				}
 			}
 		}
+
 		currentFolder = "legendary/";
 		{
 			unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, LWItems.STORM_JAVELIN.get(), 1)::unlockedBy, LCItems.GUARDIAN_EYE.get())
@@ -162,6 +164,14 @@ public class RecipeGen {
 					.define('D', LCItems.SOUL_FLAME)
 					.define('L', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.RAISED_SPIRIT.get()));
+
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.GHOST_SLASH.get(), 1)::unlockedBy, LCItems.RESONANT_FEATHER.get())
+					.pattern("CLC").pattern("DBD").pattern("CLC")
+					.define('B', Items.BOOK)
+					.define('L', LCItems.EXPLOSION_SHARD)
+					.define('D', LCItems.RESONANT_FEATHER)
+					.define('C', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.GHOST_SLASH.get()));
 		}
 
 		// jeed

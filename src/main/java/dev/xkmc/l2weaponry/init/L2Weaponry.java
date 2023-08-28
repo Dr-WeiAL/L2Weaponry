@@ -1,11 +1,13 @@
 package dev.xkmc.l2weaponry.init;
 
 import com.tterrag.registrate.providers.ProviderType;
+import dev.xkmc.l2complements.events.ItemUseEventHandler;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2weaponry.compat.GolemCompat;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
+import dev.xkmc.l2weaponry.events.LWClickListener;
 import dev.xkmc.l2weaponry.init.data.*;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
@@ -32,7 +34,9 @@ public class L2Weaponry {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
 
-	private static void registerRegistrates(IEventBus bus) {
+	public L2Weaponry() {
+		FMLJavaModLoadingContext ctx = FMLJavaModLoadingContext.get();
+		IEventBus bus = ctx.getModEventBus();
 		LWItems.register();
 		LWEntities.register();
 		LWDamageTypeGen.register();
@@ -40,18 +44,13 @@ public class L2Weaponry {
 		LWConfig.init();
 		LWPlayerData.register();
 		LWEnchantments.register();
+		ItemUseEventHandler.LIST.add(new LWClickListener());
 		if (ModList.get().isLoaded("modulargolems")) GolemCompat.register(bus);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::addTranslations);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipe);
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.ENTITY_TAGS, TagGen::onEntityTagGen);
-	}
-
-	public L2Weaponry() {
-		FMLJavaModLoadingContext ctx = FMLJavaModLoadingContext.get();
-		IEventBus bus = ctx.getModEventBus();
-		registerRegistrates(bus);
 	}
 
 	@SubscribeEvent

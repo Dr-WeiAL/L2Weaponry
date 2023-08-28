@@ -5,6 +5,8 @@
   "enchantment.l2weaponry.ender_hand.desc": "Thrown attacks will appear as direct hit.",
   "enchantment.l2weaponry.energized_will": "Energized Will",
   "enchantment.l2weaponry.energized_will.desc": "Gradually increase machete attack range when stacking consecutive attacks. Conflicts with Raised Spirit.",
+  "enchantment.l2weaponry.ghost_slash": "Ghost Slash",
+  "enchantment.l2weaponry.ghost_slash.desc": "Empty hits will stack hit count and consume durability as well.",
   "enchantment.l2weaponry.hard_shield": "Hard Shield",
   "enchantment.l2weaponry.hard_shield.desc": "Increase shield defense. Works for both hands.",
   "enchantment.l2weaponry.heavy": "Heavy",

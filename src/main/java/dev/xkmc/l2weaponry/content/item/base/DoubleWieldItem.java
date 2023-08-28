@@ -16,6 +16,9 @@ public class DoubleWieldItem extends GenericWeaponItem {
 		super(tier, damage, speed, prop, config, blocks);
 	}
 
+	public void accumulateDamage(ItemStack stack, long gameTime) {
+	}
+
 	@Override
 	protected final boolean canSweep() {
 		return true;

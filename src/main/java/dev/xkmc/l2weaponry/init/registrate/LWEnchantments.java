@@ -2,10 +2,12 @@ package dev.xkmc.l2weaponry.init.registrate;
 
 import com.tterrag.registrate.builders.EnchantmentBuilder;
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import dev.xkmc.l2complements.content.enchantment.core.SingleLevelEnchantment;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2weaponry.content.enchantments.*;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
+import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.types.DaggerItem;
 import dev.xkmc.l2weaponry.content.item.types.MacheteItem;
@@ -32,6 +34,9 @@ public class LWEnchantments {
 	public static final EnchantmentCategory MACHETES = EnchantmentCategory.create("machetes", e ->
 			e instanceof MacheteItem);
 
+	public static final EnchantmentCategory DOUBLE_WIELD = EnchantmentCategory.create("double_wield", e ->
+			e instanceof DoubleWieldItem);
+
 	public static final RegistryEntry<EnderHandEnchantment> ENDER_HAND;
 	public static final RegistryEntry<StealthEnchantment> NO_AGGRO;
 	public static final RegistryEntry<HeavyEnchantment> HEAVY;
@@ -39,6 +44,7 @@ public class LWEnchantments {
 	public static final RegistryEntry<HeavyShieldEnchantment> HEAVY_SHIELD;
 	public static final RegistryEntry<EnergizedWillEnchantment> ENERGIZED_WILL;
 	public static final RegistryEntry<RaisedSpiritEnchantment> RAISED_SPIRIT;
+	public static final RegistryEntry<SingleLevelEnchantment> GHOST_SLASH;
 
 
 	static {
@@ -74,6 +80,11 @@ public class LWEnchantments {
 
 		RAISED_SPIRIT = reg("raised_spirit", MACHETES, RaisedSpiritEnchantment::new,
 				"Gradually increase machete attack speed when stacking consecutive attacks. Conflicts with Energized Will.")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+				.defaultLang().register();
+
+		GHOST_SLASH = reg("ghost_slash", DOUBLE_WIELD, SingleLevelEnchantment::new,
+				"Empty hits will stack hit count and consume durability as well.")
 				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
 				.defaultLang().register();
 	}

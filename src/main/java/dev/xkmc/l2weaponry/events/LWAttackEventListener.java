@@ -4,7 +4,7 @@ import dev.xkmc.l2complements.content.enchantment.core.SourceModifierEnchantment
 import dev.xkmc.l2damagetracker.contents.attack.*;
 import dev.xkmc.l2damagetracker.contents.materials.generic.GenericTieredItem;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
-import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
+import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -66,7 +66,7 @@ public class LWAttackEventListener implements AttackListener {
 					}
 				}
 			}
-			if (!stack.isEmpty() && stack.getItem() instanceof BaseClawItem claw) {
+			if (!stack.isEmpty() && stack.getItem() instanceof DoubleWieldItem claw) {
 				claw.accumulateDamage(stack, cache.getAttacker().level().getGameTime());
 			}
 		}

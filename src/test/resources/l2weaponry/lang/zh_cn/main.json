@@ -16,7 +16,9 @@
 	"energized_will": "杀戮之心",
 	"energized_will.desc": "弯刀将根据连击数增加攻击范围（与杀戮之魂冲突）",
 	"raised_spirit": "杀戮之魂",
-	"raised_spirit.desc": "弯刀将根据连击数增加攻击速度（与杀戮之心冲突）"
+	"raised_spirit.desc": "弯刀将根据连击数增加攻击速度（与杀戮之心冲突）",
+	"ghost_slash": "斩影",
+	"ghost_slash.desc": "击空也会叠加连击次数"
   },
   "l2weaponry": {
 	"mats.tf": {

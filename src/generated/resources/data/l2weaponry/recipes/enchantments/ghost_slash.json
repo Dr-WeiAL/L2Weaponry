@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "minecraft:book"
+    },
+    "C": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "D": {
+      "item": "l2complements:resonant_feather"
+    },
+    "L": {
+      "item": "l2complements:explosion_shard"
+    }
+  },
+  "pattern": [
+    "CLC",
+    "DBD",
+    "CLC"
+  ],
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "nbt": {
+      "StoredEnchantments": [
+        {
+          "id": "l2weaponry:ghost_slash",
+          "lvl": 1
+        }
+      ]
+    }
+  }
+}
