@@ -1,9 +1,9 @@
 package dev.xkmc.l2weaponry.mixin;
 
+import dev.xkmc.l2serial.util.Wrappers;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import dev.xkmc.l2weaponry.content.item.types.ClawItem;
-import dev.xkmc.l2weaponry.init.data.LWConfig;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -43,9 +43,9 @@ public abstract class LivingEntityMixin extends Entity {
 	@Inject(at = @At("HEAD"), method = "isDamageSourceBlocked", cancellable = true)
 	public void l2weaponry_isDamageSourceBlocked_clawBlock(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
 		ItemStack stack = getMainHandItem();
-		if (stack.getItem() instanceof ClawItem) {
+		if (stack.getItem() instanceof ClawItem claw) {
 			long gameTime = level().getGameTime();
-			if (gameTime > BaseClawItem.getLastTime(stack) + LWConfig.COMMON.claw_block_time.get()) {
+			if (gameTime > BaseClawItem.getLastTime(stack) + claw.getBlockTime(Wrappers.cast(this))) {
 				return;
 			}
 			Entity entity = source.getDirectEntity();

@@ -9,6 +9,7 @@ import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
 import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
+import dev.xkmc.l2weaponry.content.item.types.ClawItem;
 import dev.xkmc.l2weaponry.content.item.types.DaggerItem;
 import dev.xkmc.l2weaponry.content.item.types.MacheteItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -37,6 +38,9 @@ public class LWEnchantments {
 	public static final EnchantmentCategory DOUBLE_WIELD = EnchantmentCategory.create("double_wield", e ->
 			e instanceof DoubleWieldItem);
 
+	public static final EnchantmentCategory CLAW = EnchantmentCategory.create("claws", e ->
+			e instanceof ClawItem);
+
 	public static final RegistryEntry<EnderHandEnchantment> ENDER_HAND;
 	public static final RegistryEntry<StealthEnchantment> NO_AGGRO;
 	public static final RegistryEntry<HeavyEnchantment> HEAVY;
@@ -45,6 +49,7 @@ public class LWEnchantments {
 	public static final RegistryEntry<EnergizedWillEnchantment> ENERGIZED_WILL;
 	public static final RegistryEntry<RaisedSpiritEnchantment> RAISED_SPIRIT;
 	public static final RegistryEntry<SingleLevelEnchantment> GHOST_SLASH;
+	public static final RegistryEntry<ClawBlockEnchantment> CLAW_BLOCK;
 
 
 	static {
@@ -86,6 +91,11 @@ public class LWEnchantments {
 		GHOST_SLASH = reg("ghost_slash", DOUBLE_WIELD, SingleLevelEnchantment::new,
 				"Empty hits will stack hit count and consume durability as well.")
 				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+				.defaultLang().register();
+
+		CLAW_BLOCK = reg("claw_shielding", CLAW, ClawBlockEnchantment::new,
+				"Increase damage blocking time for claws. Works on either hand")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND)
 				.defaultLang().register();
 	}
 

@@ -1,6 +1,8 @@
 {
   "attribute.name.reflect_time": "Reflect Time",
   "attribute.name.shield_defense": "Shield Defense",
+  "enchantment.l2weaponry.claw_shielding": "Claw Shielding",
+  "enchantment.l2weaponry.claw_shielding.desc": "Increase damage blocking time for claws. Works on either hand",
   "enchantment.l2weaponry.ender_hand": "Ender Hand",
   "enchantment.l2weaponry.ender_hand.desc": "Thrown attacks will appear as direct hit.",
   "enchantment.l2weaponry.energized_will": "Energized Will",

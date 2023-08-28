@@ -4,8 +4,11 @@ import com.google.common.collect.ImmutableMultimap;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
+import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
+import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
@@ -29,6 +32,16 @@ public class ClawItem extends BaseClawItem {
 	protected void addModifiers(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
 		super.addModifiers(builder);
 		builder.put(ForgeMod.ENTITY_REACH.get(), RANGE);
+	}
+
+	@Override
+	public float getBlockTime(LivingEntity player) {
+		int ans = LWConfig.COMMON.claw_block_time.get();
+		ans += player.getMainHandItem().getEnchantmentLevel(LWEnchantments.CLAW_BLOCK.get());
+		if (player.getOffhandItem().getItem() == this) {
+			ans += player.getOffhandItem().getEnchantmentLevel(LWEnchantments.CLAW_BLOCK.get());
+		}
+		return ans;
 	}
 
 	@Override

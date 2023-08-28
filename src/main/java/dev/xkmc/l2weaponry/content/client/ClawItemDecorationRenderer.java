@@ -3,8 +3,10 @@ package dev.xkmc.l2weaponry.content.client;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.IItemDecorator;
@@ -13,22 +15,24 @@ public class ClawItemDecorationRenderer implements IItemDecorator {
 
 	@Override
 	public boolean render(GuiGraphics g, Font font, ItemStack stack, int x, int y) {
-		ItemStack main = Proxy.getClientPlayer().getMainHandItem();
-		ItemStack off = Proxy.getClientPlayer().getOffhandItem();
+		LocalPlayer player = Proxy.getClientPlayer();
+		if (player == null) return false;
+		ItemStack main = player.getMainHandItem();
+		ItemStack off = player.getOffhandItem();
 		if (main != stack && off != stack) return false;
 		if (main != stack && off.getItem() != main.getItem()) return false;
 		if (!(stack.getItem() instanceof BaseClawItem)) return false;
 		if (!(main.getItem() instanceof BaseClawItem claw)) return false;
 		long last = BaseClawItem.getLastTime(main);
-		long time = Proxy.getClientWorld().getGameTime();
 		int timeout = LWConfig.COMMON.claw_timeout.get();
-		if (time - last > timeout) return false;
+		float time = (player.level().getGameTime() - last) + Minecraft.getInstance().getPartialTick();
+		if (time > timeout) return false;
 		g.pose().pushPose();
 		g.pose().translate(0, 0, 300);
-		double defenseLost = Mth.clamp(time - last, 0, timeout) * 1d / timeout;
-		int w = Mth.ceil(13.0F * (1 - defenseLost));
+		float defenseLost = Mth.clamp(time, 0, timeout) / timeout;
+		float w = 13.0F * (1 - defenseLost);
 		int col = 0xffffffff;
-		if (time - last <= LWConfig.COMMON.claw_block_time.get()) {
+		if (time <= claw.getBlockTime(player)) {
 			col = 0xff00ffff;
 		}
 		CommonDecoUtil.fillRect(g, x + 2, y + 14, w, 1, col);

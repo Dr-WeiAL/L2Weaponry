@@ -1,6 +1,6 @@
-// 1.20.1	2023-08-28T09:08:13.219536	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-18901d266d65b61d719f2679c908e1c781cd695b assets/l2weaponry/lang/en_ud.json
-d1584068cc981b039b8b0c3252b5cc72de851605 assets/l2weaponry/lang/en_us.json
+// 1.20.1	2023-08-28T14:29:06.563764	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+def54c31c0952f74029f23428b1e3b20e070af56 assets/l2weaponry/lang/en_ud.json
+789a004313e40bc31d7d9d9807c143dcb605e292 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
 22506e91ca3739268a06e9228746033ec8fc719d assets/l2weaponry/models/item/abyss_resonance.json
 d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_shock.json
@@ -353,6 +353,7 @@ d7c7dcd06d1372a1b58df070de1b9f37cee0dc24 data/l2weaponry/advancements/recipes/co
 2e7bfd467938922637b6aa79e7c7ee9083924d13 data/l2weaponry/advancements/recipes/combat/legendary/spear_of_winter_storm.json
 7da5296a419dabb3f1dbf846765f4423db2d7948 data/l2weaponry/advancements/recipes/combat/legendary/vampire_desire.json
 15e7df87f5c72faa9309f6f5b8932abc685c693f data/l2weaponry/advancements/recipes/combat/legendary/void_escape.json
+4716c8ce6bde5d2a7ed0143284ce4fe32b24d126 data/l2weaponry/advancements/recipes/enchantments/enchantments/claw_shielding.json
 861ed92baedf25646b4d5b6fe1f50622427916b2 data/l2weaponry/advancements/recipes/enchantments/enchantments/ender_hand.json
 5b8619bc4dc2c215f2a91d143bd1186bf3d4394d data/l2weaponry/advancements/recipes/enchantments/enchantments/energized_will.json
 e763e1d90fad668b077859ba43992963d9176262 data/l2weaponry/advancements/recipes/enchantments/enchantments/ghost_slash.json
@@ -552,6 +553,7 @@ eb6a922761a19ad7439eec7d1dd74f8aa14e6206 data/l2weaponry/advancements/recipes/to
 23730c870c50f56075f77d9aca38e10e17a5576f data/l2weaponry/advancements/recipes/tools/generated/craft/totemic_gold_round_shield.json
 1c7195800ec7e6b2396c7e238a4319b444bf9d2f data/l2weaponry/advancements/recipes/tools/generated/craft/totemic_gold_spear.json
 fd558bb5fa6feaf702a8bcc75b075efbe6bac380 data/l2weaponry/advancements/recipes/tools/generated/craft/totemic_gold_throwing_axe.json
+9b9d6b385e62cdfadf4d880bb211754611b32a8c data/l2weaponry/recipes/enchantments/claw_shielding.json
 b0f76bdf05200ef2f714808b778e45afee47b0ed data/l2weaponry/recipes/enchantments/ender_hand.json
 32b2a004475c0cf45f92d0b22d9a61a7342744ce data/l2weaponry/recipes/enchantments/energized_will.json
 f2d3636c991d5e155d1b4dcbbc366d2ea643de11 data/l2weaponry/recipes/enchantments/ghost_slash.json

@@ -172,6 +172,14 @@ public class RecipeGen {
 					.define('D', LCItems.RESONANT_FEATHER)
 					.define('C', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.GHOST_SLASH.get()));
+
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.CLAW_BLOCK.get(), 1)::unlockedBy, LCItems.WARDEN_BONE_SHARD.get())
+					.pattern("LLL").pattern("DBD").pattern("CCC")
+					.define('B', Items.BOOK)
+					.define('L', LCItems.WARDEN_BONE_SHARD)
+					.define('D', LCItems.EXPLOSION_SHARD)
+					.define('C', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.CLAW_BLOCK.get()));
 		}
 
 		// jeed

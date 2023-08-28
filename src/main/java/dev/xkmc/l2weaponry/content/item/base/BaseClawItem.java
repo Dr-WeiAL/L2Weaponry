@@ -55,4 +55,8 @@ public class BaseClawItem extends DoubleWieldItem {
 		return super.getMultiplier(event);
 	}
 
+	public float getBlockTime(LivingEntity player) {
+		return 0;
+	}
+
 }

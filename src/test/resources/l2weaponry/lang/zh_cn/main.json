@@ -18,7 +18,9 @@
 	"raised_spirit": "杀戮之魂",
 	"raised_spirit.desc": "弯刀将根据连击数增加攻击速度（与杀戮之心冲突）",
 	"ghost_slash": "斩影",
-	"ghost_slash.desc": "击空也会叠加连击次数"
+	"ghost_slash.desc": "击空也会叠加连击次数",
+	"claw_shielding": "格挡",
+	"claw_shielding.desc": "提升刃爪格挡时间。主副手起效"
   },
   "l2weaponry": {
 	"mats.tf": {
