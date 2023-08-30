@@ -1,0 +1,21 @@
+{
+  "parent": "l2weaponry:item/round_shield_emissive",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [45, -45, 0],
+      "translation": [2, -3, 0]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [45, -45, 0],
+      "translation": [2, -3, 0]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 0, 7],
+      "translation": [0, -3.5, 1]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 0, 7],
+      "translation": [0, -3.5, 1]
+    }
+  }
+}

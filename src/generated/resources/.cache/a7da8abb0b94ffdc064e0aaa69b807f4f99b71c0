@@ -1,4 +1,4 @@
-// 1.20.1	2023-08-28T14:29:06.563764	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-08-30T14:12:42.510633	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 def54c31c0952f74029f23428b1e3b20e070af56 assets/l2weaponry/lang/en_ud.json
 789a004313e40bc31d7d9d9807c143dcb605e292 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
@@ -47,10 +47,10 @@ ea6ab56b6e33af4c28f62eba9179d735ec2f4075 assets/l2weaponry/models/item/eternium_
 35f8efc1fd2fcb9c259ed62fb54060871a78571d assets/l2weaponry/models/item/fiery_javelin.json
 277bd7837de4e7758abff4321d5bbc70a4a9f1c4 assets/l2weaponry/models/item/fiery_javelin_throwing.json
 d751ec9cfd2bd372f2eb87c681a3076c42863fc2 assets/l2weaponry/models/item/fiery_machete.json
-a0a7ff2df39d0b5e4636b0015481e6e263354afa assets/l2weaponry/models/item/fiery_plate_shield.json
-7a6143d860930bc5fea996a78e2d02431fca5017 assets/l2weaponry/models/item/fiery_plate_shield_blocking.json
-250d3c8347eb8576c691fd32a290205f73cf5ca6 assets/l2weaponry/models/item/fiery_round_shield.json
-a3563eaa029435b23cf3874a0b8ab0558c621d6f assets/l2weaponry/models/item/fiery_round_shield_blocking.json
+edfe3d79d8843705d827a64cbefaa37b286ff393 assets/l2weaponry/models/item/fiery_plate_shield.json
+fa985cc2595a19731b9366f85c264d61b36cfd6c assets/l2weaponry/models/item/fiery_plate_shield_blocking.json
+f13d4854fb8d2a3c5a80c55c792f3196cf18df90 assets/l2weaponry/models/item/fiery_round_shield.json
+5e3bee4a730f14d58d0734b6be1aceb513f2adb4 assets/l2weaponry/models/item/fiery_round_shield_blocking.json
 4c7823362de4a50cb98bc54fa167e000a8b3318f assets/l2weaponry/models/item/fiery_spear.json
 6020956187e42178e3cac3058544dde0f573a9f2 assets/l2weaponry/models/item/fiery_throwing_axe.json
 25c150653d7a52d8c5423fd3b7214fadf43053cb assets/l2weaponry/models/item/fiery_throwing_axe_throwing.json

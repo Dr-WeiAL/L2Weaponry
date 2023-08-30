@@ -34,37 +34,39 @@ public class LWGenItem {
 
 	public static <T extends Item> void model(LWToolTypes type, ILWToolMats mat, DataGenContext<Item, T> ctx, RegistrateItemModelProvider pvd, String id, String suf) {
 		if (type == LWToolTypes.ROUND_SHIELD) {
-			mat.model(pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/round_shield"))
+			String str = mat.emissive() ? "_emissive" : "";
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/round_shield" + str))
 							.texture("0", pvd.modLoc("item/generated/" + id + "/" + suf)))
 					.override().predicate(pvd.modLoc("blocking"), 1)
 					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_blocking"))).end();
-			mat.model(pvd.withExistingParent(pvd.name(ctx) + "_blocking", pvd.modLoc("item/round_shield_blocking"))
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_blocking", pvd.modLoc("item/round_shield_blocking" + str))
 					.texture("0", pvd.modLoc("item/generated/" + id + "/" + suf)));
 		} else if (type == LWToolTypes.PLATE_SHIELD) {
-			mat.model(pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/plate_shield"))
+			String str = mat.emissive() ? "_emissive" : "";
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/plate_shield" + str))
 							.texture("0", pvd.modLoc("item/generated/" + id + "/" + suf)))
 					.override().predicate(pvd.modLoc("blocking"), 1)
 					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_blocking"))).end();
-			mat.model(pvd.withExistingParent(pvd.name(ctx) + "_blocking", pvd.modLoc("item/plate_shield_blocking"))
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_blocking", pvd.modLoc("item/plate_shield_blocking" + str))
 					.texture("0", pvd.modLoc("item/generated/" + id + "/" + suf)));
 		} else if (type == LWToolTypes.THROWING_AXE) {
-			mat.model(pvd.handheld(ctx, pvd.modLoc("item/generated/" + id + "/" + suf)))
+			mat.model(type, pvd.handheld(ctx, pvd.modLoc("item/generated/" + id + "/" + suf)))
 					.override().predicate(pvd.modLoc("throwing"), 1)
 					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
-			mat.model(pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/handheld_throwing"))
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/handheld_throwing"))
 					.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf)));
 		} else if (type == LWToolTypes.JAVELIN) {
-			mat.model(pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/long_weapon"))
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/long_weapon"))
 							.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf)))
 					.override().predicate(pvd.modLoc("throwing"), 1)
 					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
-			mat.model(pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/long_weapon_throwing"))
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/long_weapon_throwing"))
 					.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf)));
 		} else if (type.customModel() != null) {
-			mat.model(pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + type.customModel()))
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + type.customModel()))
 					.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf)));
 		} else {
-			mat.model(pvd.handheld(ctx, pvd.modLoc("item/generated/" + id + "/" + suf)));
+			mat.model(type, pvd.handheld(ctx, pvd.modLoc("item/generated/" + id + "/" + suf)));
 		}
 	}
 

@@ -6,6 +6,7 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
+import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
 
 public interface ILWToolMats {
 
@@ -31,7 +32,16 @@ public interface ILWToolMats {
 		return name();
 	}
 
-	default ItemModelBuilder model(ItemModelBuilder b) {
-		return b;
+	default ItemModelBuilder model(LWToolTypes type, ItemModelBuilder b) {
+		if (emissive() && type != LWToolTypes.ROUND_SHIELD && type != LWToolTypes.PLATE_SHIELD) {
+			return b.customLoader(ItemLayerModelBuilder::begin).emissive(15, 15, 0).end();
+		} else {
+			return b;
+		}
 	}
+
+	default boolean emissive() {
+		return false;
+	}
+
 }
