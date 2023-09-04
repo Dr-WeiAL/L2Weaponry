@@ -6,6 +6,12 @@
   "base": {
     "tag": "l2weaponry:throwing_axe"
   },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
   "result": {
     "item": "l2weaponry:fiery_throwing_axe"
   },

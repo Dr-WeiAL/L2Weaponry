@@ -6,6 +6,12 @@
   "base": {
     "tag": "l2weaponry:machete"
   },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
   "result": {
     "item": "l2weaponry:steeleaf_machete"
   },

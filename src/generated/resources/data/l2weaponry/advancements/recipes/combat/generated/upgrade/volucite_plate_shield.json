@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "l2weaponry:generated/upgrade/volucite_plate_shield"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_volucite_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aerialhell:volucite_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_volucite_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "l2weaponry:generated/upgrade/volucite_plate_shield"
+    ]
+  },
+  "sends_telemetry_event": false
+}

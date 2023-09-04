@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "aerialhell:volucite_block"
+  },
+  "base": {
+    "tag": "l2weaponry:dagger"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aerialhell"
+    }
+  ],
+  "result": {
+    "item": "l2weaponry:volucite_dagger"
+  },
+  "template": []
+}

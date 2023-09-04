@@ -2,11 +2,14 @@ package dev.xkmc.l2weaponry.init.materials;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
+import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
+
+import java.util.function.Consumer;
 
 public interface ILWToolMats {
 
@@ -25,7 +28,7 @@ public interface ILWToolMats {
 	Item getStick();
 
 	default void saveRecipe(ShapedRecipeBuilder b, RegistrateRecipeProvider pvd, LWToolTypes type, ResourceLocation id) {
-		b.save(pvd, id);
+		b.save(getProvider(pvd), id);
 	}
 
 	default String englishName() {
@@ -42,6 +45,10 @@ public interface ILWToolMats {
 
 	default boolean emissive() {
 		return false;
+	}
+
+	default Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd) {
+		return pvd;
 	}
 
 }

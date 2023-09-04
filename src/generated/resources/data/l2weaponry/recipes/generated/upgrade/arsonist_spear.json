@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "aerialhell:arsonist_block"
+  },
+  "base": {
+    "tag": "l2weaponry:spear"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aerialhell"
+    }
+  ],
+  "result": {
+    "item": "l2weaponry:arsonist_spear"
+  },
+  "template": []
+}

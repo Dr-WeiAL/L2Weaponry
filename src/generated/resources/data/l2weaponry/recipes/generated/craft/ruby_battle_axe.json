@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aerialhell"
+    }
+  ],
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "aerialhell:ruby"
+    }
+  },
+  "pattern": [
+    "III",
+    "IH ",
+    "H  "
+  ],
+  "result": {
+    "item": "l2weaponry:ruby_battle_axe"
+  },
+  "show_notification": true
+}

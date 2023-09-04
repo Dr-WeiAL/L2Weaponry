@@ -9,6 +9,7 @@ import dev.xkmc.l2complements.init.registrate.LCItems;
 import dev.xkmc.l2library.compat.jeed.JeedDataGenerator;
 import dev.xkmc.l2library.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2library.serial.recipe.AbstractSmithingRecipe;
+import dev.xkmc.l2weaponry.compat.aerial.AHToolMats;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
@@ -16,6 +17,7 @@ import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
+import fr.factionbedrock.aerialhell.AerialHell;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -67,6 +69,11 @@ public class RecipeGen {
 
 			if (ModList.get().isLoaded(TwilightForestMod.ID)) {
 				for (ILWToolMats mat : TFToolMats.values()) {
+					tools(pvd, mat.getStick(), mat.getIngot(), mat);
+				}
+			}
+			if (ModList.get().isLoaded(AerialHell.MODID)) {
+				for (ILWToolMats mat : AHToolMats.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
@@ -258,7 +265,9 @@ public class RecipeGen {
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.JAVELIN, "  I", " H ", "I  ");
 		currentFolder = "generated/upgrade/";
 		for (LWToolTypes t : LWToolTypes.values()) {
-			smithing(pvd, t.tag, mat.getBlock(), mat.getTool(t));
+			unlock(pvd, SmithingTransformRecipeBuilder.smithing(AbstractSmithingRecipe.TEMPLATE_PLACEHOLDER,
+					Ingredient.of(t.tag), Ingredient.of(mat.getBlock()),
+					RecipeCategory.COMBAT, mat.getTool(t))::unlocks, mat.getBlock()).save(mat.getProvider(pvd), getID(mat.getTool(t)));
 		}
 	}
 

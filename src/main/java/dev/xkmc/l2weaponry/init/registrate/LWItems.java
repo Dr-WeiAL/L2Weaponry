@@ -4,6 +4,7 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.l2complements.content.enchantment.core.UnobtainableEnchantment;
 import dev.xkmc.l2complements.init.registrate.LCEnchantments;
+import dev.xkmc.l2weaponry.compat.aerial.AHCompat;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -11,6 +12,7 @@ import dev.xkmc.l2weaponry.init.materials.LWGenItem;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.materials.LegendaryToolFactory;
+import fr.factionbedrock.aerialhell.AerialHell;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
@@ -93,6 +95,10 @@ public class LWItems {
 
 		if (ModList.get().isLoaded(TwilightForestMod.ID)){
 			TFCompat.register();
+		}
+
+		if (ModList.get().isLoaded(AerialHell.MODID)){
+			AHCompat.register();
 		}
 
 	}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "aerialhell:lunatic_crystal_block"
+  },
+  "base": {
+    "tag": "l2weaponry:hammer"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aerialhell"
+    }
+  ],
+  "result": {
+    "item": "l2weaponry:lunar_hammer"
+  },
+  "template": []
+}

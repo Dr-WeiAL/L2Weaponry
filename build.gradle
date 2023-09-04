@@ -155,12 +155,7 @@ repositories {
     flatDir {
         dirs 'libs'
     }
-    maven { url 'https://jitpack.io' }
-    maven {
-        // Location of the maven that hosts JEI files (and TiC)
-        name 'Progwml6 maven'
-        url 'https://dvs1.progwml6.com/files/maven'
-    }
+
     maven {
         // Location of the maven for vazkii's mods
         name 'blamejared'
@@ -181,6 +176,7 @@ repositories {
     maven {
         url = "https://maven.theillusivec4.top/"
     }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -206,4 +202,5 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:bookshelf-228525:4581675")
     runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4587429")
     implementation fg.deobf("curse.maven:the-twilight-forest-227639:4635921")
+    implementation fg.deobf("curse.maven:aerial-hell-674630:4717971")
 }
