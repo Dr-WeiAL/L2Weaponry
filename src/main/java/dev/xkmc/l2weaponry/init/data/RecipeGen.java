@@ -233,6 +233,7 @@ public class RecipeGen {
 	}
 
 	private static void buildTool(RegistrateRecipeProvider pvd, Item handle, Item ingot, ILWToolMats mat, LWToolTypes type, String... strs) {
+		if (!mat.hasTool(type)) return;
 		var b = unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.TOOLS, mat.getTool(type), 1)::unlockedBy, mat.getIngot());
 		boolean leather = false;
 		for (String str : strs) {
@@ -265,6 +266,7 @@ public class RecipeGen {
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.JAVELIN, "  I", " H ", "I  ");
 		currentFolder = "generated/upgrade/";
 		for (LWToolTypes t : LWToolTypes.values()) {
+			if (!mat.hasTool(t)) continue;
 			unlock(pvd, SmithingTransformRecipeBuilder.smithing(AbstractSmithingRecipe.TEMPLATE_PLACEHOLDER,
 					Ingredient.of(t.tag), Ingredient.of(mat.getBlock()),
 					RecipeCategory.COMBAT, mat.getTool(t))::unlocks, mat.getBlock()).save(mat.getProvider(pvd), getID(mat.getTool(t)));

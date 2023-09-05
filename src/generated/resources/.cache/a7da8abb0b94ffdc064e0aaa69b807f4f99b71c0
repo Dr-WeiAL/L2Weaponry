@@ -1,6 +1,6 @@
-// 1.20.1	2023-09-04T23:35:51.178447	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-4d1a7809ec8f94fbcec1cf88441ff69de0069e8c assets/l2weaponry/lang/en_ud.json
-a8782fed512004bbaa717d36bd3a34f7e4f2dca0 assets/l2weaponry/lang/en_us.json
+// 1.20.1	2023-09-05T13:33:13.574103	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+fc24c3cb25d46aae47d15e42c8fa87982ea862e7 assets/l2weaponry/lang/en_ud.json
+49f23ff6332f8f54996dd715083aaaa6680f0d08 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
 22506e91ca3739268a06e9228746033ec8fc719d assets/l2weaponry/models/item/abyss_resonance.json
 d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_shock.json
@@ -133,10 +133,6 @@ d65868a8f01ec30b89697b421eb4a61df2526439 assets/l2weaponry/models/item/lunar_ham
 5923e9d044a9b382e790aed0e73fcea6b129656d assets/l2weaponry/models/item/lunar_javelin.json
 94821c48efc0e167cea86a5154cfb65941333674 assets/l2weaponry/models/item/lunar_javelin_throwing.json
 6c7238accf4480f50e0b3c0a24c586069e87c8a6 assets/l2weaponry/models/item/lunar_machete.json
-4856d837c1f39d6552733944266a706d4d5f4d78 assets/l2weaponry/models/item/lunar_plate_shield.json
-b515208124373cf4a41c3eea7d8e329608829af1 assets/l2weaponry/models/item/lunar_plate_shield_blocking.json
-3b5e84a07bb77d6dca49a68246cb6a74fd1014f9 assets/l2weaponry/models/item/lunar_round_shield.json
-5508a58c14a5043bc24d1446261538f51cd49a76 assets/l2weaponry/models/item/lunar_round_shield_blocking.json
 7f983e4614685c1c04934eae6e2a0d28fbec0712 assets/l2weaponry/models/item/lunar_spear.json
 a796c0743307930d4b0deab6534222a43a0d575b assets/l2weaponry/models/item/lunar_throwing_axe.json
 c849646f17aa402e784e8e9d7ba849d2ebfa558b assets/l2weaponry/models/item/lunar_throwing_axe_throwing.json
@@ -178,10 +174,6 @@ f349cb7e438383567fd396219b7e6592f3104544 assets/l2weaponry/models/item/ruby_claw
 c0a55accfdb1fc73923f31c4290f5cdc08e91c8e assets/l2weaponry/models/item/ruby_javelin.json
 cd660f31e22e0947994bdabc9f799d63c48e939f assets/l2weaponry/models/item/ruby_javelin_throwing.json
 d9ea640dd4b345e6eb55ccfc9f6861ce6e866de7 assets/l2weaponry/models/item/ruby_machete.json
-baff884d441d3234150b6b408f6c272aa24f3faf assets/l2weaponry/models/item/ruby_plate_shield.json
-0087ae7bfd5a8b4a9c6b0e692536653eb709e63f assets/l2weaponry/models/item/ruby_plate_shield_blocking.json
-ff7f6260d298e8ee866d388bfb3aba486c44c8cd assets/l2weaponry/models/item/ruby_round_shield.json
-622d36e7e36af2a68b9a795441fb46ee2970bd5c assets/l2weaponry/models/item/ruby_round_shield_blocking.json
 6a68fc75d8ab37423ae078aea05a15fdcd51da94 assets/l2weaponry/models/item/ruby_spear.json
 c12ccd0494ccd20f28dcb23807cea8a830f44edc assets/l2weaponry/models/item/ruby_throwing_axe.json
 8d69c6a2e7e81468e112a516df7fdcb17e591ba1 assets/l2weaponry/models/item/ruby_throwing_axe_throwing.json
@@ -347,8 +339,6 @@ f7ea6dae74b80a16231f3465e3c8703261b35b24 data/l2weaponry/advancements/recipes/co
 ec2a92e1b931e3651fdc552a2b0fe594ed8bd328 data/l2weaponry/advancements/recipes/combat/generated/upgrade/lunar_hammer.json
 36c4e066ce31e90b1aeecd42cc0edd1699747ac4 data/l2weaponry/advancements/recipes/combat/generated/upgrade/lunar_javelin.json
 103e6deec70654755465b07c775d95e74626d04c data/l2weaponry/advancements/recipes/combat/generated/upgrade/lunar_machete.json
-1180aa5bebbeabf7ba66567d11c1b75aaa554254 data/l2weaponry/advancements/recipes/combat/generated/upgrade/lunar_plate_shield.json
-5a70b9519fce59d0bda85bffb822f4119833d355 data/l2weaponry/advancements/recipes/combat/generated/upgrade/lunar_round_shield.json
 b00a1df9316ded65b7469f07cfd57d831d651b62 data/l2weaponry/advancements/recipes/combat/generated/upgrade/lunar_spear.json
 c4f0f7e462d60873a54c53744ed49d79ce4a3235 data/l2weaponry/advancements/recipes/combat/generated/upgrade/lunar_throwing_axe.json
 ecc656d90ebfb08f3b9b97f8844f5a7a86aacc09 data/l2weaponry/advancements/recipes/combat/generated/upgrade/netherite_battle_axe.json
@@ -377,8 +367,6 @@ e1a661d14b1fd96b4b15f0b4f7f7cbc6e64b35e0 data/l2weaponry/advancements/recipes/co
 6ee994162ef77f69bcf46b27977f2df5665646c9 data/l2weaponry/advancements/recipes/combat/generated/upgrade/ruby_hammer.json
 2ad6eb3e96aa5f9a620c72ae41d1b274e496a2cf data/l2weaponry/advancements/recipes/combat/generated/upgrade/ruby_javelin.json
 8824c2091cf228b9d308e9c5ace8c84c2185313e data/l2weaponry/advancements/recipes/combat/generated/upgrade/ruby_machete.json
-f0b18b38f25df2b06be6a16492448f9d6309e40e data/l2weaponry/advancements/recipes/combat/generated/upgrade/ruby_plate_shield.json
-c22034bda51974d3a8fa306018cdbeb6689f6ba4 data/l2weaponry/advancements/recipes/combat/generated/upgrade/ruby_round_shield.json
 70723124f4fa4ce23cefdc58df5f2954106d9e35 data/l2weaponry/advancements/recipes/combat/generated/upgrade/ruby_spear.json
 ed83bf32c76e7746e40ed8f464465f80b07b9c9a data/l2weaponry/advancements/recipes/combat/generated/upgrade/ruby_throwing_axe.json
 783658d523eb28d8a345330e5fb19494c86eb27c data/l2weaponry/advancements/recipes/combat/generated/upgrade/sculkium_battle_axe.json
@@ -615,8 +603,6 @@ bde0aa4a37cb48a2895e7acf309a92e6102459f5 data/l2weaponry/advancements/recipes/to
 3f4f2589455f58cd03cc73e753223a2fbb4d62e7 data/l2weaponry/advancements/recipes/tools/generated/craft/lunar_hammer.json
 ec26066684f9df221041f56d32d66c226b4c0818 data/l2weaponry/advancements/recipes/tools/generated/craft/lunar_javelin.json
 2ed73d9160b5cd0eef452850bab1695bdd97a3c2 data/l2weaponry/advancements/recipes/tools/generated/craft/lunar_machete.json
-c83558c7b28df7b05d70ccd3cc696974f41cc76f data/l2weaponry/advancements/recipes/tools/generated/craft/lunar_plate_shield.json
-c20144e0cd7053d72f00c07255c8ece8ea1b9cdb data/l2weaponry/advancements/recipes/tools/generated/craft/lunar_round_shield.json
 07e0788b9c559cec4dfbca1a8ca014152afee81b data/l2weaponry/advancements/recipes/tools/generated/craft/lunar_spear.json
 c7f3cbc6f30360f87eb09c171000c7a1f91e1901 data/l2weaponry/advancements/recipes/tools/generated/craft/lunar_throwing_axe.json
 a00033c56a51d479a26ead234f368d6445ae4f62 data/l2weaponry/advancements/recipes/tools/generated/craft/poseidite_battle_axe.json
@@ -635,8 +621,6 @@ d656e1c7a6bcd352a36b9359c58a23353c0c332b data/l2weaponry/advancements/recipes/to
 41cadde747b7b10f7d419154562d6dc832a18c0d data/l2weaponry/advancements/recipes/tools/generated/craft/ruby_hammer.json
 9f3162a8e34421e59ec00c9d871729a2316a58e3 data/l2weaponry/advancements/recipes/tools/generated/craft/ruby_javelin.json
 c998cdae042489faca32e2e19a10dc0f065d60c8 data/l2weaponry/advancements/recipes/tools/generated/craft/ruby_machete.json
-80c9cbff903c6c8b629857961da1af3ca96252ee data/l2weaponry/advancements/recipes/tools/generated/craft/ruby_plate_shield.json
-2b4b54906ed32bd83ddecb10d7cc21050c2e535f data/l2weaponry/advancements/recipes/tools/generated/craft/ruby_round_shield.json
 8f91b42fa0b360682f7f8da68c79b3053836ccc2 data/l2weaponry/advancements/recipes/tools/generated/craft/ruby_spear.json
 e8e88de0afb65f598e0cf17a2488ac3c070841cd data/l2weaponry/advancements/recipes/tools/generated/craft/ruby_throwing_axe.json
 f817f3a0d7241b747886f7bc032e598e6fd3115f data/l2weaponry/advancements/recipes/tools/generated/craft/sculkium_battle_axe.json
@@ -784,8 +768,6 @@ ab8fcf98e3a77c8051f844fc234f7db0c2e0aaec data/l2weaponry/recipes/generated/craft
 9bce3250f6426f207e49da9dd82855f3559d5bd0 data/l2weaponry/recipes/generated/craft/lunar_hammer.json
 7d2af9317142de24bb27c2f39beb24352ef78205 data/l2weaponry/recipes/generated/craft/lunar_javelin.json
 ab72cb0fa5d90af95ffb5e2b9107bfd33296600c data/l2weaponry/recipes/generated/craft/lunar_machete.json
-5e439f63eb3006dad4ccfd2aeb944772f1d4143c data/l2weaponry/recipes/generated/craft/lunar_plate_shield.json
-74e49ae860b77ba90187c412bdbbac4bb0cb1686 data/l2weaponry/recipes/generated/craft/lunar_round_shield.json
 8931e8026b4628f07f3c58c856f101e9f3c723f2 data/l2weaponry/recipes/generated/craft/lunar_spear.json
 31752261e2be8dca11a12b40d6d71d51fb34e00d data/l2weaponry/recipes/generated/craft/lunar_throwing_axe.json
 aa59cee5911d45e8ddb6c31c3d92b514acca9f1f data/l2weaponry/recipes/generated/craft/poseidite_battle_axe.json
@@ -804,8 +786,6 @@ c44d98e5883f6f0dc6cf7a6b81f7de7650df9eb6 data/l2weaponry/recipes/generated/craft
 edc030ffa11df41206290ea64b70353361e8c0aa data/l2weaponry/recipes/generated/craft/ruby_hammer.json
 37a66f928914019068f23c7c5a64705c25619e08 data/l2weaponry/recipes/generated/craft/ruby_javelin.json
 69ffaccac7d2065d925b6cbcb101b5b9eb7cac72 data/l2weaponry/recipes/generated/craft/ruby_machete.json
-d98a34fc59639cdaba9ffce17e343eb9548b1148 data/l2weaponry/recipes/generated/craft/ruby_plate_shield.json
-ed50a44e8fa82e930e8d378fc0788f75a2c0cd55 data/l2weaponry/recipes/generated/craft/ruby_round_shield.json
 459cf1508a1b8db0785469b94e1179426d0f25a4 data/l2weaponry/recipes/generated/craft/ruby_spear.json
 62dc50ee235106189c1590a4f37aa5ef9a64cfa4 data/l2weaponry/recipes/generated/craft/ruby_throwing_axe.json
 b99df3c207d1e5ba85831b472389db916f574c24 data/l2weaponry/recipes/generated/craft/sculkium_battle_axe.json
@@ -1014,8 +994,6 @@ eccaff846c287b72a1eafd7f2711cb0f83cf221c data/l2weaponry/recipes/generated/upgra
 5f609df01f043a2abbb698fc0376026f26ec6e22 data/l2weaponry/recipes/generated/upgrade/lunar_hammer.json
 fb7903cc23a0c4feb200f27b22e342e46a4e8398 data/l2weaponry/recipes/generated/upgrade/lunar_javelin.json
 c3ff5ebcc08b328a4661a276b45e18e39496a481 data/l2weaponry/recipes/generated/upgrade/lunar_machete.json
-27aeb8544605aeb963626eac159b14a33a83dc2f data/l2weaponry/recipes/generated/upgrade/lunar_plate_shield.json
-446792f87ed15c22f463e7c625edd72fae057ef0 data/l2weaponry/recipes/generated/upgrade/lunar_round_shield.json
 a62908678a87ff752fbc2f9625b532375e9de5fb data/l2weaponry/recipes/generated/upgrade/lunar_spear.json
 82024334ea2951068030450227cd946c11ed6065 data/l2weaponry/recipes/generated/upgrade/lunar_throwing_axe.json
 d1af7ce81b0782a86ae585646268e5869a9e906f data/l2weaponry/recipes/generated/upgrade/netherite_battle_axe.json
@@ -1044,8 +1022,6 @@ bc2dd64cb6534679d57a444f439d5afdc2218e99 data/l2weaponry/recipes/generated/upgra
 ee2c313e83061ddcbe7329c2179b105263bec387 data/l2weaponry/recipes/generated/upgrade/ruby_hammer.json
 97707731e91f03d8b6759449032b24537709d4c7 data/l2weaponry/recipes/generated/upgrade/ruby_javelin.json
 785421fe642afa5c120cf3114a60ab5eb61fbf3d data/l2weaponry/recipes/generated/upgrade/ruby_machete.json
-a5de2c977cf6cbf0f5340febe17aca7cc85811cb data/l2weaponry/recipes/generated/upgrade/ruby_plate_shield.json
-63c4ebe4c3bffb2d5b162505a2fc043ba964cd0f data/l2weaponry/recipes/generated/upgrade/ruby_round_shield.json
 a06e1aeea24b8a28d0d30e7207ad9fd0b47a6f35 data/l2weaponry/recipes/generated/upgrade/ruby_spear.json
 3366fa2365cc6078cdd00a07485da25fbc2cd310 data/l2weaponry/recipes/generated/upgrade/ruby_throwing_axe.json
 f4274d284c268ea98ec4e69c57936a8fd7859b48 data/l2weaponry/recipes/generated/upgrade/sculkium_battle_axe.json
@@ -1131,8 +1107,8 @@ e0df9ce5218695ce0a54e003ff05263c54b5bd1c data/l2weaponry/recipes/misc/reinforced
 22146c61ad890e5a4857070099545b81b0acd5a7 data/l2weaponry/tags/items/hammer.json
 34df1823548843d27693899ba94c3884351d5f71 data/l2weaponry/tags/items/javelin.json
 74c79fee1b38e85f7b53b919787d9b5dbb8da063 data/l2weaponry/tags/items/machete.json
-70f6886bd9b18e22ae9773abba6a6d0f8dffa8bf data/l2weaponry/tags/items/plate_shield.json
-a7e15f3cf31b2ec88e80eb634322a90e58d05aa3 data/l2weaponry/tags/items/round_shield.json
+194234b95e59ee550ed040950cfdbb7a9156b4d1 data/l2weaponry/tags/items/plate_shield.json
+f9ed3ca40c22cf9148e5cd52616d998be5d2b3f7 data/l2weaponry/tags/items/round_shield.json
 95c9dd8b26667c8f0ae287233d031c20c8efd485 data/l2weaponry/tags/items/spear.json
 4d46462b8b858746103da4683b292758dce5d3ba data/l2weaponry/tags/items/throwing_axe.json
 4ab37eb3dc580ff1ff88e814ca291a0192381718 data/minecraft/tags/entity_types/impact_projectiles.json

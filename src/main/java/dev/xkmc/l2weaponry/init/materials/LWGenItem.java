@@ -18,9 +18,10 @@ public class LWGenItem {
 		for (int j = 0; j < LWToolTypes.values().length; j++) {
 			for (int i = 0; i < values.length; i++) {
 				ILWToolMats mat = values[i];
+				LWToolTypes type = LWToolTypes.values()[j];
+				if (!mat.hasTool(type)) continue;
 				String mat_name = mat.name().toLowerCase(Locale.ROOT);
 				String english = mat.englishName();
-				LWToolTypes type = LWToolTypes.values()[j];
 				String tool_name = type.name().toLowerCase(Locale.ROOT);
 				ans[i][j] = L2Weaponry.REGISTRATE.item(mat_name + "_" + tool_name,
 								p -> mat.type().getToolConfig().sup().get(mat.type(), type, mat.fireRes() ? p.fireResistant() : p))

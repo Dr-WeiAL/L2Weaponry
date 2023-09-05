@@ -51,4 +51,8 @@ public interface ILWToolMats {
 		return pvd;
 	}
 
+	default boolean hasTool(LWToolTypes type) {
+		return true;
+	}
+
 }
