@@ -25,8 +25,9 @@ public class LWGenItem {
 				String tool_name = type.name().toLowerCase(Locale.ROOT);
 				ans[i][j] = L2Weaponry.REGISTRATE.item(mat_name + "_" + tool_name,
 								p -> mat.type().getToolConfig().sup().get(mat.type(), type, mat.fireRes() ? p.fireResistant() : p))
+						.optionalTag(mat.isOptional(), type.tag)
 						.model((ctx, pvd) -> model(type, mat, ctx, pvd, mat_name, tool_name))
-						.tag(type.tag).lang(RegistrateLangProvider.toEnglishName(english + "_" + tool_name)).register();
+						.lang(mat.prefix() + RegistrateLangProvider.toEnglishName(english + "_" + tool_name)).register();
 			}
 		}
 		return ans;

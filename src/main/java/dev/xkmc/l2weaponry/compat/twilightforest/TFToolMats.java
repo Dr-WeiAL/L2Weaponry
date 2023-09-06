@@ -100,5 +100,10 @@ public enum TFToolMats implements ILWToolMats {
 		return ConditionalRecipeWrapper.mod(pvd, TwilightForestMod.ID);
 	}
 
+	@Override
+	public boolean isOptional() {
+		return true;
+	}
+
 
 }

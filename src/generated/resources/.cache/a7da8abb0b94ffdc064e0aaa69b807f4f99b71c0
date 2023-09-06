@@ -1,6 +1,6 @@
-// 1.20.1	2023-09-05T13:33:13.574103	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-fc24c3cb25d46aae47d15e42c8fa87982ea862e7 assets/l2weaponry/lang/en_ud.json
-49f23ff6332f8f54996dd715083aaaa6680f0d08 assets/l2weaponry/lang/en_us.json
+// 1.20.1	2023-09-06T20:50:19.093638	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+bfda1ff45cbedc6abeb30d1cd18c30740abb96e7 assets/l2weaponry/lang/en_ud.json
+6ce590c7be3080edcb4e70f155f42a0ab8a40ce5 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
 22506e91ca3739268a06e9228746033ec8fc719d assets/l2weaponry/models/item/abyss_resonance.json
 d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_shock.json
@@ -1101,14 +1101,14 @@ f47050e31a48664a9e7a3cb07e3b2869327bb868 data/l2weaponry/recipes/legendary/shado
 36e797f87575b4d097244786442182195f174c1b data/l2weaponry/recipes/legendary/vampire_desire.json
 add85e1aaa4009ae9fb5955c6c035e0d40afd0b0 data/l2weaponry/recipes/legendary/void_escape.json
 e0df9ce5218695ce0a54e003ff05263c54b5bd1c data/l2weaponry/recipes/misc/reinforced_handle.json
-3f9e91f33dd97f2f9be78f14e4fc3244a78d93ca data/l2weaponry/tags/items/battle_axe.json
-5f3dd3e3f008f53656b578ce579ffe673a2ebfbe data/l2weaponry/tags/items/claw.json
-54af1039bf142bfbe8a80d56002872981b6ce027 data/l2weaponry/tags/items/dagger.json
-22146c61ad890e5a4857070099545b81b0acd5a7 data/l2weaponry/tags/items/hammer.json
-34df1823548843d27693899ba94c3884351d5f71 data/l2weaponry/tags/items/javelin.json
-74c79fee1b38e85f7b53b919787d9b5dbb8da063 data/l2weaponry/tags/items/machete.json
-194234b95e59ee550ed040950cfdbb7a9156b4d1 data/l2weaponry/tags/items/plate_shield.json
-f9ed3ca40c22cf9148e5cd52616d998be5d2b3f7 data/l2weaponry/tags/items/round_shield.json
-95c9dd8b26667c8f0ae287233d031c20c8efd485 data/l2weaponry/tags/items/spear.json
-4d46462b8b858746103da4683b292758dce5d3ba data/l2weaponry/tags/items/throwing_axe.json
+9a680089837d132184969e4b2619ad1203e68007 data/l2weaponry/tags/items/battle_axe.json
+a2f742b0a521fa4f74b7f865cd9b9e473cb1430c data/l2weaponry/tags/items/claw.json
+23945590db82bfee33201077c51007b9fd4aa0c5 data/l2weaponry/tags/items/dagger.json
+72dd72833bb9c6a8120a62b729e6375c27c38b2b data/l2weaponry/tags/items/hammer.json
+5748f9a7f6c7ec11010cabbf181100eae7ac8b5a data/l2weaponry/tags/items/javelin.json
+37c28da787b4fe5f999c9cb3d75ff6d84f3dabd4 data/l2weaponry/tags/items/machete.json
+26bf5b964cb1b5126f587a3727d926988cb9ade0 data/l2weaponry/tags/items/plate_shield.json
+01b1e441bb89512ec6cf3e8304f1c0972034e9a6 data/l2weaponry/tags/items/round_shield.json
+ac461fe06816cc90dfa36991740762a3fdda616c data/l2weaponry/tags/items/spear.json
+77ebfc76173a1ac5f76d8b0773f77e357af87b46 data/l2weaponry/tags/items/throwing_axe.json
 4ab37eb3dc580ff1ff88e814ca291a0192381718 data/minecraft/tags/entity_types/impact_projectiles.json

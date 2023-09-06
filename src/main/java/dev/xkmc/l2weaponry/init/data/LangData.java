@@ -55,6 +55,11 @@ public enum LangData {
 	MATS_IRONWOOD("mats.tf.ironwood", "Regenerate durability in Twilight Forest.", 0),
 	MATS_EFFECT("mats.tf.shield_effect", "On blocking damage, grant %s to user", 1),
 
+	MATS_AH_ARSON("mats.ah.arsonist", "Ignite target for %s seconds.", 1),
+	MATS_AH_ARSON_SHIELD("mats.ah.arsonist_shield", "On blocking, deal %s extra damage to mobs not immune to fire.", 1),
+	MATS_AH_VOLUCITE("mats.ah.volucite", "Holder gains slow falling when about to take fall damage.", 0),
+	MATS_AH_VOLUCITE_SHIELD("mats.ah.volucite_shield", "On blocking, deal %s extra damage and apply levitation to target.", 1),
+
 	STAT_KILL("stat.kill_count", "Enemies killed: %s", 1),
 	STAT_BONUS_CLAW("stat.claw_bonus", "Damage stack limit: %s", 1);
 

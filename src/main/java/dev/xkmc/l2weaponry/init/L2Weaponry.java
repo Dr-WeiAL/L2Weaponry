@@ -12,6 +12,7 @@ import dev.xkmc.l2weaponry.init.data.*;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
+import dev.xkmc.l2weaponry.init.registrate.LWRegistrate;
 import dev.xkmc.l2weaponry.network.NetworkManager;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -32,7 +33,7 @@ public class L2Weaponry {
 
 	public static final String MODID = "l2weaponry";
 	public static final Logger LOGGER = LogManager.getLogger();
-	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
+	public static final LWRegistrate REGISTRATE = new LWRegistrate(MODID);
 
 	public L2Weaponry() {
 		FMLJavaModLoadingContext ctx = FMLJavaModLoadingContext.get();

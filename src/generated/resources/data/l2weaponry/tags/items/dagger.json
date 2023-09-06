@@ -11,13 +11,37 @@
     "l2weaponry:shulkerate_dagger",
     "l2weaponry:sculkium_dagger",
     "l2weaponry:eternium_dagger",
-    "l2weaponry:ironwood_dagger",
-    "l2weaponry:steeleaf_dagger",
-    "l2weaponry:knightmetal_dagger",
-    "l2weaponry:fiery_dagger",
-    "l2weaponry:arsonist_dagger",
-    "l2weaponry:lunar_dagger",
-    "l2weaponry:ruby_dagger",
-    "l2weaponry:volucite_dagger"
+    {
+      "id": "l2weaponry:ironwood_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:steeleaf_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:knightmetal_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fiery_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:arsonist_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lunar_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ruby_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:volucite_dagger",
+      "required": false
+    }
   ]
 }

@@ -55,4 +55,12 @@ public interface ILWToolMats {
 		return true;
 	}
 
+	default String prefix() {
+		return "";
+	}
+
+	default boolean isOptional() {
+		return false;
+	}
+
 }

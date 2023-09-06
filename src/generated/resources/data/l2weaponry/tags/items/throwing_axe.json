@@ -10,13 +10,37 @@
     "l2weaponry:shulkerate_throwing_axe",
     "l2weaponry:sculkium_throwing_axe",
     "l2weaponry:eternium_throwing_axe",
-    "l2weaponry:ironwood_throwing_axe",
-    "l2weaponry:steeleaf_throwing_axe",
-    "l2weaponry:knightmetal_throwing_axe",
-    "l2weaponry:fiery_throwing_axe",
-    "l2weaponry:arsonist_throwing_axe",
-    "l2weaponry:lunar_throwing_axe",
-    "l2weaponry:ruby_throwing_axe",
-    "l2weaponry:volucite_throwing_axe"
+    {
+      "id": "l2weaponry:ironwood_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:steeleaf_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:knightmetal_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fiery_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:arsonist_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lunar_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ruby_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:volucite_throwing_axe",
+      "required": false
+    }
   ]
 }

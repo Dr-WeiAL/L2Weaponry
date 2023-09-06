@@ -12,13 +12,37 @@
     "l2weaponry:shulkerate_hammer",
     "l2weaponry:sculkium_hammer",
     "l2weaponry:eternium_hammer",
-    "l2weaponry:ironwood_hammer",
-    "l2weaponry:steeleaf_hammer",
-    "l2weaponry:knightmetal_hammer",
-    "l2weaponry:fiery_hammer",
-    "l2weaponry:arsonist_hammer",
-    "l2weaponry:lunar_hammer",
-    "l2weaponry:ruby_hammer",
-    "l2weaponry:volucite_hammer"
+    {
+      "id": "l2weaponry:ironwood_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:steeleaf_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:knightmetal_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fiery_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:arsonist_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lunar_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ruby_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:volucite_hammer",
+      "required": false
+    }
   ]
 }

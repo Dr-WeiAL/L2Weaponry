@@ -19,10 +19,10 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public enum AHToolMats implements ILWToolMats {
-	ARSONIST(new TFMats(ToolMaterials.arsonist, new ExtraToolConfig()), false, AerialHellBlocksAndItems.ARSONIST_INGOT, AerialHellBlocksAndItems.ARSONIST_BLOCK),
+	ARSONIST(new TFMats(ToolMaterials.arsonist, new ArsonistTool()), true, AerialHellBlocksAndItems.ARSONIST_INGOT, AerialHellBlocksAndItems.ARSONIST_BLOCK),
 	LUNAR(new TFMats(ToolMaterials.lunatic, new ExtraToolConfig()), false, AerialHellBlocksAndItems.LUNATIC_CRYSTAL, AerialHellBlocksAndItems.LUNATIC_CRYSTAL_BLOCK),
 	RUBY(new TFMats(ToolMaterials.ruby, new ExtraToolConfig()), false, AerialHellBlocksAndItems.RUBY, AerialHellBlocksAndItems.RUBY_BLOCK),
-	VOLUCITE(new TFMats(ToolMaterials.volucite, new ExtraToolConfig()), true, AerialHellBlocksAndItems.VOLUCITE_VIBRANT, AerialHellBlocksAndItems.VOLUCITE_BLOCK);
+	VOLUCITE(new TFMats(ToolMaterials.volucite, new VoluciteTool()), false, AerialHellBlocksAndItems.VOLUCITE_VIBRANT, AerialHellBlocksAndItems.VOLUCITE_BLOCK);
 
 	private final IMatToolType type;
 	private final boolean fireRes;
@@ -76,6 +76,23 @@ public enum AHToolMats implements ILWToolMats {
 		if (type == LWToolTypes.PLATE_SHIELD || type == LWToolTypes.ROUND_SHIELD) {
 			return this != RUBY && this != LUNAR;
 		}
+		return true;
+	}
+
+	@Override
+	public String prefix() {
+		if (this == ARSONIST) {
+			return "§c";
+		} else if (this == LUNAR) {
+			return "§6";
+		} else if (this == VOLUCITE) {
+			return "§2";
+		}
+		return "";
+	}
+
+	@Override
+	public boolean isOptional() {
 		return true;
 	}
 

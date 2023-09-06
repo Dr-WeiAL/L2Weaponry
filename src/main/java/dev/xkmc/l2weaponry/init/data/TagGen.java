@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.init.data;
 
+import com.mojang.datafixers.util.Pair;
 import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
@@ -10,6 +11,9 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TagGen {
 
@@ -26,14 +30,22 @@ public class TagGen {
 	public static final TagKey<Item> THROWIG_AXE = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "throwing_axe"));
 	public static final TagKey<Item> JAVELIN = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "javelin"));
 
+	private static final List<Pair<TagKey<Item>, ResourceLocation>> LIST = new ArrayList<>();
+
 	public static void onBlockTagGen(RegistrateTagsProvider<Block> pvd) {
 	}
 
 	public static void onItemTagGen(RegistrateTagsProvider<Item> pvd) {
+		for (var e : LIST) {
+			pvd.addTag(e.getFirst()).addOptional(e.getSecond());
+		}
 	}
 
 	public static void onEntityTagGen(RegistrateTagsProvider.IntrinsicImpl<EntityType<?>> pvd) {
 		pvd.addTag(EntityTypeTags.IMPACT_PROJECTILES).add(LWEntities.ET_AXE.get(), LWEntities.TE_JAVELIN.get());
 	}
 
+	public static void addItem(TagKey<Item> tag, ResourceLocation id) {
+		LIST.add(Pair.of(tag, id));
+	}
 }

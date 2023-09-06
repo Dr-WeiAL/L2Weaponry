@@ -11,13 +11,37 @@
     "l2weaponry:shulkerate_claw",
     "l2weaponry:sculkium_claw",
     "l2weaponry:eternium_claw",
-    "l2weaponry:ironwood_claw",
-    "l2weaponry:steeleaf_claw",
-    "l2weaponry:knightmetal_claw",
-    "l2weaponry:fiery_claw",
-    "l2weaponry:arsonist_claw",
-    "l2weaponry:lunar_claw",
-    "l2weaponry:ruby_claw",
-    "l2weaponry:volucite_claw"
+    {
+      "id": "l2weaponry:ironwood_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:steeleaf_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:knightmetal_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fiery_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:arsonist_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lunar_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ruby_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:volucite_claw",
+      "required": false
+    }
   ]
 }

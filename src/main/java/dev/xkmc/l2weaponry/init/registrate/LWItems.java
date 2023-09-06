@@ -2,8 +2,6 @@ package dev.xkmc.l2weaponry.init.registrate;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
-import dev.xkmc.l2complements.content.enchantment.core.UnobtainableEnchantment;
-import dev.xkmc.l2complements.init.registrate.LCEnchantments;
 import dev.xkmc.l2weaponry.compat.aerial.AHCompat;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
@@ -14,8 +12,10 @@ import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.materials.LegendaryToolFactory;
 import fr.factionbedrock.aerialhell.AerialHell;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.fml.ModList;
@@ -33,10 +33,9 @@ public class LWItems {
 	public static final List<Item> THROW_DECO = new ArrayList<>();
 	public static final List<Item> CLAW_DECO = new ArrayList<>();
 
-	static {
-		L2Weaponry.REGISTRATE.buildL2CreativeTab("weaponry", "L2 Weaponry", b -> b
-				.icon(LWItems.GEN_ITEM[LWToolMats.SCULKIUM.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()]::asStack));
-	}
+	public static final RegistryEntry<CreativeModeTab> TAB =
+			L2Weaponry.REGISTRATE.buildL2CreativeTab("weaponry", "L2 Weaponry", b -> b
+					.icon(LWItems.GEN_ITEM[LWToolMats.SCULKIUM.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()]::asStack));
 
 	public static final RegistryEntry<Attribute> SHIELD_DEFENSE = L2Weaponry.REGISTRATE.simple("shield_defense",
 			ForgeRegistries.ATTRIBUTES.getRegistryKey(), () -> new RangedAttribute(
@@ -93,11 +92,11 @@ public class LWItems {
 
 		GEN_ITEM = LWGenItem.generate(LWToolMats.values());
 
-		if (ModList.get().isLoaded(TwilightForestMod.ID)){
+		if (ModList.get().isLoaded(TwilightForestMod.ID)) {
 			TFCompat.register();
 		}
 
-		if (ModList.get().isLoaded(AerialHell.MODID)){
+		if (ModList.get().isLoaded(AerialHell.MODID)) {
 			AHCompat.register();
 		}
 
