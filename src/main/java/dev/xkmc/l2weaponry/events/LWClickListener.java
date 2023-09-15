@@ -37,7 +37,7 @@ public class LWClickListener implements ItemUseEventHandler.ItemClickHandler {
 
 	private static void doubleWeldSwing(Player player, DoubleWieldItem item, ItemStack stack) {
 		if (stack.getEnchantmentLevel(LWEnchantments.GHOST_SLASH.get()) > 0 && player.getAttackStrengthScale(0) >= 0.9) {
-			item.accumulateDamage(stack, player.level().getGameTime());
+			item.accumulateDamage(stack, player);
 			if (!player.getAbilities().instabuild) {
 				stack.hurtAndBreak(1, player, e -> e.broadcastBreakEvent(InteractionHand.MAIN_HAND));
 			}

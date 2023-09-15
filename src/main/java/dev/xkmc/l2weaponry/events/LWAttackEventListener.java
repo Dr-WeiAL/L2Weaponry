@@ -67,7 +67,7 @@ public class LWAttackEventListener implements AttackListener {
 				}
 			}
 			if (!stack.isEmpty() && stack.getItem() instanceof DoubleWieldItem claw) {
-				claw.accumulateDamage(stack, cache.getAttacker().level().getGameTime());
+				claw.accumulateDamage(stack, cache.getAttacker());
 			}
 		}
 		if (!stack.isEmpty() && stack.getItem() instanceof LWTieredItem w) {

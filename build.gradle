@@ -203,4 +203,5 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4587429")
     implementation fg.deobf("curse.maven:the-twilight-forest-227639:4635921")
     implementation fg.deobf("curse.maven:aerial-hell-674630:4717971")
+    implementation fg.deobf("curse.maven:shield-expansion-583318:4681306")
 }

@@ -16,7 +16,7 @@ public class DoubleWieldItem extends GenericWeaponItem {
 		super(tier, damage, speed, prop, config, blocks);
 	}
 
-	public void accumulateDamage(ItemStack stack, long gameTime) {
+	public void accumulateDamage(ItemStack stack, LivingEntity entity) {
 	}
 
 	@Override
