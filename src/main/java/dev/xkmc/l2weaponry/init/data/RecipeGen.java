@@ -122,11 +122,11 @@ public class RecipeGen {
 					.define('L', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.HEAVY.get()));
 
-			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.NO_AGGRO.get(), 1)::unlockedBy, LCItems.VOID_EYE.get())
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.NO_AGGRO.get(), 1)::unlockedBy, LCItems.CAPTURED_WIND.get())
 					.pattern("LAL").pattern("CBC").pattern("LCL")
-					.define('A', LCItems.VOID_EYE)
+					.define('A', LCItems.CAPTURED_WIND)
 					.define('B', Items.BOOK)
-					.define('C', LCMats.SHULKERATE.getIngot())
+					.define('C', LCItems.HARD_ICE)
 					.define('L', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.NO_AGGRO.get()));
 
@@ -187,6 +187,18 @@ public class RecipeGen {
 					.define('D', LCItems.EXPLOSION_SHARD)
 					.define('C', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.CLAW_BLOCK.get()));
+
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.PROJECTION.get(), 1)::unlockedBy, LCItems.VOID_EYE.get())
+					.pattern("CBC").pattern("1E2").pattern("LDR")
+					.define('1', new EnchantmentIngredient(Enchantments.INFINITY_ARROWS, 1))
+					.define('2', new EnchantmentIngredient(Enchantments.LOYALTY, 1))
+					.define('L', LCItems.VOID_EYE)
+					.define('R', LCItems.GUARDIAN_EYE)
+					.define('B', Items.ZOMBIE_HEAD)
+					.define('D', Items.CONDUIT)
+					.define('E', LCMats.POSEIDITE.getIngot())
+					.define('C', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.PROJECTION.get()));
 		}
 
 		// jeed

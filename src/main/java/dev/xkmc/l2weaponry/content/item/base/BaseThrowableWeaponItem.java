@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
+import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -43,16 +44,21 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 			if (time >= 10) {
 				if (!level.isClientSide) {
 					int slot = user.getUsedItemHand() == InteractionHand.OFF_HAND ? 40 : player.getInventory().selected;
+					boolean projection = stack.getEnchantmentLevel(LWEnchantments.PROJECTION.get()) > 0;
+					boolean no_pickup = projection || player.getAbilities().instabuild;
 					stack.hurtAndBreak(1, player, pl -> pl.broadcastBreakEvent(user.getUsedItemHand()));
 					AbstractArrow proj = getProjectile(level, player, stack, slot);
 					proj.setBaseDamage(player.getAttributeValue(Attributes.ATTACK_DAMAGE));
 					proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
-					if (player.getAbilities().instabuild) {
+					if (no_pickup) {
 						proj.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+					}
+					if (projection) {
+						proj.getPersistentData().putInt("DespawnFactor", 20);
 					}
 					level.addFreshEntity(proj);
 					level.playSound(null, proj, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
-					if (!player.getAbilities().instabuild) {
+					if (!no_pickup) {
 						player.getInventory().removeItem(stack);
 					}
 					player.awardStat(Stats.ITEM_USED.get(this));

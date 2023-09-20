@@ -20,7 +20,9 @@
 	"ghost_slash": "斩影",
 	"ghost_slash.desc": "击空也会叠加连击次数",
 	"claw_shielding": "格挡",
-	"claw_shielding.desc": "提升刃爪格挡时间。主副手起效"
+	"claw_shielding.desc": "提升刃爪格挡时间。主副手起效",
+	"projection": "投影",
+	"projection.desc": "投掷武器不消耗物品，不可拾取"
   },
   "l2weaponry": {
 	"mats.tf": {

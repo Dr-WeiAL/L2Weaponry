@@ -42,6 +42,7 @@ public class LWEnchantments {
 			e instanceof ClawItem);
 
 	public static final RegistryEntry<EnderHandEnchantment> ENDER_HAND;
+	public static final RegistryEntry<ProjectionEnchantment> PROJECTION;
 	public static final RegistryEntry<StealthEnchantment> NO_AGGRO;
 	public static final RegistryEntry<HeavyEnchantment> HEAVY;
 	public static final RegistryEntry<HardShieldEnchantment> HARD_SHIELD;
@@ -55,6 +56,11 @@ public class LWEnchantments {
 	static {
 		ENDER_HAND = reg("ender_hand", THROWABLE, EnderHandEnchantment::new,
 				"Thrown attacks will appear as direct hit.")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+				.defaultLang().register();
+
+		PROJECTION = reg("projection", THROWABLE, ProjectionEnchantment::new,
+				"Thrown attacks will not consume the used weapon")
 				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
 				.defaultLang().register();
 

@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.entity;
 import com.google.common.collect.Lists;
 import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2weaponry.content.item.base.IThrowableCallback;
+import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -62,7 +63,11 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 		super(type, pShooter, pLevel);
 		this.setItem(pStack.copy());
 		this.slot = slot;
-		this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(pStack));
+		int loyalty = EnchantmentHelper.getLoyalty(pStack);
+		if (pStack.getEnchantmentLevel(LWEnchantments.PROJECTION.get()) > 0) {
+			loyalty = 0;
+		}
+		this.entityData.set(ID_LOYALTY, (byte) loyalty);
 		this.entityData.set(ID_FOIL, pStack.hasFoil());
 	}
 

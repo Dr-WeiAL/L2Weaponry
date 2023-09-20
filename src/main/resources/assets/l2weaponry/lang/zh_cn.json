@@ -167,6 +167,8 @@
   "enchantment.l2weaponry.ghost_slash.desc": "击空也会叠加连击次数",
   "enchantment.l2weaponry.claw_shielding": "格挡",
   "enchantment.l2weaponry.claw_shielding.desc": "提升刃爪格挡时间。主副手起效",
+  "enchantment.l2weaponry.projection": "投影",
+  "enchantment.l2weaponry.projection.desc": "投掷武器不消耗物品，不可拾取",
   "l2weaponry.mats.tf.fiery": "对不免疫火焰的生物造成+%s%%的伤害并点燃%s秒",
   "l2weaponry.mats.tf.ironwood": "在暮色森林中缓慢回复耐久",
   "l2weaponry.mats.tf.knightmetal": "伤害上升敌人护甲的%s%%",

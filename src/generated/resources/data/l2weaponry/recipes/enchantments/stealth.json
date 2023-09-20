@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "A": {
-      "item": "l2complements:void_eye"
+      "item": "l2complements:captured_wind"
     },
     "B": {
       "item": "minecraft:book"
     },
     "C": {
-      "item": "l2complements:shulkerate_ingot"
+      "item": "l2complements:hard_ice"
     },
     "L": {
       "item": "minecraft:lapis_lazuli"

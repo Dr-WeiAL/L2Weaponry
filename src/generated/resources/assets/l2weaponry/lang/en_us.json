@@ -15,6 +15,8 @@
   "enchantment.l2weaponry.heavy.desc": "Reduce attack speed, increase critical hit and projectile damage. Works on Axe and heavy weapons.",
   "enchantment.l2weaponry.heavy_shield": "Heavy Shield",
   "enchantment.l2weaponry.heavy_shield.desc": "Reduce movement speed, increase shield defense by a lot in main hand.",
+  "enchantment.l2weaponry.projection": "Projection",
+  "enchantment.l2weaponry.projection.desc": "Thrown attacks will not consume the used weapon",
   "enchantment.l2weaponry.raised_spirit": "Raised Spirit",
   "enchantment.l2weaponry.raised_spirit.desc": "Gradually increase machete attack speed when stacking consecutive attacks. Conflicts with Energized Will.",
   "enchantment.l2weaponry.stealth": "Stealth",
