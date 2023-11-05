@@ -76,7 +76,7 @@ public enum AHToolMats implements ILWToolMats {
 		if (type == LWToolTypes.PLATE_SHIELD || type == LWToolTypes.ROUND_SHIELD) {
 			return this != RUBY && this != LUNAR;
 		}
-		return true;
+		return ILWToolMats.super.hasTool(type);
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.l2weaponry.compat.aerial.AHCompat;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
+import dev.xkmc.l2weaponry.content.item.types.NunchakuItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWGenItem;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
@@ -32,6 +33,7 @@ public class LWItems {
 	public static final List<Item> BLOCK_DECO = new ArrayList<>();
 	public static final List<Item> THROW_DECO = new ArrayList<>();
 	public static final List<Item> CLAW_DECO = new ArrayList<>();
+	public static final List<Item> NUNCHAKU_DECO = new ArrayList<>();
 
 	public static final RegistryEntry<CreativeModeTab> TAB =
 			L2Weaponry.REGISTRATE.buildL2CreativeTab("weaponry", "L2 Weaponry", b -> b

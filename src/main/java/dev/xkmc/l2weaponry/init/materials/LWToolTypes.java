@@ -21,7 +21,8 @@ public enum LWToolTypes implements ITool {
 	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1f, "long_weapon"),
 	JAVELIN(TagGen.JAVELIN, JavelinItem::new, 1f, 1.2f, "long_weapon"),
 	ROUND_SHIELD(TagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 1f / 2, null),
-	PLATE_SHIELD(TagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 1f / 8, null);
+	PLATE_SHIELD(TagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 1f / 8, null),
+	NUNCHAKU(TagGen.NUNCHAKU, NunchakuItem::new, 0.5f, 4, null);
 
 	public final TagKey<Item> tag;
 	private final RawToolFactory fac;

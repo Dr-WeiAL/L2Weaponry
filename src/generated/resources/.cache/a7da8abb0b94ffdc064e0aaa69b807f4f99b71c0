@@ -1,6 +1,6 @@
-// 1.20.1	2023-09-20T08:43:48.03184	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-7af99c9f7113fa5347211cbf15b258b229858747 assets/l2weaponry/lang/en_ud.json
-8f6ff910e53058aa3b841aba993df895c502fb6a assets/l2weaponry/lang/en_us.json
+// 1.20.1	2023-11-05T22:29:41.543198	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+8fe4d64a9ddc4eb6c8dd59c68830778b4d2cdfa8 assets/l2weaponry/lang/en_ud.json
+4a8449236a42c82a6ee71d32af718991c425a133 assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
 22506e91ca3739268a06e9228746033ec8fc719d assets/l2weaponry/models/item/abyss_resonance.json
 d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_shock.json
@@ -31,6 +31,8 @@ be581300b330a1cc310367a6fc17ecf48d60b352 assets/l2weaponry/models/item/axe_of_cu
 0a6ed64d635efdc501189ca24bda45c319c6de86 assets/l2weaponry/models/item/diamond_javelin.json
 15c3c6693f75052d37cb634581a321f468705e31 assets/l2weaponry/models/item/diamond_javelin_throwing.json
 203e33ae869dfd34de010cb8d4c59d8c5ccb268f assets/l2weaponry/models/item/diamond_machete.json
+821ef056dd6198b9a31150a18b1afd8d80c7c871 assets/l2weaponry/models/item/diamond_nunchaku.json
+a53aae1eb9835af54ec9494e21cc589f7debcceb assets/l2weaponry/models/item/diamond_nunchaku_spinning.json
 e1303d6a37476d9ddf73ec49ce20bbe64ac016d7 assets/l2weaponry/models/item/diamond_plate_shield.json
 857841dfef5451201fbe939fef0b2d341014d7f7 assets/l2weaponry/models/item/diamond_plate_shield_blocking.json
 ce0105dcfb29538b7fc46a2cb2991a28fe1b2b42 assets/l2weaponry/models/item/diamond_round_shield.json
@@ -75,6 +77,8 @@ f13d4854fb8d2a3c5a80c55c792f3196cf18df90 assets/l2weaponry/models/item/fiery_rou
 b18a843fa2a00f7767a6f74f063fe2ca4033ff94 assets/l2weaponry/models/item/gold_javelin.json
 20f4b8b7965a7f25b5e20b3f36cb9805a4b4bc2c assets/l2weaponry/models/item/gold_javelin_throwing.json
 812e100ce1d0fb7bdb288e148f88118d9ee2246a assets/l2weaponry/models/item/gold_machete.json
+9e632d2d03f447ef3451a8f3dd26d2dadfc6f218 assets/l2weaponry/models/item/gold_nunchaku.json
+db49a449d12f1e74811491d89a22ee95e3a9db42 assets/l2weaponry/models/item/gold_nunchaku_spinning.json
 96e0d1b59935a1d72e32ceceecdecfee6eee28b2 assets/l2weaponry/models/item/gold_plate_shield.json
 e3ed081d5843379309af097d99b67eeb8543404c assets/l2weaponry/models/item/gold_plate_shield_blocking.json
 2eb1b7dbb352a081af4b0a5576fdebdc69b52742 assets/l2weaponry/models/item/gold_round_shield.json
@@ -91,6 +95,8 @@ a64a203941a7c144b51a48b8f28168b603284e68 assets/l2weaponry/models/item/hammer_of
 d2cbbca5997e8ca04d1171a3fc86c49e9a9d244d assets/l2weaponry/models/item/iron_javelin.json
 97698c01a5d73d6cbef5bdf7161729224a64abb6 assets/l2weaponry/models/item/iron_javelin_throwing.json
 3964ddc0ffe30c4ca3eb9edba3cd05f2db890ae9 assets/l2weaponry/models/item/iron_machete.json
+510506f30c678f16148413d4038b95c4fda3d324 assets/l2weaponry/models/item/iron_nunchaku.json
+293df05789c4b08a4eb507a5837cf138851d57b0 assets/l2weaponry/models/item/iron_nunchaku_spinning.json
 f8eac11c6cf9c0b729a30a23950de339562e86a8 assets/l2weaponry/models/item/iron_plate_shield.json
 d8b4191ade7a2aabc6989f1b3ea9b417356d63e4 assets/l2weaponry/models/item/iron_plate_shield_blocking.json
 ec8b53b0eec2d181907259f21fba64634427c38f assets/l2weaponry/models/item/iron_round_shield.json
@@ -269,6 +275,7 @@ a94a7467186bd17ed6a60153ce3aaca74485bcc3 data/l2weaponry/advancements/recipes/co
 230b202a0430e88d38f52ca3d4528e62e312f755 data/l2weaponry/advancements/recipes/combat/generated/upgrade/diamond_hammer.json
 1f4b22eb3b5540192d2d1f2e32f3d57aa39b8d13 data/l2weaponry/advancements/recipes/combat/generated/upgrade/diamond_javelin.json
 5f92589bc6589d9961ef5076b57fdd64587b71c3 data/l2weaponry/advancements/recipes/combat/generated/upgrade/diamond_machete.json
+e2db4849afca2db75fe46b68257d3203f82109e9 data/l2weaponry/advancements/recipes/combat/generated/upgrade/diamond_nunchaku.json
 87a60164d917b2ca9af9477549e39b08aa11f1fd data/l2weaponry/advancements/recipes/combat/generated/upgrade/diamond_plate_shield.json
 a80ff4543a7ccf1c11cd6f14b5c8d666e88d78f1 data/l2weaponry/advancements/recipes/combat/generated/upgrade/diamond_round_shield.json
 6eaff734393ee13bdf0ad02099954ef0165932c1 data/l2weaponry/advancements/recipes/combat/generated/upgrade/diamond_spear.json
@@ -299,6 +306,7 @@ c6fe6884e235b1d7ac5f1bf1b2310c0ee1a56d58 data/l2weaponry/advancements/recipes/co
 e6324a937d2761bd16d009df713c4ad1d859e5df data/l2weaponry/advancements/recipes/combat/generated/upgrade/gold_hammer.json
 7acc02c47b7d834b73f9c50b363adf176f122eb4 data/l2weaponry/advancements/recipes/combat/generated/upgrade/gold_javelin.json
 8dfc716e1efca8bdaa2df7ea9f2f43efea98f633 data/l2weaponry/advancements/recipes/combat/generated/upgrade/gold_machete.json
+80c6e899e89676aaf2ed6bcb9f0a1fc741498dff data/l2weaponry/advancements/recipes/combat/generated/upgrade/gold_nunchaku.json
 4e80d708ebf71690f17ef3cf72fde923785c9022 data/l2weaponry/advancements/recipes/combat/generated/upgrade/gold_plate_shield.json
 112e66279547d50cc0326572fa9e701343083c23 data/l2weaponry/advancements/recipes/combat/generated/upgrade/gold_round_shield.json
 586a3c733afd92458ca4152ab16dd33b9d0e16b2 data/l2weaponry/advancements/recipes/combat/generated/upgrade/gold_spear.json
@@ -309,6 +317,7 @@ e6324a937d2761bd16d009df713c4ad1d859e5df data/l2weaponry/advancements/recipes/co
 31685971d589caf39d74294d998ac31ce2c91f43 data/l2weaponry/advancements/recipes/combat/generated/upgrade/iron_hammer.json
 5b52264b086f03c1c1a0307e69c114e21ea7b8d8 data/l2weaponry/advancements/recipes/combat/generated/upgrade/iron_javelin.json
 bbade6eeb9a18312f896ee66867afa420d4008df data/l2weaponry/advancements/recipes/combat/generated/upgrade/iron_machete.json
+2e47d70f208460a1584f287624732d7da3c46fab data/l2weaponry/advancements/recipes/combat/generated/upgrade/iron_nunchaku.json
 b84e2853865e4c55c397da09640a4b5dff0a53ab data/l2weaponry/advancements/recipes/combat/generated/upgrade/iron_plate_shield.json
 8c04889f4e39e50e0ce1e73e1e0e8d5845072b2c data/l2weaponry/advancements/recipes/combat/generated/upgrade/iron_round_shield.json
 ee94bcba4c2e1dfc5dac35c63c80a5555ac1a6b1 data/l2weaponry/advancements/recipes/combat/generated/upgrade/iron_spear.json
@@ -463,6 +472,7 @@ a78dc5cdbd73774214f551fd61a5e155ed97e2e2 data/l2weaponry/advancements/recipes/mi
 d13580cd602c2929f61e304d3f502f4dc153f8c2 data/l2weaponry/advancements/recipes/misc/generated/recycle/gold_hammer.json
 ca4d5e1d4cf090c3347fdb45909625392bd700ad data/l2weaponry/advancements/recipes/misc/generated/recycle/gold_javelin.json
 b680301a5d34221c12768be009a5830b43c065d2 data/l2weaponry/advancements/recipes/misc/generated/recycle/gold_machete.json
+d064c6531f006aaf3c3fb31508bec213622fd924 data/l2weaponry/advancements/recipes/misc/generated/recycle/gold_nunchaku.json
 1d18570af789e4e4137843a0af7ae03e4a6be152 data/l2weaponry/advancements/recipes/misc/generated/recycle/gold_plate_shield.json
 18663697067f86944ce957fafc1ccee66a921853 data/l2weaponry/advancements/recipes/misc/generated/recycle/gold_round_shield.json
 9cb00c13618dc30e4ad04d298e5b30a612e41bac data/l2weaponry/advancements/recipes/misc/generated/recycle/gold_spear.json
@@ -473,6 +483,7 @@ b680301a5d34221c12768be009a5830b43c065d2 data/l2weaponry/advancements/recipes/mi
 9e6c0922edcabb63c554d122ed67284e81c8da71 data/l2weaponry/advancements/recipes/misc/generated/recycle/iron_hammer.json
 bb8efa0f5d883c3a4ed1503c4dde4d89d7eb1638 data/l2weaponry/advancements/recipes/misc/generated/recycle/iron_javelin.json
 e24d9ef27876e79a4876b5acdb5c31770eccaa33 data/l2weaponry/advancements/recipes/misc/generated/recycle/iron_machete.json
+7922ecae46297cdc4990076b74f5bc7e6ddc9fd2 data/l2weaponry/advancements/recipes/misc/generated/recycle/iron_nunchaku.json
 3a8589a990fbfce82cfb41277b44f0d61771a206 data/l2weaponry/advancements/recipes/misc/generated/recycle/iron_plate_shield.json
 286ee09c6f2349a66ff73470ac46390f6a19396d data/l2weaponry/advancements/recipes/misc/generated/recycle/iron_round_shield.json
 e1c4a4be18e3ac3bee2c68a02a43db890d4a5df0 data/l2weaponry/advancements/recipes/misc/generated/recycle/iron_spear.json
@@ -534,6 +545,7 @@ f443c83346fb9134cb50b4514611ae88100ad710 data/l2weaponry/advancements/recipes/to
 92e8c190bf395b8c5bb2e92d8dc45cbc1207ccc2 data/l2weaponry/advancements/recipes/tools/generated/craft/diamond_hammer.json
 423e730a221b7d9df274e73b0d5c6da7e9bb6f45 data/l2weaponry/advancements/recipes/tools/generated/craft/diamond_javelin.json
 7c83179990790281a59684c4eca9bed7ee983cc2 data/l2weaponry/advancements/recipes/tools/generated/craft/diamond_machete.json
+d2ca59cfbec4837fbac98072cb0d542c8390fda8 data/l2weaponry/advancements/recipes/tools/generated/craft/diamond_nunchaku.json
 5787cddcad67072f28f912c6e8167fe41652c977 data/l2weaponry/advancements/recipes/tools/generated/craft/diamond_plate_shield.json
 a8735f6692a72f7185a86fb1f90fcb4418bd6cde data/l2weaponry/advancements/recipes/tools/generated/craft/diamond_round_shield.json
 1d0c608b00f3d8fdfdfd11b211e053e1d93cacd2 data/l2weaponry/advancements/recipes/tools/generated/craft/diamond_spear.json
@@ -564,6 +576,7 @@ bfc8f440dd84773109e1b91476669db6ca947adc data/l2weaponry/advancements/recipes/to
 d8d874899b6102d21b16969ea977d9f3a0fa0c2d data/l2weaponry/advancements/recipes/tools/generated/craft/gold_hammer.json
 f33a9207700b43b5d42ea0ffca06c54cebb62e5f data/l2weaponry/advancements/recipes/tools/generated/craft/gold_javelin.json
 2cb172cc9c4b071af79ec1375b95e58f5eeb2543 data/l2weaponry/advancements/recipes/tools/generated/craft/gold_machete.json
+614c5469a164712b01184dc1dfaa35a2fa5cbcd4 data/l2weaponry/advancements/recipes/tools/generated/craft/gold_nunchaku.json
 b684467f153852a838fa22f38f124cf8d6e4767f data/l2weaponry/advancements/recipes/tools/generated/craft/gold_plate_shield.json
 7808348da958dfaf30f4e2f460ecbd9d03a99c45 data/l2weaponry/advancements/recipes/tools/generated/craft/gold_round_shield.json
 dcea72cd26f525d683e1a059fd7a99ea1aa3fafa data/l2weaponry/advancements/recipes/tools/generated/craft/gold_spear.json
@@ -574,6 +587,7 @@ bf05bbcb0ab32a141731c1b978b416124013edde data/l2weaponry/advancements/recipes/to
 8d2b50b6bfc9ad5dbe2aa454de51d8230750bb9a data/l2weaponry/advancements/recipes/tools/generated/craft/iron_hammer.json
 f9e47c6692a80b9c6a8fb55ec2b927c3018856f0 data/l2weaponry/advancements/recipes/tools/generated/craft/iron_javelin.json
 11aab12017cf11fbfd1df6db94b7173d744f0eb1 data/l2weaponry/advancements/recipes/tools/generated/craft/iron_machete.json
+2ebd91d5a09065305b3bc335afc6ba81d29bf573 data/l2weaponry/advancements/recipes/tools/generated/craft/iron_nunchaku.json
 cd0345a13db3be972073ea9120a20ca3d09a5dfb data/l2weaponry/advancements/recipes/tools/generated/craft/iron_plate_shield.json
 71aedfada9819713aa7fc6f107ea88026df7fa2a data/l2weaponry/advancements/recipes/tools/generated/craft/iron_round_shield.json
 a8c403e9ae2c61f99ca2cda28c47d2bb1222618e data/l2weaponry/advancements/recipes/tools/generated/craft/iron_spear.json
@@ -700,6 +714,7 @@ f3a488472016ec61f4aa9469956ac518a2ac9972 data/l2weaponry/recipes/generated/craft
 bb19f459050b2608af48ad676417ae24aa9ae4af data/l2weaponry/recipes/generated/craft/diamond_hammer.json
 ddf92ffc4d3235cdb5a259d24161e8afd57a8898 data/l2weaponry/recipes/generated/craft/diamond_javelin.json
 767cc7379bf3aa31bb79a9114b82829c38c9d29a data/l2weaponry/recipes/generated/craft/diamond_machete.json
+01cd0d4a1689b63345366761477591286df88408 data/l2weaponry/recipes/generated/craft/diamond_nunchaku.json
 03596ba3143b6ec83da197f52f58a66de256f398 data/l2weaponry/recipes/generated/craft/diamond_plate_shield.json
 a6e6defd8ff1cb0427b8a2e1552d0b98bb6cfd81 data/l2weaponry/recipes/generated/craft/diamond_round_shield.json
 53623256adc5fece39ef88536573846b74b135f7 data/l2weaponry/recipes/generated/craft/diamond_spear.json
@@ -730,6 +745,7 @@ af86a9b4474c73d4ac5334f7e39616eb0e2f1ad4 data/l2weaponry/recipes/generated/craft
 eb6315aa0ffaf99baa3410f9ad2203bd3fcdc746 data/l2weaponry/recipes/generated/craft/gold_hammer.json
 f9242c2fe30e6fb40b29cec42000c79a3680bfc3 data/l2weaponry/recipes/generated/craft/gold_javelin.json
 9427a501fe4f535bc3b4eb99168e9d088374bf47 data/l2weaponry/recipes/generated/craft/gold_machete.json
+8bc452ee192198f1cba39da94b1e211629e605bc data/l2weaponry/recipes/generated/craft/gold_nunchaku.json
 959fc4768211d3d488fcd1acbaab5896e3e2d49e data/l2weaponry/recipes/generated/craft/gold_plate_shield.json
 4d2036676dc1eb56d1076625b43e9219809ab13d data/l2weaponry/recipes/generated/craft/gold_round_shield.json
 574c31a6b3ab22ac88ee78752a59e829ffdd89c7 data/l2weaponry/recipes/generated/craft/gold_spear.json
@@ -740,6 +756,7 @@ c832e561090e0b849ff640e0b4a56d51bed04b74 data/l2weaponry/recipes/generated/craft
 2d7bbe14d3f5f341a36317323362f80adce341ad data/l2weaponry/recipes/generated/craft/iron_hammer.json
 077a3efc1c39318b5f1f4f305cfb1c99b4e43f90 data/l2weaponry/recipes/generated/craft/iron_javelin.json
 0983e54838ec72a321cbdbab664078da06ba032a data/l2weaponry/recipes/generated/craft/iron_machete.json
+fa1e0ab82fb240f164751adf7c491ba5be0e8b4a data/l2weaponry/recipes/generated/craft/iron_nunchaku.json
 adbf98e7f30b0a8ed895ac03f2ed102033558000 data/l2weaponry/recipes/generated/craft/iron_plate_shield.json
 a45c85c1b55909a2421d7b8b4a94b272f9066d76 data/l2weaponry/recipes/generated/craft/iron_round_shield.json
 a356e1b4be34ec0a86659faa3e5b1481a21cac50 data/l2weaponry/recipes/generated/craft/iron_spear.json
@@ -856,6 +873,7 @@ f286d14ed281327b3bf60b57b41631a68440bdb2 data/l2weaponry/recipes/generated/recyc
 f8381d63e2d34736903897573fac319bdfd0c867 data/l2weaponry/recipes/generated/recycle/gold_hammer.json
 1f4c7946c002976b8beb79d0924d549e9aa880e0 data/l2weaponry/recipes/generated/recycle/gold_javelin.json
 0e880e10a88c5ef9b6afa23332357650848662cc data/l2weaponry/recipes/generated/recycle/gold_machete.json
+1eee8ad7bcc98032f013a90ff7fb6de23e37e9c8 data/l2weaponry/recipes/generated/recycle/gold_nunchaku.json
 e3693697b2a1ff15b6f864121229812f4cd5f679 data/l2weaponry/recipes/generated/recycle/gold_plate_shield.json
 aad272fdaa2a394dd19abeac04e59ce8a2a1c5de data/l2weaponry/recipes/generated/recycle/gold_round_shield.json
 36dd2cc9240ba257e41a65e54203aff34b9a4478 data/l2weaponry/recipes/generated/recycle/gold_spear.json
@@ -866,6 +884,7 @@ a216c6c6e3de7b376515e50e36398ae846ccf03a data/l2weaponry/recipes/generated/recyc
 d7b19366807104730e3fb77bf079a0044e90dc14 data/l2weaponry/recipes/generated/recycle/iron_hammer.json
 5cdc9916b038c87ec5d0286a4df68785c5d69ed2 data/l2weaponry/recipes/generated/recycle/iron_javelin.json
 5be851ad8ff742d83c53ffa98a615a7a81fcc2c6 data/l2weaponry/recipes/generated/recycle/iron_machete.json
+73bc309793724ff9c0238f8a53f218b583208dc2 data/l2weaponry/recipes/generated/recycle/iron_nunchaku.json
 63d913dcaa462d7c584cdbad21a97e329dc64137 data/l2weaponry/recipes/generated/recycle/iron_plate_shield.json
 0e4390600df00f74626d417d05b16bb7376fb796 data/l2weaponry/recipes/generated/recycle/iron_round_shield.json
 7cae43f687f2ef9af05535e827b3c79e7412e08a data/l2weaponry/recipes/generated/recycle/iron_spear.json
@@ -926,6 +945,7 @@ a1a00ebce08ab1a4af706e6eed467d5f5b4ff55a data/l2weaponry/recipes/generated/upgra
 6a06d3f83d022acde59a9c3996de57dfab13cc1a data/l2weaponry/recipes/generated/upgrade/diamond_hammer.json
 5d72bc8e79519d06ab159663de95511bca6df970 data/l2weaponry/recipes/generated/upgrade/diamond_javelin.json
 179b94d455e02461d8bcf374494bfda02a971e38 data/l2weaponry/recipes/generated/upgrade/diamond_machete.json
+83cde4d46afce477e8c7ed15c6cfdce732fdf392 data/l2weaponry/recipes/generated/upgrade/diamond_nunchaku.json
 433cd65dbfddaa0f3ef038ff99b5e5efe7e07e98 data/l2weaponry/recipes/generated/upgrade/diamond_plate_shield.json
 65f1efebb1812b5f4e0ae07436b922214494f0e5 data/l2weaponry/recipes/generated/upgrade/diamond_round_shield.json
 2088db5285b96428f98fdc06fc1f45a5ac38b272 data/l2weaponry/recipes/generated/upgrade/diamond_spear.json
@@ -956,6 +976,7 @@ c214cf3da03dc67e0c61d4f4dd78693bd7825197 data/l2weaponry/recipes/generated/upgra
 0b6b0f065684ad8f5d7b8514152c442775877100 data/l2weaponry/recipes/generated/upgrade/gold_hammer.json
 38f007b2c448f8bc8962f54410ed9edaf3578c24 data/l2weaponry/recipes/generated/upgrade/gold_javelin.json
 a4368d150cef0c8d72dc2c7d8aec6b52bb374b3a data/l2weaponry/recipes/generated/upgrade/gold_machete.json
+96d2c7f60be40e6e279fccf63c73b45f3601a6df data/l2weaponry/recipes/generated/upgrade/gold_nunchaku.json
 4933fc93eac36aa5071b4fec4422bf0b363276d0 data/l2weaponry/recipes/generated/upgrade/gold_plate_shield.json
 864cdd589cfeaff583a77457866b2f505fb35c01 data/l2weaponry/recipes/generated/upgrade/gold_round_shield.json
 5e618d7a6db118bfdcb76006afbc82350ac852e0 data/l2weaponry/recipes/generated/upgrade/gold_spear.json
@@ -966,6 +987,7 @@ c01653c72d8c06f8ee2747093d80e04fb8c1bf97 data/l2weaponry/recipes/generated/upgra
 af470dc4904b33b7e3676aaff48d85919ba5532f data/l2weaponry/recipes/generated/upgrade/iron_hammer.json
 648335251e66b9b6a7136869fd2967fec016eba3 data/l2weaponry/recipes/generated/upgrade/iron_javelin.json
 3f10264b08edf3975b285009f5b0f3b6a78efcf5 data/l2weaponry/recipes/generated/upgrade/iron_machete.json
+85a013fcbb50d1cc1f4d3da3ab36fa78b8eaa33e data/l2weaponry/recipes/generated/upgrade/iron_nunchaku.json
 4da6d6eac85de0c671812507b413bf06129e307c data/l2weaponry/recipes/generated/upgrade/iron_plate_shield.json
 c8d6e67599dc91186763e2b1be17ce19dc03fd37 data/l2weaponry/recipes/generated/upgrade/iron_round_shield.json
 4829ae7a1a86562c58aba88c91c99b4a6b644d94 data/l2weaponry/recipes/generated/upgrade/iron_spear.json
@@ -1109,6 +1131,7 @@ a2f742b0a521fa4f74b7f865cd9b9e473cb1430c data/l2weaponry/tags/items/claw.json
 72dd72833bb9c6a8120a62b729e6375c27c38b2b data/l2weaponry/tags/items/hammer.json
 5748f9a7f6c7ec11010cabbf181100eae7ac8b5a data/l2weaponry/tags/items/javelin.json
 37c28da787b4fe5f999c9cb3d75ff6d84f3dabd4 data/l2weaponry/tags/items/machete.json
+e7214c95117a24b88c1a3e09475c6fcb9a33564f data/l2weaponry/tags/items/nunchaku.json
 26bf5b964cb1b5126f587a3727d926988cb9ade0 data/l2weaponry/tags/items/plate_shield.json
 01b1e441bb89512ec6cf3e8304f1c0972034e9a6 data/l2weaponry/tags/items/round_shield.json
 ac461fe06816cc90dfa36991740762a3fdda616c data/l2weaponry/tags/items/spear.json

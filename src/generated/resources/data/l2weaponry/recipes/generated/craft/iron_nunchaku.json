@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    " H ",
+    "I I",
+    "I I"
+  ],
+  "result": {
+    "item": "l2weaponry:iron_nunchaku"
+  },
+  "show_notification": true
+}

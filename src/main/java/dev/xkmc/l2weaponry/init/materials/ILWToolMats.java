@@ -52,6 +52,9 @@ public interface ILWToolMats {
 	}
 
 	default boolean hasTool(LWToolTypes type) {
+		if (type == LWToolTypes.NUNCHAKU) {
+			return this == LWToolMats.IRON || this == LWToolMats.GOLD || this == LWToolMats.DIAMOND;//TODO
+		}
 		return true;
 	}
 

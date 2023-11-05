@@ -30,6 +30,8 @@ public class TagGen {
 	public static final TagKey<Item> THROWIG_AXE = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "throwing_axe"));
 	public static final TagKey<Item> JAVELIN = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "javelin"));
 
+	public static final TagKey<Item> NUNCHAKU = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "nunchaku"));
+
 	private static final List<Pair<TagKey<Item>, ResourceLocation>> LIST = new ArrayList<>();
 
 	public static void onBlockTagGen(RegistrateTagsProvider<Block> pvd) {

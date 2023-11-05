@@ -62,6 +62,7 @@ public class RecipeGen {
 				if (mat.getNugget() != Items.AIR) {
 					currentFolder = "generated/recycle/";
 					for (LWToolTypes type : LWToolTypes.values()) {
+						if (!mat.hasTool(type)) continue;
 						smelting(pvd, mat.getTool(type), mat.getNugget(), 0.1f);
 					}
 				}
@@ -218,6 +219,7 @@ public class RecipeGen {
 				jeed.add(TFToolMats.FIERY.getTool(LWToolTypes.ROUND_SHIELD), MobEffects.FIRE_RESISTANCE);
 				jeed.add(TFToolMats.FIERY.getTool(LWToolTypes.PLATE_SHIELD), MobEffects.FIRE_RESISTANCE);
 				for (var e : LWToolTypes.values()) {
+					if (!TFToolMats.STEELEAF.hasTool(e)) continue;
 					jeed.add(TFToolMats.STEELEAF.getTool(e), LCEffects.BLEED.get());
 				}
 				jeed.generate(pvd);
@@ -260,6 +262,7 @@ public class RecipeGen {
 	public static void upgrade(RegistrateRecipeProvider pvd, LWToolMats base, LWToolMats mat) {
 		currentFolder = "generated/upgrade/";
 		for (LWToolTypes t : LWToolTypes.values()) {
+			if (!mat.hasTool(t)) continue;
 			smithing(pvd, base.getTool(t), mat.getIngot(), mat.getTool(t));
 		}
 	}
@@ -276,6 +279,7 @@ public class RecipeGen {
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.PLATE_SHIELD, "III", "IHI", " I ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.THROWING_AXE, "II", "IH");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.JAVELIN, "  I", " H ", "I  ");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.NUNCHAKU, " H ", "I I", "I I");
 		currentFolder = "generated/upgrade/";
 		for (LWToolTypes t : LWToolTypes.values()) {
 			if (!mat.hasTool(t)) continue;
