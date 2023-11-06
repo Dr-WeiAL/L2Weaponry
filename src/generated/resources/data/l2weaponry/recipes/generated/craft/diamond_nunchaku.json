@@ -2,15 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "H": {
-      "item": "l2weaponry:reinforced_handle"
+    "C": {
+      "item": "minecraft:chain"
     },
     "I": {
       "item": "minecraft:diamond"
     }
   },
   "pattern": [
-    " H ",
+    " C ",
     "I I",
     "I I"
   ],

@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.init.data;
 
+import com.github.alexthe666.iceandfire.IceAndFire;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
 import dev.xkmc.l2complements.content.enchantment.core.EnchantmentRecipeBuilder;
@@ -10,6 +11,7 @@ import dev.xkmc.l2library.compat.jeed.JeedDataGenerator;
 import dev.xkmc.l2library.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2library.serial.recipe.AbstractSmithingRecipe;
 import dev.xkmc.l2weaponry.compat.aerial.AHToolMats;
+import dev.xkmc.l2weaponry.compat.dragons.DragonToolMats;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
@@ -54,11 +56,7 @@ public class RecipeGen {
 		currentFolder = "generated/";
 		{
 			for (LWToolMats mat : LWToolMats.values()) {
-				if (mat == LWToolMats.NETHERITE) {
-					upgrade(pvd, LWToolMats.DIAMOND, LWToolMats.NETHERITE);
-				} else {
-					tools(pvd, mat.getStick(), mat.getToolIngot(), mat);
-				}
+				tools(pvd, mat.getStick(), mat.getToolIngot(), mat);
 				if (mat.getNugget() != Items.AIR) {
 					currentFolder = "generated/recycle/";
 					for (LWToolTypes type : LWToolTypes.values()) {
@@ -70,6 +68,11 @@ public class RecipeGen {
 
 			if (ModList.get().isLoaded(TwilightForestMod.ID)) {
 				for (ILWToolMats mat : TFToolMats.values()) {
+					tools(pvd, mat.getStick(), mat.getIngot(), mat);
+				}
+			}
+			if (ModList.get().isLoaded(IceAndFire.MODID)) {
+				for (ILWToolMats mat : DragonToolMats.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
@@ -249,17 +252,21 @@ public class RecipeGen {
 	private static void buildTool(RegistrateRecipeProvider pvd, Item handle, Item ingot, ILWToolMats mat, LWToolTypes type, String... strs) {
 		if (!mat.hasTool(type)) return;
 		var b = unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.TOOLS, mat.getTool(type), 1)::unlockedBy, mat.getIngot());
-		boolean leather = false;
+		boolean stick = false, leather = false, chain = false;
 		for (String str : strs) {
 			b = b.pattern(str);
+			stick |= str.indexOf('H') >= 0;
 			leather |= str.indexOf('L') >= 0;
+			chain |= str.indexOf('C') >= 0;
 		}
-		b.define('I', ingot).define('H', handle);
+		b.define('I', ingot);
+		if (stick) b.define('H', handle);
 		if (leather) b = b.define('L', Items.LEATHER);
+		if (chain) b = b.define('C', Items.CHAIN);
 		mat.saveRecipe(b, pvd, type, getID(mat.getTool(type)));
 	}
 
-	public static void upgrade(RegistrateRecipeProvider pvd, LWToolMats base, LWToolMats mat) {
+	public static void upgrade(RegistrateRecipeProvider pvd, ILWToolMats base, ILWToolMats mat) {
 		currentFolder = "generated/upgrade/";
 		for (LWToolTypes t : LWToolTypes.values()) {
 			if (!mat.hasTool(t)) continue;
@@ -268,6 +275,11 @@ public class RecipeGen {
 	}
 
 	public static void tools(RegistrateRecipeProvider pvd, Item handle, Item ingot, ILWToolMats mat) {
+		var base = mat.getBaseUpgrade();
+		if (base != null) {
+			upgrade(pvd, base, mat);
+			return;
+		}
 		currentFolder = "generated/craft/";
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.CLAW, "III", "HLH", "H H");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.DAGGER, " I", "H ");
@@ -279,7 +291,7 @@ public class RecipeGen {
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.PLATE_SHIELD, "III", "IHI", " I ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.THROWING_AXE, "II", "IH");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.JAVELIN, "  I", " H ", "I  ");
-		buildTool(pvd, handle, ingot, mat, LWToolTypes.NUNCHAKU, " H ", "I I", "I I");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.NUNCHAKU, " C ", "I I", "I I");
 		currentFolder = "generated/upgrade/";
 		for (LWToolTypes t : LWToolTypes.values()) {
 			if (!mat.hasTool(t)) continue;

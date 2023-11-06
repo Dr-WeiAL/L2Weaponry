@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.compat.twilightforest;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
+import dev.xkmc.l2weaponry.compat.ModMats;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
@@ -23,10 +24,10 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public enum TFToolMats implements ILWToolMats {
-	IRONWOOD(new TFMats(TwilightItemTier.IRONWOOD, new IronwoodTool()), false, TFItems.IRONWOOD_INGOT, TFBlocks.IRONWOOD_BLOCK),
-	STEELEAF(new TFMats(TwilightItemTier.STEELEAF, new SteeleafTool()), false, TFItems.STEELEAF_INGOT, TFBlocks.STEELEAF_BLOCK),
-	KNIGHTMETAL(new TFMats(TwilightItemTier.KNIGHTMETAL, new KnightmetalTool()), false, TFItems.KNIGHTMETAL_INGOT, TFBlocks.KNIGHTMETAL_BLOCK),
-	FIERY(new TFMats(TwilightItemTier.FIERY, new FieryTool()), true, TFItems.FIERY_INGOT, TFBlocks.FIERY_BLOCK);
+	IRONWOOD(new ModMats(TwilightItemTier.IRONWOOD, new IronwoodTool()), false, TFItems.IRONWOOD_INGOT, TFBlocks.IRONWOOD_BLOCK),
+	STEELEAF(new ModMats(TwilightItemTier.STEELEAF, new SteeleafTool()), false, TFItems.STEELEAF_INGOT, TFBlocks.STEELEAF_BLOCK),
+	KNIGHTMETAL(new ModMats(TwilightItemTier.KNIGHTMETAL, new KnightmetalTool()), false, TFItems.KNIGHTMETAL_INGOT, TFBlocks.KNIGHTMETAL_BLOCK),
+	FIERY(new ModMats(TwilightItemTier.FIERY, new FieryTool()), true, TFItems.FIERY_INGOT, TFBlocks.FIERY_BLOCK);
 
 	private final IMatToolType type;
 	private final boolean fireRes;

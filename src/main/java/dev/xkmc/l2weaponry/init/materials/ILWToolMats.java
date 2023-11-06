@@ -67,4 +67,9 @@ public interface ILWToolMats {
 		return false;
 	}
 
+	@Nullable
+	default ILWToolMats getBaseUpgrade() {
+		return null;
+	}
+
 }
