@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
