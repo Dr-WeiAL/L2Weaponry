@@ -1,0 +1,14 @@
+{
+  "parent": "l2weaponry:item/nunchaku",
+  "overrides": [
+    {
+      "model": "l2weaponry:item/lightning_dragon_bone_nunchaku_spinning",
+      "predicate": {
+        "l2weaponry:spinning": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "l2weaponry:item/generated/lightning_dragon_bone/nunchaku"
+  }
+}

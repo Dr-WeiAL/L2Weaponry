@@ -20,12 +20,10 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public enum DragonToolMats implements ILWToolMats {
-	DRAGON_BONE(new ModMats(IafItemRegistry.DRAGONBONE_TOOL_MATERIAL, new ExtraToolConfig()), true,
-			IafItemRegistry.DRAGON_BONE, IafBlockRegistry.DRAGON_BONE_BLOCK),
-	ICE_DRAGON_BONE(new ModMats(IafItemRegistry.ICE_DRAGONBONE_TOOL_MATERIAL, new ExtraToolConfig()), true,
-			IafItemRegistry.ICE_DRAGON_BLOOD, () -> Blocks.AIR),
-	FIRE_DRAGON_BONE(new ModMats(IafItemRegistry.FIRE_DRAGONBONE_TOOL_MATERIAL, new ExtraToolConfig()), true,
-			IafItemRegistry.FIRE_DRAGON_BLOOD, () -> Blocks.AIR),
+	DRAGON_BONE(new ModMats(IafItemRegistry.DRAGONBONE_TOOL_MATERIAL, new ExtraToolConfig()), true, IafItemRegistry.DRAGON_BONE, IafBlockRegistry.DRAGON_BONE_BLOCK),
+	ICE_DRAGON_BONE(new ModMats(IafItemRegistry.ICE_DRAGONBONE_TOOL_MATERIAL, new IceDragonBoneTool()), true, IafItemRegistry.ICE_DRAGON_BLOOD, () -> Blocks.AIR),
+	FIRE_DRAGON_BONE(new ModMats(IafItemRegistry.FIRE_DRAGONBONE_TOOL_MATERIAL, new FireDragonBoneTool()), true, IafItemRegistry.FIRE_DRAGON_BLOOD, () -> Blocks.AIR),
+	LIGHTNING_DRAGON_BONE(new ModMats(IafItemRegistry.LIGHTNING_DRAGONBONE_TOOL_MATERIAL, new LightningDragonBoneTool()), true, IafItemRegistry.LIGHTNING_DRAGON_BLOOD, () -> Blocks.AIR),
 	;
 
 	private final IMatToolType type;
@@ -78,7 +76,10 @@ public enum DragonToolMats implements ILWToolMats {
 
 	@Override
 	public boolean hasTool(LWToolTypes type) {
-		return type == LWToolTypes.NUNCHAKU;
+		return type == LWToolTypes.NUNCHAKU || type == LWToolTypes.BATTLE_AXE ||
+				type == LWToolTypes.HAMMER || type == LWToolTypes.SPEAR ||
+				type == LWToolTypes.JAVELIN || type == LWToolTypes.THROWING_AXE ||
+				type == LWToolTypes.DAGGER;
 	}
 
 	@Override

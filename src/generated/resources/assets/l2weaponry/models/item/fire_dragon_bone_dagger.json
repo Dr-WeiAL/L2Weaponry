@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "l2weaponry:item/generated/fire_dragon_bone/dagger"
+  }
+}
