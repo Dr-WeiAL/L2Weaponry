@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.compat.dragons;
 
 import com.github.alexthe666.iceandfire.IceAndFire;
-import com.github.alexthe666.iceandfire.block.IafBlockRegistry;
+import com.github.alexthe666.iceandfire.item.DragonSteelTier;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
@@ -12,30 +12,27 @@ import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public enum DragonToolMats implements ILWToolMats {
-	DRAGON_BONE(new ModMats(IafItemRegistry.DRAGONBONE_TOOL_MATERIAL, new ExtraToolConfig()), true, IafItemRegistry.DRAGON_BONE, IafBlockRegistry.DRAGON_BONE_BLOCK),
-	ICE_DRAGON_BONE(new ModMats(IafItemRegistry.ICE_DRAGONBONE_TOOL_MATERIAL, new IceDragonBoneTool()), true, IafItemRegistry.ICE_DRAGON_BLOOD, () -> Blocks.AIR),
-	FIRE_DRAGON_BONE(new ModMats(IafItemRegistry.FIRE_DRAGONBONE_TOOL_MATERIAL, new FireDragonBoneTool()), true, IafItemRegistry.FIRE_DRAGON_BLOOD, () -> Blocks.AIR),
-	LIGHTNING_DRAGON_BONE(new ModMats(IafItemRegistry.LIGHTNING_DRAGONBONE_TOOL_MATERIAL, new LightningDragonBoneTool()), true, IafItemRegistry.LIGHTNING_DRAGON_BLOOD, () -> Blocks.AIR),
+	DRAGON_BONE(new ModMats(IafItemRegistry.DRAGONBONE_TOOL_MATERIAL, new ExtraToolConfig()), true, IafItemRegistry.DRAGON_BONE),
+	ICE_DRAGON_BONE(new ModMats(DragonSteelTier.DRAGONSTEEL_TIER_ICE, new IceDragonBoneTool()), true, IafItemRegistry.ICE_DRAGON_BLOOD),
+	FIRE_DRAGON_BONE(new ModMats(DragonSteelTier.DRAGONSTEEL_TIER_FIRE, new FireDragonBoneTool()), true, IafItemRegistry.FIRE_DRAGON_BLOOD),
+	LIGHTNING_DRAGON_BONE(new ModMats(DragonSteelTier.DRAGONSTEEL_TIER_LIGHTNING, new LightningDragonBoneTool()), true, IafItemRegistry.LIGHTNING_DRAGON_BLOOD),
 	;
 
 	private final IMatToolType type;
 	private final boolean fireRes;
 	private final Supplier<Item> ingot;
-	private final Supplier<Block> block;
 
-	DragonToolMats(IMatToolType type, boolean fireRes, Supplier<Item> ingot, Supplier<Block> block) {
+	DragonToolMats(IMatToolType type, boolean fireRes, Supplier<Item> ingot) {
 		this.type = type;
 		this.fireRes = fireRes;
 		this.ingot = ingot;
-		this.block = block;
 	}
 
 	@Override
@@ -61,7 +58,7 @@ public enum DragonToolMats implements ILWToolMats {
 
 	@Override
 	public Item getBlock() {
-		return block.get().asItem();
+		return Items.AIR;
 	}
 
 	@Override

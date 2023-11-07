@@ -6,6 +6,7 @@
   "refmap": "l2weaponry.refmap.json",
   "mixins": [
 	"ItemStackMixin",
+	"LightningBoltMixin",
 	"LivingEntityMixin",
 	"PlayerMixin",
 	"TargetGoalAccessor"

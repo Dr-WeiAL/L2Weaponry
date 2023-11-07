@@ -4,8 +4,10 @@ import com.github.alexthe666.iceandfire.IafConfig;
 import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
 import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2weaponry.events.LWGeneralEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,10 +26,13 @@ public class LightningDragonBoneTool extends ExtraToolConfig {
 			boolean flag = !(user instanceof Player) || !((double) user.attackAnim > 0.2D);
 
 			if (!user.level().isClientSide && flag) {
-				LightningBolt lightningboltentity = EntityType.LIGHTNING_BOLT.create(target.level());
-				lightningboltentity.moveTo(target.position());
+				LightningBolt entity = EntityType.LIGHTNING_BOLT.create(target.level());
+				assert entity != null;
+				entity.addTag(LWGeneralEvents.LIGHTNING);
+				entity.moveTo(target.position());
+				if (user instanceof ServerPlayer sp) entity.setCause(sp);
 				if (!target.level().isClientSide) {
-					target.level().addFreshEntity(lightningboltentity);
+					target.level().addFreshEntity(entity);
 				}
 			}
 

@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.types;
 
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2library.util.raytrace.FastItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
 import dev.xkmc.l2weaponry.events.ClientRenderEvents;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
@@ -13,7 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 
-public class NunchakuItem extends GenericWeaponItem {
+public class NunchakuItem extends GenericWeaponItem implements FastItem {
 
 	public NunchakuItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
 		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_HOE);
@@ -39,5 +40,9 @@ public class NunchakuItem extends GenericWeaponItem {
 		return 72000;
 	}
 
+	@Override
+	public boolean isFast(ItemStack itemStack) {
+		return true;
+	}
 
 }

@@ -6,6 +6,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import org.jetbrains.annotations.Nullable;
@@ -27,6 +28,10 @@ public interface ILWToolMats {
 	Item getBlock();
 
 	Item getStick();
+
+	default Item getChain() {
+		return Items.CHAIN;
+	}
 
 	default void saveRecipe(ShapedRecipeBuilder b, RegistrateRecipeProvider pvd, LWToolTypes type, ResourceLocation id) {
 		b.save(getProvider(pvd), id);
