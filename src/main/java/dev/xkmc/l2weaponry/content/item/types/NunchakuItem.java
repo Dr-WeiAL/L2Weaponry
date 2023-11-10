@@ -1,6 +1,9 @@
 package dev.xkmc.l2weaponry.content.item.types;
 
+import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2damagetracker.init.data.L2DamageTypes;
+import dev.xkmc.l2hostility.init.data.HostilityDamageState;
 import dev.xkmc.l2library.util.raytrace.FastItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
 import dev.xkmc.l2weaponry.events.ClientRenderEvents;
@@ -8,11 +11,13 @@ import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 public class NunchakuItem extends GenericWeaponItem implements FastItem {
 
@@ -43,6 +48,15 @@ public class NunchakuItem extends GenericWeaponItem implements FastItem {
 	@Override
 	public boolean isFast(ItemStack itemStack) {
 		return true;
+	}
+
+	@Override
+	public void modifySource(LivingEntity attacker, CreateSourceEvent event, ItemStack item, @Nullable Entity target) {
+		if (event.getResult() == null) return;
+		var root = event.getResult().toRoot();
+		if (root == L2DamageTypes.PLAYER_ATTACK || root == L2DamageTypes.MOB_ATTACK) {
+			event.enable(HostilityDamageState.BYPASS_COOLDOWN);
+		}
 	}
 
 }
