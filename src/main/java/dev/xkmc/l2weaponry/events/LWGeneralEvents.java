@@ -4,7 +4,6 @@ import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
@@ -47,10 +46,10 @@ public class LWGeneralEvents {
 		}
 	}
 
-	@SubscribeEvent
+	@SubscribeEvent //TODO move to lib
 	public static void onEntityStruck(EntityStruckByLightningEvent event) {
 		if (event.getLightning().getTags().contains(LIGHTNING)) {
-			if (event.getEntity() instanceof ItemEntity || event.getEntity() == event.getLightning().getCause()) {
+			if (!(event.getEntity() instanceof LivingEntity) || event.getEntity() == event.getLightning().getCause()) {
 				event.setCanceled(true);
 			}
 		}

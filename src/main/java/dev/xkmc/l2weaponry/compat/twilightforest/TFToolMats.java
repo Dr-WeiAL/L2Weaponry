@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.compat.twilightforest;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
+import dev.xkmc.l2library.serial.recipe.NBTRecipe;
 import dev.xkmc.l2weaponry.compat.ModMats;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
@@ -83,7 +84,6 @@ public enum TFToolMats implements ILWToolMats {
 			b.save(cond, id);
 		}
 	}
-
 
 
 	@Override
