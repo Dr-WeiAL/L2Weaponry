@@ -103,6 +103,7 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 
 	@Override
 	public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+		if (toolAction == ToolActions.SWORD_DIG) return true;
 		if (toolAction == ToolActions.SWORD_SWEEP) return canSweep();
 		return false;
 	}

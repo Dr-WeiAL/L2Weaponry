@@ -197,14 +197,21 @@ dependencies {
     implementation fg.deobf("mezz.jei:jei-${jei_minecraft_version}:${jei_version}")
     implementation fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:4599236")
 
-    runtimeOnly fg.deobf("curse.maven:badpackets-615134:4438956")
-    runtimeOnly fg.deobf("curse.maven:wthit-forge-455982:4596739")
-    runtimeOnly fg.deobf("curse.maven:attributefix-280510:4588114")
-    runtimeOnly fg.deobf("curse.maven:bookshelf-228525:4581675")
-    runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4587429")
     implementation fg.deobf("curse.maven:the-twilight-forest-227639:4635921")
     implementation fg.deobf("curse.maven:aerial-hell-674630:4717971")
-    implementation fg.deobf("curse.maven:shield-expansion-583318:4681306")
     implementation fg.deobf("curse.maven:citadel-331936:4786380")
     implementation fg.deobf("zip.local:iceandfire:2.1.13-1.20.1+build.2.1.13-alpha-6")
+
+    runtimeOnly fg.deobf("curse.maven:caelus-308989:4581481")
+    runtimeOnly fg.deobf("curse.maven:elytra-slot-317716:4598379")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:4654448")
+    runtimeOnly fg.deobf("curse.maven:attributefix-280510:4588114")
+    runtimeOnly fg.deobf("curse.maven:bookshelf-228525:4581675")
+    runtimeOnly fg.deobf("curse.maven:patchouli-306770:4636277")
+    runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4587429")
+    runtimeOnly fg.deobf("curse.maven:shield-expansion-583318:4681306")
+    implementation fg.deobf("curse.maven:x-playerinfo-894930:4811027")
+    implementation fg.deobf("curse.maven:x-enchantment-432957:4811039")
+
+    runtimeOnly fg.deobf("zip.local:EnigmaticLegacy:2.28.1")
 }

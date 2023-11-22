@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 
 public enum LWToolTypes implements ITool {
 	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 3, "claw_base"),
-	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4, null),
+	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 3, null),
 	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.2f, 1f, null),
 	THROWING_AXE(TagGen.THROWIG_AXE, ThrowingAxeItem::new, 1.4f, 1f, null),
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, null),
@@ -22,7 +22,7 @@ public enum LWToolTypes implements ITool {
 	JAVELIN(TagGen.JAVELIN, JavelinItem::new, 1f, 1.2f, "long_weapon"),
 	ROUND_SHIELD(TagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 1f / 2, null),
 	PLATE_SHIELD(TagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 1f / 8, null),
-	NUNCHAKU(TagGen.NUNCHAKU, NunchakuItem::new, 0.5f, 4, null);
+	NUNCHAKU(TagGen.NUNCHAKU, NunchakuItem::new, 0.5f, 3f, null);
 
 	public final TagKey<Item> tag;
 	private final RawToolFactory fac;
