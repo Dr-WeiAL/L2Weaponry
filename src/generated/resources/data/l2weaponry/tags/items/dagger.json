@@ -28,22 +28,6 @@
       "required": false
     },
     {
-      "id": "l2weaponry:dragon_bone_dagger",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:ice_dragon_bone_dagger",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:fire_dragon_bone_dagger",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:lightning_dragon_bone_dagger",
-      "required": false
-    },
-    {
       "id": "l2weaponry:arsonist_dagger",
       "required": false
     },

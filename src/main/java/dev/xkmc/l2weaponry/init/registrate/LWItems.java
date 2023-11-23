@@ -99,7 +99,7 @@ public class LWItems {
 		}
 
 		if (ModList.get().isLoaded(IceAndFire.MODID)) {
-			DragonCompat.register();
+			//DragonCompat.register();
 		}
 
 		if (ModList.get().isLoaded(AerialHell.MODID)) {
