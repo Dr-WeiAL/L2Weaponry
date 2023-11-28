@@ -6,6 +6,7 @@ import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -17,6 +18,8 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid = L2Weaponry.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class LWGeneralEvents {
+
+	public static final String LIGHTNING = "l2weaponry:lightning";
 
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void onAttackPost(LivingAttackEvent event) {
@@ -39,6 +42,15 @@ public class LWGeneralEvents {
 				if (event.getSource().getEntity() instanceof LivingEntity le) {
 					weapon.onKill(e.getItem(), event.getEntity(), le);
 				}
+			}
+		}
+	}
+
+	@SubscribeEvent //TODO move to lib
+	public static void onEntityStruck(EntityStruckByLightningEvent event) {
+		if (event.getLightning().getTags().contains(LIGHTNING)) {
+			if (!(event.getEntity() instanceof LivingEntity) || event.getEntity() == event.getLightning().getCause()) {
+				event.setCanceled(true);
 			}
 		}
 	}

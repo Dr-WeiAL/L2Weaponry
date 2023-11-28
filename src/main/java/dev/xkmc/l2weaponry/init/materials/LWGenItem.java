@@ -64,6 +64,13 @@ public class LWGenItem {
 					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/long_weapon_throwing"))
 					.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf)));
+		} else if (type == LWToolTypes.NUNCHAKU) {
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/nunchaku"))
+							.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf)))
+					.override().predicate(pvd.modLoc("spinning"), 1)
+					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_spinning"))).end();
+			mat.model(type,  pvd.withExistingParent(pvd.name(ctx) + "_spinning", pvd.modLoc("item/nunchaku_spinning"))
+					.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf + "_spinning")));
 		} else if (type.customModel() != null) {
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + type.customModel()))
 					.texture("layer0", pvd.modLoc("item/generated/" + id + "/" + suf)));

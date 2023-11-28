@@ -4,7 +4,7 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
-import dev.xkmc.l2weaponry.compat.twilightforest.TFMats;
+import dev.xkmc.l2weaponry.compat.ModMats;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
@@ -19,10 +19,10 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public enum AHToolMats implements ILWToolMats {
-	ARSONIST(new TFMats(ToolMaterials.arsonist, new ArsonistTool()), true, AerialHellBlocksAndItems.ARSONIST_INGOT, AerialHellBlocksAndItems.ARSONIST_BLOCK),
-	LUNAR(new TFMats(ToolMaterials.lunatic, new ExtraToolConfig()), false, AerialHellBlocksAndItems.LUNATIC_CRYSTAL, AerialHellBlocksAndItems.LUNATIC_CRYSTAL_BLOCK),
-	RUBY(new TFMats(ToolMaterials.ruby, new ExtraToolConfig()), false, AerialHellBlocksAndItems.RUBY, AerialHellBlocksAndItems.RUBY_BLOCK),
-	VOLUCITE(new TFMats(ToolMaterials.volucite, new VoluciteTool()), false, AerialHellBlocksAndItems.VOLUCITE_VIBRANT, AerialHellBlocksAndItems.VOLUCITE_BLOCK);
+	ARSONIST(new ModMats(ToolMaterials.arsonist, new ArsonistTool()), true, AerialHellBlocksAndItems.ARSONIST_INGOT, AerialHellBlocksAndItems.ARSONIST_BLOCK),
+	LUNAR(new ModMats(ToolMaterials.lunatic, new ExtraToolConfig()), false, AerialHellBlocksAndItems.LUNATIC_CRYSTAL, AerialHellBlocksAndItems.LUNATIC_CRYSTAL_BLOCK),
+	RUBY(new ModMats(ToolMaterials.ruby, new ExtraToolConfig()), false, AerialHellBlocksAndItems.RUBY, AerialHellBlocksAndItems.RUBY_BLOCK),
+	VOLUCITE(new ModMats(ToolMaterials.volucite, new VoluciteTool()), false, AerialHellBlocksAndItems.VOLUCITE_VIBRANT, AerialHellBlocksAndItems.VOLUCITE_BLOCK);
 
 	private final IMatToolType type;
 	private final boolean fireRes;
@@ -76,7 +76,7 @@ public enum AHToolMats implements ILWToolMats {
 		if (type == LWToolTypes.PLATE_SHIELD || type == LWToolTypes.ROUND_SHIELD) {
 			return this != RUBY && this != LUNAR;
 		}
-		return true;
+		return ILWToolMats.super.hasTool(type);
 	}
 
 	@Override

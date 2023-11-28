@@ -7,6 +7,7 @@ import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
@@ -57,6 +58,11 @@ public enum LWToolMats implements ILWToolMats {
 		return handle.get();
 	}
 
+	@Override
+	public @Nullable ILWToolMats getBaseUpgrade() {
+		return this == NETHERITE ? DIAMOND : null;
+	}
+
 	public Item getBlock() {
 		return block.get();
 	}
@@ -78,4 +84,6 @@ public enum LWToolMats implements ILWToolMats {
 	public boolean fireRes() {
 		return fireRes;
 	}
+
+
 }
