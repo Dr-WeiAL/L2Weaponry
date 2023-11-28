@@ -50,7 +50,8 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 		if (slot == EquipmentSlot.OFFHAND) return;
 		super.buildAttributes(slot, builder);
 		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", Math.round(maxDefense * 0.035), AttributeModifier.Operation.ADDITION));
-		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", -3, AttributeModifier.Operation.ADDITION));
+		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", 16, AttributeModifier.Operation.ADDITION));
+		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(MathHelper.getUUIDFromString("slow_wield"), "slow_wield", -0.95, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		builder.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(MathHelper.getUUIDFromString(NAME_KB), NAME_KB, 4, AttributeModifier.Operation.ADDITION));
 		builder.put(LWItems.REFLECT_TIME.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_ATTR), NAME_ATTR, 20, AttributeModifier.Operation.ADDITION));
 		builder.put(L2DamageTracker.CRIT_DMG.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_CRIT), NAME_CRIT, 1.5, AttributeModifier.Operation.ADDITION));

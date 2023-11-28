@@ -1,6 +1,18 @@
 {
-  "parent": "l2weaponry:item/3d_spear",
-  "textures": {
-    "layer0": "l2weaponry:item/3d/spear/eternium"
+  "base": {
+    "parent": "l2weaponry:item/3d_spear",
+    "textures": {
+      "layer0": "l2weaponry:item/3d/spear/eternium"
+    }
+  },
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "l2weaponry:item/generated/eternium/spear"
+      }
+    }
   }
 }

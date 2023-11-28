@@ -1,6 +1,18 @@
 {
-  "parent": "l2weaponry:item/3d_hammer",
-  "textures": {
-    "layer0": "l2weaponry:item/3d/hammer/diamond"
+  "base": {
+    "parent": "l2weaponry:item/3d_hammer",
+    "textures": {
+      "layer0": "l2weaponry:item/3d/hammer/diamond"
+    }
+  },
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "l2weaponry:item/generated/diamond/hammer"
+      }
+    }
   }
 }

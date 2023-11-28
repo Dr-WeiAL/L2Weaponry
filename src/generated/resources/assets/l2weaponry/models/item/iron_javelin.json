@@ -1,5 +1,12 @@
 {
-  "parent": "l2weaponry:item/3d_javelin",
+  "base": {
+    "parent": "l2weaponry:item/3d_javelin",
+    "textures": {
+      "layer0": "l2weaponry:item/3d/javelin/iron"
+    }
+  },
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
   "overrides": [
     {
       "model": "l2weaponry:item/iron_javelin_throwing",
@@ -8,7 +15,12 @@
       }
     }
   ],
-  "textures": {
-    "layer0": "l2weaponry:item/3d/javelin/iron"
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "l2weaponry:item/generated/iron/javelin"
+      }
+    }
   }
 }

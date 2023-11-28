@@ -5,9 +5,13 @@ import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 
 import java.util.Locale;
 
@@ -37,9 +41,30 @@ public class LWGenItem {
 	public static <T extends Item> void model(LWToolTypes type, ILWToolMats mat, DataGenContext<Item, T> ctx,
 											  RegistrateItemModelProvider pvd, String matName, String toolName,
 											  boolean is3D) {
-		ResourceLocation texture = pvd.modLoc(is3D ?
-				"item/3d/" + toolName + "/" + matName :
-				"item/generated/" + matName + "/" + toolName);
+
+		if (is3D) {
+			ResourceLocation texture = pvd.modLoc("item/3d/" + toolName + "/" + matName);
+			String parent = "3d_" + toolName;
+			var model = mat.model(type, pvd.getBuilder(ctx.getName()));
+			if (type == LWToolTypes.JAVELIN) {
+				model.override().predicate(pvd.modLoc("throwing"), 1)
+						.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
+				mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/" + parent + "_throwing"))
+						.texture("layer0", texture));
+			}
+			ResourceLocation icon = pvd.modLoc("item/generated/" + matName + "/" + toolName);
+			model.guiLight(BlockModel.GuiLight.FRONT);
+			model.customLoader(SeparateTransformsModelBuilder::begin)
+					.base(mat.model(type, new ItemModelBuilder(null, pvd.existingFileHelper)
+							.parent(pvd.getExistingFile(pvd.modLoc("item/" + parent)))
+							.texture("layer0", texture)))
+					.perspective(ItemDisplayContext.GUI,
+							mat.model(type, new ItemModelBuilder(null, pvd.existingFileHelper)
+									.parent(pvd.getExistingFile(pvd.mcLoc("item/generated")))
+									.texture("layer0", icon)));
+			return;
+		}
+		ResourceLocation texture = pvd.modLoc("item/generated/" + matName + "/" + toolName);
 		if (type == LWToolTypes.ROUND_SHIELD) {
 			String str = mat.emissive() ? "_emissive" : "";
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/round_shield" + str))
@@ -63,12 +88,11 @@ public class LWGenItem {
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/handheld_throwing"))
 					.texture("layer0", texture));
 		} else if (type == LWToolTypes.JAVELIN) {
-			String parent = is3D ? "3d_javelin" : "long_weapon";
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + parent))
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/long_weapon"))
 							.texture("layer0", texture))
 					.override().predicate(pvd.modLoc("throwing"), 1)
 					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/" + parent + "_throwing"))
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/long_weapon_throwing"))
 					.texture("layer0", texture));
 		} else if (type == LWToolTypes.NUNCHAKU) {
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/nunchaku"))
@@ -77,10 +101,6 @@ public class LWGenItem {
 					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_spinning"))).end();
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_spinning", pvd.modLoc("item/nunchaku_spinning"))
 					.texture("layer0", pvd.modLoc("item/generated/" + matName + "/" + toolName + "_spinning")));
-		} else if (is3D) {
-			String parent = "3d_" + toolName;
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + parent))
-					.texture("layer0", texture));
 		} else if (type.customModel() != null) {
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + type.customModel()))
 					.texture("layer0", texture));
