@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "l2weaponry:item/3d_hammer",
   "textures": {
-    "layer0": "l2weaponry:item/generated/shulkerate/hammer"
+    "layer0": "l2weaponry:item/3d/hammer/shulkerate"
   }
 }

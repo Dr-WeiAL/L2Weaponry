@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "l2weaponry:item/3d_hammer",
   "textures": {
-    "layer0": "l2weaponry:item/generated/diamond/hammer"
+    "layer0": "l2weaponry:item/3d/hammer/diamond"
   }
 }

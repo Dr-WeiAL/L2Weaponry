@@ -63,6 +63,12 @@ public enum LWToolMats implements ILWToolMats {
 		return this == NETHERITE ? DIAMOND : null;
 	}
 
+	@Override
+	public boolean is3D(LWToolTypes type) {
+		return type == LWToolTypes.BATTLE_AXE || type == LWToolTypes.HAMMER ||
+				type == LWToolTypes.SPEAR || type == LWToolTypes.JAVELIN;
+	}
+
 	public Item getBlock() {
 		return block.get();
 	}

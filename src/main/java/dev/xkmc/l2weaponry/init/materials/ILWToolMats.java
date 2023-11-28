@@ -77,4 +77,8 @@ public interface ILWToolMats {
 		return null;
 	}
 
+	default boolean is3D(LWToolTypes type) {
+		return false;
+	}
+
 }

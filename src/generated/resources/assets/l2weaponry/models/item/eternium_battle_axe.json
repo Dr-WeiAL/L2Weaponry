@@ -1,6 +1,6 @@
 {
-  "parent": "l2weaponry:item/battle_axe",
+  "parent": "l2weaponry:item/3d_battle_axe",
   "textures": {
-    "layer0": "l2weaponry:item/generated/eternium/battle_axe"
+    "layer0": "l2weaponry:item/3d/battle_axe/eternium"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "l2weaponry:item/long_weapon",
+  "parent": "l2weaponry:item/3d_spear",
   "overrides": [
     {
       "model": "l2weaponry:item/sculkium_javelin_throwing",
@@ -9,6 +9,6 @@
     }
   ],
   "textures": {
-    "layer0": "l2weaponry:item/generated/sculkium/javelin"
+    "layer0": "l2weaponry:item/3d/javelin/sculkium"
   }
 }
