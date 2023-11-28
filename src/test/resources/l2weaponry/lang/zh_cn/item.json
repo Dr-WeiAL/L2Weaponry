@@ -38,10 +38,6 @@
 		  "steeleaf": "刚叶",
 		  "knightmetal": "骑士",
 		  "fiery": "炽铁",
-		  "dragon_bone": "龙骨",
-		  "ice_dragon_bone": "冰龙骨",
-		  "fire_dragon_bone": "火龙骨",
-		  "lightning_dragon_bone": "电龙骨",
 		  "volucite": "§2火山石",
 		  "ruby": "红宝石",
 		  "lunar": "§6狂月晶",
@@ -57,8 +53,7 @@
 		  "round_shield": "圆盾",
 		  "plate_shield": "重盾",
 		  "throwing_axe": "短柄斧",
-		  "javelin": "标枪",
-		  "nunchaku": "双截棍"
+		  "javelin": "标枪"
 		}
 	  ]
 	}
