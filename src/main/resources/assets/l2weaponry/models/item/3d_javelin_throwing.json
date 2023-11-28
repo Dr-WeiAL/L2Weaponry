@@ -1,0 +1,11 @@
+{
+  "parent": "l2weaponry:item/3d_javelin",
+  "display": {
+	"thirdperson_righthand": {
+	  "rotation": [-45, 0, 0]
+	},
+	"ground": {
+	  "translation": [0, 23.25, 0]
+	}
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "parent": "l2weaponry:item/3d_spear",
+  "parent": "l2weaponry:item/3d_javelin",
   "overrides": [
     {
       "model": "l2weaponry:item/shulkerate_javelin_throwing",

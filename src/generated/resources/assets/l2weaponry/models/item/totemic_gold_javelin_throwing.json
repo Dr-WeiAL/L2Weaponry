@@ -1,5 +1,5 @@
 {
-  "parent": "l2weaponry:item/3d_spear_throwing",
+  "parent": "l2weaponry:item/3d_javelin_throwing",
   "textures": {
     "layer0": "l2weaponry:item/3d/javelin/totemic_gold"
   }

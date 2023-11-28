@@ -63,7 +63,7 @@ public class LWGenItem {
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/handheld_throwing"))
 					.texture("layer0", texture));
 		} else if (type == LWToolTypes.JAVELIN) {
-			String parent = is3D ? "3d_spear" : "long_weapon";
+			String parent = is3D ? "3d_javelin" : "long_weapon";
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + parent))
 							.texture("layer0", texture))
 					.override().predicate(pvd.modLoc("throwing"), 1)
