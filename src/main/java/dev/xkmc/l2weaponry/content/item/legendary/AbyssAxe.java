@@ -26,7 +26,9 @@ public class AbyssAxe extends BattleAxeItem implements LegendaryWeapon {
 	@Override
 	public void modifySource(LivingEntity attacker, CreateSourceEvent event, ItemStack item, @Nullable Entity target) {
 		super.modifySource(attacker, event, item, target);
-		if (target instanceof Mob mob && mob.getTarget() == attacker) {
+		target = LegendaryWeapon.getTarget(target);
+		if (target instanceof Mob mob && mob.getTarget() == attacker ||
+				attacker instanceof Mob self && self.getKillCredit() == attacker) {
 			event.enable(DefaultDamageState.BYPASS_MAGIC);
 		}
 	}

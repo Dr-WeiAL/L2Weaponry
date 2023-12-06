@@ -9,6 +9,17 @@ import net.minecraft.world.item.ItemStack;
 
 public interface LegendaryWeapon {
 
+	@Nullable
+	static LivingEntity getTarget(@Nullable Entity entity) {
+		if (entity == null) return null;
+		if (entity instanceof LivingEntity le) return le;
+		if (entity instanceof PartEntity<?> pe) {
+			if (pe.getParent() == entity) return null;
+			return getTarget(pe.getParent());
+		}
+		return null;
+	}
+
 	default boolean isImmuneTo(DamageSource source) {
 		return false;
 	}

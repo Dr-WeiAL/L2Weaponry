@@ -33,6 +33,9 @@ public class AbyssHammer extends HammerItem implements LegendaryWeapon {
 				.map(PlayerAttackCache::getCriticalHitEvent)
 				.filter(e -> e.isVanillaCritical() || e.getResult() == Event.Result.ALLOW)
 				.ifPresent(e -> event.enable(DefaultDamageState.BYPASS_MAGIC));
+		if (attacker instanceof Mob) {
+			event.enable(DefaultDamageState.BYPASS_MAGIC);
+		}
 	}
 
 	@Override
