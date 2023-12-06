@@ -45,7 +45,7 @@ public class LWGenItem {
 		if (is3D) {
 			ResourceLocation texture = pvd.modLoc("item/3d/" + toolName + "/" + matName);
 			String parent = "3d_" + toolName;
-			var model = mat.model(type, pvd.getBuilder(ctx.getName()));
+			var model = pvd.getBuilder(ctx.getName());
 			if (type == LWToolTypes.JAVELIN) {
 				model.override().predicate(pvd.modLoc("throwing"), 1)
 						.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();

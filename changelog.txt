@@ -1,0 +1,21 @@
+2.4.19
+- Use 3D model for hammer
+- Allow mobs to use abyss terror and abyss echo
+- Lightning caused by weapons from this mod won't burn items or set blocks on fire
+
+2.4.18
+- add Projection enchantment
+- fix machete enchantment effects not time out when hit stack ends
+
+2.4.17
+- Add special abilities to AH compat
+- fix logspam from compat tags and advancements
+
+2.4.16
+- Fix recipe related log spam
+- add Aerial Hell compat weapons (as requested by cixon)
+
+2.4.15
+- fix fiery shield rendering
+- add ghost slash enchantment
+- add claw shielding enchantment
