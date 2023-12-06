@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "l2weaponry.refmap.json",
   "mixins": [
+	"DrownedMixin",
+	"DrownedTridentAttackGoalMixin",
 	"ItemStackMixin",
 	"LightningBoltMixin",
 	"LivingEntityMixin",
@@ -12,7 +14,8 @@
 	"TargetGoalAccessor"
   ],
   "client": [
-	"ClientLocalPlayerMixin"
+	"ClientLocalPlayerMixin",
+	"DrownedModelMixin"
   ],
   "injectors": {
 	"defaultRequire": 1

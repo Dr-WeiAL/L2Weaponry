@@ -27,8 +27,9 @@ public class TagGen {
 	public static final TagKey<Item> ROUND_SHIELD = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "round_shield"));
 	public static final TagKey<Item> PLATE_SHIELD = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "plate_shield"));
 
-	public static final TagKey<Item> THROWIG_AXE = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "throwing_axe"));
+	public static final TagKey<Item> THROWING_AXE = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "throwing_axe"));
 	public static final TagKey<Item> JAVELIN = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "javelin"));
+	public static final TagKey<Item> THROWABLE = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "throwable"));
 
 	public static final TagKey<Item> NUNCHAKU = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "nunchaku"));
 
@@ -38,6 +39,7 @@ public class TagGen {
 	}
 
 	public static void onItemTagGen(RegistrateTagsProvider<Item> pvd) {
+		pvd.addTag(THROWABLE).addTag(JAVELIN).addTag(THROWING_AXE);
 		for (var e : LIST) {
 			pvd.addTag(e.getFirst()).addOptional(e.getSecond());
 		}
