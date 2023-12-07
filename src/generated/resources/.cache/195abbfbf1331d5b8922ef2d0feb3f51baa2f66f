@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-06T19:12:41.929017	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-12-06T23:55:55.554736	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (traits), Patchouli Provider]
 417ee27bb346a68aeeebaa52c581fc5ee383d843 assets/l2weaponry/lang/en_ud.json
 c20b08f6bd85105e40c7fbf30e1e87f0b84a4dbd assets/l2weaponry/lang/en_us.json
 b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
@@ -320,13 +320,13 @@ e2db4849afca2db75fe46b68257d3203f82109e9 data/l2weaponry/advancements/recipes/co
 a80ff4543a7ccf1c11cd6f14b5c8d666e88d78f1 data/l2weaponry/advancements/recipes/combat/generated/upgrade/diamond_round_shield.json
 6eaff734393ee13bdf0ad02099954ef0165932c1 data/l2weaponry/advancements/recipes/combat/generated/upgrade/diamond_spear.json
 1b221e9802c77aceef69ef515b00278017b120cb data/l2weaponry/advancements/recipes/combat/generated/upgrade/diamond_throwing_axe.json
-a4af610a4f15fefc621f170c8e7c111d58d690a1 data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_battle_axe.json
-1b3903f300df1ae809cd8a03764f2e62d931fc08 data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_dagger.json
-473bee9dceff541e16cce8c7af8d2c7ef1b91fe3 data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_hammer.json
-48413f851526b0aac74c9efed9161ff57310559a data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_javelin.json
-d7f6849cd2c7af7337f327f9ac6de66f63acaa3b data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_nunchaku.json
-a28a0362e2147d848d0f0f80489e40356e639f77 data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_spear.json
-e7952a2523637db0f4a3eb631efd1f15116e2d8f data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_throwing_axe.json
+c101c3d1a8eaa7f7173c74a11f122a6a0b32a803 data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_battle_axe.json
+f9438d0d3d2ac791a6c14fc2de663f2e0c7ac7a9 data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_dagger.json
+8e080fdf1539dd3fd7fb80a46f1a02c5b2e0544b data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_hammer.json
+b19799a29f9b30a70129e2bb045e841ea4e60f16 data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_javelin.json
+401aa8cde6fd7951769ceef68891d2139e0b9b0e data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_nunchaku.json
+91731ef304db126f83a486dfdde5215acffaf062 data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_spear.json
+90ef90735a93e3f30a2d11bce0f29cd63cb13844 data/l2weaponry/advancements/recipes/combat/generated/upgrade/dragon_bone_throwing_axe.json
 751974dd53b6d428c36de79d8c9bb8076e8628ec data/l2weaponry/advancements/recipes/combat/generated/upgrade/eternium_battle_axe.json
 c74bf39f4602b5ccabe7bb4a34010d45672cf263 data/l2weaponry/advancements/recipes/combat/generated/upgrade/eternium_claw.json
 becf8803252e5406229fecfdd73438455b10d3a1 data/l2weaponry/advancements/recipes/combat/generated/upgrade/eternium_dagger.json
@@ -1032,13 +1032,13 @@ a1a00ebce08ab1a4af706e6eed467d5f5b4ff55a data/l2weaponry/recipes/generated/upgra
 65f1efebb1812b5f4e0ae07436b922214494f0e5 data/l2weaponry/recipes/generated/upgrade/diamond_round_shield.json
 2088db5285b96428f98fdc06fc1f45a5ac38b272 data/l2weaponry/recipes/generated/upgrade/diamond_spear.json
 b07a71f85df8851c6e58b1bb0dabb17d26b840f4 data/l2weaponry/recipes/generated/upgrade/diamond_throwing_axe.json
-6cf8172f26df0ce582c21d712f98b74681f96b45 data/l2weaponry/recipes/generated/upgrade/dragon_bone_battle_axe.json
-49593a8eed2684ecff1c4b8af7813d88ca77f36a data/l2weaponry/recipes/generated/upgrade/dragon_bone_dagger.json
-9bce7392dcb07f14a6be0e226c86417fe53c3643 data/l2weaponry/recipes/generated/upgrade/dragon_bone_hammer.json
-be9a5609fdf74b422cc02603914c0fd1db5e1acb data/l2weaponry/recipes/generated/upgrade/dragon_bone_javelin.json
-1ea9db5f76a825e39fb92606db0209ca66f40a13 data/l2weaponry/recipes/generated/upgrade/dragon_bone_nunchaku.json
-8744e477f1f3f9cd570100b39d60126f44ee1b40 data/l2weaponry/recipes/generated/upgrade/dragon_bone_spear.json
-6ae699e22069941251d407641895dc251af7cbea data/l2weaponry/recipes/generated/upgrade/dragon_bone_throwing_axe.json
+248e21666a29ff8a433fb7f73a76c03789c2a065 data/l2weaponry/recipes/generated/upgrade/dragon_bone_battle_axe.json
+0a30394c98b88e14345015e3fb9f1852592cf904 data/l2weaponry/recipes/generated/upgrade/dragon_bone_dagger.json
+2b14d1274ba50b9bcd8bbefb39076c08ad35c84c data/l2weaponry/recipes/generated/upgrade/dragon_bone_hammer.json
+8aed2b4209d85a69ab0b9d68b43e0592a32ecc74 data/l2weaponry/recipes/generated/upgrade/dragon_bone_javelin.json
+9d69de31d46fdf0c19fc81135ff5bc2bcf323fd9 data/l2weaponry/recipes/generated/upgrade/dragon_bone_nunchaku.json
+d705097abb35e1fc67526b1e57e115ccd20caedb data/l2weaponry/recipes/generated/upgrade/dragon_bone_spear.json
+1ee4d96d23272ec2307b0f546ac1f4fc946ca4ad data/l2weaponry/recipes/generated/upgrade/dragon_bone_throwing_axe.json
 42297851dddbcac24d247e635e135c026f67e820 data/l2weaponry/recipes/generated/upgrade/eternium_battle_axe.json
 a9288c5b747bdb638e5dd5482dd9a7ccd14d172e data/l2weaponry/recipes/generated/upgrade/eternium_claw.json
 667eabe7261417d53f164213f6ebb9fd6d2b14a8 data/l2weaponry/recipes/generated/upgrade/eternium_dagger.json
@@ -1245,5 +1245,6 @@ f387a153129b0bd91df6fd726edcbf24d46cbff4 data/l2weaponry/tags/items/hammer.json
 26bf5b964cb1b5126f587a3727d926988cb9ade0 data/l2weaponry/tags/items/plate_shield.json
 01b1e441bb89512ec6cf3e8304f1c0972034e9a6 data/l2weaponry/tags/items/round_shield.json
 c1b8162ad414db627a7e5215c5329228316676d9 data/l2weaponry/tags/items/spear.json
+8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/l2weaponry/tags/items/throwable.json
 00b0e9bf4510f718e8154769a86221b7588e6fa9 data/l2weaponry/tags/items/throwing_axe.json
 4ab37eb3dc580ff1ff88e814ca291a0192381718 data/minecraft/tags/entity_types/impact_projectiles.json
