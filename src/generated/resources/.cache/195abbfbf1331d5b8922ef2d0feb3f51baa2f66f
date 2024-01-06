@@ -1,10 +1,10 @@
-// 1.20.1	2023-11-28T18:41:41.267946	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (traits), Patchouli Provider]
+// 1.20.1	2024-01-07T01:05:09.52009	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (traits), Patchouli Provider]
 7af99c9f7113fa5347211cbf15b258b229858747 assets/l2weaponry/lang/en_ud.json
 8f6ff910e53058aa3b841aba993df895c502fb6a assets/l2weaponry/lang/en_us.json
-b0d44c2f99bba080a78a79a9ac923a8810fae7be assets/l2weaponry/models/item/abyss_echo.json
+3da370b79689e4fe8f61f504d8170c349fb1b34c assets/l2weaponry/models/item/abyss_echo.json
 22506e91ca3739268a06e9228746033ec8fc719d assets/l2weaponry/models/item/abyss_resonance.json
 d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_shock.json
-ecc9028c3c0ec65173f2c41d3c9cdf91155a4a1b assets/l2weaponry/models/item/abyss_terror.json
+9f54fd5417a84248b3926a155817b1360969b81f assets/l2weaponry/models/item/abyss_terror.json
 08c645b078e4a3bf18a6edaa6bd0df30c4d93e4c assets/l2weaponry/models/item/arsonist_battle_axe.json
 f59be553eb0d002ae10fe9958c013f3bab851fa1 assets/l2weaponry/models/item/arsonist_claw.json
 e79bd1264d1fd04c0c188454c4e0fca1f312be49 assets/l2weaponry/models/item/arsonist_dagger.json
@@ -19,7 +19,7 @@ d48b28d50b25587c51b38703c656ac88c090dc51 assets/l2weaponry/models/item/arsonist_
 4714c787817978e0424e16cc8f18e57728a15918 assets/l2weaponry/models/item/arsonist_spear.json
 379dd6951fc77fc62472d9dafdc50cd6b10efc83 assets/l2weaponry/models/item/arsonist_throwing_axe.json
 9999068fd6deee120311ab694169092c850fc4f9 assets/l2weaponry/models/item/arsonist_throwing_axe_throwing.json
-be581300b330a1cc310367a6fc17ecf48d60b352 assets/l2weaponry/models/item/axe_of_cursed_flame.json
+4ea01d893704231b5622ae1f68edaef0d2e03e99 assets/l2weaponry/models/item/axe_of_cursed_flame.json
 54ef825581fcfe3e2082032ae501ec76d7c8b80b assets/l2weaponry/models/item/barbaric_hallow.json
 2bd7ffad46fcf23199c84d067e459836bb403bc8 assets/l2weaponry/models/item/barbaric_hallow_throwing.json
 81094316e9621e0ca5cc41d448d2db6c790a4827 assets/l2weaponry/models/item/blade_of_illusion.json
@@ -38,8 +38,8 @@ e6e4b04f4f3359339a2926de65127e15db25defb assets/l2weaponry/models/item/diamond_r
 d4361e09f262fbfa401e55ae6c14b2c7ab78f5b1 assets/l2weaponry/models/item/diamond_spear.json
 028ddea6449e7cdb12360de1c8cd18c4946f448b assets/l2weaponry/models/item/diamond_throwing_axe.json
 e261f15e4e655db3c2a6f45d7c96ceb323e7c882 assets/l2weaponry/models/item/diamond_throwing_axe_throwing.json
-de71d2d46c8017e18e2f5d8e2d5058d288ea57d0 assets/l2weaponry/models/item/dogmatic_punishment.json
-012124003222e5e11f375ecfb8565cdde807cf8a assets/l2weaponry/models/item/dogmatic_standoff.json
+92ddc2e3298177f9666727953751fbf5faadcec0 assets/l2weaponry/models/item/dogmatic_punishment.json
+ef4d2c9707ac928dec0a7c2675de60a23588ee55 assets/l2weaponry/models/item/dogmatic_standoff.json
 f4cd6a3b1b96a61273fb15ddee4d89ca71e8ae17 assets/l2weaponry/models/item/eternium_battle_axe.json
 5a0219ffd29c495cc11f2009a761ac6a8d73dd22 assets/l2weaponry/models/item/eternium_claw.json
 5ef7aa3c04b9c07411ed73757a0e451fca4a167c assets/l2weaponry/models/item/eternium_dagger.json
@@ -82,8 +82,8 @@ e3ed081d5843379309af097d99b67eeb8543404c assets/l2weaponry/models/item/gold_plat
 c11f537e80cdf22b0ff778ab28832ab34c5afe7c assets/l2weaponry/models/item/gold_spear.json
 6e0b8b16002f2eef40d76125d63ee981059d3940 assets/l2weaponry/models/item/gold_throwing_axe.json
 148257cf602177b4c7dcb96df70fb1066ebae9a6 assets/l2weaponry/models/item/gold_throwing_axe_throwing.json
-a64a203941a7c144b51a48b8f28168b603284e68 assets/l2weaponry/models/item/hammer_of_incarceration.json
-73a5497990bb8ec68d1aa0b15367ed60aa44df28 assets/l2weaponry/models/item/haunting_demon_of_the_end.json
+75990739dc79b8733ff63c0918c9e2d389e74852 assets/l2weaponry/models/item/hammer_of_incarceration.json
+a6639993b07d83503d5f00068112613e2c1afe76 assets/l2weaponry/models/item/haunting_demon_of_the_end.json
 444d6596018f5e6b9c427ef5f29d74c0eababdc9 assets/l2weaponry/models/item/iron_battle_axe.json
 4fa2ecc0d74e5d7f5ad1a0b221e6724d8dac8596 assets/l2weaponry/models/item/iron_claw.json
 7fc55a82dde0c50156f0543504778d385d6a4373 assets/l2weaponry/models/item/iron_dagger.json
@@ -207,7 +207,7 @@ d0b5f1e65ccdb852e10713e7e2ec756f0e8170e2 assets/l2weaponry/models/item/shulkerat
 85ee43338a9c4f750cde22ef5d6041993005056a assets/l2weaponry/models/item/shulkerate_spear.json
 482dd79072e787a1ee9de21b9eb70421aa8bf496 assets/l2weaponry/models/item/shulkerate_throwing_axe.json
 3784b42d295c5a7ee35df525ef018619271819d9 assets/l2weaponry/models/item/shulkerate_throwing_axe_throwing.json
-c2e898e8e0fad4611a8f32cebd0328358f1e3856 assets/l2weaponry/models/item/spear_of_winter_storm.json
+33f513dd772fcd8580a5295b42ca3773b08aec17 assets/l2weaponry/models/item/spear_of_winter_storm.json
 287a9765f3a36b18879b71580d42de13c0f0be33 assets/l2weaponry/models/item/steeleaf_battle_axe.json
 7f0dd581cb970b39921139c3e7e5ba9ce99a2b41 assets/l2weaponry/models/item/steeleaf_claw.json
 bb70c2f5ee84b44f604f42c325d5faf09875ac19 assets/l2weaponry/models/item/steeleaf_dagger.json
@@ -1112,5 +1112,6 @@ a2f742b0a521fa4f74b7f865cd9b9e473cb1430c data/l2weaponry/tags/items/claw.json
 26bf5b964cb1b5126f587a3727d926988cb9ade0 data/l2weaponry/tags/items/plate_shield.json
 01b1e441bb89512ec6cf3e8304f1c0972034e9a6 data/l2weaponry/tags/items/round_shield.json
 ac461fe06816cc90dfa36991740762a3fdda616c data/l2weaponry/tags/items/spear.json
+8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/l2weaponry/tags/items/throwable.json
 77ebfc76173a1ac5f76d8b0773f77e357af87b46 data/l2weaponry/tags/items/throwing_axe.json
 4ab37eb3dc580ff1ff88e814ca291a0192381718 data/minecraft/tags/entity_types/impact_projectiles.json

@@ -1,6 +1,15 @@
 {
-  "parent": "l2weaponry:item/long_weapon",
-  "textures": {
-    "layer0": "l2weaponry:item/generated/legendary/haunting_demon_of_the_end"
+  "base": {
+    "parent": "l2weaponry:item/3d_legendary/haunting_demon_of_the_end"
+  },
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "l2weaponry:item/generated/legendary/haunting_demon_of_the_end"
+      }
+    }
   }
 }

@@ -43,6 +43,21 @@ public class LWGenItem {
 											  boolean is3D) {
 
 		if (is3D) {
+			if (matName.equals("legendary")) {
+				String parent = "3d_legendary/" + toolName;
+				var model = pvd.getBuilder(ctx.getName());
+				// TODO javelin
+				ResourceLocation icon = pvd.modLoc("item/generated/" + matName + "/" + toolName);
+				model.guiLight(BlockModel.GuiLight.FRONT);
+				model.customLoader(SeparateTransformsModelBuilder::begin)
+						.base(mat.model(type, new ItemModelBuilder(null, pvd.existingFileHelper)
+								.parent(pvd.getExistingFile(pvd.modLoc("item/" + parent)))))
+						.perspective(ItemDisplayContext.GUI,
+								mat.model(type, new ItemModelBuilder(null, pvd.existingFileHelper)
+										.parent(pvd.getExistingFile(pvd.mcLoc("item/generated")))
+										.texture("layer0", icon)));
+				return;
+			}
 			ResourceLocation texture = pvd.modLoc("item/3d/" + toolName + "/" + matName);
 			String parent = "3d_" + toolName;
 			var model = pvd.getBuilder(ctx.getName());
