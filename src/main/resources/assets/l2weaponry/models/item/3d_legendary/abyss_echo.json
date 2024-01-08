@@ -3,7 +3,8 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"1": "l2weaponry:item/3d/legendary/sonic_boom_hammer",
-		"12": "l2weaponry:item/3d/legendary/abyss_echo_sheet"
+		"12": "l2weaponry:item/3d/legendary/abyss_echo_sheet",
+	    "particle": "l2weaponry:item/3d/legendary/abyss_echo_sheet"
 	},
 	"elements": [
 		{

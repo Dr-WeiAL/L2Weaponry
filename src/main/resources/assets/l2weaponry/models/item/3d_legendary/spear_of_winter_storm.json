@@ -4,7 +4,7 @@
 	"textures": {
 		"1": "l2weaponry:item/3d/legendary/spear_of_winter_storm",
 		"2": "l2weaponry:item/3d/legendary/snow",
-		"particle": "l2weaponry:item/3d/legendary/haunting_demon_of_the_end"
+		"particle": "l2weaponry:item/3d/legendary/spear_of_winter_storm"
 	},
 	"elements": [
 		{

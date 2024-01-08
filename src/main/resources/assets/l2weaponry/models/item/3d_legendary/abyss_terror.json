@@ -4,7 +4,7 @@
 	"textures": {
 		"2": "l2weaponry:item/3d/legendary/abyss_terror",
 		"5": "l2weaponry:item/3d/legendary/sonic_boom_axe",
-		"particle": "texture/abyss_terror"
+		"particle": "l2weaponry:item/3d/legendary/abyss_terror"
 	},
 	"elements": [
 		{

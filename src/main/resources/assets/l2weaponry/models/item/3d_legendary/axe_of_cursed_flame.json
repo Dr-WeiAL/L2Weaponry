@@ -2,7 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"3": "l2weaponry:item/3d/legendary/axe_of_cursed_flame"
+		"3": "l2weaponry:item/3d/legendary/axe_of_cursed_flame",
+	    "particle": "l2weaponry:item/3d/legendary/axe_of_cursed_flame"
 	},
 	"elements": [
 		{
