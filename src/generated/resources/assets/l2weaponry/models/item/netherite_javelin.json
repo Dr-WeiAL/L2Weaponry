@@ -1,12 +1,5 @@
 {
-  "base": {
-    "parent": "l2weaponry:item/3d_javelin",
-    "textures": {
-      "layer0": "l2weaponry:item/3d/javelin/netherite"
-    }
-  },
-  "gui_light": "front",
-  "loader": "forge:separate_transforms",
+  "parent": "l2weaponry:item/long_weapon",
   "overrides": [
     {
       "model": "l2weaponry:item/netherite_javelin_throwing",
@@ -15,12 +8,7 @@
       }
     }
   ],
-  "perspectives": {
-    "gui": {
-      "parent": "minecraft:item/generated",
-      "textures": {
-        "layer0": "l2weaponry:item/generated/netherite/javelin"
-      }
-    }
+  "textures": {
+    "layer0": "l2weaponry:item/generated/netherite/javelin"
   }
 }

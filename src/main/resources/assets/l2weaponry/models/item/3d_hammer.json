@@ -1,4 +1,5 @@
 {
+  "parent": "l2weaponry:item/3d_hammer_display",
   "credit": "Made with Blockbench",
   "texture_size": [
 	64,
@@ -471,91 +472,5 @@
 		}
 	  }
 	}
-  ],
-  "display": {
-	"thirdperson_righthand": {
-	  "translation": [
-		0,
-		-6.5,
-		1.5
-	  ]
-	},
-	"thirdperson_lefthand": {
-	  "translation": [
-		0,
-		-6.5,
-		1.5
-	  ]
-	},
-	"firstperson_righthand": {
-	  "rotation": [
-		-17.75,
-		19,
-		0
-	  ],
-	  "translation": [
-		1.5,
-		-3.75,
-		0
-	  ],
-	  "scale": [
-		0.8,
-		0.8,
-		0.8
-	  ]
-	},
-	"firstperson_lefthand": {
-	  "rotation": [
-		-17.75,
-		19,
-		0
-	  ],
-	  "translation": [
-		1.5,
-		-3.75,
-		0
-	  ],
-	  "scale": [
-		0.8,
-		0.8,
-		0.8
-	  ]
-	},
-	"ground": {
-	  "scale": [
-		0.7,
-		0.7,
-		0.7
-	  ]
-	},
-	"gui": {
-	  "rotation": [
-		-90,
-		-45,
-		-90
-	  ],
-	  "translation": [
-		-5.75,
-		-5.75,
-		0
-	  ],
-	  "scale": [
-		0.63,
-		0.63,
-		0.63
-	  ]
-	},
-	"fixed": {
-	  "rotation": [
-		0,
-		-90,
-		0
-	  ],
-	  "translation": [
-		0,
-		-9.5,
-		0
-	  ]
-	}
-  }
+  ]
 }

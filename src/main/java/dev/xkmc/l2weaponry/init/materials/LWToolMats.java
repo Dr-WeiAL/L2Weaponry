@@ -66,7 +66,7 @@ public enum LWToolMats implements ILWToolMats {
 	@Override
 	public boolean is3D(LWToolTypes type) {
 		return type == LWToolTypes.BATTLE_AXE || type == LWToolTypes.HAMMER ||
-				type == LWToolTypes.SPEAR || type == LWToolTypes.JAVELIN;
+				type == LWToolTypes.SPEAR;
 	}
 
 	public Item getBlock() {

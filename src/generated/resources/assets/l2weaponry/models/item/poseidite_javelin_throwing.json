@@ -1,6 +1,6 @@
 {
-  "parent": "l2weaponry:item/3d_javelin_throwing",
+  "parent": "l2weaponry:item/long_weapon_throwing",
   "textures": {
-    "layer0": "l2weaponry:item/3d/javelin/poseidite"
+    "layer0": "l2weaponry:item/generated/poseidite/javelin"
   }
 }

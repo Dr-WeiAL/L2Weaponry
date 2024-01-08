@@ -1,4 +1,5 @@
 {
+  	"parent": "l2weaponry:item/3d_spear_display",
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
@@ -149,35 +150,5 @@
 				"down": {"uv": [0.5, 5.5, 0.75, 6], "texture": "#1"}
 			}
 		}
-	],
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [-41.86, 7.58, 12.43],
-			"translation": [0.75, -3.75, 1.75]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [-34.33, 5.23, 12.75]
-		},
-		"firstperson_righthand": {
-			"rotation": [-36.25, 0, 0],
-			"translation": [10, 3.25, -7.5]
-		},
-		"firstperson_lefthand": {
-			"rotation": [-71.68, 1.91, -20.39],
-			"translation": [7, 0, 0]
-		},
-		"ground": {
-			"translation": [0, 16, 0]
-		},
-		"gui": {
-			"rotation": [90, 45, -90],
-			"translation": [-1, -1, 0],
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"fixed": {
-			"rotation": [0, 90, 0],
-			"translation": [0, -1, 0],
-			"scale": [0.4, 0.4, 0.4]
-		}
-	}
+	]
 }

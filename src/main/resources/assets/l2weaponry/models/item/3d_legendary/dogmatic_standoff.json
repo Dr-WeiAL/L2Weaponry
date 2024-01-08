@@ -1,4 +1,5 @@
 {
+  	"parent": "l2weaponry:item/3d_battle_axe_display",
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
@@ -267,34 +268,6 @@
 			}
 		}
 	],
-	"display": {
-		"thirdperson_righthand": {
-			"translation": [0, 0, 1]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 16.5, 0],
-			"translation": [0, -0.5, 0]
-		},
-		"firstperson_lefthand": {
-			"translation": [0, -6, 0]
-		},
-		"ground": {
-			"translation": [0, 12.25, 0]
-		},
-		"gui": {
-			"rotation": [90, 45, -90],
-			"translation": [-2, -2.5, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"head": {
-			"translation": [0, 2, 0]
-		},
-		"fixed": {
-			"rotation": [90, -45, 90],
-			"translation": [2.25, -3, 0],
-			"scale": [0.5, 0.5, 0.5]
-		}
-	},
 	"groups": [
 		0,
 		1,
