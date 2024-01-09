@@ -1,0 +1,54 @@
+{
+  "type": "ars_nouveau:enchantment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "enchantment": "l2weaponry:heavy_shield",
+  "level": 1,
+  "pedestalItems": [
+    {
+      "item": {
+        "item": "l2weaponry:reinforced_handle"
+      }
+    },
+    {
+      "item": {
+        "item": "l2weaponry:reinforced_handle"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:anvil"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:lapis_lazuli"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:lapis_lazuli"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:netherite_ingot"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:netherite_ingot"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:netherite_ingot"
+      }
+    }
+  ],
+  "sourceCost": 2000
+}

@@ -7,11 +7,14 @@ import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
+import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -104,6 +107,20 @@ public class LWAttackEventListener implements AttackListener {
 			weapon.onCrit(event.getEntity(), event.getTarget());
 		}
 		return false;
+	}
+
+	@Override
+	public void postAttack(AttackCache cache, LivingAttackEvent event, ItemStack stack) {
+		LivingEntity attacker = cache.getAttacker();
+		if (attacker == null) return;
+		if (stack.getItem() instanceof DoubleWieldItem item) {
+			if (stack.getEnchantmentLevel(LWEnchantments.GHOST_SLASH.get()) > 0 && cache.getStrength() >= 0.9) {
+				item.accumulateDamage(stack, attacker);
+				if (attacker instanceof Player player && !player.getAbilities().instabuild) {
+					stack.hurtAndBreak(1, player, e -> e.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+				}
+			}
+		}
 	}
 
 }

@@ -13,7 +13,7 @@ description='''
 [[dependencies.l2weaponry]]
     modId="forge"
     mandatory=true
-    versionRange="[46.0.0,)"
+    versionRange="[47.1.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.l2weaponry]]
@@ -25,13 +25,13 @@ description='''
 [[dependencies.l2weaponry]]
     modId="l2library"
     mandatory=true
-    versionRange="[2.4.6,)"
+    versionRange="[2.4.21,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.l2weaponry]]
     modId="l2complements"
     mandatory=true
-    versionRange="[2.4.7,)"
+    versionRange="[2.4.27,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.l2weaponry]]

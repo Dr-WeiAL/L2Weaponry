@@ -2,6 +2,9 @@
 - Use 3D model for hammer
 - Allow mobs to use abyss terror and abyss echo
 - Lightning caused by weapons from this mod won't burn items or set blocks on fire
+- Allow drowned to use throwable
+- Allow Ghost Slash to stack when hitting things immune to it
+- Adopt Ars Nouveau compat
 
 2.4.18
 - add Projection enchantment
