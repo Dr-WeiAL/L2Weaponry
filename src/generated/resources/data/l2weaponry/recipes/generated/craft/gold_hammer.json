@@ -15,7 +15,8 @@
     " H "
   ],
   "result": {
-    "item": "l2weaponry:gold_hammer"
+    "item": "l2weaponry:gold_hammer",
+    "nbt": "{Enchantments:[{id:\"l2complements:cubic_digging\",lvl:1s}]}"
   },
   "show_notification": true
 }

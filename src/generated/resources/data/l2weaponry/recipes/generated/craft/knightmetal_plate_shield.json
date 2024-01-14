@@ -21,8 +21,7 @@
     " I "
   ],
   "result": {
-    "item": "l2weaponry:knightmetal_plate_shield",
-    "nbt": "{Damage:0}"
+    "item": "l2weaponry:knightmetal_plate_shield"
   },
   "show_notification": true
 }

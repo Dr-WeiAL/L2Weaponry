@@ -1,3 +1,9 @@
+2.4.20
+- Add compat with PST
+- Add compat with X-Enchant
+- Add hammer, spear, battle axe, javelin default enchantments
+- Add Ironwood, Steeleaf, Fiery default enchantments
+
 2.4.19
 - Use 3D model for hammer
 - Allow mobs to use abyss terror and abyss echo

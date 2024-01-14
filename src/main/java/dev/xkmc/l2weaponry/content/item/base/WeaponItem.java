@@ -24,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class WeaponItem extends TieredItem {
 
-	protected float attackDamage, attackSpeed;
+	public float attackDamage, attackSpeed;
 	/**
 	 * Modifiers applied when the item is in the mainhand of a user.
 	 */

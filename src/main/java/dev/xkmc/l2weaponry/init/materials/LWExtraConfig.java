@@ -5,8 +5,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public interface LWExtraConfig {
 
@@ -18,8 +20,7 @@ public interface LWExtraConfig {
 		return reflect;
 	}
 
-	default ItemStack getDefaultStack(Item item) {
-		return item.getDefaultInstance();
+	default void addEnchants(List<EnchantmentInstance> list, LWToolTypes type, Item tool) {
 	}
 
 	@Nullable

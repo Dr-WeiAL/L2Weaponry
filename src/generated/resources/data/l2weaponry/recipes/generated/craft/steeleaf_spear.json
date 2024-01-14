@@ -22,7 +22,7 @@
   ],
   "result": {
     "item": "l2weaponry:steeleaf_spear",
-    "nbt": "{Damage:0}"
+    "nbt": "{Enchantments:[{id:\"l2complements:plane_digging\",lvl:1s},{id:\"minecraft:sharpness\",lvl:2s},{id:\"minecraft:looting\",lvl:2s}]}"
   },
   "show_notification": true
 }

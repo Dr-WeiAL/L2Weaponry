@@ -2,15 +2,20 @@ package dev.xkmc.l2weaponry.init.materials;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
+import dev.xkmc.l2library.serial.recipe.NBTRecipe;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public interface ILWToolMats {
@@ -33,8 +38,20 @@ public interface ILWToolMats {
 		return Items.CHAIN;
 	}
 
+	default void addEnchants(List<EnchantmentInstance> list, LWToolTypes type) {
+	}
+
 	default void saveRecipe(ShapedRecipeBuilder b, RegistrateRecipeProvider pvd, LWToolTypes type, ResourceLocation id) {
-		b.save(getProvider(pvd), id);
+		var cond = getProvider(pvd);
+		ItemStack stack = getToolEnchanted(type);
+		if (stack.isEnchanted()) {
+			if (stack.getTag() != null) {
+				stack.getTag().remove("Damage");
+				b.save(e -> cond.accept(new NBTRecipe(e, stack)), id);
+				return;
+			}
+		}
+		b.save(cond, id);
 	}
 
 	default String englishName() {
@@ -79,6 +96,18 @@ public interface ILWToolMats {
 
 	default boolean is3D(LWToolTypes type) {
 		return false;
+	}
+
+	default ItemStack getToolEnchanted(LWToolTypes type) {
+		List<EnchantmentInstance> enchs = new ArrayList<>(type.getEnchs());
+		addEnchants(enchs, type);
+		ItemStack stack = getTool(type).getDefaultInstance();
+		if (!enchs.isEmpty()) {
+			for (var e : enchs) {
+				stack.enchant(e.enchantment, e.level);
+			}
+		}
+		return stack;
 	}
 
 }

@@ -5,6 +5,7 @@ import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
+import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -32,6 +33,7 @@ public class LWGenItem {
 								p -> mat.type().getToolConfig().sup().get(mat.type(), type, mat.fireRes() ? p.fireResistant() : p))
 						.optionalTag(mat.isOptional(), type.tag)
 						.model((ctx, pvd) -> model(type, mat, ctx, pvd, mat_name, tool_name, mat.is3D(type)))
+						.tab(LWItems.TAB.getKey(), e -> e.accept(mat.getToolEnchanted(type)))
 						.lang(mat.prefix() + RegistrateLangProvider.toEnglishName(english + "_" + tool_name)).register();
 			}
 		}

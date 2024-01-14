@@ -15,7 +15,8 @@
     "H  "
   ],
   "result": {
-    "item": "l2weaponry:shulkerate_battle_axe"
+    "item": "l2weaponry:shulkerate_battle_axe",
+    "nbt": "{Enchantments:[{id:\"l2complements:tree_chopping\",lvl:1s}]}"
   },
   "show_notification": true
 }

@@ -21,8 +21,7 @@
     " H "
   ],
   "result": {
-    "item": "l2weaponry:knightmetal_machete",
-    "nbt": "{Damage:0}"
+    "item": "l2weaponry:knightmetal_machete"
   },
   "show_notification": true
 }

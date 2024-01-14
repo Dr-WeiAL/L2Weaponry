@@ -22,7 +22,7 @@
   ],
   "result": {
     "item": "l2weaponry:fiery_spear",
-    "nbt": "{Damage:0}"
+    "nbt": "{Enchantments:[{id:\"l2complements:plane_digging\",lvl:1s},{id:\"l2complements:smelt\",lvl:1s}]}"
   },
   "show_notification": true
 }

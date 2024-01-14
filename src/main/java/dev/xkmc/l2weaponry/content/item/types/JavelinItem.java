@@ -26,7 +26,7 @@ public class JavelinItem extends BaseThrowableWeaponItem {
 	public static final AttributeModifier REACH = new AttributeModifier(MathHelper.getUUIDFromString("javelin_reach"), "javelin_reach", 2, AttributeModifier.Operation.ADDITION);
 
 	public JavelinItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_HOE);
+		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_PICKAXE);
 	}
 
 	@Override

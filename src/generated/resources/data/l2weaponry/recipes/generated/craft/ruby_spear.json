@@ -21,7 +21,8 @@
     "H  "
   ],
   "result": {
-    "item": "l2weaponry:ruby_spear"
+    "item": "l2weaponry:ruby_spear",
+    "nbt": "{Enchantments:[{id:\"l2complements:plane_digging\",lvl:1s}]}"
   },
   "show_notification": true
 }

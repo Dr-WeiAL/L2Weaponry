@@ -20,8 +20,7 @@
     "H "
   ],
   "result": {
-    "item": "l2weaponry:knightmetal_dagger",
-    "nbt": "{Damage:0}"
+    "item": "l2weaponry:knightmetal_dagger"
   },
   "show_notification": true
 }

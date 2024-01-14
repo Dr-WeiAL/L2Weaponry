@@ -21,8 +21,7 @@
     " I "
   ],
   "result": {
-    "item": "l2weaponry:fiery_round_shield",
-    "nbt": "{Damage:0}"
+    "item": "l2weaponry:fiery_round_shield"
   },
   "show_notification": true
 }

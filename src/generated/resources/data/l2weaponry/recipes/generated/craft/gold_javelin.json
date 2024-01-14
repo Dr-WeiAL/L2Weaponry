@@ -15,7 +15,8 @@
     "I  "
   ],
   "result": {
-    "item": "l2weaponry:gold_javelin"
+    "item": "l2weaponry:gold_javelin",
+    "nbt": "{Enchantments:[{id:\"l2complements:drill_digging\",lvl:1s}]}"
   },
   "show_notification": true
 }

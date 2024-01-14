@@ -24,8 +24,7 @@
     "H H"
   ],
   "result": {
-    "item": "l2weaponry:knightmetal_claw",
-    "nbt": "{Damage:0}"
+    "item": "l2weaponry:knightmetal_claw"
   },
   "show_notification": true
 }

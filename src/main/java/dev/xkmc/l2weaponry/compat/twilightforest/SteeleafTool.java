@@ -6,17 +6,33 @@ import dev.xkmc.l2damagetracker.contents.attack.DamageModifier;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.base.effects.EffectUtil;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
+import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
+import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
+import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
+import net.minecraft.world.item.enchantment.Enchantments;
 
 import java.util.List;
 
 public class SteeleafTool extends ExtraToolConfig implements LWExtraConfig {
+
+	@Override
+	public void addEnchants(List<EnchantmentInstance> list, LWToolTypes type, Item tool) {
+		if (tool instanceof LWTieredItem weapon && weapon.isSharp()) {
+			list.add(new EnchantmentInstance(Enchantments.SHARPNESS, 2));
+		}
+		if (tool instanceof GenericWeaponItem) {
+			list.add(new EnchantmentInstance(Enchantments.MOB_LOOTING, 2));
+		}
+	}
 
 	private boolean canTrigger(LivingEntity target) {
 		return target.getAttribute(Attributes.ARMOR) == null || target.getAttributeValue(Attributes.ARMOR) == 0;

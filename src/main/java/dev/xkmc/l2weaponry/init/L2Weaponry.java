@@ -1,10 +1,11 @@
 package dev.xkmc.l2weaponry.init;
 
+import com.doo.xenchantment.XEnchantment;
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.l2complements.events.ItemUseEventHandler;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
-import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2weaponry.compat.GolemCompat;
+import dev.xkmc.l2weaponry.compat.XEnchCompat;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
 import dev.xkmc.l2weaponry.events.LWClickListener;
@@ -56,7 +57,12 @@ public class L2Weaponry {
 
 	@SubscribeEvent
 	public static void setup(final FMLCommonSetupEvent event) {
-		event.enqueueWork(() -> AttackEventHandler.register(4000, new LWAttackEventListener()));
+		event.enqueueWork(() -> {
+			AttackEventHandler.register(4000, new LWAttackEventListener());
+			if (ModList.get().isLoaded(XEnchantment.MOD_ID)) {
+				XEnchCompat.onInit();
+			}
+		});
 	}
 
 	@SubscribeEvent

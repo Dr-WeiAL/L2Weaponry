@@ -21,7 +21,7 @@
   ],
   "result": {
     "item": "l2weaponry:fiery_throwing_axe",
-    "nbt": "{Damage:0}"
+    "nbt": "{Enchantments:[{id:\"l2complements:smelt\",lvl:1s}]}"
   },
   "show_notification": true
 }

@@ -22,7 +22,7 @@
   ],
   "result": {
     "item": "l2weaponry:ironwood_plate_shield",
-    "nbt": "{Damage:0}"
+    "nbt": "{Enchantments:[{id:\"minecraft:unbreaking\",lvl:2s}]}"
   },
   "show_notification": true
 }

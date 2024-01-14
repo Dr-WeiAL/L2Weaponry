@@ -25,7 +25,7 @@
   ],
   "result": {
     "item": "l2weaponry:steeleaf_claw",
-    "nbt": "{Damage:0}"
+    "nbt": "{Enchantments:[{id:\"minecraft:sharpness\",lvl:2s},{id:\"minecraft:looting\",lvl:2s}]}"
   },
   "show_notification": true
 }

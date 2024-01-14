@@ -20,8 +20,7 @@
     "IH"
   ],
   "result": {
-    "item": "l2weaponry:knightmetal_throwing_axe",
-    "nbt": "{Damage:0}"
+    "item": "l2weaponry:knightmetal_throwing_axe"
   },
   "show_notification": true
 }

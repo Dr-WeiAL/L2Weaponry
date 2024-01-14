@@ -24,7 +24,7 @@ public class HammerItem extends SlowWieldItem {
 	}
 
 	@Override
-	protected boolean isSharp() {
+	public boolean isSharp() {
 		return false;
 	}
 

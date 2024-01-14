@@ -22,7 +22,7 @@
   ],
   "result": {
     "item": "l2weaponry:knightmetal_hammer",
-    "nbt": "{Damage:0}"
+    "nbt": "{Enchantments:[{id:\"l2complements:cubic_digging\",lvl:1s}]}"
   },
   "show_notification": true
 }

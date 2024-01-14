@@ -15,7 +15,8 @@
     "H  "
   ],
   "result": {
-    "item": "l2weaponry:iron_spear"
+    "item": "l2weaponry:iron_spear",
+    "nbt": "{Enchantments:[{id:\"l2complements:plane_digging\",lvl:1s}]}"
   },
   "show_notification": true
 }
