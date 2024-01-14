@@ -22,7 +22,9 @@
 	"claw_shielding": "格挡",
 	"claw_shielding.desc": "提升刃爪格挡时间。主副手起效",
 	"projection": "投影",
-	"projection.desc": "投掷武器不消耗物品，不可拾取"
+	"projection.desc": "投掷武器不消耗物品，不可拾取",
+	"instant_shot": "速射",
+	"instant_shot.desc": "右键直接投出武器，但是会有冷却。蹲下不会触发"
   },
   "l2weaponry": {
 	"mats.tf": {

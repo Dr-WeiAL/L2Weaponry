@@ -203,6 +203,14 @@ public class RecipeGen {
 					.define('E', LCMats.POSEIDITE.getIngot())
 					.define('C', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.PROJECTION.get()));
+
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.INSTANT_THROWING.get(), 1)::unlockedBy, LCItems.STORM_CORE.get())
+					.pattern(" B ").pattern("C1C").pattern(" E ")
+					.define('1', new EnchantmentIngredient(Enchantments.QUICK_CHARGE, 1))
+					.define('B', LCItems.STORM_CORE)
+					.define('E', Items.CROSSBOW)
+					.define('C', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.INSTANT_THROWING.get()));
 		}
 
 		// jeed

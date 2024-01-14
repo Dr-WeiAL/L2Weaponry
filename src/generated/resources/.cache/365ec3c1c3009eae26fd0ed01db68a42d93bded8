@@ -1,6 +1,6 @@
-// 1.20.1	2024-01-13T19:16:10.064014	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (mob_effects), Tags (traits), Patchouli Provider]
-7af99c9f7113fa5347211cbf15b258b229858747 assets/l2weaponry/lang/en_ud.json
-8f6ff910e53058aa3b841aba993df895c502fb6a assets/l2weaponry/lang/en_us.json
+// 1.20.1	2024-01-13T19:39:38.990586	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (mob_effects), Tags (traits), Patchouli Provider]
+b6c367488df89f3d63b8f9a674901964cfd5e42e assets/l2weaponry/lang/en_ud.json
+f25a28230bac7555e2d1cdb35c6ed03c16aabe4c assets/l2weaponry/lang/en_us.json
 3da370b79689e4fe8f61f504d8170c349fb1b34c assets/l2weaponry/models/item/abyss_echo.json
 22506e91ca3739268a06e9228746033ec8fc719d assets/l2weaponry/models/item/abyss_resonance.json
 d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_shock.json
@@ -444,6 +444,7 @@ e677a63e51cc2e87f6d67b7cdcb7de75d9fb5049 data/l2weaponry/advancements/recipes/en
 181c7a5ef66f6feff960ed890396c9b82f66bf2e data/l2weaponry/advancements/recipes/enchantments/enchantments/hard_shield.json
 34d64621c339c03501d86f095a1f5fcd0e9c1142 data/l2weaponry/advancements/recipes/enchantments/enchantments/heavy.json
 9e089ab914f9988faf9ddc4c666754285d5a8669 data/l2weaponry/advancements/recipes/enchantments/enchantments/heavy_shield.json
+3132eb760b82280538a5ca58942960fad51097bc data/l2weaponry/advancements/recipes/enchantments/enchantments/instant_shot.json
 d3e9e84f45c53d4195e33c8900503fa905ece75b data/l2weaponry/advancements/recipes/enchantments/enchantments/projection.json
 0691bce96984436ac37ca867d89b143c0ab3b286 data/l2weaponry/advancements/recipes/enchantments/enchantments/raised_spirit.json
 ff97e71aaf758ca671540c88a953a8e363b4daf6 data/l2weaponry/advancements/recipes/enchantments/enchantments/stealth.json
@@ -688,6 +689,8 @@ bd3c54085a8d05eada94cdfcca013263d18096af data/l2weaponry/recipes/enchantments/ha
 2e69b3c4ea261875776c5d4f2b7f5cd1c5cea72a data/l2weaponry/recipes/enchantments/heavy_ars.json
 dae676e8c7c5dcea66f61adfe94c5d4b870cc407 data/l2weaponry/recipes/enchantments/heavy_shield.json
 726dfc20c7967e230799654ee7f757d11f726182 data/l2weaponry/recipes/enchantments/heavy_shield_ars.json
+ec300af7ef40f121c8acc5689f4608282cb5acdf data/l2weaponry/recipes/enchantments/instant_shot.json
+f64755264d3638dca369673f2b913902f7c08c0b data/l2weaponry/recipes/enchantments/instant_shot_ars.json
 18dfedc01a9614eb0cc014a585c4070b03d3ede4 data/l2weaponry/recipes/enchantments/projection.json
 a828b683a671d84ba101c6cf649034306fd6c953 data/l2weaponry/recipes/enchantments/projection_ars.json
 1ce87618e82bee9007ce5dbbbb918139e0ab24f3 data/l2weaponry/recipes/enchantments/raised_spirit.json

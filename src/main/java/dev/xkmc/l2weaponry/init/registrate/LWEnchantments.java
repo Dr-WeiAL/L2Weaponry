@@ -43,6 +43,7 @@ public class LWEnchantments {
 
 	public static final RegistryEntry<EnderHandEnchantment> ENDER_HAND;
 	public static final RegistryEntry<ProjectionEnchantment> PROJECTION;
+	public static final RegistryEntry<SingleLevelEnchantment> INSTANT_THROWING;
 	public static final RegistryEntry<StealthEnchantment> NO_AGGRO;
 	public static final RegistryEntry<HeavyEnchantment> HEAVY;
 	public static final RegistryEntry<HardShieldEnchantment> HARD_SHIELD;
@@ -61,6 +62,11 @@ public class LWEnchantments {
 
 		PROJECTION = reg("projection", THROWABLE, ProjectionEnchantment::new,
 				"Thrown attacks will not consume the used weapon")
+				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
+				.defaultLang().register();
+
+		INSTANT_THROWING = reg("instant_shot", THROWABLE, SingleLevelEnchantment::new,
+				"Throw the weapon out immediately on right click when not sneaking")
 				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
 				.defaultLang().register();
 

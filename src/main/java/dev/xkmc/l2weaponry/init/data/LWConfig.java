@@ -40,6 +40,7 @@ public class LWConfig {
 		public final ForgeConfigSpec.DoubleValue hardShieldDefenseBonus;
 		public final ForgeConfigSpec.DoubleValue raisedSpiritSpeedBonus;
 		public final ForgeConfigSpec.DoubleValue energizedWillReachBonus;
+		public final ForgeConfigSpec.IntValue instantThrowCooldown;
 
 		public final ForgeConfigSpec.DoubleValue knightmetalBonus;
 		public final ForgeConfigSpec.DoubleValue knightmetalReflect;
@@ -99,7 +100,8 @@ public class LWConfig {
 					.defineInRange("raisedSpiritSpeedBonus", 0.01, 0.0001, 100);
 			energizedWillReachBonus = builder.comment("Energized Will enchantment bonus on attack range per stacking level per enchantment level")
 					.defineInRange("energizedWillReachBonus", 0.02, 0.0001, 100);
-
+			instantThrowCooldown = builder.comment("Cooldown for Instant Throwing")
+					.defineInRange("instantThrowCooldown", 60, 1, 6000);
 			builder.pop();
 
 			builder.push("Twilight Forest Compat");

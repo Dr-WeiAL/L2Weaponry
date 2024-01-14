@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "ars_nouveau"
+      }
+    }
+  ],
+  "key": {
+    "1": {
+      "type": "l2library:enchantment",
+      "enchantment": "minecraft:quick_charge",
+      "min_level": 1
+    },
+    "B": {
+      "item": "l2complements:storm_core"
+    },
+    "C": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "E": {
+      "item": "minecraft:crossbow"
+    }
+  },
+  "pattern": [
+    " B ",
+    "C1C",
+    " E "
+  ],
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "nbt": {
+      "StoredEnchantments": [
+        {
+          "id": "l2weaponry:instant_shot",
+          "lvl": 1
+        }
+      ]
+    }
+  }
+}
