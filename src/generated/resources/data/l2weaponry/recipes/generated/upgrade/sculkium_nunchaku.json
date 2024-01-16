@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "l2complements:sculkium_block"
+  },
+  "base": {
+    "tag": "l2weaponry:nunchaku"
+  },
+  "result": {
+    "item": "l2weaponry:sculkium_nunchaku"
+  },
+  "template": []
+}

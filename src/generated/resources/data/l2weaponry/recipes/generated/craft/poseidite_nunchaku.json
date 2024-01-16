@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "H": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "I": {
+      "item": "l2complements:poseidite_ingot"
+    }
+  },
+  "pattern": [
+    " C ",
+    "H H",
+    "I I"
+  ],
+  "result": {
+    "item": "l2weaponry:poseidite_nunchaku"
+  },
+  "show_notification": true
+}

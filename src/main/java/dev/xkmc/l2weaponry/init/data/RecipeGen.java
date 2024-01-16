@@ -299,7 +299,7 @@ public class RecipeGen {
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.PLATE_SHIELD, "III", "IHI", " I ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.THROWING_AXE, "II", "IH");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.JAVELIN, "  I", " H ", "I  ");
-		buildTool(pvd, handle, ingot, mat, LWToolTypes.NUNCHAKU, " C ", "I I", "I I");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.NUNCHAKU, " C ", "H H", "I I");
 		currentFolder = "generated/upgrade/";
 		for (LWToolTypes t : LWToolTypes.values()) {
 			if (!mat.hasTool(t)) continue;

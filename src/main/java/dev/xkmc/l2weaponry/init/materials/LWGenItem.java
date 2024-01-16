@@ -116,8 +116,11 @@ public class LWGenItem {
 							.texture("layer0", texture))
 					.override().predicate(pvd.modLoc("spinning"), 1)
 					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_spinning"))).end();
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_spinning", pvd.modLoc("item/nunchaku_spinning"))
-					.texture("layer0", pvd.modLoc("item/generated/" + matName + "/" + toolName + "_spinning")));
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_spinning", pvd.modLoc("item/nunchaku_spinning")));
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_roll", pvd.modLoc("item/nunchaku_roll"))
+					.texture("layer0", pvd.modLoc("item/generated/" + matName + "/" + toolName + "_roll")));
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_unroll", pvd.modLoc("item/nunchaku_unroll"))
+					.texture("layer0", pvd.modLoc("item/generated/" + matName + "/" + toolName + "_unroll")));
 		} else if (type.customModel() != null) {
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + type.customModel()))
 					.texture("layer0", texture));

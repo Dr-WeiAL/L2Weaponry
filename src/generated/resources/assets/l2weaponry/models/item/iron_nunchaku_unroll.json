@@ -1,0 +1,6 @@
+{
+  "parent": "l2weaponry:item/nunchaku_unroll",
+  "textures": {
+    "layer0": "l2weaponry:item/generated/iron/nunchaku_unroll"
+  }
+}

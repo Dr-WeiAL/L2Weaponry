@@ -59,9 +59,16 @@ public enum LWToolMats implements ILWToolMats {
 	}
 
 	@Override
+	public boolean hasTool(LWToolTypes type) {
+		return true;
+	}
+
+	@Override
 	public @Nullable ILWToolMats getBaseUpgrade() {
 		return this == NETHERITE ? DIAMOND : null;
 	}
+
+
 
 	@Override
 	public boolean is3D(LWToolTypes type) {

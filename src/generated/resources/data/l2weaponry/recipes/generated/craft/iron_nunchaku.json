@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    " C ",
+    "H H",
+    "I I"
+  ],
+  "result": {
+    "item": "l2weaponry:iron_nunchaku"
+  },
+  "show_notification": true
+}

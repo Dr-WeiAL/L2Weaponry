@@ -48,7 +48,8 @@
 	  "round_shield": "持盾防御时不减速且可以疾跑",
 	  "spear": "长距离横扫攻击",
 	  "throwing_axe": "可投掷",
-	  "javelin": "投掷时可穿透多个目标"
+	  "javelin": "投掷时可穿透多个目标",
+	  "nunchaku": "按住右键以持续攻击"
 	},
 	"legendary": {
 	  "axe_of_cursed_flame": "对攻击的目标施加魂火，持有者免疫火焰伤害",

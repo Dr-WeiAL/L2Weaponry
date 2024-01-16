@@ -1,0 +1,6 @@
+{
+  "parent": "l2weaponry:item/nunchaku_roll",
+  "textures": {
+    "layer0": "l2weaponry:item/generated/eternium/nunchaku_roll"
+  }
+}

@@ -26,6 +26,7 @@ public enum LangData {
 
 	TOOL_THROWING_AXE("tool.throwing_axe", "You can throw this axe toward target.", 0),
 	TOOL_JAVELIN("tool.javelin", "Pierce through multiple enemies when thrown", 0),
+	TOOL_NUNCHAKU("tool.nunchaku", "Hold Right Click to perform continuous attack", 0),
 
 	FLAME_AXE("legendary.axe_of_cursed_flame", "Inflict soul flame on targets. Protect holder from fire damage.", 0),
 	BLACK_HAMMER("legendary.hammer_of_incarceration", "Immobilize enemies within %s blocks when performed a falling attack.", 1),

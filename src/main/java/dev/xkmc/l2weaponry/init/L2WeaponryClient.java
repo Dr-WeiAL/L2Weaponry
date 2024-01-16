@@ -8,12 +8,14 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.client.event.RegisterItemDecorationsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = L2Weaponry.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class L2WeaponryClient {
@@ -59,6 +61,14 @@ public class L2WeaponryClient {
 	@SubscribeEvent
 	public static void onResourceReload(RegisterClientReloadListenersEvent event) {
 
+	}
+
+	@SubscribeEvent
+	public static void onModelLoad(ModelEvent.RegisterAdditional event) {
+		for (var item : LWItems.NUNCHAKU_DECO) {
+			event.register(ForgeRegistries.ITEMS.getKey(item).withPath(e -> "item/" + e + "_roll"));
+			event.register(ForgeRegistries.ITEMS.getKey(item).withPath(e -> "item/" + e + "_unroll"));
+		}
 	}
 
 }
