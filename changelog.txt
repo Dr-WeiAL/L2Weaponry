@@ -1,8 +1,9 @@
 2.4.20
+- Weapons now cost 1 durability for mining
+- Add hammer, spear, battleaxe, javelin default enchantments
+- Add Ironwood, Steeleaf, Fiery default enchantments
 - Add compat with PST
 - Add compat with X-Enchant
-- Add hammer, spear, battle axe, javelin default enchantments
-- Add Ironwood, Steeleaf, Fiery default enchantments
 
 2.4.19
 - Use 3D model for hammer

@@ -62,8 +62,8 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 
 	@Override
 	public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
-		if (config.sword_mine > 0 && state.getDestroySpeed(level, pos) != 0.0F) {
-			stack.hurtAndBreak(config.sword_mine, entity, (l) -> l.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+		if (config.tool_mine > 0 && state.getDestroySpeed(level, pos) != 0.0F) {
+			stack.hurtAndBreak(config.tool_mine, entity, (l) -> l.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		}
 		return true;
 	}
