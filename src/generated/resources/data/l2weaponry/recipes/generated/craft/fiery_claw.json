@@ -25,7 +25,7 @@
   ],
   "result": {
     "item": "l2weaponry:fiery_claw",
-    "nbt": "{Enchantments:[{id:\"l2complements:smelt\",lvl:1s}]}"
+    "nbt": "{Enchantments:[{id:\"minecraft:sweeping\",lvl:2s},{id:\"l2complements:smelt\",lvl:1s}]}"
   },
   "show_notification": true
 }

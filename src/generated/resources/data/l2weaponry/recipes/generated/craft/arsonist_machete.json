@@ -21,7 +21,8 @@
     " H "
   ],
   "result": {
-    "item": "l2weaponry:arsonist_machete"
+    "item": "l2weaponry:arsonist_machete",
+    "nbt": "{Enchantments:[{id:\"minecraft:sweeping\",lvl:1s}]}"
   },
   "show_notification": true
 }

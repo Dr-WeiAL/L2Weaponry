@@ -181,8 +181,8 @@ repositories {
 
 dependencies {
     implementation fg.deobf("dev.xkmc.l2library:l2library:${l2library_version}-slim")
-    implementation fg.deobf("dev.xkmc.l2serial:l2serial:1.2.1")
-    implementation fg.deobf("dev.xkmc.l2tabs:l2tabs:0.2.3")
+    implementation fg.deobf("dev.xkmc.l2serial:l2serial:1.2.2")
+    implementation fg.deobf("dev.xkmc.l2tabs:l2tabs:0.2.6")
     implementation fg.deobf("dev.xkmc.l2screentracker:l2screentracker:0.1.3")
     implementation fg.deobf("dev.xkmc.l2itemselector:l2itemselector:0.1.7")
     implementation fg.deobf("dev.xkmc.l2damagetracker:l2damagetracker:0.2.6")
@@ -207,12 +207,14 @@ dependencies {
     implementation fg.deobf("curse.maven:the-twilight-forest-227639:4635921")
     implementation fg.deobf("curse.maven:aerial-hell-674630:4717971")
     implementation fg.deobf("curse.maven:citadel-331936:4786380")
-    implementation fg.deobf("zip.local:iceandfire:2.1.13-1.20.1+build.2.1.13-alpha-6")
+    implementation fg.deobf("curse.maven:ice-and-fire-dragons-264231:5037783")
+    implementation fg.deobf("curse.maven:passive-skill-tree-850298:5032567")
+    implementation fg.deobf("curse.maven:item-production-lib-950401:5053723")
+    runtimeOnly fg.deobf("curse.maven:attributefix-280510:4844658")
 
     runtimeOnly fg.deobf("curse.maven:caelus-308989:4581481")
     runtimeOnly fg.deobf("curse.maven:elytra-slot-317716:4598379")
     runtimeOnly fg.deobf("curse.maven:jade-324717:4654448")
-    runtimeOnly fg.deobf("curse.maven:attributefix-280510:4588114")
     runtimeOnly fg.deobf("curse.maven:bookshelf-228525:4581675")
     runtimeOnly fg.deobf("curse.maven:patchouli-306770:4636277")
     runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4587429")

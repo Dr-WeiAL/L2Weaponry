@@ -24,7 +24,8 @@
     "H H"
   ],
   "result": {
-    "item": "l2weaponry:ruby_claw"
+    "item": "l2weaponry:ruby_claw",
+    "nbt": "{Enchantments:[{id:\"minecraft:sweeping\",lvl:2s}]}"
   },
   "show_notification": true
 }

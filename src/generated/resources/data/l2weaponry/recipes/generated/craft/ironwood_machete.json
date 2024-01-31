@@ -22,7 +22,7 @@
   ],
   "result": {
     "item": "l2weaponry:ironwood_machete",
-    "nbt": "{Enchantments:[{id:\"minecraft:efficiency\",lvl:2s},{id:\"minecraft:unbreaking\",lvl:2s}]}"
+    "nbt": "{Enchantments:[{id:\"minecraft:sweeping\",lvl:1s},{id:\"minecraft:efficiency\",lvl:2s},{id:\"minecraft:unbreaking\",lvl:2s}]}"
   },
   "show_notification": true
 }

@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.init;
 
 import dev.xkmc.l2weaponry.content.client.ClawItemDecorationRenderer;
 import dev.xkmc.l2weaponry.content.client.ShieldItemDecorationRenderer;
+import dev.xkmc.l2weaponry.content.item.types.NunchakuItem;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -38,8 +39,7 @@ public class L2WeaponryClient {
 			for (Item i : LWItems.THROW_DECO) {
 				ItemProperties.register(i, new ResourceLocation(L2Weaponry.MODID, "throwing"), func);
 			}
-			func = (stack, level, entity, layer) ->
-					entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
+			func = (stack, level, entity, layer) -> NunchakuItem.check(entity, stack) ? 1.0F : 0.0F;
 			for (Item i : LWItems.NUNCHAKU_DECO) {
 				ItemProperties.register(i, new ResourceLocation(L2Weaponry.MODID, "spinning"), func);
 			}

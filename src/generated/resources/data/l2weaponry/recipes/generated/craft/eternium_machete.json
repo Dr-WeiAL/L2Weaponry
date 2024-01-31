@@ -15,7 +15,8 @@
     " H "
   ],
   "result": {
-    "item": "l2weaponry:eternium_machete"
+    "item": "l2weaponry:eternium_machete",
+    "nbt": "{Enchantments:[{id:\"minecraft:sweeping\",lvl:1s}]}"
   },
   "show_notification": true
 }

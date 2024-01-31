@@ -10,15 +10,16 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
+import net.minecraft.world.item.enchantment.Enchantments;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Supplier;
 
 public enum LWToolTypes implements ITool {
-	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 3, "claw_base"),
+	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 3, "claw_base", () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 2)),
 	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4),
-	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.2f, 1f),
+	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.2f, 1f, () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 1)),
 	THROWING_AXE(TagGen.THROWING_AXE, ThrowingAxeItem::new, 1.4f, 1f),
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, () -> new EnchantmentInstance(LCEnchantments.CUBIC.get(), 1)),
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, "battle_axe", () -> new EnchantmentInstance(LCEnchantments.TREE.get(), 1)),

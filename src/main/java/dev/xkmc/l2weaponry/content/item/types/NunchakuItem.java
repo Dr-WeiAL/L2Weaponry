@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -30,24 +32,32 @@ public class NunchakuItem extends GenericWeaponItem implements FastItem {
 		LWItems.NUNCHAKU_DECO.add(this);
 	}
 
+	public static boolean check(@Nullable LivingEntity entity, ItemStack stack) {
+		if (entity == null) return false;
+		if (!entity.isUsingItem()) return false;
+		if (entity.getMainHandItem() != stack) return false;
+		return entity.getUseItem() == stack ||
+				entity.getUseItem().canPerformAction(ToolActions.SHIELD_BLOCK);
+	}
+
 	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
 		ItemStack itemstack = player.getItemInHand(hand);
-		if (hand == InteractionHand.OFF_HAND)
+		if (hand == InteractionHand.OFF_HAND || player.getOffhandItem().canPerformAction(ToolActions.SHIELD_BLOCK))
 			return InteractionResultHolder.pass(itemstack);
 		player.startUsingItem(hand);
 		return InteractionResultHolder.consume(itemstack);
 	}
 
 	@Override
-	public void onUseTick(Level level, LivingEntity entity, ItemStack stack, int remain) {
-		if (level.isClientSide() && entity instanceof Player player) {
+	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+		if (selected && level.isClientSide() && entity instanceof Player player && player.isUsingItem()) {
 			ClientRenderEvents.onNunchakuUse(player, stack);
 		}
 	}
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-		list.add(LangData.TOOL_MACHETE.get());
+		list.add(LangData.TOOL_NUNCHAKU.get());
 		super.appendHoverText(pStack, pLevel, list, pIsAdvanced);
 	}
 

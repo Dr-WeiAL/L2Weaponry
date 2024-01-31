@@ -18,7 +18,8 @@
     "H H"
   ],
   "result": {
-    "item": "l2weaponry:iron_claw"
+    "item": "l2weaponry:iron_claw",
+    "nbt": "{Enchantments:[{id:\"minecraft:sweeping\",lvl:2s}]}"
   },
   "show_notification": true
 }

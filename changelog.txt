@@ -1,3 +1,13 @@
+2.4.22
+- Add default enchantments to claws and machetes
+- Fix nunchaku text
+- Allow nunchaku to be used with shield
+- Fix nunchaku rendering in pause screen
+
+2.4.21
+- Fix spear of winter storm model
+- Add nunchaku
+
 2.4.20
 - Weapons now cost 1 durability for mining
 - Add hammer, spear, battleaxe, javelin default enchantments
