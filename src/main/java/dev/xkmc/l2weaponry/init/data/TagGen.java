@@ -11,11 +11,15 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TagGen {
+
+	public static final TagKey<Item> WEAPON = ItemTags.create(new ResourceLocation("forge", "tools/melee_weapons"));
+	public static final TagKey<Item> THROW_WEAPON = ItemTags.create(new ResourceLocation("forge", "tools/throwable_weapons"));
 
 	public static final TagKey<Item> CLAW = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "claw"));
 	public static final TagKey<Item> DAGGER = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "dagger"));
@@ -43,6 +47,11 @@ public class TagGen {
 		for (var e : LIST) {
 			pvd.addTag(e.getFirst()).addOptional(e.getSecond());
 		}
+		pvd.addTag(WEAPON).addTags(ItemTags.SWORDS, ItemTags.AXES, THROW_WEAPON,
+				CLAW, DAGGER, HAMMER, BATTLE_AXE, SPEAR, MACHETE, NUNCHAKU);
+		pvd.addTag(THROW_WEAPON).addTags(THROWABLE, Tags.Items.TOOLS_TRIDENTS);
+		pvd.addTag(Tags.Items.TOOLS_SHIELDS).addTags(ROUND_SHIELD, PLATE_SHIELD);
+
 	}
 
 	public static void onEntityTagGen(RegistrateTagsProvider.IntrinsicImpl<EntityType<?>> pvd) {

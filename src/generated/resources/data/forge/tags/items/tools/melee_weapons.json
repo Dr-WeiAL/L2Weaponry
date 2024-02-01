@@ -1,0 +1,14 @@
+{
+  "values": [
+    "#minecraft:swords",
+    "#minecraft:axes",
+    "#forge:tools/throwable_weapons",
+    "#l2weaponry:claw",
+    "#l2weaponry:dagger",
+    "#l2weaponry:hammer",
+    "#l2weaponry:battle_axe",
+    "#l2weaponry:spear",
+    "#l2weaponry:machete",
+    "#l2weaponry:nunchaku"
+  ]
+}

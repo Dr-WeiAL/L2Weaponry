@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import dev.xkmc.l2library.init.events.GeneralEventHandler;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.capability.IShieldData;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
@@ -188,12 +189,12 @@ public class BaseShieldItem extends ShieldItem {
 		double damage = c.getInt(KEY_LAST_DAMAGE);
 		if (data.canReflect() && data.getReflectTimer() > 0) {
 			double finalDamage = onReflect(stack, user, target, damage, damage + additional);
-			LWGeneralEvents.schedule(() -> target.hurt(source, (float) finalDamage));
+			GeneralEventHandler.schedule(() -> target.hurt(source, (float) finalDamage));
 			return 2;
 		}
 		double extra = onReflect(stack, user, target, damage, 0);
 		if (extra > 0) {
-			LWGeneralEvents.schedule(() -> target.hurt(source, (float) extra));
+			GeneralEventHandler.schedule(() -> target.hurt(source, (float) extra));
 		}
 		return 0.5;
 	}

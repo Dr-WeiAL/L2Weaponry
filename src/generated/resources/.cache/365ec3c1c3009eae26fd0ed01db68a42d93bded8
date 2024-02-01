@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-31T21:51:09.198341	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (mob_effects), Tags (traits), Patchouli Provider]
+// 1.20.1	2024-02-01T14:24:33.869232	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (mob_effects), Tags (traits), Patchouli Provider]
 f7b6a6f24af79efa0cb60d6aa5c4097d8c3fb89a assets/l2weaponry/lang/en_ud.json
 99f4d6d0fb55f6d6ef594707c457daf4835099b0 assets/l2weaponry/lang/en_us.json
 3da370b79689e4fe8f61f504d8170c349fb1b34c assets/l2weaponry/models/item/abyss_echo.json
@@ -289,6 +289,9 @@ e3fa418e3ef5ce392dd752b86458936c1090d9bd assets/l2weaponry/models/item/volucite_
 343c0eb233b5af0ec72990b1c90324f517d97a0f assets/l2weaponry/models/item/volucite_spear.json
 973e5aaf957179346ea3f709b3f231056a4b8ace assets/l2weaponry/models/item/volucite_throwing_axe.json
 ca3197ad893476a47627ea965f21f8c8dd2d22a9 assets/l2weaponry/models/item/volucite_throwing_axe_throwing.json
+6c336aac517b4d1e8bbb23d9eb9c2037ecf1a4e4 data/forge/tags/items/tools/melee_weapons.json
+dca419f625694397194820a3848c608e23839bf6 data/forge/tags/items/tools/shields.json
+5beff76586a86d21d1e4ffc99e7e2636d44a72f3 data/forge/tags/items/tools/throwable_weapons.json
 ff0ab1f0ca70186b8e7262c2ae6ecff98c636825 data/l2weaponry/advancements/recipes/combat/generated/upgrade/arsonist_battle_axe.json
 95423623b227ddf1772abebb21f9e541a98fcda7 data/l2weaponry/advancements/recipes/combat/generated/upgrade/arsonist_claw.json
 f108be0b899998bd7a4ad13f0def7835ea91109a data/l2weaponry/advancements/recipes/combat/generated/upgrade/arsonist_dagger.json

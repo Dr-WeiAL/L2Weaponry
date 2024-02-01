@@ -55,18 +55,4 @@ public class LWGeneralEvents {
 		}
 	}
 
-	private static final List<Runnable> TASKS = new ArrayList<>();
-
-	public static void schedule(Runnable runnable) {
-		TASKS.add(runnable);
-	}
-
-	@SubscribeEvent
-	public static void onTick(TickEvent.ServerTickEvent event) {
-		for (var e : TASKS) {
-			e.run();
-		}
-		TASKS.clear();
-	}
-
 }

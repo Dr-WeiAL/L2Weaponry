@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.content.capability;
 
+import dev.xkmc.l2library.init.events.GeneralEventHandler;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
 import dev.xkmc.l2weaponry.events.LWGeneralEvents;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
@@ -20,7 +21,7 @@ public class MobShieldGoal extends Goal implements IShieldData {
 			return (MobShieldGoal) opt.get().getGoal();
 		} else {
 			var ans = new MobShieldGoal(mob);
-			LWGeneralEvents.schedule(() -> mob.goalSelector.addGoal(0, ans));
+			GeneralEventHandler.schedule(() -> mob.goalSelector.addGoal(0, ans));
 			return ans;
 		}
 	}
