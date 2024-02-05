@@ -3,6 +3,7 @@
 - Fix nunchaku text
 - Allow nunchaku to be used with shield
 - Fix nunchaku rendering in pause screen
+- Fix nunchaku attack through wall
 
 2.4.21
 - Fix spear of winter storm model

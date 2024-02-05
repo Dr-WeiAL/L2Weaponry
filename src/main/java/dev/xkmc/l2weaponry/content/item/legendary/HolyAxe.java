@@ -26,10 +26,12 @@ public class HolyAxe extends BattleAxeItem implements LegendaryWeapon {
 		if (event.getCriticalHitEvent() != null && event.getStrength() < 0.9) return;
 		float ans = le.getAbsorptionAmount();
 		float health = event.getAttackTarget().getHealth();
-		double max = LWConfig.COMMON.dogmaticStandoffMax.get();
-		double inc = LWConfig.COMMON.dogmaticStandoffGain.get();
-		ans = (float) Math.max(ans, Math.min(health * max, health * inc + ans));
-		le.setAbsorptionAmount(ans);
+		if (health > 0) {
+			double max = LWConfig.COMMON.dogmaticStandoffMax.get();
+			double inc = LWConfig.COMMON.dogmaticStandoffGain.get();
+			ans = (float) Math.max(ans, Math.min(health * max, health * inc + ans));
+			le.setAbsorptionAmount(ans);
+		}
 	}
 
 	@Override

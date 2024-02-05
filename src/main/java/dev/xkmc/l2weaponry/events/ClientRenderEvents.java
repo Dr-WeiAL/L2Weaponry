@@ -1,7 +1,6 @@
 package dev.xkmc.l2weaponry.events;
 
 import dev.xkmc.l2library.util.Proxy;
-import dev.xkmc.l2library.util.raytrace.RayTraceUtil;
 import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.client.Minecraft;
@@ -13,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -47,17 +47,18 @@ public class ClientRenderEvents {
 	}
 
 	public static void onNunchakuUse(Player player, ItemStack stack) {
-		if (!player.isLocalPlayer()) return;
+		if (player != Proxy.getClientPlayer()) return;
 		var mode = Minecraft.getInstance().gameMode;
 		if (mode == null) return;
 		var cd = player.getAttackStrengthScale(1);
 		if (cd < 1) return;
-		var hit = RayTraceUtil.rayTraceEntity(player, player.getEntityReach(), e -> true);
-		if (hit == null) return;
-		var entity = hit.getEntity();
-		if (!entity.isAlive()) return;
-		if (!(entity instanceof ItemEntity) && !(entity instanceof ExperienceOrb) && !(entity instanceof AbstractArrow)) {
-			mode.attack(player, hit.getEntity());
+		var hit = Minecraft.getInstance().hitResult;
+		if (hit instanceof EntityHitResult entityResult) {
+			var entity = entityResult.getEntity();
+			if (!entity.isAlive()) return;
+			if (!(entity instanceof ItemEntity) && !(entity instanceof ExperienceOrb) && !(entity instanceof AbstractArrow)) {
+				mode.attack(player, entity);
+			}
 		}
 	}
 
