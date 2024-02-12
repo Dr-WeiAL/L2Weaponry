@@ -28,6 +28,18 @@
       "required": false
     },
     {
+      "id": "l2weaponry:ice_dragonsteel_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_claw",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_claw",
       "required": false
     },

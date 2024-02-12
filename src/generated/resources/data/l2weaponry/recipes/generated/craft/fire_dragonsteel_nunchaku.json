@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "H": {
+      "item": "iceandfire:witherbone"
+    },
+    "I": {
+      "item": "iceandfire:dragonsteel_fire_ingot"
+    }
+  },
+  "pattern": [
+    " C ",
+    "H H",
+    "I I"
+  ],
+  "result": {
+    "item": "l2weaponry:fire_dragonsteel_nunchaku"
+  },
+  "show_notification": true
+}

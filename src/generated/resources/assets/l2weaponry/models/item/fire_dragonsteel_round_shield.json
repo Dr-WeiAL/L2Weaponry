@@ -1,0 +1,14 @@
+{
+  "parent": "l2weaponry:item/round_shield",
+  "overrides": [
+    {
+      "model": "l2weaponry:item/fire_dragonsteel_round_shield_blocking",
+      "predicate": {
+        "l2weaponry:blocking": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "0": "l2weaponry:item/generated/fire_dragonsteel/round_shield"
+  }
+}

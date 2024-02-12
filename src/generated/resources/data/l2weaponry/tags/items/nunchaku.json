@@ -8,6 +8,18 @@
     "l2weaponry:poseidite_nunchaku",
     "l2weaponry:shulkerate_nunchaku",
     "l2weaponry:sculkium_nunchaku",
-    "l2weaponry:eternium_nunchaku"
+    "l2weaponry:eternium_nunchaku",
+    {
+      "id": "l2weaponry:ice_dragonsteel_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_nunchaku",
+      "required": false
+    }
   ]
 }

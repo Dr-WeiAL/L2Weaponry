@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "key": {
+    "H": {
+      "item": "iceandfire:witherbone"
+    },
+    "I": {
+      "item": "iceandfire:dragonsteel_ice_ingot"
+    }
+  },
+  "pattern": [
+    " II",
+    " HI",
+    "H  "
+  ],
+  "result": {
+    "item": "l2weaponry:ice_dragonsteel_spear",
+    "nbt": "{Enchantments:[{id:\"l2complements:plane_digging\",lvl:1s}]}"
+  },
+  "show_notification": true
+}

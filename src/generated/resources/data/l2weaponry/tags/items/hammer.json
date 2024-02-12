@@ -29,6 +29,18 @@
       "required": false
     },
     {
+      "id": "l2weaponry:ice_dragonsteel_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_hammer",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_hammer",
       "required": false
     },

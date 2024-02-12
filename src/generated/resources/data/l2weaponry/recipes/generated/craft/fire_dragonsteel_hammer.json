@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "key": {
+    "H": {
+      "item": "iceandfire:witherbone"
+    },
+    "I": {
+      "item": "iceandfire:dragonsteel_fire_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "IHI",
+    " H "
+  ],
+  "result": {
+    "item": "l2weaponry:fire_dragonsteel_hammer",
+    "nbt": "{Enchantments:[{id:\"l2complements:cubic_digging\",lvl:1s}]}"
+  },
+  "show_notification": true
+}

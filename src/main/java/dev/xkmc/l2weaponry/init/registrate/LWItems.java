@@ -4,6 +4,7 @@ import com.github.alexthe666.iceandfire.IceAndFire;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.l2weaponry.compat.aerial.AHCompat;
+import dev.xkmc.l2weaponry.compat.dragons.DragonCompat;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -98,7 +99,7 @@ public class LWItems {
 		}
 
 		if (ModList.get().isLoaded(IceAndFire.MODID)) {
-			//DragonCompat.register();
+			DragonCompat.register();
 		}
 
 		if (ModList.get().isLoaded(AerialHell.MODID)) {

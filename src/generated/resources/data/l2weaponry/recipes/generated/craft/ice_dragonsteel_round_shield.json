@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "key": {
+    "H": {
+      "item": "iceandfire:witherbone"
+    },
+    "I": {
+      "item": "iceandfire:dragonsteel_ice_ingot"
+    }
+  },
+  "pattern": [
+    " I ",
+    "IHI",
+    " I "
+  ],
+  "result": {
+    "item": "l2weaponry:ice_dragonsteel_round_shield"
+  },
+  "show_notification": true
+}

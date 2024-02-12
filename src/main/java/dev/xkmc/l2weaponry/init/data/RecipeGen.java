@@ -73,7 +73,7 @@ public class RecipeGen {
 			}
 			if (ModList.get().isLoaded(IceAndFire.MODID)) {
 				for (ILWToolMats mat : DragonToolMats.values()) {
-					//tools(pvd, mat.getStick(), mat.getIngot(), mat);
+					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
 			if (ModList.get().isLoaded(AerialHell.MODID)) {

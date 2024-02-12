@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "key": {
+    "H": {
+      "item": "iceandfire:witherbone"
+    },
+    "I": {
+      "item": "iceandfire:dragonsteel_fire_ingot"
+    }
+  },
+  "pattern": [
+    " I",
+    "H "
+  ],
+  "result": {
+    "item": "l2weaponry:fire_dragonsteel_dagger"
+  },
+  "show_notification": true
+}

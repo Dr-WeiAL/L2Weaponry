@@ -27,6 +27,18 @@
       "required": false
     },
     {
+      "id": "l2weaponry:ice_dragonsteel_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_throwing_axe",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_throwing_axe",
       "required": false
     },
