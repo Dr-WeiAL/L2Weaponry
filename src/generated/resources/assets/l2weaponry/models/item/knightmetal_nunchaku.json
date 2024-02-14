@@ -2,7 +2,7 @@
   "parent": "l2weaponry:item/nunchaku",
   "overrides": [
     {
-      "model": "l2weaponry:item/knightmetal_nunchaku_spinning",
+      "model": "l2weaponry:item/nunchaku_spinning",
       "predicate": {
         "l2weaponry:spinning": 1.0
       }

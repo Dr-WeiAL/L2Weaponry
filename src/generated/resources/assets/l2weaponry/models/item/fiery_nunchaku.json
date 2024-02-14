@@ -11,7 +11,7 @@
   "loader": "forge:item_layers",
   "overrides": [
     {
-      "model": "l2weaponry:item/fiery_nunchaku_spinning",
+      "model": "l2weaponry:item/nunchaku_spinning",
       "predicate": {
         "l2weaponry:spinning": 1.0
       }
