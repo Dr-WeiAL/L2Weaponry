@@ -32,7 +32,8 @@ public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 		float base_speed = 4 + this.attackSpeed;
 		float raw_speed = base_speed + this.attackDamage;
 		float reduce = 1f - Math.round(base_speed / raw_speed * 100) * 0.01f;
-		this.attackSpeed += this.attackDamage;
+		raw_speed = base_speed / (1 - reduce);
+		this.attackSpeed = raw_speed - 4;
 		super.addModifiers(builder);
 		AttributeModifier slow_2 = new AttributeModifier(MathHelper.getUUIDFromString("slow_wield"), "slow_wield", -reduce, AttributeModifier.Operation.MULTIPLY_TOTAL);
 		builder.put(Attributes.ATTACK_SPEED, slow_2);

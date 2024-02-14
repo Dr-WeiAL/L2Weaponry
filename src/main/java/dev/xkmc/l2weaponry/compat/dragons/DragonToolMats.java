@@ -71,11 +71,6 @@ public enum DragonToolMats implements ILWToolMats {
 	}
 
 	@Override
-	public boolean hasTool(LWToolTypes type) {
-		return true;
-	}
-
-	@Override
 	public boolean isOptional() {
 		return true;
 	}

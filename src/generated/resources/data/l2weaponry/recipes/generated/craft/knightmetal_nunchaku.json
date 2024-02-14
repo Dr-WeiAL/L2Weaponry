@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "twilightforest:knightmetal_ingot"
+    }
+  },
+  "pattern": [
+    " C ",
+    "H H",
+    "I I"
+  ],
+  "result": {
+    "item": "l2weaponry:knightmetal_nunchaku"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,24 @@
+{
+  "parent": "l2weaponry:item/nunchaku",
+  "forge_data": {
+    "layers": {
+      "0": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  },
+  "loader": "forge:item_layers",
+  "overrides": [
+    {
+      "model": "l2weaponry:item/fiery_nunchaku_spinning",
+      "predicate": {
+        "l2weaponry:spinning": 1.0
+      }
+    }
+  ],
+  "render_types": {},
+  "textures": {
+    "layer0": "l2weaponry:item/generated/fiery/nunchaku"
+  }
+}

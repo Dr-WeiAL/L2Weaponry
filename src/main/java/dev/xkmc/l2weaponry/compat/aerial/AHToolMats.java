@@ -73,6 +73,9 @@ public enum AHToolMats implements ILWToolMats {
 
 	@Override
 	public boolean hasTool(LWToolTypes type) {
+		if (type == LWToolTypes.NUNCHAKU) {
+			return false;
+		}
 		if (type == LWToolTypes.PLATE_SHIELD || type == LWToolTypes.ROUND_SHIELD) {
 			return this != RUBY && this != LUNAR;
 		}

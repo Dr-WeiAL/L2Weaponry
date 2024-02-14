@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(LightningBolt.class)
+@Mixin(LightningBolt.class)//TODO move to l2library
 public abstract class LightningBoltMixin extends Entity {
 
 	public LightningBoltMixin(EntityType<?> p_19870_, Level p_19871_) {

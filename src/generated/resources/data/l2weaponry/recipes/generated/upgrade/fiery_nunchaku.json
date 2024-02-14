@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "twilightforest:fiery_block"
+  },
+  "base": {
+    "tag": "l2weaponry:nunchaku"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "result": {
+    "item": "l2weaponry:fiery_nunchaku"
+  },
+  "template": []
+}

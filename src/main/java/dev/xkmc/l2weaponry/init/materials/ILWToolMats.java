@@ -75,9 +75,6 @@ public interface ILWToolMats {
 	}
 
 	default boolean hasTool(LWToolTypes type) {
-		if (type == LWToolTypes.NUNCHAKU) {
-			return false;
-		}
 		return true;
 	}
 

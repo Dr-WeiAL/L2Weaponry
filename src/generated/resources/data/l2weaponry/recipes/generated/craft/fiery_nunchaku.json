@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "H": {
+      "item": "minecraft:blaze_rod"
+    },
+    "I": {
+      "item": "twilightforest:fiery_ingot"
+    }
+  },
+  "pattern": [
+    " C ",
+    "H H",
+    "I I"
+  ],
+  "result": {
+    "item": "l2weaponry:fiery_nunchaku",
+    "nbt": "{Enchantments:[{id:\"l2complements:smelt\",lvl:1s}]}"
+  },
+  "show_notification": true
+}
