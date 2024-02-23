@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.compat.twilightforest;
 
+import com.google.common.collect.Lists;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
@@ -13,6 +14,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 import twilightforest.TwilightForestMod;
 import twilightforest.init.TFBlocks;
 import twilightforest.init.TFItems;
@@ -88,8 +91,9 @@ public enum TFToolMats implements ILWToolMats {
 	}
 
 	@Override
-	public Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd) {
-		return ConditionalRecipeWrapper.mod(pvd, TwilightForestMod.ID);
+	public Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd, ICondition... cond) {
+		List<ICondition> list = Lists.asList(new ModLoadedCondition(TwilightForestMod.ID), cond);
+		return ConditionalRecipeWrapper.of(pvd, list.toArray(ICondition[]::new));
 	}
 
 	@Override

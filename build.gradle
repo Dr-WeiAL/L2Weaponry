@@ -207,7 +207,7 @@ dependencies {
     implementation fg.deobf("curse.maven:the-twilight-forest-227639:4635921")
     implementation fg.deobf("curse.maven:aerial-hell-674630:4717971")
     implementation fg.deobf("curse.maven:citadel-331936:4786380")
-    implementation fg.deobf("curse.maven:ice-and-fire-dragons-264231:5037783")
+    implementation fg.deobf("curse.maven:ice-and-fire-dragons-264231:5122408")
     implementation fg.deobf("curse.maven:passive-skill-tree-850298:5032567")
     implementation fg.deobf("curse.maven:item-production-lib-950401:5053723")
     runtimeOnly fg.deobf("curse.maven:attributefix-280510:4844658")

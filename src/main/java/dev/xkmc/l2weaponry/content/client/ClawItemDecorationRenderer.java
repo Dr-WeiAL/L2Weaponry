@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.content.client;
 
+import dev.xkmc.l2complements.init.data.LCConfig;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
@@ -28,7 +29,8 @@ public class ClawItemDecorationRenderer implements IItemDecorator {
 		float time = (player.level().getGameTime() - last) + Minecraft.getInstance().getPartialTick();
 		if (time > timeout) return false;
 		g.pose().pushPose();
-		g.pose().translate(0, 0, 300);
+		int height = LCConfig.CLIENT.enchOverlayZVal.get();
+		g.pose().translate(0, 0, height);
 		float defenseLost = Mth.clamp(time, 0, timeout) / timeout;
 		float w = 13.0F * (1 - defenseLost);
 		int col = 0xffffffff;

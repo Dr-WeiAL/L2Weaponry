@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.compat.aerial;
 
+import com.google.common.collect.Lists;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
@@ -14,7 +15,10 @@ import fr.factionbedrock.aerialhell.Registry.AerialHellBlocksAndItems;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -67,8 +71,9 @@ public enum AHToolMats implements ILWToolMats {
 	}
 
 	@Override
-	public Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd) {
-		return ConditionalRecipeWrapper.mod(pvd, AerialHell.MODID);
+	public Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd, ICondition... cond) {
+		List<ICondition> list = Lists.asList(new ModLoadedCondition(AerialHell.MODID), cond);
+		return ConditionalRecipeWrapper.of(pvd, list.toArray(ICondition[]::new));
 	}
 
 	@Override

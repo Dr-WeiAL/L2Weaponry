@@ -2,7 +2,7 @@ package dev.xkmc.l2weaponry.compat.dragons;
 
 import com.github.alexthe666.iceandfire.IafConfig;
 import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
-import com.github.alexthe666.iceandfire.entity.props.FrozenProperties;
+import com.github.alexthe666.iceandfire.entity.props.EntityDataProvider;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -22,7 +22,7 @@ public class IceDragonBoneTool extends ExtraToolConfig {
 			if (target instanceof EntityFireDragon) {
 				target.hurt(user.level().damageSources().drown(), 13.5F);
 			}
-			FrozenProperties.setFrozenFor(target, 200);
+			EntityDataProvider.getCapability(target).ifPresent((data) -> data.frozenData.setFrozen(target, 200));
 			target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 2));
 			target.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 100, 2));
 			target.knockback(1.0D, user.getX() - target.getX(), user.getZ() - target.getZ());

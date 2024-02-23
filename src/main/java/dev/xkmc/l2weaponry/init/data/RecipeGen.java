@@ -4,12 +4,15 @@ import com.github.alexthe666.iceandfire.IceAndFire;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
 import dev.xkmc.l2complements.content.enchantment.core.EnchantmentRecipeBuilder;
+import dev.xkmc.l2complements.init.data.LCConfig;
 import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
 import dev.xkmc.l2complements.init.registrate.LCItems;
 import dev.xkmc.l2library.compat.jeed.JeedDataGenerator;
+import dev.xkmc.l2library.serial.conditions.BooleanValueCondition;
 import dev.xkmc.l2library.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2library.serial.recipe.AbstractSmithingRecipe;
+import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.compat.aerial.AHToolMats;
 import dev.xkmc.l2weaponry.compat.dragons.DragonToolMats;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
@@ -21,10 +24,7 @@ import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import fr.factionbedrock.aerialhell.AerialHell;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
@@ -38,6 +38,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import twilightforest.TwilightForestMod;
 
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 
 public class RecipeGen {
 
@@ -301,11 +302,13 @@ public class RecipeGen {
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.JAVELIN, "  I", " H ", "I  ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.NUNCHAKU, " C ", "H H", "I I");
 		currentFolder = "generated/upgrade/";
+		var toggle = BooleanValueCondition.of(LCConfig.COMMON_PATH, LCConfig.COMMON.enableToolRecraftRecipe, true);
+		Consumer<FinishedRecipe> cond = mat.getProvider(pvd, toggle);
 		for (LWToolTypes t : LWToolTypes.values()) {
 			if (!mat.hasTool(t)) continue;
 			unlock(pvd, SmithingTransformRecipeBuilder.smithing(AbstractSmithingRecipe.TEMPLATE_PLACEHOLDER,
 					Ingredient.of(t.tag), Ingredient.of(mat.getBlock()),
-					RecipeCategory.COMBAT, mat.getTool(t))::unlocks, mat.getBlock()).save(mat.getProvider(pvd), getID(mat.getTool(t)));
+					RecipeCategory.COMBAT, mat.getTool(t))::unlocks, mat.getBlock()).save(cond, getID(mat.getTool(t)));
 		}
 	}
 

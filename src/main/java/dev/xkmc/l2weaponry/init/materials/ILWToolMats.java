@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.init.materials;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
+import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
 import dev.xkmc.l2library.serial.recipe.NBTRecipe;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
+import net.minecraftforge.common.crafting.conditions.ICondition;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -70,8 +72,8 @@ public interface ILWToolMats {
 		return false;
 	}
 
-	default Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd) {
-		return pvd;
+	default Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd, ICondition... cond) {
+		return cond.length == 0 ? pvd : ConditionalRecipeWrapper.of(pvd, cond);
 	}
 
 	default boolean hasTool(LWToolTypes type) {

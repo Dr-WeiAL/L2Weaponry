@@ -4,6 +4,7 @@ import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.block.IafBlockRegistry;
 import com.github.alexthe666.iceandfire.item.DragonSteelTier;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
+import com.google.common.collect.Lists;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
@@ -13,7 +14,10 @@ import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -66,8 +70,9 @@ public enum DragonToolMats implements ILWToolMats {
 	}
 
 	@Override
-	public Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd) {
-		return ConditionalRecipeWrapper.mod(pvd, IceAndFire.MODID);
+	public Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd, ICondition... cond) {
+		List<ICondition> list = Lists.asList(new ModLoadedCondition(IceAndFire.MODID), cond);
+		return ConditionalRecipeWrapper.of(pvd, list.toArray(ICondition[]::new));
 	}
 
 	@Override

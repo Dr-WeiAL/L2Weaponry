@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.content.client;
 
+import dev.xkmc.l2complements.init.data.LCConfig;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
@@ -23,7 +24,8 @@ public class ShieldItemDecorationRenderer implements IItemDecorator {
 		}
 		if (!(stack.getItem() instanceof BaseShieldItem)) return false;
 		g.pose().pushPose();
-		g.pose().translate(0, 0, 300);
+		int height = LCConfig.CLIENT.enchOverlayZVal.get();
+		g.pose().translate(0, 0, height);
 		var cap = LWPlayerData.HOLDER.get(Proxy.getClientPlayer());
 		float defenseLost = (float) cap.getShieldDefense();
 		float w = 13.0f * (1 - defenseLost);
