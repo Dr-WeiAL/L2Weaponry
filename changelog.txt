@@ -1,3 +1,7 @@
+2.4.24
+- Fix compat with Ice and Fire beta4
+- Use L2Complements recraft recipe toggle, and render layer config
+
 2.4.23
 - Add Ice and Fire dragonsteel weapon set
 - Add Twilight Forest Nunchaku
