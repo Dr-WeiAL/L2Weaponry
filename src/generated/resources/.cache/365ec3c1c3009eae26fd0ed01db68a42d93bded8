@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-23T23:56:08.713996	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (mob_effects), Tags (traits), Patchouli Provider]
+// 1.20.1	2024-03-05T11:18:12.872296	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (mob_effects), Tags (traits), Patchouli Provider]
 6e0367872d849f2e1af02177ebb36ec75fcd50fa assets/l2weaponry/lang/en_ud.json
 f0d023af3cdb771acb9dcc410e35e05a2e934057 assets/l2weaponry/lang/en_us.json
 3da370b79689e4fe8f61f504d8170c349fb1b34c assets/l2weaponry/models/item/abyss_echo.json
@@ -343,9 +343,9 @@ e3fa418e3ef5ce392dd752b86458936c1090d9bd assets/l2weaponry/models/item/volucite_
 343c0eb233b5af0ec72990b1c90324f517d97a0f assets/l2weaponry/models/item/volucite_spear.json
 973e5aaf957179346ea3f709b3f231056a4b8ace assets/l2weaponry/models/item/volucite_throwing_axe.json
 ca3197ad893476a47627ea965f21f8c8dd2d22a9 assets/l2weaponry/models/item/volucite_throwing_axe_throwing.json
-6c336aac517b4d1e8bbb23d9eb9c2037ecf1a4e4 data/forge/tags/items/tools/melee_weapons.json
+27ea24ac200dc638a17d80feb60a5fbe93083322 data/forge/tags/items/tools/melee_weapons.json
 dca419f625694397194820a3848c608e23839bf6 data/forge/tags/items/tools/shields.json
-5beff76586a86d21d1e4ffc99e7e2636d44a72f3 data/forge/tags/items/tools/throwable_weapons.json
+8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/forge/tags/items/tools/tridents.json
 e8dcd588e181d3c5876da459c77ddb203acdc248 data/l2weaponry/advancements/recipes/combat/generated/upgrade/arsonist_battle_axe.json
 70e1b803c1a1eb530ec7954c9ba7d8bac602151e data/l2weaponry/advancements/recipes/combat/generated/upgrade/arsonist_claw.json
 fa1123d8df26d0b88c02ae0d522cf5aaf04395ae data/l2weaponry/advancements/recipes/combat/generated/upgrade/arsonist_dagger.json
@@ -1415,6 +1415,5 @@ d79025ab8a0f0e00bf2e33210b984a0d58a81bd7 data/l2weaponry/tags/items/nunchaku.jso
 b46cf1bf276d525661f61ac50539459ed65708ce data/l2weaponry/tags/items/plate_shield.json
 2fb08d93b4bc3d2a17d67b870236e1ad79666278 data/l2weaponry/tags/items/round_shield.json
 fffd7b7f74b66b5cfa41da9d273ae3034a5c12cc data/l2weaponry/tags/items/spear.json
-8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/l2weaponry/tags/items/throwable.json
 256c5f89433fc2ca12d9bd4229380ce124bf0777 data/l2weaponry/tags/items/throwing_axe.json
 4ab37eb3dc580ff1ff88e814ca291a0192381718 data/minecraft/tags/entity_types/impact_projectiles.json

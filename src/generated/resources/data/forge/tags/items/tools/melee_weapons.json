@@ -2,7 +2,8 @@
   "values": [
     "#minecraft:swords",
     "#minecraft:axes",
-    "#forge:tools/throwable_weapons",
+    "#l2weaponry:javelin",
+    "#l2weaponry:throwing_axe",
     "#l2weaponry:claw",
     "#l2weaponry:dagger",
     "#l2weaponry:hammer",

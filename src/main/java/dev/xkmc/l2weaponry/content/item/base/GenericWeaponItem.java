@@ -119,6 +119,9 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 		if (enchantment.category == EnchantmentCategory.WEAPON) {
 			return true;
 		}
+		if (enchantment.category == EnchantmentCategory.DIGGER){
+			return true;
+		}
 		return super.canApplyAtEnchantingTable(stack, enchantment);
 	}
 
