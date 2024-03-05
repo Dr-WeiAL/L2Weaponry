@@ -4,6 +4,7 @@ import com.doo.xenchantment.XEnchantment;
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.l2complements.events.ItemUseEventHandler;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
+import dev.xkmc.l2library.serial.config.PacketHandler;
 import dev.xkmc.l2weaponry.compat.GolemCompat;
 import dev.xkmc.l2weaponry.compat.XEnchCompat;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
@@ -14,7 +15,7 @@ import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.l2weaponry.init.registrate.LWRegistrate;
-import dev.xkmc.l2weaponry.network.NetworkManager;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
@@ -36,13 +37,16 @@ public class L2Weaponry {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final LWRegistrate REGISTRATE = new LWRegistrate(MODID);
 
+	public static final PacketHandler HANDLER = new PacketHandler(
+			new ResourceLocation(L2Weaponry.MODID, "main"), 1
+	);
+
 	public L2Weaponry() {
 		FMLJavaModLoadingContext ctx = FMLJavaModLoadingContext.get();
 		IEventBus bus = ctx.getModEventBus();
 		LWItems.register();
 		LWEntities.register();
 		LWDamageTypeGen.register();
-		NetworkManager.register();
 		LWConfig.init();
 		LWPlayerData.register();
 		LWEnchantments.register();
