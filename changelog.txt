@@ -1,3 +1,6 @@
+2.4.26
+- Use new damage tracker lib
+
 2.4.25
 - Allow all weapons with be enchanted with digger tool enchantments as well
 - Add Better Combat compat with compat material weapons
