@@ -39,6 +39,22 @@
       "required": false
     },
     {
+      "id": "l2weaponry:cloggrum_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_throwing_axe",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_throwing_axe",
       "required": false
     },

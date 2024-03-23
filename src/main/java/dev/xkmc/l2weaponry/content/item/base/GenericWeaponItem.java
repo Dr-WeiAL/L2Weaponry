@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2weaponry.init.data.LWConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
@@ -110,18 +111,15 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-		if (enchantment == Enchantments.SWEEPING_EDGE) {
+		if (enchantment == Enchantments.SWEEPING_EDGE)
 			return canSweep();
-		}
-		if (enchantment == Enchantments.SHARPNESS) {
+		if (enchantment == Enchantments.SHARPNESS)
 			return isSharp();
-		}
-		if (enchantment.category == EnchantmentCategory.WEAPON) {
+		if (enchantment.category == EnchantmentCategory.WEAPON)
 			return true;
-		}
-		if (enchantment.category == EnchantmentCategory.DIGGER){
-			return true;
-		}
+		if (LWConfig.COMMON.diggerEnchantmentOnWeapon.get())
+			if (enchantment.category == EnchantmentCategory.DIGGER)
+				return true;
 		return super.canApplyAtEnchantingTable(stack, enchantment);
 	}
 

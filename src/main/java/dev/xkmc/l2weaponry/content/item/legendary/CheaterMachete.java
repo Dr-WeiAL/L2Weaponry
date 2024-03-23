@@ -4,6 +4,7 @@ import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
 import dev.xkmc.l2damagetracker.contents.attack.DamageModifier;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.MacheteItem;
+import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
@@ -35,7 +36,8 @@ public class CheaterMachete extends MacheteItem implements LegendaryWeapon {
 			float lost = cache.getAttackTarget().getMaxHealth() - cache.getAttackTarget().getHealth();
 			float acc = ctag.getFloat(KEY_DAMAGE);
 			if (lost < acc) {
-				cache.addHurtModifier(DamageModifier.addExtra(acc - lost));
+				double factor = LWConfig.COMMON.illusionRate.get();
+				cache.addHurtModifier(DamageModifier.addExtra((float) factor * (acc - lost)));
 			}
 		}
 	}

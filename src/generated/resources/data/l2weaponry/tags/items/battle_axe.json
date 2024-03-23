@@ -41,6 +41,22 @@
       "required": false
     },
     {
+      "id": "l2weaponry:cloggrum_battle_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_battle_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_battle_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_battle_axe",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_battle_axe",
       "required": false
     },

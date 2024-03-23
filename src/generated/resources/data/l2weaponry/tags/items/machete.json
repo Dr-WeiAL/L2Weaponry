@@ -41,6 +41,22 @@
       "required": false
     },
     {
+      "id": "l2weaponry:cloggrum_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_machete",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_machete",
       "required": false
     },

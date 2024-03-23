@@ -40,6 +40,22 @@
       "required": false
     },
     {
+      "id": "l2weaponry:cloggrum_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_spear",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_spear",
       "required": false
     },

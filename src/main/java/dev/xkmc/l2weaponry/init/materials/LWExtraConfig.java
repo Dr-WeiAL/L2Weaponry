@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.init.materials;
 
+import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -27,4 +28,9 @@ public interface LWExtraConfig {
 	default DamageSource getReflectSource(Player player) {
 		return null;
 	}
+
+	default void onHurt(AttackCache cache, LivingEntity attacker, ItemStack stack) {
+
+	}
+
 }

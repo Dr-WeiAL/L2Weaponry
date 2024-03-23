@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.init.data;
 
 import com.github.alexthe666.iceandfire.IceAndFire;
+import com.kyanite.deeperdarker.DeeperDarker;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
 import dev.xkmc.l2complements.content.enchantment.core.EnchantmentRecipeBuilder;
@@ -12,10 +13,11 @@ import dev.xkmc.l2library.compat.jeed.JeedDataGenerator;
 import dev.xkmc.l2library.serial.conditions.BooleanValueCondition;
 import dev.xkmc.l2library.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2library.serial.recipe.AbstractSmithingRecipe;
-import dev.xkmc.l2library.util.math.MathHelper;
+import dev.xkmc.l2weaponry.compat.DDCompat;
 import dev.xkmc.l2weaponry.compat.aerial.AHToolMats;
 import dev.xkmc.l2weaponry.compat.dragons.DragonToolMats;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
+import dev.xkmc.l2weaponry.compat.undergarden.UGToolMats;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
@@ -35,6 +37,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
+import quek.undergarden.Undergarden;
 import twilightforest.TwilightForestMod;
 
 import java.util.function.BiFunction;
@@ -77,10 +80,19 @@ public class RecipeGen {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
+			if (ModList.get().isLoaded(Undergarden.MODID)) {
+				for (ILWToolMats mat : UGToolMats.values()) {
+					tools(pvd, mat.getStick(), mat.getIngot(), mat);
+				}
+			}
 			if (ModList.get().isLoaded(AerialHell.MODID)) {
 				for (ILWToolMats mat : AHToolMats.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
+			}
+			if (ModList.get().isLoaded(DeeperDarker.MOD_ID)) {
+				currentFolder = "generated/alternate/";
+				DDCompat.onRecipeGen(pvd);
 			}
 		}
 
@@ -245,7 +257,7 @@ public class RecipeGen {
 	}
 
 	@SuppressWarnings("ConstantConditions")
-	private static ResourceLocation getID(Item item) {
+	public static ResourceLocation getID(Item item) {
 		return new ResourceLocation(L2Weaponry.MODID, currentFolder + ForgeRegistries.ITEMS.getKey(item).getPath());
 	}
 

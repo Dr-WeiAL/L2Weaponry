@@ -36,6 +36,22 @@
     {
       "id": "l2weaponry:lightning_dragonsteel_nunchaku",
       "required": false
+    },
+    {
+      "id": "l2weaponry:cloggrum_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_nunchaku",
+      "required": false
     }
   ]
 }

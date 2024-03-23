@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "key": {
+    "H": {
+      "item": "undergarden:underbean_on_a_stick"
+    },
+    "I": {
+      "item": "undergarden:utherium_crystal"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "III",
+    "HLH",
+    "H H"
+  ],
+  "result": {
+    "item": "l2weaponry:utherium_claw",
+    "nbt": "{Enchantments:[{id:\"minecraft:sweeping\",lvl:2s}]}"
+  },
+  "show_notification": true
+}

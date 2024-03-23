@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "key": {
+    "H": {
+      "item": "undergarden:underbean_on_a_stick"
+    },
+    "I": {
+      "item": "undergarden:utherium_crystal"
+    }
+  },
+  "pattern": [
+    "II",
+    "IH"
+  ],
+  "result": {
+    "item": "l2weaponry:utherium_throwing_axe"
+  },
+  "show_notification": true
+}

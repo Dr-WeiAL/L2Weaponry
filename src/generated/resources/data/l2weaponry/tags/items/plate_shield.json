@@ -38,6 +38,22 @@
       "required": false
     },
     {
+      "id": "l2weaponry:cloggrum_plate_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_plate_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_plate_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_plate_shield",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_plate_shield",
       "required": false
     },

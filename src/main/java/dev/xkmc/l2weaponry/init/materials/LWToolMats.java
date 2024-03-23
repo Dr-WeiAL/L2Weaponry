@@ -19,8 +19,8 @@ public enum LWToolMats implements ILWToolMats {
 	TOTEMIC_GOLD(LCMats.TOTEMIC_GOLD, false),
 	POSEIDITE(LCMats.POSEIDITE, false),
 	SHULKERATE(LCMats.SHULKERATE, false),
-	SCULKIUM(LCMats.SCULKIUM, false),
-	ETERNIUM(LCMats.ETERNIUM, false);
+	SCULKIUM(LCMats.SCULKIUM, true),
+	ETERNIUM(LCMats.ETERNIUM, true);
 
 	public final IMatToolType type;
 	private final Supplier<Item> nugget, ingot, block, toolIngot, handle;

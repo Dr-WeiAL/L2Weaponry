@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "key": {
+    "H": {
+      "item": "undergarden:underbean_on_a_stick"
+    },
+    "I": {
+      "item": "undergarden:cloggrum_nugget"
+    }
+  },
+  "pattern": [
+    " II",
+    " HI",
+    "H  "
+  ],
+  "result": {
+    "item": "l2weaponry:cloggrum_spear",
+    "nbt": "{Enchantments:[{id:\"l2complements:plane_digging\",lvl:1s}]}"
+  },
+  "show_notification": true
+}

@@ -40,6 +40,22 @@
       "required": false
     },
     {
+      "id": "l2weaponry:cloggrum_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_javelin",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_javelin",
       "required": false
     },

@@ -23,6 +23,7 @@ public class LWConfig {
 		public final ForgeConfigSpec.IntValue claw_timeout;
 		public final ForgeConfigSpec.IntValue claw_block_time;
 		public final ForgeConfigSpec.DoubleValue reflectCost;
+		public final ForgeConfigSpec.BooleanValue diggerEnchantmentOnWeapon;
 
 		public final ForgeConfigSpec.IntValue shadowHunterDistance;
 		public final ForgeConfigSpec.IntValue hauntingDemonDistance;
@@ -30,6 +31,8 @@ public class LWConfig {
 		public final ForgeConfigSpec.IntValue hammerOfIncarcerationDuration;
 		public final ForgeConfigSpec.DoubleValue dogmaticStandoffGain;
 		public final ForgeConfigSpec.DoubleValue dogmaticStandoffMax;
+		public final ForgeConfigSpec.DoubleValue determinationRate;
+		public final ForgeConfigSpec.DoubleValue illusionRate;
 
 		public final ForgeConfigSpec.DoubleValue heavySpeedReduction;
 		public final ForgeConfigSpec.DoubleValue heavyCritBonus;
@@ -66,6 +69,8 @@ public class LWConfig {
 					.defineInRange("claw_block_time", 3, 0, 1000);
 			reflectCost = builder.comment("Shield reflect cost")
 					.defineInRange("reflectCost", 0.2, 0, 1);
+			diggerEnchantmentOnWeapon = builder.comment("Allow digger enchantments on weapon")
+					.define("diggerEnchantmentOnWeapon", true);
 			builder.pop();
 			builder.push("Legendary Weapon Effects");
 			shadowHunterDistance = builder.comment("Shadow Hunter teleport distance")
@@ -80,6 +85,10 @@ public class LWConfig {
 					.defineInRange("dogmaticStandoffGain", 0.02, 0.0001, 1);
 			dogmaticStandoffMax = builder.comment("Dogmatic Standoff absorption max percentage")
 					.defineInRange("dogmaticStandoffMax", 0.1, 0.0001, 100);
+			determinationRate = builder.comment("Claw of Determination increase rate")
+					.defineInRange("determinationRate", 2d, 0, 100);
+			illusionRate = builder.comment("Blade of illusion increase rate")
+					.defineInRange("illusionRate", 1d, 0, 100);
 			builder.pop();
 			builder.push("Enchantments");
 			heavySpeedReduction = builder.comment("Heavy enchantment reduction on attack speed")

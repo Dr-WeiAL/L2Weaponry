@@ -4,6 +4,7 @@ import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
 import dev.xkmc.l2damagetracker.contents.attack.DamageModifier;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.ClawItem;
+import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
@@ -29,7 +30,8 @@ public class CheaterClaw extends ClawItem implements LegendaryWeapon {
 		if (cache.getAttackTarget().hurtTime > 0) return;
 		float diff = cache.getPreDamage() - cache.getDamageDealt();
 		cache.getWeapon().getOrCreateTag().putUUID(KEY_TARGET, cache.getAttackTarget().getUUID());
-		cache.getWeapon().getOrCreateTag().putFloat(KEY_DAMAGE, diff * 2);
+		double rate = LWConfig.COMMON.determinationRate.get();
+		cache.getWeapon().getOrCreateTag().putFloat(KEY_DAMAGE, diff * (float) rate);
 	}
 
 	@Override

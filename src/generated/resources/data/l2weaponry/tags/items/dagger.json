@@ -40,6 +40,22 @@
       "required": false
     },
     {
+      "id": "l2weaponry:cloggrum_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_dagger",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_dagger",
       "required": false
     },

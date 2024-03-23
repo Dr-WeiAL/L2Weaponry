@@ -7,6 +7,7 @@ import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
+import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -75,6 +76,10 @@ public class LWAttackEventListener implements AttackListener {
 		}
 		if (!stack.isEmpty() && stack.getItem() instanceof LWTieredItem w) {
 			cache.addHurtModifier(DamageModifier.multAttr(w.getMultiplier(cache)));
+			var attacker = cache.getAttacker();
+			if (attacker != null && w.getExtraConfig() instanceof LWExtraConfig config) {
+				config.onHurt(cache, attacker, stack);
+			}
 		}
 		if (cache.getAttacker() != null && stack.getItem() instanceof LegendaryWeapon weapon) {
 			weapon.onHurt(cache, cache.getAttacker(), stack);

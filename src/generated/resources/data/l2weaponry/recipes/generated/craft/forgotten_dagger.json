@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "key": {
+    "H": {
+      "item": "undergarden:underbean_on_a_stick"
+    },
+    "I": {
+      "item": "undergarden:forgotten_ingot"
+    }
+  },
+  "pattern": [
+    " I",
+    "H "
+  ],
+  "result": {
+    "item": "l2weaponry:forgotten_dagger"
+  },
+  "show_notification": true
+}

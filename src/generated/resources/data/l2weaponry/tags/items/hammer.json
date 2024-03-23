@@ -41,6 +41,22 @@
       "required": false
     },
     {
+      "id": "l2weaponry:cloggrum_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_hammer",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_hammer",
       "required": false
     },
