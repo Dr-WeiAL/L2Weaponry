@@ -24,7 +24,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public enum UGToolMats implements ILWToolMats {
-	CLOGGRUM(new ModMats(UGItemTiers.CLOGGRUM, new CloggrumTool()), false, UGItems.CLOGGRUM_NUGGET, UGBlocks.CLOGGRUM_BLOCK),
+	CLOGGRUM(new ModMats(UGItemTiers.CLOGGRUM, new CloggrumTool()), false, UGItems.CLOGGRUM_INGOT, UGBlocks.CLOGGRUM_BLOCK),
 	FROSTSTEEL(new ModMats(UGItemTiers.FROSTSTEEL, new FroststeelTool()), false, UGItems.FROSTSTEEL_INGOT, UGBlocks.FROSTSTEEL_BLOCK),
 	UTHERIUM(new ModMats(UGItemTiers.UTHERIUM, new UteriumTool()), false, UGItems.UTHERIUM_CRYSTAL, UGBlocks.UTHERIUM_BLOCK),
 	FORGOTTEN(new ModMats(UGItemTiers.FORGOTTEN, new ForgottenTool()), false, UGItems.FORGOTTEN_INGOT, UGBlocks.FORGOTTEN_BLOCK),

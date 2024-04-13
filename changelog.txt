@@ -1,7 +1,11 @@
+2.4.28
+- Cloggrum recipe fix
+- UnderGarden x BetterCombat compat
+
 2.4.27
 - UnderGarden compat
 - Config for allowing digger enchantments on weapons
-- config for blade of illusion and claw of determination
+- Config for blade of illusion and claw of determination
 
 2.4.26
 - Use new damage tracker lib
