@@ -120,6 +120,11 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 		if (LWConfig.COMMON.diggerEnchantmentOnWeapon.get())
 			if (enchantment.category == EnchantmentCategory.DIGGER)
 				return true;
+		for (var e : LWConfig.COMMON.extraCompatibleEnchantmentCategories.get()) {
+			if (enchantment.category.name().equals(e)) {
+				return true;
+			}
+		}
 		return super.canApplyAtEnchantingTable(stack, enchantment);
 	}
 

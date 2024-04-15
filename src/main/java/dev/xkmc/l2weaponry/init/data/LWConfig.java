@@ -6,6 +6,9 @@ import net.minecraftforge.fml.config.IConfigSpec;
 import net.minecraftforge.fml.config.ModConfig;
 import org.apache.commons.lang3.tuple.Pair;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LWConfig {
 
 	public static class Client {
@@ -24,6 +27,7 @@ public class LWConfig {
 		public final ForgeConfigSpec.IntValue claw_block_time;
 		public final ForgeConfigSpec.DoubleValue reflectCost;
 		public final ForgeConfigSpec.BooleanValue diggerEnchantmentOnWeapon;
+		public final ForgeConfigSpec.ConfigValue<List<String>> extraCompatibleEnchantmentCategories;
 
 		public final ForgeConfigSpec.IntValue shadowHunterDistance;
 		public final ForgeConfigSpec.IntValue hauntingDemonDistance;
@@ -71,6 +75,12 @@ public class LWConfig {
 					.defineInRange("reflectCost", 0.2, 0, 1);
 			diggerEnchantmentOnWeapon = builder.comment("Allow digger enchantments on weapon")
 					.define("diggerEnchantmentOnWeapon", true);
+			extraCompatibleEnchantmentCategories = builder
+					.comment("List of enchantment categories for weapons. Use upper case enum name.")
+					.comment("For modded enchantment categories, find them in their code through GitHub")
+					.comment("Example: 'WEAPON', 'DIGGER'")
+					.define("extraCompatibleEnchantmentCategories", new ArrayList<>(List.of()));
+
 			builder.pop();
 			builder.push("Legendary Weapon Effects");
 			shadowHunterDistance = builder.comment("Shadow Hunter teleport distance")

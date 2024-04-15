@@ -1,4 +1,5 @@
 2.4.28
+- Add enchantment category compatibility config
 - Cloggrum recipe fix
 - UnderGarden x BetterCombat compat
 
