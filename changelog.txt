@@ -1,3 +1,6 @@
+2.4.29
+- Fix nunchaku not being able to attack when offhand item is disabled
+
 2.4.28
 - Add enchantment category compatibility config
 - Cloggrum recipe fix

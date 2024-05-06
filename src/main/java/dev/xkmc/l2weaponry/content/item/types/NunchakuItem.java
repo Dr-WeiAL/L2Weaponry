@@ -40,12 +40,23 @@ public class NunchakuItem extends GenericWeaponItem implements FastItem {
 				entity.getUseItem().canPerformAction(ToolActions.SHIELD_BLOCK);
 	}
 
+	public static boolean delegate(Player player) {
+		return player.getOffhandItem().canPerformAction(ToolActions.SHIELD_BLOCK)
+				&& !player.getCooldowns().isOnCooldown(player.getOffhandItem().getItem());
+	}
+
 	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
 		ItemStack itemstack = player.getItemInHand(hand);
-		if (hand == InteractionHand.OFF_HAND || player.getOffhandItem().canPerformAction(ToolActions.SHIELD_BLOCK))
+		if (hand == InteractionHand.OFF_HAND || delegate(player))
 			return InteractionResultHolder.pass(itemstack);
 		player.startUsingItem(hand);
 		return InteractionResultHolder.consume(itemstack);
+	}
+
+	@Override
+	public void onUseTick(Level level, LivingEntity le, ItemStack stack, int remain) {
+		if (le instanceof Player player && delegate(player))
+			le.stopUsingItem();
 	}
 
 	@Override
