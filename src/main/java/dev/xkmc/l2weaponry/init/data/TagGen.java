@@ -18,8 +18,6 @@ import java.util.List;
 
 public class TagGen {
 
-	public static final TagKey<Item> WEAPON = ItemTags.create(new ResourceLocation("forge", "tools/melee_weapons"));
-
 	public static final TagKey<Item> CLAW = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "claw"));
 	public static final TagKey<Item> DAGGER = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "dagger"));
 	public static final TagKey<Item> HAMMER = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "hammer"));
@@ -47,9 +45,10 @@ public class TagGen {
 		for (var e : LIST) {
 			pvd.addTag(e.getFirst()).addOptional(e.getSecond());
 		}
-		pvd.addTag(WEAPON).addTags(ItemTags.SWORDS, ItemTags.AXES, JAVELIN, THROWING_AXE,
-				CLAW, DAGGER, HAMMER, BATTLE_AXE, SPEAR, MACHETE, NUNCHAKU);
 		pvd.addTag(Tags.Items.TOOLS_SHIELDS).addTags(ROUND_SHIELD, PLATE_SHIELD);
+		pvd.addTag(ItemTags.create(new ResourceLocation("skilltree", "melee_weapon")))
+				.addTags(ItemTags.SWORDS, ItemTags.AXES, JAVELIN, THROWING_AXE,
+				CLAW, DAGGER, HAMMER, BATTLE_AXE, SPEAR, MACHETE, NUNCHAKU);
 
 	}
 

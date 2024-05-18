@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-13T19:03:19.600052	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (mob_effects), Tags (traits), Patchouli Provider]
+// 1.20.1	2024-05-17T13:58:31.044988	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (mob_effects), Tags (traits), Patchouli Provider]
 2b91535351640d0d6287e43bcd0bdb5db737b000 assets/l2weaponry/lang/en_ud.json
 ee69729e12cfc11f0c1b18e5bae00299428fa31f assets/l2weaponry/lang/en_us.json
 3da370b79689e4fe8f61f504d8170c349fb1b34c assets/l2weaponry/models/item/abyss_echo.json
@@ -411,7 +411,6 @@ e3fa418e3ef5ce392dd752b86458936c1090d9bd assets/l2weaponry/models/item/volucite_
 343c0eb233b5af0ec72990b1c90324f517d97a0f assets/l2weaponry/models/item/volucite_spear.json
 973e5aaf957179346ea3f709b3f231056a4b8ace assets/l2weaponry/models/item/volucite_throwing_axe.json
 ca3197ad893476a47627ea965f21f8c8dd2d22a9 assets/l2weaponry/models/item/volucite_throwing_axe_throwing.json
-27ea24ac200dc638a17d80feb60a5fbe93083322 data/forge/tags/items/tools/melee_weapons.json
 dca419f625694397194820a3848c608e23839bf6 data/forge/tags/items/tools/shields.json
 8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/forge/tags/items/tools/tridents.json
 334c6c3bb4fd7a4e7674a535489a9100a6e059f7 data/l2weaponry/advancements/recipes/combat/generated/alternate/sculkium_battle_axe.json
@@ -1683,3 +1682,4 @@ b3d30a5902edbb02d051e70ee86114e10264ebe0 data/l2weaponry/tags/items/nunchaku.jso
 bed35289bba3b0d4ec472337f039be51129701da data/l2weaponry/tags/items/spear.json
 1b33350fd0729236adfd151e9199a5057040f988 data/l2weaponry/tags/items/throwing_axe.json
 4ab37eb3dc580ff1ff88e814ca291a0192381718 data/minecraft/tags/entity_types/impact_projectiles.json
+27ea24ac200dc638a17d80feb60a5fbe93083322 data/skilltree/tags/items/melee_weapon.json
