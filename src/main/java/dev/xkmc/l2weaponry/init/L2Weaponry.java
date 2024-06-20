@@ -15,9 +15,14 @@ import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.l2weaponry.init.registrate.LWRegistrate;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -25,6 +30,8 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.forgespi.language.IModFileInfo;
+import net.minecraftforge.forgespi.locating.IModFile;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -83,6 +90,26 @@ public class L2Weaponry {
 		var helper = event.getExistingFileHelper();
 		new LWDamageTypeGen(output, lookup, helper).generate(gen, event.getGenerator());
 		event.getGenerator().addProvider(event.includeServer(), new LWAttributeConfigGen(event.getGenerator()));
+	}
+
+	@SubscribeEvent
+	public static void addPackFinders(AddPackFindersEvent event) {
+		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+			IModFileInfo modFileInfo = ModList.get().getModFileById(MODID);
+			if (modFileInfo == null)
+				return;
+			String builtin = "old_weapon_model";
+			IModFile modFile = modFileInfo.getFile();
+			event.addRepositorySource((consumer) -> {
+				Pack pack = Pack.readMetaAndCreate(MODID + ":" + builtin,
+						Component.literal("Old L2Weaponry Model"), false,
+						(id) -> new ModFilePackResources(id, modFile, "resourcepacks/" + builtin),
+						PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
+				if (pack != null) {
+					consumer.accept(pack);
+				}
+			});
+		}
 	}
 
 }

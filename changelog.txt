@@ -1,3 +1,6 @@
+2.4.30
+- Fix PST compatibility
+
 2.4.29
 - Fix nunchaku not being able to attack when offhand item is disabled
 
