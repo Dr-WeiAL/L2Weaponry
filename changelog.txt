@@ -1,3 +1,6 @@
+2.4.31
+- Add old 2D model back as resource pack
+
 2.4.30
 - Fix PST compatibility
 

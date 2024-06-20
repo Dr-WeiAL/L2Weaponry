@@ -1,0 +1,6 @@
+{
+  "parent": "l2weaponry:item/battle_axe",
+  "textures": {
+    "layer0": "l2weaponry:item/generated/legendary/axe_of_cursed_flame"
+  }
+}

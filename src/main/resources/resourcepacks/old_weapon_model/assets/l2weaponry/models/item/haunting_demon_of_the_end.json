@@ -1,0 +1,6 @@
+{
+  "parent": "l2weaponry:item/long_weapon",
+  "textures": {
+    "layer0": "l2weaponry:item/generated/legendary/haunting_demon_of_the_end"
+  }
+}
