@@ -1,6 +1,6 @@
 2.4.32
 - Add old 2D model back as resource pack
-- Fix StormJavelin still lighting things on fire
+- StormJavelin and L2W channeling weapon no longer light things on fire
 - Fix Spear model misalignment
 
 2.4.30

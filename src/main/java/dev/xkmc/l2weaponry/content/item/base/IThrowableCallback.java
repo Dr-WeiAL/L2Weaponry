@@ -37,7 +37,7 @@ public interface IThrowableCallback {
 		BlockPos blockpos = entity.blockPosition();
 		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(entity.level());
 		assert bolt != null;
-		entity.addTag(LWGeneralEvents.LIGHTNING);
+		bolt.addTag(LWGeneralEvents.LIGHTNING);
 		bolt.moveTo(Vec3.atBottomCenterOf(blockpos));
 		bolt.setCause(entity.getOwner() instanceof ServerPlayer ? (ServerPlayer) entity.getOwner() : null);
 		entity.level().addFreshEntity(bolt);
