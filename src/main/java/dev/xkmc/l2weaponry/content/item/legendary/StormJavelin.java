@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.item.legendary;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.types.JavelinItem;
+import dev.xkmc.l2weaponry.events.LWGeneralEvents;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -40,6 +41,7 @@ public class StormJavelin extends JavelinItem implements LegendaryWeapon {
 		BlockPos blockpos = target.blockPosition();
 		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(user.level());
 		assert bolt != null;
+		bolt.addTag(LWGeneralEvents.LIGHTNING);
 		bolt.moveTo(Vec3.atBottomCenterOf(blockpos));
 		bolt.setCause(user instanceof ServerPlayer serverPlayer ? serverPlayer : null);
 		user.level().addFreshEntity(bolt);
