@@ -2,8 +2,10 @@ package dev.xkmc.l2weaponry.init.materials;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
+import dev.xkmc.l2library.serial.conditions.BooleanValueCondition;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
 import dev.xkmc.l2library.serial.recipe.NBTRecipe;
+import dev.xkmc.l2weaponry.init.data.LWConfig;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -19,6 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public interface ILWToolMats {
 
@@ -43,17 +46,19 @@ public interface ILWToolMats {
 	default void addEnchants(List<EnchantmentInstance> list, LWToolTypes type) {
 	}
 
-	default void saveRecipe(ShapedRecipeBuilder b, RegistrateRecipeProvider pvd, LWToolTypes type, ResourceLocation id) {
-		var cond = getProvider(pvd);
+	default void saveRecipe(Supplier<ShapedRecipeBuilder> b, RegistrateRecipeProvider pvd, LWToolTypes type, ResourceLocation id) {
 		ItemStack stack = getToolEnchanted(type);
-		if (stack.isEnchanted()) {
-			if (stack.getTag() != null) {
-				stack.getTag().remove("Damage");
-				b.save(e -> cond.accept(new NBTRecipe(e, stack)), id);
-				return;
-			}
+		if (stack.getTag() != null) {
+			stack.getTag().remove("Damage");
+			b.get().save(e -> getProvider(pvd,
+					BooleanValueCondition.of(LWConfig.COMMON_PATH, LWConfig.COMMON.defaultEnchantmentOnWeapons, true)
+			).accept(new NBTRecipe(e, stack)), id.withSuffix("_enchanted"));
+			b.get().save(getProvider(pvd,
+					BooleanValueCondition.of(LWConfig.COMMON_PATH, LWConfig.COMMON.defaultEnchantmentOnWeapons, false)
+			), id);
+		} else {
+			b.get().save(getProvider(pvd), id);
 		}
-		b.save(cond, id);
 	}
 
 	default String englishName() {

@@ -42,6 +42,7 @@ import twilightforest.TwilightForestMod;
 
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class RecipeGen {
 
@@ -272,19 +273,22 @@ public class RecipeGen {
 
 	private static void buildTool(RegistrateRecipeProvider pvd, Item handle, Item ingot, ILWToolMats mat, LWToolTypes type, String... strs) {
 		if (!mat.hasTool(type)) return;
-		var b = unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.TOOLS, mat.getTool(type), 1)::unlockedBy, mat.getIngot());
-		boolean stick = false, leather = false, chain = false;
-		for (String str : strs) {
-			b = b.pattern(str);
-			stick |= str.indexOf('H') >= 0;
-			leather |= str.indexOf('L') >= 0;
-			chain |= str.indexOf('C') >= 0;
-		}
-		b.define('I', ingot);
-		if (stick) b.define('H', handle);
-		if (leather) b = b.define('L', Items.LEATHER);
-		if (chain) b = b.define('C', Items.CHAIN);
-		mat.saveRecipe(b, pvd, type, getID(mat.getTool(type)));
+		Supplier<ShapedRecipeBuilder> sup = () -> {
+			var b = unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.TOOLS, mat.getTool(type), 1)::unlockedBy, mat.getIngot());
+			boolean stick = false, leather = false, chain = false;
+			for (String str : strs) {
+				b = b.pattern(str);
+				stick |= str.indexOf('H') >= 0;
+				leather |= str.indexOf('L') >= 0;
+				chain |= str.indexOf('C') >= 0;
+			}
+			b.define('I', ingot);
+			if (stick) b.define('H', handle);
+			if (leather) b = b.define('L', Items.LEATHER);
+			if (chain) b = b.define('C', Items.CHAIN);
+			return b;
+		};
+		mat.saveRecipe(sup, pvd, type, getID(mat.getTool(type)));
 	}
 
 	public static void upgrade(RegistrateRecipeProvider pvd, ILWToolMats base, ILWToolMats mat) {

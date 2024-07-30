@@ -5,6 +5,15 @@
     {
       "type": "forge:mod_loaded",
       "modid": "twilightforest"
+    },
+    {
+      "type": "l2library:boolean_config",
+      "expected": false,
+      "line": [
+        "Weapon Type Features",
+        "defaultEnchantmentOnWeapons"
+      ],
+      "path": "l2_configs/l2weaponry-common.toml"
     }
   ],
   "key": {
@@ -20,8 +29,7 @@
     "H "
   ],
   "result": {
-    "item": "l2weaponry:steeleaf_dagger",
-    "nbt": "{Enchantments:[{id:\"minecraft:sharpness\",lvl:2s},{id:\"minecraft:looting\",lvl:2s}]}"
+    "item": "l2weaponry:steeleaf_dagger"
   },
   "show_notification": true
 }

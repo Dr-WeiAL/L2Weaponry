@@ -26,6 +26,7 @@ public class LWConfig {
 		public final ForgeConfigSpec.IntValue claw_timeout;
 		public final ForgeConfigSpec.IntValue claw_block_time;
 		public final ForgeConfigSpec.DoubleValue reflectCost;
+		public final ForgeConfigSpec.BooleanValue defaultEnchantmentOnWeapons;
 		public final ForgeConfigSpec.BooleanValue diggerEnchantmentOnWeapon;
 		public final ForgeConfigSpec.ConfigValue<List<String>> extraCompatibleEnchantmentCategories;
 
@@ -75,6 +76,8 @@ public class LWConfig {
 					.defineInRange("reflectCost", 0.2, 0, 1);
 			diggerEnchantmentOnWeapon = builder.comment("Allow digger enchantments on weapon")
 					.define("diggerEnchantmentOnWeapon", true);
+			defaultEnchantmentOnWeapons = builder.comment("Default enchantments on crafted weapons")
+					.define("defaultEnchantmentOnWeapons", true);
 			extraCompatibleEnchantmentCategories = builder
 					.comment("List of enchantment categories for weapons. Use upper case enum name.")
 					.comment("For modded enchantment categories, find them in their code through GitHub")
@@ -153,6 +156,7 @@ public class LWConfig {
 
 	public static final ForgeConfigSpec COMMON_SPEC;
 	public static final Common COMMON;
+	public static String COMMON_PATH;
 
 	static {
 		final Pair<Client, ForgeConfigSpec> client = new ForgeConfigSpec.Builder().configure(Client::new);
@@ -166,13 +170,14 @@ public class LWConfig {
 
 	public static void init() {
 		register(ModConfig.Type.CLIENT, CLIENT_SPEC);
-		register(ModConfig.Type.COMMON, COMMON_SPEC);
+		COMMON_PATH = register(ModConfig.Type.COMMON, COMMON_SPEC);
 	}
 
-	private static void register(ModConfig.Type type, IConfigSpec<?> spec) {
+	private static String register(ModConfig.Type type, IConfigSpec<?> spec) {
 		var mod = ModLoadingContext.get().getActiveContainer();
 		String path = "l2_configs/" + mod.getModId() + "-" + type.extension() + ".toml";
 		ModLoadingContext.get().registerConfig(type, spec, path);
+		return path;
 	}
 
 }
