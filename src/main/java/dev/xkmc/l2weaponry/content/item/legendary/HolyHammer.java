@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.attack.DamageModifier;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.HammerItem;
@@ -22,8 +22,8 @@ public class HolyHammer extends HammerItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
-		event.addHurtModifier(DamageModifier.addExtra(le.getAbsorptionAmount()));
+	public void onHurt(DamageData.Offence event, LivingEntity le, ItemStack stack) {
+		event.addHurtModifier(DamageModifier.addExtra(le.getAbsorptionAmount(), id()));
 	}
 
 	@Override

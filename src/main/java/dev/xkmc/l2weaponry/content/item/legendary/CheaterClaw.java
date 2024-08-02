@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
 import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.attack.DamageModifier;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.ClawItem;
@@ -25,12 +26,12 @@ public class CheaterClaw extends ClawItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onDamageFinal(AttackCache cache, LivingEntity le) {
+	public void onDamageFinal(DamageData.DefenceMax cache, LivingEntity le) {
 		if (cache.getStrength() < 0.95f) return;
-		if (cache.getAttackTarget().hurtTime > 0) return;
-		float diff = cache.getPreDamage() - cache.getDamageDealt();
+		if (cache.getTarget().hurtTime > 0) return;
+		float diff = cache.getDamageIncoming() - cache.getDamageFinal();
 		cache.getWeapon().getOrCreateTag().putUUID(KEY_TARGET, cache.getAttackTarget().getUUID());
-		double rate = LWConfig.COMMON.determinationRate.get();
+		double rate = LWConfig.SERVER.determinationRate.get();
 		cache.getWeapon().getOrCreateTag().putFloat(KEY_DAMAGE, diff * (float) rate);
 	}
 
@@ -40,7 +41,7 @@ public class CheaterClaw extends ClawItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
+	public void onHurt(DamageData.Offence event, LivingEntity le, ItemStack stack) {
 		if (stack.getOrCreateTag().hasUUID(KEY_TARGET) &&
 				event.getAttackTarget().getUUID().equals(
 						stack.getOrCreateTag().getUUID(KEY_TARGET))) {

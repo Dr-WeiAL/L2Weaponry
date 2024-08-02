@@ -1,8 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.types;
 
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2library.util.raytrace.FastItem;
-import dev.xkmc.l2weaponry.content.client.WeaponBEWLR;
+import dev.xkmc.l2library.content.raytrace.FastItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
 import dev.xkmc.l2weaponry.events.ClientRenderEvents;
 import dev.xkmc.l2weaponry.init.data.LangData;
@@ -18,12 +17,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.minecraftforge.common.ToolActions;
+import net.neoforged.neoforge.common.ItemAbilities;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 public class NunchakuItem extends GenericWeaponItem implements FastItem {
 
@@ -37,11 +34,11 @@ public class NunchakuItem extends GenericWeaponItem implements FastItem {
 		if (!entity.isUsingItem()) return false;
 		if (entity.getMainHandItem() != stack) return false;
 		return entity.getUseItem() == stack ||
-				entity.getUseItem().canPerformAction(ToolActions.SHIELD_BLOCK);
+				entity.getUseItem().canPerformAction(ItemAbilities.SHIELD_BLOCK);
 	}
 
 	public static boolean delegate(Player player) {
-		return player.getOffhandItem().canPerformAction(ToolActions.SHIELD_BLOCK)
+		return player.getOffhandItem().canPerformAction(ItemAbilities.SHIELD_BLOCK)
 				&& !player.getCooldowns().isOnCooldown(player.getOffhandItem().getItem());
 	}
 
@@ -84,11 +81,6 @@ public class NunchakuItem extends GenericWeaponItem implements FastItem {
 	@Override
 	public boolean isFast(ItemStack itemStack) {
 		return true;
-	}
-
-	@Override
-	public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-		consumer.accept(WeaponBEWLR.EXTENSIONS);
 	}
 
 }

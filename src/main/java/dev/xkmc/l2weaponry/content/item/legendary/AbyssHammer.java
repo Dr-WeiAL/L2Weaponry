@@ -14,7 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.eventbus.api.Event;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -32,7 +31,7 @@ public class AbyssHammer extends HammerItem implements LegendaryWeapon {
 		Optional.of(event)
 				.map(CreateSourceEvent::getPlayerAttackCache)
 				.map(PlayerAttackCache::getCriticalHitEvent)
-				.filter(e -> e.isVanillaCritical() || e.getResult() == Event.Result.ALLOW)
+				.filter(e -> e.isVanillaCritical() || e.isCriticalHit())
 				.ifPresent(e -> event.enable(DefaultDamageState.BYPASS_MAGIC));
 		if (attacker instanceof Mob) {
 			event.enable(DefaultDamageState.BYPASS_MAGIC);

@@ -1,8 +1,8 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2library.util.raytrace.IGlowingTarget;
-import dev.xkmc.l2library.util.raytrace.RayTraceUtil;
+import dev.xkmc.l2library.content.raytrace.IGlowingTarget;
+import dev.xkmc.l2library.content.raytrace.RayTraceUtil;
 import dev.xkmc.l2weaponry.content.item.types.SpearItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
@@ -57,7 +57,7 @@ public class EnderSpear extends SpearItem implements LegendaryWeapon, IGlowingTa
 
 	@Override
 	public int getDistance(ItemStack itemStack) {
-		return LWConfig.COMMON.hauntingDemonDistance.get();
+		return LWConfig.SERVER.hauntingDemonDistance.get();
 	}
 
 	@Override

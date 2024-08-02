@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
-import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
@@ -32,7 +32,7 @@ public class BaseClawItem extends DoubleWieldItem {
 	public void accumulateDamage(ItemStack stack, LivingEntity entity) {
 		long gameTime = entity.level().getGameTime();
 		long last = stack.getOrCreateTag().getLong(KEY_TIME);
-		if (gameTime > last + LWConfig.COMMON.claw_timeout.get()) {
+		if (gameTime > last + LWConfig.SERVER.claw_timeout.get()) {
 			stack.getOrCreateTag().putInt(KEY_COUNT, 1);
 		} else {
 			int count = stack.getOrCreateTag().getInt(KEY_COUNT);
@@ -47,14 +47,14 @@ public class BaseClawItem extends DoubleWieldItem {
 		super.inventoryTick(stack, level, entity, slot, selected);
 		long gameTime = entity.level().getGameTime();
 		long last = stack.getOrCreateTag().getLong(KEY_TIME);
-		if (gameTime > last + LWConfig.COMMON.claw_timeout.get()) {
+		if (gameTime > last + LWConfig.SERVER.claw_timeout.get()) {
 			stack.getOrCreateTag().remove(KEY_COUNT);
 			stack.getOrCreateTag().remove(KEY_TIME);
 		}
 	}
 
 	public int getMaxStack(ItemStack stack, LivingEntity user) {
-		int max = LWConfig.COMMON.claw_max.get();
+		int max = LWConfig.SERVER.claw_max.get();
 		if (user.getOffhandItem().getItem() == this) {
 			max *= 2;
 		}
@@ -62,11 +62,11 @@ public class BaseClawItem extends DoubleWieldItem {
 	}
 
 	@Override
-	public float getMultiplier(AttackCache event) {
+	public float getMultiplier(DamageData.Offence event) {
 		int count = event.getWeapon().getOrCreateTag().getInt(KEY_COUNT);
 		if (count > 1) {
 			int max = getMaxStack(event.getWeapon(), event.getAttacker());
-			return (float) (1 + LWConfig.COMMON.claw_bonus.get() * Mth.clamp(count - 1, 0, max));
+			return (float) (1 + LWConfig.SERVER.claw_bonus.get() * Mth.clamp(count - 1, 0, max));
 		}
 		return super.getMultiplier(event);
 	}

@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.ClawItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
@@ -30,13 +30,13 @@ public class BloodClaw extends ClawItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onDamageFinal(AttackCache cache, LivingEntity le) {
-		le.heal(cache.getDamageDealt());
+	public void onDamageFinal(DamageData.DefenceMax cache, LivingEntity le) {
+		le.heal(cache.getDamageFinal());
 	}
 
 	@Override
 	public int getMaxStack(ItemStack stack, LivingEntity user) {
-		int max = LWConfig.COMMON.claw_max.get() + getBonus(stack.getOrCreateTag().getInt(KEY_KILL));
+		int max = LWConfig.SERVER.claw_max.get() + getBonus(stack.getOrCreateTag().getInt(KEY_KILL));
 		if (user.getOffhandItem().getItem() == this) {
 			max *= 2;
 		}

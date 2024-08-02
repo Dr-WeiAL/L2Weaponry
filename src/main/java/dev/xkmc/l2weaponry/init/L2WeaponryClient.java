@@ -6,25 +6,18 @@ import dev.xkmc.l2weaponry.content.item.types.NunchakuItem;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ModelEvent;
-import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
-import net.minecraftforge.client.event.RegisterItemDecorationsEvent;
-import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.ModelEvent;
+import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
 
-@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = L2Weaponry.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(value = Dist.CLIENT, modid = L2Weaponry.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class L2WeaponryClient {
-
-	@SubscribeEvent
-	public static void onParticleRegistryEvent(RegisterParticleProvidersEvent event) {
-
-	}
 
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
@@ -32,16 +25,16 @@ public class L2WeaponryClient {
 			ClampedItemPropertyFunction func = (stack, level, entity, layer) ->
 					entity != null && entity.isBlocking() && entity.getUseItem() == stack ? 1.0F : 0.0F;
 			for (Item i : LWItems.BLOCK_DECO) {
-				ItemProperties.register(i, new ResourceLocation(L2Weaponry.MODID, "blocking"), func);
+				ItemProperties.register(i, L2Weaponry.loc("blocking"), func);
 			}
 			func = (stack, level, entity, layer) ->
 					entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
 			for (Item i : LWItems.THROW_DECO) {
-				ItemProperties.register(i, new ResourceLocation(L2Weaponry.MODID, "throwing"), func);
+				ItemProperties.register(i, L2Weaponry.loc("throwing"), func);
 			}
 			func = (stack, level, entity, layer) -> NunchakuItem.check(entity, stack) ? 1.0F : 0.0F;
 			for (Item i : LWItems.NUNCHAKU_DECO) {
-				ItemProperties.register(i, new ResourceLocation(L2Weaponry.MODID, "spinning"), func);
+				ItemProperties.register(i, L2Weaponry.loc("spinning"), func);
 			}
 		});
 	}
@@ -59,15 +52,10 @@ public class L2WeaponryClient {
 	}
 
 	@SubscribeEvent
-	public static void onResourceReload(RegisterClientReloadListenersEvent event) {
-
-	}
-
-	@SubscribeEvent
 	public static void onModelLoad(ModelEvent.RegisterAdditional event) {
 		for (var item : LWItems.NUNCHAKU_DECO) {
-			event.register(ForgeRegistries.ITEMS.getKey(item).withPath(e -> "item/" + e + "_roll"));
-			event.register(ForgeRegistries.ITEMS.getKey(item).withPath(e -> "item/" + e + "_unroll"));
+			event.register(ModelResourceLocation.standalone(BuiltInRegistries.ITEM.getKey(item).withPath(e -> "item/" + e + "_roll")));
+			event.register(ModelResourceLocation.standalone(BuiltInRegistries.ITEM.getKey(item).withPath(e -> "item/" + e + "_unroll")));
 		}
 	}
 

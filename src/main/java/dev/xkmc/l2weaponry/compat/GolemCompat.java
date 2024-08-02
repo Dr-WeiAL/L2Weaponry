@@ -12,22 +12,22 @@ import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 
 
 public class GolemCompat {
 
 	public static void register(IEventBus bus) {
-		MinecraftForge.EVENT_BUS.register(GolemCompat.class);
+		NeoForge.EVENT_BUS.register(GolemCompat.class);
 		bus.addListener(GolemCompat::onGolemSpawn);
 	}
 
 	public static void onGolemSpawn(EntityAttributeModificationEvent event) {
-		event.add(GolemTypes.ENTITY_HUMANOID.get(), LWItems.SHIELD_DEFENSE.get());
-		event.add(GolemTypes.ENTITY_HUMANOID.get(), LWItems.REFLECT_TIME.get());
+		event.add(GolemTypes.ENTITY_HUMANOID.get(), LWItems.SHIELD_DEFENSE.holder());
+		event.add(GolemTypes.ENTITY_HUMANOID.get(), LWItems.REFLECT_TIME.holder());
 	}
 
 	@SubscribeEvent

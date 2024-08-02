@@ -1,12 +1,12 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.entity.PartEntity;
+import net.neoforged.neoforge.entity.PartEntity;
 import org.jetbrains.annotations.Nullable;
 
 public interface LegendaryWeapon {
@@ -26,7 +26,7 @@ public interface LegendaryWeapon {
 		return false;
 	}
 
-	default void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
+	default void onHurt(DamageData.Offence event, LivingEntity le, ItemStack stack) {
 
 	}
 
@@ -38,7 +38,7 @@ public interface LegendaryWeapon {
 
 	}
 
-	default void onDamageFinal(AttackCache cache, LivingEntity le) {
+	default void onDamageFinal(DamageData.DefenceMax data, LivingEntity le) {
 
 	}
 
@@ -46,7 +46,7 @@ public interface LegendaryWeapon {
 
 	}
 
-	default void onHurtMaximized(AttackCache cache, LivingEntity le) {
+	default void onHurtMaximized(DamageData.OffenceMax data, LivingEntity le) {
 
 	}
 }

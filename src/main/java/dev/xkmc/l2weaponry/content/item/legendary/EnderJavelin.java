@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
+import dev.xkmc.l2core.base.effects.EffectUtil;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2library.base.effects.EffectUtil;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.item.types.JavelinItem;
@@ -47,8 +47,8 @@ public class EnderJavelin extends JavelinItem implements LegendaryWeapon {
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
 		if (selected && !level.isClientSide && entity instanceof LivingEntity le && le.position().y() < level.getMinBuildHeight()) {
-			EffectUtil.refreshEffect(le, new MobEffectInstance(MobEffects.SLOW_FALLING, 219), EffectUtil.AddReason.SELF, le);
-			EffectUtil.refreshEffect(le, new MobEffectInstance(MobEffects.LEVITATION, 119), EffectUtil.AddReason.SELF, le);
+			EffectUtil.refreshEffect(le, new MobEffectInstance(MobEffects.SLOW_FALLING, 219), le);
+			EffectUtil.refreshEffect(le, new MobEffectInstance(MobEffects.LEVITATION, 119), le);
 		}
 	}
 

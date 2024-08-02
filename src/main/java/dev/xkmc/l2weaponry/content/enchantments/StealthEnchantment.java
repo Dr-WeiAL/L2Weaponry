@@ -1,59 +1,30 @@
 package dev.xkmc.l2weaponry.content.enchantments;
 
-import dev.xkmc.l2complements.content.enchantment.core.AttributeEnchantment;
 import dev.xkmc.l2complements.content.enchantment.core.SourceModifierEnchantment;
-import dev.xkmc.l2complements.content.enchantment.core.UnobtainableEnchantment;
+import dev.xkmc.l2core.init.reg.ench.CustomDescEnchantment;
+import dev.xkmc.l2core.init.reg.ench.EnchColor;
+import dev.xkmc.l2core.init.reg.ench.LegacyEnchantment;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
-import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LWDamageStates;
-import net.minecraft.ChatFormatting;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraftforge.event.ItemAttributeModifierEvent;
 
-import java.util.UUID;
+import java.util.List;
 
-public class StealthEnchantment extends UnobtainableEnchantment implements SourceModifierEnchantment, AttributeEnchantment {
-
-	private static final String NAME_DAMAGE = "stealth_enchantment_damage";
-	private static final UUID ID_DAMAGE = MathHelper.getUUIDFromString(NAME_DAMAGE);
-
-	public StealthEnchantment(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots) {
-		super(pRarity, pCategory, pApplicableSlots);
-	}
+public class StealthEnchantment extends LegacyEnchantment implements SourceModifierEnchantment, CustomDescEnchantment {
 
 	@Override
 	public void modify(CreateSourceEvent event, ItemStack stack, int level) {
-		double chance = LWConfig.COMMON.stealthChance.get() * level;
+		double chance = LWConfig.SERVER.stealthChance.get() * level;
 		if (event.getAttacker().getRandom().nextDouble() < chance) {
 			event.enable(LWDamageStates.NO_ANGER);
 		}
 	}
 
 	@Override
-	public void addAttributes(int level, ItemAttributeModifierEvent event) {
-		if (event.getSlotType() == EquipmentSlot.MAINHAND) {
-			event.addModifier(Attributes.ATTACK_DAMAGE,
-					new AttributeModifier(ID_DAMAGE, NAME_DAMAGE,
-							-LWConfig.COMMON.stealthDamageReduction.get() * level,
-							AttributeModifier.Operation.MULTIPLY_TOTAL));
-		}
-	}
-
-	public ChatFormatting getColor() {
-		return ChatFormatting.LIGHT_PURPLE;
-	}
-
-	public int getMinLevel() {
-		return 1;
-	}
-
-	public int getMaxLevel() {
-		return 5;
+	public List<Component> descFull(int lv, String key, boolean alt, boolean book, EnchColor color) {
+		return List.of(Component.translatable(key).withStyle(color.desc()));
 	}
 
 }

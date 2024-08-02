@@ -1,29 +1,20 @@
 package dev.xkmc.l2weaponry.init.registrate;
 
-import com.github.alexthe666.iceandfire.IceAndFire;
 import com.tterrag.registrate.util.entry.ItemEntry;
-import com.tterrag.registrate.util.entry.RegistryEntry;
-import dev.xkmc.l2weaponry.compat.aerial.AHCompat;
-import dev.xkmc.l2weaponry.compat.dragons.DragonCompat;
-import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
-import dev.xkmc.l2weaponry.compat.undergarden.UGCompat;
+import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWGenItem;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.materials.LegendaryToolFactory;
-import fr.factionbedrock.aerialhell.AerialHell;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.registries.ForgeRegistries;
-import quek.undergarden.Undergarden;
-import twilightforest.TwilightForestMod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,17 +28,17 @@ public class LWItems {
 	public static final List<Item> CLAW_DECO = new ArrayList<>();
 	public static final List<Item> NUNCHAKU_DECO = new ArrayList<>();
 
-	public static final RegistryEntry<CreativeModeTab> TAB =
+	public static final SimpleEntry<CreativeModeTab> TAB =
 			L2Weaponry.REGISTRATE.buildL2CreativeTab("weaponry", "L2 Weaponry", b -> b
 					.icon(LWItems.GEN_ITEM[LWToolMats.SCULKIUM.ordinal()][LWToolTypes.PLATE_SHIELD.ordinal()]::asStack));
 
-	public static final RegistryEntry<Attribute> SHIELD_DEFENSE = L2Weaponry.REGISTRATE.simple("shield_defense",
-			ForgeRegistries.ATTRIBUTES.getRegistryKey(), () -> new RangedAttribute(
-					"attribute.name.shield_defense", 0, 0, 1000).setSyncable(true));
+	public static final SimpleEntry<Attribute> SHIELD_DEFENSE = new SimpleEntry<>(L2Weaponry.REGISTRATE
+			.simple("shield_defense", Registries.ATTRIBUTE, () -> new RangedAttribute(
+					"attribute.name.shield_defense", 0, 0, 1000).setSyncable(true)));
 
-	public static final RegistryEntry<Attribute> REFLECT_TIME = L2Weaponry.REGISTRATE.simple("reflect_time",
-			ForgeRegistries.ATTRIBUTES.getRegistryKey(), () -> new RangedAttribute(
-					"attribute.name.reflect_time", 0, 0, 1000).setSyncable(true));
+	public static final SimpleEntry<Attribute> REFLECT_TIME = new SimpleEntry<>(L2Weaponry.REGISTRATE
+			.simple("reflect_time", Registries.ATTRIBUTE, () -> new RangedAttribute(
+					"attribute.name.reflect_time", 0, 0, 1000).setSyncable(true)));
 
 	public static final ItemEntry<Item> HANDLE;
 
@@ -96,6 +87,7 @@ public class LWItems {
 
 		GEN_ITEM = LWGenItem.generate(LWToolMats.values());
 
+		/* TODO compat
 		if (ModList.get().isLoaded(TwilightForestMod.ID)) {
 			TFCompat.register();
 		}
@@ -108,6 +100,7 @@ public class LWItems {
 		if (ModList.get().isLoaded(AerialHell.MODID)) {
 			AHCompat.register();
 		}
+		*/
 
 	}
 

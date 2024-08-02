@@ -82,7 +82,7 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 			if (instant) {
 				if (!level.isClientSide) {
 					serverThrow(stack, level, player);
-					player.getCooldowns().addCooldown(this, LWConfig.COMMON.instantThrowCooldown.get());
+					player.getCooldowns().addCooldown(this, LWConfig.SERVER.instantThrowCooldown.get());
 				}
 			} else {
 				player.startUsingItem(pHand);

@@ -32,7 +32,7 @@ public class IronwoodTool extends ExtraToolConfig implements LWExtraConfig {
 	}
 
 	private static MobEffectInstance getEffect() {
-		return new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, LWConfig.COMMON.ironwoodEffectDuration.get(), 1);
+		return new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, LWConfig.SERVER.ironwoodEffectDuration.get(), 1);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class IronwoodTool extends ExtraToolConfig implements LWExtraConfig {
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
 		if (stack.isDamaged()) {
 			if (entity.level().dimensionTypeId().equals(TFDimensionSettings.TWILIGHT_DIM_TYPE)) {
-				if (entity.tickCount % LWConfig.COMMON.ironwoodRegenDuration.get() == 0) {
+				if (entity.tickCount % LWConfig.SERVER.ironwoodRegenDuration.get() == 0) {
 					stack.setDamageValue(stack.getDamageValue() - 1);
 				}
 			}

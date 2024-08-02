@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.BattleAxeItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
@@ -22,13 +22,13 @@ public class HolyAxe extends BattleAxeItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
-		if (event.getCriticalHitEvent() != null && event.getStrength() < 0.9) return;
+	public void onHurt(DamageData.Offence event, LivingEntity le, ItemStack stack) {
+		if (event.getStrength() < 0.9) return;
 		float ans = le.getAbsorptionAmount();
-		float health = event.getAttackTarget().getHealth();
+		float health = event.getTarget().getHealth();
 		if (health > 0) {
-			double max = LWConfig.COMMON.dogmaticStandoffMax.get();
-			double inc = LWConfig.COMMON.dogmaticStandoffGain.get();
+			double max = LWConfig.SERVER.dogmaticStandoffMax.get();
+			double inc = LWConfig.SERVER.dogmaticStandoffGain.get();
 			ans = (float) Math.max(ans, Math.min(health * max, health * inc + ans));
 			le.setAbsorptionAmount(ans);
 		}
@@ -36,8 +36,8 @@ public class HolyAxe extends BattleAxeItem implements LegendaryWeapon {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-		int max = (int) Math.round(LWConfig.COMMON.dogmaticStandoffMax.get() * 100);
-		int inc = (int) Math.round(LWConfig.COMMON.dogmaticStandoffGain.get() * 100);
+		int max = (int) Math.round(LWConfig.SERVER.dogmaticStandoffMax.get() * 100);
+		int inc = (int) Math.round(LWConfig.SERVER.dogmaticStandoffGain.get() * 100);
 		list.add(LangData.HOLY_AXE.get(inc, max));
 	}
 

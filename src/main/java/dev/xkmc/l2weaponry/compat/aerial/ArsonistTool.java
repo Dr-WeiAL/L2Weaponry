@@ -47,7 +47,7 @@ public class ArsonistTool extends ExtraToolConfig implements LWExtraConfig {
 	@Override
 	public void onDamage(AttackCache cache, ItemStack stack) {
 		if (!cache.getAttackTarget().fireImmune() && !(stack.getItem() instanceof BaseShieldItem)) {
-			cache.getAttackTarget().setSecondsOnFire(LWConfig.COMMON.fieryDuration.get());
+			cache.getAttackTarget().setSecondsOnFire(LWConfig.SERVER.fieryDuration.get());
 		}
 	}
 
@@ -56,7 +56,7 @@ public class ArsonistTool extends ExtraToolConfig implements LWExtraConfig {
 		if (stack.getItem() instanceof BaseShieldItem) {
 			list.add(LangData.MATS_AH_ARSON_SHIELD.get(5));
 		} else {
-			list.add(LangData.MATS_AH_ARSON.get(LWConfig.COMMON.fieryDuration.get()));
+			list.add(LangData.MATS_AH_ARSON.get(LWConfig.SERVER.fieryDuration.get()));
 		}
 	}
 

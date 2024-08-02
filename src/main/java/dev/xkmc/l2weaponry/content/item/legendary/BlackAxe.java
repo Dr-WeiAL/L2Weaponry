@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
+import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.attack.DamageModifier;
 import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
@@ -31,9 +31,9 @@ public class BlackAxe extends ThrowingAxeItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
-		if (event.getCriticalHitEvent() != null && event.getStrength() < 0.9f) return;
-		event.addHurtModifier(DamageModifier.addExtra((float) event.getAttackTarget().getAttributeValue(Attributes.ARMOR)));
+	public void onHurt(DamageData.Offence event, LivingEntity le, ItemStack stack) {
+		if (event.getStrength() < 0.9f) return;
+		event.addHurtModifier(DamageModifier.addExtra((float) event.getTarget().getAttributeValue(Attributes.ARMOR), id()));
 	}
 
 	@Override

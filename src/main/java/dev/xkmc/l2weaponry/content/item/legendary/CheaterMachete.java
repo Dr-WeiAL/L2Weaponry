@@ -36,7 +36,7 @@ public class CheaterMachete extends MacheteItem implements LegendaryWeapon {
 			float lost = cache.getAttackTarget().getMaxHealth() - cache.getAttackTarget().getHealth();
 			float acc = ctag.getFloat(KEY_DAMAGE);
 			if (lost < acc) {
-				double factor = LWConfig.COMMON.illusionRate.get();
+				double factor = LWConfig.SERVER.illusionRate.get();
 				cache.addHurtModifier(DamageModifier.addExtra((float) factor * (acc - lost)));
 			}
 		}

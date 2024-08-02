@@ -25,7 +25,7 @@ public class ClawItemDecorationRenderer implements IItemDecorator {
 		if (!(stack.getItem() instanceof BaseClawItem)) return false;
 		if (!(main.getItem() instanceof BaseClawItem claw)) return false;
 		long last = BaseClawItem.getLastTime(main);
-		int timeout = LWConfig.COMMON.claw_timeout.get();
+		int timeout = LWConfig.SERVER.claw_timeout.get();
 		float time = (player.level().getGameTime() - last) + Minecraft.getInstance().getPartialTick();
 		if (time > timeout) return false;
 		g.pose().pushPose();

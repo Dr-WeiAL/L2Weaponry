@@ -1,26 +1,25 @@
 package dev.xkmc.l2weaponry.init.materials;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.l2core.serial.configval.BooleanValueCondition;
+import dev.xkmc.l2core.serial.recipe.ConditionalRecipeWrapper;
+import dev.xkmc.l2core.serial.recipe.DataRecipeWrapper;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
-import dev.xkmc.l2library.serial.conditions.BooleanValueCondition;
-import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
-import dev.xkmc.l2library.serial.recipe.NBTRecipe;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
-import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
-import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.loaders.ItemLayerModelBuilder;
+import net.neoforged.neoforge.common.conditions.ICondition;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public interface ILWToolMats {
@@ -48,14 +47,11 @@ public interface ILWToolMats {
 
 	default void saveRecipe(Supplier<ShapedRecipeBuilder> b, RegistrateRecipeProvider pvd, LWToolTypes type, ResourceLocation id) {
 		ItemStack stack = getToolEnchanted(type);
-		if (stack.getTag() != null) {
-			stack.getTag().remove("Damage");
-			b.get().save(e -> getProvider(pvd,
-					BooleanValueCondition.of(LWConfig.COMMON_PATH, LWConfig.COMMON.defaultEnchantmentOnWeapons, true)
-			).accept(new NBTRecipe(e, stack)), id.withSuffix("_enchanted"));
-			b.get().save(getProvider(pvd,
-					BooleanValueCondition.of(LWConfig.COMMON_PATH, LWConfig.COMMON.defaultEnchantmentOnWeapons, false)
-			), id);
+		if (!stack.isComponentsPatchEmpty()) {
+			b.get().save(DataRecipeWrapper.of(getProvider(pvd, BooleanValueCondition.of(LWConfig.RECIPE,
+					x -> x.defaultEnchantmentOnWeapons, true)), stack), id.withSuffix("_enchanted"));
+			b.get().save(getProvider(pvd, BooleanValueCondition.of(LWConfig.RECIPE,
+					x -> x.defaultEnchantmentOnWeapons, false)), id);
 		} else {
 			b.get().save(getProvider(pvd), id);
 		}
@@ -77,7 +73,7 @@ public interface ILWToolMats {
 		return false;
 	}
 
-	default Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd, ICondition... cond) {
+	default RecipeOutput getProvider(RegistrateRecipeProvider pvd, ICondition... cond) {
 		return cond.length == 0 ? pvd : ConditionalRecipeWrapper.of(pvd, cond);
 	}
 

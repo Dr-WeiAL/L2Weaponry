@@ -30,29 +30,29 @@ public class FieryTool extends ExtraToolConfig implements LWExtraConfig {
 	}
 
 	private static MobEffectInstance getEffect() {
-		return new MobEffectInstance(MobEffects.FIRE_RESISTANCE, LWConfig.COMMON.fieryDuration.get() * 20);
+		return new MobEffectInstance(MobEffects.FIRE_RESISTANCE, LWConfig.SERVER.fieryDuration.get() * 20);
 	}
 
 	@Override
 	public void onShieldBlock(ItemStack stack, LivingEntity user, LivingEntity entity) {
 		if (!entity.fireImmune())
-			entity.setSecondsOnFire(LWConfig.COMMON.fieryDuration.get());
+			entity.setSecondsOnFire(LWConfig.SERVER.fieryDuration.get());
 		user.addEffect(getEffect());
 	}
 
 	@Override
 	public void onDamage(AttackCache cache, ItemStack stack) {
 		if (!cache.getAttackTarget().fireImmune()) {
-			double bonus = LWConfig.COMMON.fieryBonus.get();
+			double bonus = LWConfig.SERVER.fieryBonus.get();
 			cache.addHurtModifier(DamageModifier.multBase((float) bonus));
-			cache.getAttackTarget().setSecondsOnFire(LWConfig.COMMON.fieryDuration.get());
+			cache.getAttackTarget().setSecondsOnFire(LWConfig.SERVER.fieryDuration.get());
 		}
 	}
 
 	@Override
 	public void addTooltip(ItemStack stack, List<Component> list) {
-		double bonus = LWConfig.COMMON.knightmetalBonus.get();
-		list.add(LangData.MATS_FIERY.get((int) Math.round(bonus * 100), LWConfig.COMMON.fieryDuration.get()));
+		double bonus = LWConfig.SERVER.knightmetalBonus.get();
+		list.add(LangData.MATS_FIERY.get((int) Math.round(bonus * 100), LWConfig.SERVER.fieryDuration.get()));
 		if (stack.getItem() instanceof BaseShieldItem) {
 			list.add(LangData.MATS_EFFECT.get(LangData.getTooltip(getEffect())));
 		}

@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.content.item.types;
 
 import com.google.common.collect.ImmutableMultimap;
 import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
@@ -35,8 +36,8 @@ public class DaggerItem extends GenericWeaponItem {
 		builder.put(ForgeMod.ENTITY_REACH.get(), RANGE);
 	}
 
-	public float getMultiplier(AttackCache event) {
-		return event.getAttackTarget() instanceof Mob le && le.getTarget() != event.getAttacker() ? (float) (double) LWConfig.COMMON.dagger_bonus.get() : 1;
+	public float getMultiplier(DamageData.Offence event) {
+		return event.getTarget() instanceof Mob le && le.getTarget() != event.getAttacker() ? (float) (double) LWConfig.SERVER.dagger_bonus.get() : 1;
 	}
 
 	@Override

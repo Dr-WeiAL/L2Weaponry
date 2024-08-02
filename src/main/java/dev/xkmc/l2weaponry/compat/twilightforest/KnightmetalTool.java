@@ -18,13 +18,13 @@ public class KnightmetalTool extends ExtraToolConfig implements LWExtraConfig {
 
 	@Override
 	public double onShieldReflect(ItemStack stack, LivingEntity user, LivingEntity target, double original, double reflect) {
-		return reflect + original * LWConfig.COMMON.knightmetalReflect.get();
+		return reflect + original * LWConfig.SERVER.knightmetalReflect.get();
 	}
 
 	@Override
 	public void onDamage(AttackCache cache, ItemStack stack) {
 		if (cache.getAttackTarget().getAttribute(Attributes.ARMOR) != null) {
-			double bonus = LWConfig.COMMON.knightmetalBonus.get();
+			double bonus = LWConfig.SERVER.knightmetalBonus.get();
 			double armor = cache.getAttackTarget().getAttributeValue(Attributes.ARMOR);
 			cache.addHurtModifier(DamageModifier.addExtra((float) (bonus * armor)));
 		}
@@ -32,10 +32,10 @@ public class KnightmetalTool extends ExtraToolConfig implements LWExtraConfig {
 
 	@Override
 	public void addTooltip(ItemStack stack, List<Component> list) {
-		double bonus = LWConfig.COMMON.knightmetalBonus.get();
+		double bonus = LWConfig.SERVER.knightmetalBonus.get();
 		list.add(LangData.MATS_KNIGHTMETAL.get((int) Math.round(bonus * 100)));
 		if (stack.getItem() instanceof BaseShieldItem) {
-			double reflect = LWConfig.COMMON.knightmetalReflect.get();
+			double reflect = LWConfig.SERVER.knightmetalReflect.get();
 			list.add(LangData.MATS_REFLECT.get((int) Math.round(reflect * 100)));
 		}
 	}

@@ -7,6 +7,7 @@ import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -32,10 +33,11 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
 import net.minecraftforge.network.NetworkHooks;
+import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
 
 import javax.annotation.Nullable;
 
-public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends AbstractArrow implements IEntityAdditionalSpawnData {
+public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends AbstractArrow implements IEntityWithComplexSpawn {
 
 	private static final int LOWEST_HEIGHT = -32, MAX_DIST = 400, MAX_HOR_DIST = 100;
 
@@ -292,12 +294,12 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	}
 
 	@Override
-	public void writeSpawnData(FriendlyByteBuf buffer) {
+	public void writeSpawnData(RegistryFriendlyByteBuf buffer) {
 		buffer.writeItem(item);
 	}
 
 	@Override
-	public void readSpawnData(FriendlyByteBuf buffer) {
+	public void readSpawnData(RegistryFriendlyByteBuf buffer) {
 		setItem(buffer.readItem());
 	}
 

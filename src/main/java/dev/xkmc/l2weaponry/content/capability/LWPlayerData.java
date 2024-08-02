@@ -85,7 +85,7 @@ public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> impleme
 		if (!canReflect() || shieldDefense > 0) {
 			return;
 		}
-		shieldDefense += LWConfig.COMMON.reflectCost.get();
+		shieldDefense += LWConfig.SERVER.reflectCost.get();
 		shieldRetain = shieldDefense * player.getAttributeValue(LWItems.SHIELD_DEFENSE.get());
 		reflectTimer = (int) player.getAttributeValue(LWItems.REFLECT_TIME.get());
 	}

@@ -4,6 +4,7 @@ import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import dev.xkmc.l2weaponry.content.client.WeaponBEWLR;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
@@ -14,6 +15,9 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 
 import java.util.Locale;
 
@@ -32,10 +36,11 @@ public class LWGenItem {
 				String tool_name = type.name().toLowerCase(Locale.ROOT);
 				ans[i][j] = L2Weaponry.REGISTRATE.item(mat_name + "_" + tool_name,
 								p -> mat.type().getToolConfig().sup().get(mat.type(), type, mat.fireRes() ? p.fireResistant() : p))
-						.optionalTag(mat.isOptional(), type.tag)
+						.transform(e -> mat.isOptional() ? e.asOptional() : e).tag(type.tag)
 						.model((ctx, pvd) -> model(type, mat, ctx, pvd, mat_name, tool_name, mat.is3D(type)))
-						.tab(LWItems.TAB.getKey(), e -> e.accept(LWConfig.COMMON.defaultEnchantmentOnWeapons.get() ?
+						.tab(LWItems.TAB.key(), (ctx, e) -> e.accept(LWConfig.RECIPE.defaultEnchantmentOnWeapons.get() ?
 								mat.getToolEnchanted(type) : mat.getTool(type).getDefaultInstance()))
+						.transform(e -> type == LWToolTypes.NUNCHAKU ? e.clientExtension(() -> () -> WeaponBEWLR.EXTENSIONS) : e)
 						.lang(mat.prefix() + RegistrateLangProvider.toEnglishName(english + "_" + tool_name)).register();
 			}
 		}

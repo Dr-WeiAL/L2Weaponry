@@ -62,6 +62,11 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 	}
 
 	@Override
+	public void postHurtEnemy(ItemStack p_346136_, LivingEntity p_346250_, LivingEntity p_346014_) {
+		super.postHurtEnemy(p_346136_, p_346250_, p_346014_);
+	}
+
+	@Override
 	public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
 		if (config.tool_mine > 0 && state.getDestroySpeed(level, pos) != 0.0F) {
 			stack.hurtAndBreak(config.tool_mine, entity, (l) -> l.broadcastBreakEvent(EquipmentSlot.MAINHAND));
@@ -117,10 +122,10 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 			return isSharp();
 		if (enchantment.category == EnchantmentCategory.WEAPON)
 			return true;
-		if (LWConfig.COMMON.diggerEnchantmentOnWeapon.get())
+		if (LWConfig.SERVER.diggerEnchantmentOnWeapon.get())
 			if (enchantment.category == EnchantmentCategory.DIGGER)
 				return true;
-		for (var e : LWConfig.COMMON.extraCompatibleEnchantmentCategories.get()) {
+		for (var e : LWConfig.SERVER.extraCompatibleEnchantmentCategories.get()) {
 			if (enchantment.category.name().equals(e)) {
 				return true;
 			}

@@ -40,7 +40,7 @@ public class SteeleafTool extends ExtraToolConfig implements LWExtraConfig {
 
 	private void addEffect(LivingEntity user, LivingEntity target) {
 		if (canTrigger(target)) {
-			double chance = LWConfig.COMMON.steeleafChance.get();
+			double chance = LWConfig.SERVER.steeleafChance.get();
 			if (user.getRandom().nextDouble() < chance) {
 				LCEffects.BLEED.get().addTo(target, 100, 4, EffectUtil.AddReason.NONE, user);
 			}
@@ -54,14 +54,14 @@ public class SteeleafTool extends ExtraToolConfig implements LWExtraConfig {
 
 	@Override
 	public double onShieldReflect(ItemStack stack, LivingEntity user, LivingEntity entity, double original, double reflect) {
-		return reflect + original * LWConfig.COMMON.steeleafReflect.get();
+		return reflect + original * LWConfig.SERVER.steeleafReflect.get();
 	}
 
 	@Override
 	public void onDamage(AttackCache cache, ItemStack stack) {
 		LivingEntity target = cache.getAttackTarget();
 		if (canTrigger(target)) {
-			double bonus = LWConfig.COMMON.steeleafBonus.get();
+			double bonus = LWConfig.SERVER.steeleafBonus.get();
 			cache.addHurtModifier(DamageModifier.multBase((float) bonus));
 			if (cache.getAttacker() != null) {
 				addEffect(cache.getAttacker(), target);
@@ -71,11 +71,11 @@ public class SteeleafTool extends ExtraToolConfig implements LWExtraConfig {
 
 	@Override
 	public void addTooltip(ItemStack stack, List<Component> list) {
-		double bonus = LWConfig.COMMON.steeleafBonus.get();
-		double chance = LWConfig.COMMON.steeleafChance.get();
+		double bonus = LWConfig.SERVER.steeleafBonus.get();
+		double chance = LWConfig.SERVER.steeleafChance.get();
 		list.add(LangData.MATS_STEELEAF.get((int) Math.round(bonus * 100), (int) Math.round(chance * 100)));
 		if (stack.getItem() instanceof BaseShieldItem) {
-			double reflect = LWConfig.COMMON.steeleafReflect.get();
+			double reflect = LWConfig.SERVER.steeleafReflect.get();
 			list.add(LangData.MATS_REFLECT.get((int) Math.round(reflect * 100)));
 		}
 	}

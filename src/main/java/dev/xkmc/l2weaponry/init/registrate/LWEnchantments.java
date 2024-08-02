@@ -1,118 +1,112 @@
 package dev.xkmc.l2weaponry.init.registrate;
 
-import com.tterrag.registrate.builders.EnchantmentBuilder;
-import com.tterrag.registrate.util.entry.RegistryEntry;
-import dev.xkmc.l2complements.content.enchantment.core.SingleLevelEnchantment;
-import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2complements.init.registrate.LCEnchantments;
+import dev.xkmc.l2core.init.reg.ench.EnchColor;
+import dev.xkmc.l2core.init.reg.ench.EnchReg;
+import dev.xkmc.l2core.init.reg.ench.EnchVal;
 import dev.xkmc.l2weaponry.content.enchantments.*;
-import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
-import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
-import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
-import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
-import dev.xkmc.l2weaponry.content.item.types.ClawItem;
-import dev.xkmc.l2weaponry.content.item.types.DaggerItem;
-import dev.xkmc.l2weaponry.content.item.types.MacheteItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import dev.xkmc.l2weaponry.init.data.TagGen;
+import net.minecraft.ChatFormatting;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.item.enchantment.Enchantments;
 
 public class LWEnchantments {
 
-	public static final EnchantmentCategory THROWABLE = EnchantmentCategory.create("throwable", (e) ->
-			e instanceof BaseThrowableWeaponItem);
+	public static final EnchReg REG = EnchReg.of(L2Weaponry.REG, L2Weaponry.REGISTRATE);
 
-	public static final EnchantmentCategory DAGGER = EnchantmentCategory.create("dagger", (e) ->
-			e instanceof DaggerItem);
-
-	public static final EnchantmentCategory HEAVY_WEAPON = EnchantmentCategory.create("heavy_weapon", (e) ->
-			e instanceof LWTieredItem t && t.isHeavy() || e instanceof AxeItem);
-
-	public static final EnchantmentCategory SHIELDS = EnchantmentCategory.create("shields", e ->
-			e instanceof BaseShieldItem);
-
-	public static final EnchantmentCategory MACHETES = EnchantmentCategory.create("machetes", e ->
-			e instanceof MacheteItem);
-
-	public static final EnchantmentCategory DOUBLE_WIELD = EnchantmentCategory.create("double_wield", e ->
-			e instanceof DoubleWieldItem);
-
-	public static final EnchantmentCategory CLAW = EnchantmentCategory.create("claws", e ->
-			e instanceof ClawItem);
-
-	public static final RegistryEntry<EnderHandEnchantment> ENDER_HAND;
-	public static final RegistryEntry<ProjectionEnchantment> PROJECTION;
-	public static final RegistryEntry<SingleLevelEnchantment> INSTANT_THROWING;
-	public static final RegistryEntry<StealthEnchantment> NO_AGGRO;
-	public static final RegistryEntry<HeavyEnchantment> HEAVY;
-	public static final RegistryEntry<HardShieldEnchantment> HARD_SHIELD;
-	public static final RegistryEntry<HeavyShieldEnchantment> HEAVY_SHIELD;
-	public static final RegistryEntry<EnergizedWillEnchantment> ENERGIZED_WILL;
-	public static final RegistryEntry<RaisedSpiritEnchantment> RAISED_SPIRIT;
-	public static final RegistryEntry<SingleLevelEnchantment> GHOST_SLASH;
-	public static final RegistryEntry<ClawBlockEnchantment> CLAW_BLOCK;
+	public static final EnchVal.Legacy<EnderHandEnchantment> ENDER_HAND;
+	public static final EnchVal PROJECTION; // exclude loyalty
+	public static final EnchVal INSTANT_THROWING;
+	public static final EnchVal.Legacy<StealthEnchantment> NO_AGGRO;
+	public static final EnchVal.Legacy<HeavyEnchantment> HEAVY;
+	public static final EnchVal.Legacy<HardShieldEnchantment> HARD_SHIELD;
+	public static final EnchVal.Legacy<HeavyShieldEnchantment> HEAVY_SHIELD;
+	public static final EnchVal.Legacy<EnergizedWillEnchantment> ENERGIZED_WILL;
+	public static final EnchVal.Legacy<RaisedSpiritEnchantment> RAISED_SPIRIT;
+	public static final EnchVal GHOST_SLASH;
+	public static final EnchVal CLAW_BLOCK;
 
 
 	static {
-		ENDER_HAND = reg("ender_hand", THROWABLE, EnderHandEnchantment::new,
-				"Thrown attacks will appear as direct hit.")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-				.defaultLang().register();
+		var green = new EnchColor(ChatFormatting.GREEN, ChatFormatting.GRAY);
+		var gold = new EnchColor(ChatFormatting.GOLD, ChatFormatting.GRAY);
+		var purple = new EnchColor(ChatFormatting.LIGHT_PURPLE, ChatFormatting.GRAY);
+		var craft = new LCEnchantments.Order();
+		int col = 0xff7f4f6f;
 
-		PROJECTION = reg("projection", THROWABLE, ProjectionEnchantment::new,
-				"Thrown attacks will not consume the used weapon")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-				.defaultLang().register();
+		ENDER_HAND = REG.enchLegacy("ender_hand", "Ender Hand",
+				"Thrown attacks will appear as direct hit.",
+				e -> e.items(TagGen.THROWABLE)
+						.color(green).special(LCEnchantments.CRAFT, craft.of(col))
+				, EnderHandEnchantment::new);
 
-		INSTANT_THROWING = reg("instant_shot", THROWABLE, SingleLevelEnchantment::new,
-				"Throw the weapon out immediately on right click when not sneaking")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-				.defaultLang().register();
+		PROJECTION = REG.ench("projection", "Projection",
+				"Thrown attacks will not consume the used weapon",
+				e -> e.items(TagGen.THROWABLE).exclusive(Enchantments.LOYALTY)
+						.color(gold).special(LCEnchantments.CRAFT, craft.of(col))
+		);
 
-		NO_AGGRO = reg("stealth", DAGGER, StealthEnchantment::new,
-				"Dagger damage has a chance to not aggravate enemy, but reduce damage.")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-				.defaultLang().register();
+		INSTANT_THROWING = REG.ench("instant_shot", "Instant Throwing",
+				"Throw the weapon out immediately on right click when not sneaking",
+				e -> e.items(TagGen.THROWABLE)
+						.color(gold).special(LCEnchantments.CRAFT, craft.of(col))
+		);
 
-		HEAVY = reg("heavy", HEAVY_WEAPON, HeavyEnchantment::new,
-				"Reduce attack speed, increase critical hit and projectile damage. Works on Axe and heavy weapons.")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-				.defaultLang().register();
+		NO_AGGRO = REG.enchLegacy("stealth", "Stealth Attack",
+				"Dagger damage has %s chance to not aggravate enemy",
+				e -> e.items(TagGen.DAGGER).maxLevel(5)
+						.color(green).special(LCEnchantments.CRAFT, craft.of(col)),
+				StealthEnchantment::new
+		);
 
-		HARD_SHIELD = reg("hard_shield", SHIELDS, HardShieldEnchantment::new,
-				"Increase shield defense. Works for both hands.")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND)
-				.defaultLang().register();
+		HEAVY = REG.enchLegacy("heavy", "Heavy",
+				"For axe and heavy weapons:",
+				e -> e.items(TagGen.HEAVY).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
+						.color(purple).special(LCEnchantments.CRAFT, craft.of(col)),
+				HeavyEnchantment::new
+		);
 
-		HEAVY_SHIELD = reg("heavy_shield", SHIELDS, HeavyShieldEnchantment::new,
-				"Reduce movement speed, increase shield defense by a lot in main hand.")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-				.defaultLang().register();
+		HARD_SHIELD = REG.enchLegacy("hard_shield", "Hard Shield",
+				"For plate and round shields on both hands:",
+				e -> e.items(TagGen.SHIELDS).maxLevel(5).group(EquipmentSlotGroup.HAND)
+						.color(green).special(LCEnchantments.CRAFT, craft.of(col)),
+				HardShieldEnchantment::new
+		);
 
-		ENERGIZED_WILL = reg("energized_will", MACHETES, EnergizedWillEnchantment::new,
-				"Gradually increase machete attack range when stacking consecutive attacks. Conflicts with Raised Spirit.")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-				.defaultLang().register();
+		HEAVY_SHIELD = REG.enchLegacy("heavy_shield", "Heavy Shield",
+				"For plate and round shields on main hand:",
+				e -> e.items(TagGen.SHIELDS).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
+						.color(purple).special(LCEnchantments.CRAFT, craft.of(col)),
+				HeavyShieldEnchantment::new
+		);
 
-		RAISED_SPIRIT = reg("raised_spirit", MACHETES, RaisedSpiritEnchantment::new,
-				"Gradually increase machete attack speed when stacking consecutive attacks. Conflicts with Energized Will.")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-				.defaultLang().register();
+		ENERGIZED_WILL = REG.enchLegacy("energized_will", "Energized Will",
+				"Gradually increase machete attack range when stacking consecutive attacks. Conflicts with Raised Spirit.",
+				e -> e.items(TagGen.MACHETE).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
+						.color(green).special(LCEnchantments.CRAFT, craft.of(col)),
+				EnergizedWillEnchantment::new
+		);
 
-		GHOST_SLASH = reg("ghost_slash", DOUBLE_WIELD, SingleLevelEnchantment::new,
-				"Empty hits will stack hit count and consume durability as well.")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND)
-				.defaultLang().register();
+		RAISED_SPIRIT = REG.enchLegacy("raised_spirit", "Raised Spirit",
+				"Gradually increase machete attack speed when stacking consecutive attacks. Conflicts with Raised Spirit.",
+				e -> e.items(TagGen.MACHETE).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
+						.color(green).special(LCEnchantments.CRAFT, craft.of(col)),
+				RaisedSpiritEnchantment::new
+		);
 
-		CLAW_BLOCK = reg("claw_shielding", CLAW, ClawBlockEnchantment::new,
-				"Increase damage blocking time for claws. Works on either hand")
-				.rarity(Enchantment.Rarity.RARE).addSlots(EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND)
-				.defaultLang().register();
-	}
+		GHOST_SLASH = REG.ench("ghost_slash", "Ghost Slash",
+				"Empty hits will stack hit count and consume durability as well.",
+				e -> e.items(TagGen.DOUBLE_WIELD)
+						.color(gold).special(LCEnchantments.CRAFT, craft.of(col))
+		);
 
-	private static <T extends Enchantment> EnchantmentBuilder<T, L2Registrate> reg(String id, EnchantmentCategory category, EnchantmentBuilder.EnchantmentFactory<T> fac, String desc) {
-		return L2Weaponry.REGISTRATE.enchantment(id, category, fac, desc);
+		CLAW_BLOCK = REG.ench("claw_shielding", "Claw Shielding",
+				"Increase damage blocking time for claws. Works on either hand",
+				e -> e.items(TagGen.CLAW).maxLevel(3)
+						.color(gold).special(LCEnchantments.CRAFT, craft.of(col))
+		);
+
 	}
 
 	public static void register() {

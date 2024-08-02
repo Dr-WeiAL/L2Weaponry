@@ -36,10 +36,10 @@ public class ClawItem extends BaseClawItem {
 
 	@Override
 	public float getBlockTime(LivingEntity player) {
-		int ans = LWConfig.COMMON.claw_block_time.get();
-		ans += player.getMainHandItem().getEnchantmentLevel(LWEnchantments.CLAW_BLOCK.get());
+		int ans = LWConfig.SERVER.claw_block_time.get();
+		ans += LWEnchantments.CLAW_BLOCK.getLv(player.getMainHandItem());
 		if (player.getOffhandItem().getItem() == this) {
-			ans += player.getOffhandItem().getEnchantmentLevel(LWEnchantments.CLAW_BLOCK.get());
+			ans += LWEnchantments.CLAW_BLOCK.getLv(player.getOffhandItem());
 		}
 		return ans;
 	}

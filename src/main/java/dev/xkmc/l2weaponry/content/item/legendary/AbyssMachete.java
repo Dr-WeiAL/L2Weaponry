@@ -26,7 +26,7 @@ public class AbyssMachete extends MacheteItem implements LegendaryWeapon {
 	@Override
 	public void modifySource(LivingEntity attacker, CreateSourceEvent event, ItemStack item, @Nullable Entity target) {
 		int count = getHitCount(item);
-		int max = LWConfig.COMMON.claw_max.get();
+		int max = LWConfig.SERVER.claw_max.get();
 		if (count >= max) {
 			event.enable(DefaultDamageState.BYPASS_MAGIC);
 		}
@@ -34,7 +34,7 @@ public class AbyssMachete extends MacheteItem implements LegendaryWeapon {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-		list.add(LangData.ABYSS_MACHETE.get(LWConfig.COMMON.claw_max.get()));
+		list.add(LangData.ABYSS_MACHETE.get(LWConfig.SERVER.claw_max.get()));
 	}
 
 }

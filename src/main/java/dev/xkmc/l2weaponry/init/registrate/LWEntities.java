@@ -6,7 +6,6 @@ import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.entity.ThrowingAxeEntity;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 
 public class LWEntities {
 
@@ -28,9 +27,6 @@ public class LWEntities {
 	}
 
 	public static void register() {
-	}
-
-	public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
 	}
 
 }

@@ -1,7 +1,9 @@
 package dev.xkmc.l2weaponry.init.data;
 
+import net.minecraft.server.packs.PathPackResources;
 import net.minecraftforge.forgespi.locating.IModFile;
 import net.minecraftforge.resource.PathPackResources;
+import net.neoforged.neoforgespi.locating.IModFile;
 
 import java.nio.file.Path;
 

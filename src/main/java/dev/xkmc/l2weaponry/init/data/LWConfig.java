@@ -1,66 +1,67 @@
 package dev.xkmc.l2weaponry.init.data;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.IConfigSpec;
-import net.minecraftforge.fml.config.ModConfig;
-import org.apache.commons.lang3.tuple.Pair;
+import dev.xkmc.l2core.util.ConfigInit;
+import dev.xkmc.l2weaponry.init.L2Weaponry;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LWConfig {
 
-	public static class Client {
+	public static class Recipe extends ConfigInit {
 
-		Client(ForgeConfigSpec.Builder builder) {
+		public final ModConfigSpec.BooleanValue defaultEnchantmentOnWeapons;
+
+		public Recipe(Builder builder) {
+			markL2();
+			defaultEnchantmentOnWeapons = builder.comment("Default enchantments on crafted weapons")
+					.define("defaultEnchantmentOnWeapons", true);
 		}
 
 	}
 
-	public static class Common {
+	public static class Server extends ConfigInit {
 
-		public final ForgeConfigSpec.DoubleValue dagger_bonus;
-		public final ForgeConfigSpec.DoubleValue claw_bonus;
-		public final ForgeConfigSpec.IntValue claw_max;
-		public final ForgeConfigSpec.IntValue claw_timeout;
-		public final ForgeConfigSpec.IntValue claw_block_time;
-		public final ForgeConfigSpec.DoubleValue reflectCost;
-		public final ForgeConfigSpec.BooleanValue defaultEnchantmentOnWeapons;
-		public final ForgeConfigSpec.BooleanValue diggerEnchantmentOnWeapon;
-		public final ForgeConfigSpec.ConfigValue<List<String>> extraCompatibleEnchantmentCategories;
+		public final ModConfigSpec.DoubleValue dagger_bonus;
+		public final ModConfigSpec.DoubleValue claw_bonus;
+		public final ModConfigSpec.IntValue claw_max;
+		public final ModConfigSpec.IntValue claw_timeout;
+		public final ModConfigSpec.IntValue claw_block_time;
+		public final ModConfigSpec.DoubleValue reflectCost;
+		public final ModConfigSpec.BooleanValue diggerEnchantmentOnWeapon;
+		public final ModConfigSpec.ConfigValue<List<String>> extraCompatibleEnchantmentCategories;
 
-		public final ForgeConfigSpec.IntValue shadowHunterDistance;
-		public final ForgeConfigSpec.IntValue hauntingDemonDistance;
-		public final ForgeConfigSpec.IntValue hammerOfIncarcerationRadius;
-		public final ForgeConfigSpec.IntValue hammerOfIncarcerationDuration;
-		public final ForgeConfigSpec.DoubleValue dogmaticStandoffGain;
-		public final ForgeConfigSpec.DoubleValue dogmaticStandoffMax;
-		public final ForgeConfigSpec.DoubleValue determinationRate;
-		public final ForgeConfigSpec.DoubleValue illusionRate;
+		public final ModConfigSpec.IntValue shadowHunterDistance;
+		public final ModConfigSpec.IntValue hauntingDemonDistance;
+		public final ModConfigSpec.IntValue hammerOfIncarcerationRadius;
+		public final ModConfigSpec.IntValue hammerOfIncarcerationDuration;
+		public final ModConfigSpec.DoubleValue dogmaticStandoffGain;
+		public final ModConfigSpec.DoubleValue dogmaticStandoffMax;
+		public final ModConfigSpec.DoubleValue determinationRate;
+		public final ModConfigSpec.DoubleValue illusionRate;
 
-		public final ForgeConfigSpec.DoubleValue heavySpeedReduction;
-		public final ForgeConfigSpec.DoubleValue heavyCritBonus;
-		public final ForgeConfigSpec.DoubleValue stealthChance;
-		public final ForgeConfigSpec.DoubleValue stealthDamageReduction;
-		public final ForgeConfigSpec.DoubleValue heavyShieldSpeedReduction;
-		public final ForgeConfigSpec.DoubleValue heavyShieldDefenseBonus;
-		public final ForgeConfigSpec.DoubleValue hardShieldDefenseBonus;
-		public final ForgeConfigSpec.DoubleValue raisedSpiritSpeedBonus;
-		public final ForgeConfigSpec.DoubleValue energizedWillReachBonus;
-		public final ForgeConfigSpec.IntValue instantThrowCooldown;
+		public final ModConfigSpec.DoubleValue heavySpeedReduction;
+		public final ModConfigSpec.DoubleValue heavyCritBonus;
+		public final ModConfigSpec.DoubleValue stealthChance;
+		public final ModConfigSpec.DoubleValue heavyShieldSpeedReduction;
+		public final ModConfigSpec.DoubleValue heavyShieldDefenseBonus;
+		public final ModConfigSpec.DoubleValue hardShieldDefenseBonus;
+		public final ModConfigSpec.DoubleValue raisedSpiritSpeedBonus;
+		public final ModConfigSpec.DoubleValue energizedWillReachBonus;
+		public final ModConfigSpec.IntValue instantThrowCooldown;
 
-		public final ForgeConfigSpec.DoubleValue knightmetalBonus;
-		public final ForgeConfigSpec.DoubleValue knightmetalReflect;
-		public final ForgeConfigSpec.DoubleValue fieryBonus;
-		public final ForgeConfigSpec.IntValue fieryDuration;
-		public final ForgeConfigSpec.DoubleValue steeleafBonus;
-		public final ForgeConfigSpec.DoubleValue steeleafReflect;
-		public final ForgeConfigSpec.DoubleValue steeleafChance;
-		public final ForgeConfigSpec.IntValue ironwoodRegenDuration;
-		public final ForgeConfigSpec.IntValue ironwoodEffectDuration;
+		public final ModConfigSpec.DoubleValue knightmetalBonus;
+		public final ModConfigSpec.DoubleValue knightmetalReflect;
+		public final ModConfigSpec.DoubleValue fieryBonus;
+		public final ModConfigSpec.IntValue fieryDuration;
+		public final ModConfigSpec.DoubleValue steeleafBonus;
+		public final ModConfigSpec.DoubleValue steeleafReflect;
+		public final ModConfigSpec.DoubleValue steeleafChance;
+		public final ModConfigSpec.IntValue ironwoodRegenDuration;
+		public final ModConfigSpec.IntValue ironwoodEffectDuration;
 
-		Common(ForgeConfigSpec.Builder builder) {
+		Server(ModConfigSpec.Builder builder) {
 			builder.push("Weapon Type Features");
 			dagger_bonus = builder.comment("Dagger damage multiplier when hitting targets not targeting user")
 					.defineInRange("dagger_bonus", 2d, 1, 1000);
@@ -76,8 +77,6 @@ public class LWConfig {
 					.defineInRange("reflectCost", 0.2, 0, 1);
 			diggerEnchantmentOnWeapon = builder.comment("Allow digger enchantments on weapon")
 					.define("diggerEnchantmentOnWeapon", true);
-			defaultEnchantmentOnWeapons = builder.comment("Default enchantments on crafted weapons")
-					.define("defaultEnchantmentOnWeapons", true);
 			extraCompatibleEnchantmentCategories = builder
 					.comment("List of enchantment categories for weapons. Use upper case enum name.")
 					.comment("For modded enchantment categories, find them in their code through GitHub")
@@ -110,8 +109,6 @@ public class LWConfig {
 					.defineInRange("heavyCritBonus", 0.3, 0.0001, 100);
 			stealthChance = builder.comment("Stealth enchantment no aggro chance")
 					.defineInRange("stealthChance", 0.2, 0.0001, 100);
-			stealthDamageReduction = builder.comment("Stealth enchantment damage reduction")
-					.defineInRange("stealthDamageReduction", 0.1, 0.0001, 100);
 			heavyShieldSpeedReduction = builder.comment("HeavyShield enchantment reduction on attack speed")
 					.defineInRange("heavyShieldSpeedReduction", 0.1, 0.0001, 100);
 			heavyShieldDefenseBonus = builder.comment("HeavyShield enchantment defense bonus")
@@ -151,33 +148,10 @@ public class LWConfig {
 
 	}
 
-	public static final ForgeConfigSpec CLIENT_SPEC;
-	public static final Client CLIENT;
-
-	public static final ForgeConfigSpec COMMON_SPEC;
-	public static final Common COMMON;
-	public static String COMMON_PATH;
-
-	static {
-		final Pair<Client, ForgeConfigSpec> client = new ForgeConfigSpec.Builder().configure(Client::new);
-		CLIENT_SPEC = client.getRight();
-		CLIENT = client.getLeft();
-
-		final Pair<Common, ForgeConfigSpec> common = new ForgeConfigSpec.Builder().configure(Common::new);
-		COMMON_SPEC = common.getRight();
-		COMMON = common.getLeft();
-	}
+	public static final Recipe RECIPE = L2Weaponry.REGISTRATE.registerUnsynced(Recipe::new);
+	public static final Server SERVER = L2Weaponry.REGISTRATE.registerSynced(Server::new);
 
 	public static void init() {
-		register(ModConfig.Type.CLIENT, CLIENT_SPEC);
-		COMMON_PATH = register(ModConfig.Type.COMMON, COMMON_SPEC);
-	}
-
-	private static String register(ModConfig.Type type, IConfigSpec<?> spec) {
-		var mod = ModLoadingContext.get().getActiveContainer();
-		String path = "l2_configs/" + mod.getModId() + "-" + type.extension() + ".toml";
-		ModLoadingContext.get().registerConfig(type, spec, path);
-		return path;
 	}
 
 }

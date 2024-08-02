@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
@@ -15,6 +16,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -84,16 +86,17 @@ public class WeaponItem extends TieredItem {
 	// FORGE START
 	@Override
 	public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
-		return state.is(blocks) && net.minecraftforge.common.TierSortingRegistry.isCorrectTierForDrops(getTier(), state);
+		Tool tool = stack.get(DataComponents.TOOL);
+		return tool != null && tool.isCorrectForDrops(state);
 	}
 
-	/**
-	 * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
-	 * the damage on the stack.
-	 */
 	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-		pStack.hurtAndBreak(1, pAttacker, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 		return true;
+	}
+
+	@Override
+	public void postHurtEnemy(ItemStack stack, LivingEntity target, LivingEntity user) {
+		stack.hurtAndBreak(1,user,EquipmentSlot.MAINHAND);
 	}
 
 	/**

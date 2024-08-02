@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
 import com.google.common.collect.ImmutableMultimap;
+import dev.xkmc.l2core.util.Proxy;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.Proxy;
 import dev.xkmc.l2library.util.math.MathHelper;
@@ -53,7 +54,6 @@ public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 		return super.use(pLevel, pPlayer, pUsedHand);
 	}
 
-	@OnlyIn(Dist.CLIENT)
 	@Override
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
 		ItemStack off = Proxy.getClientPlayer().getOffhandItem().copy();

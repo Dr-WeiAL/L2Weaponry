@@ -1,8 +1,8 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2core.base.effects.EffectUtil;
+import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2library.base.effects.EffectUtil;
 import dev.xkmc.l2weaponry.content.item.types.MacheteItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
@@ -24,9 +24,9 @@ public class EnderMachete extends MacheteItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void onHurt(AttackCache event, LivingEntity le, ItemStack stack) {
-		EffectUtil.addEffect(event.getAttackTarget(), new MobEffectInstance(MobEffects.LEVITATION, 20), EffectUtil.AddReason.NONE, le);
-		EffectUtil.addEffect(event.getAttackTarget(), new MobEffectInstance(MobEffects.SLOW_FALLING, 40), EffectUtil.AddReason.NONE, le);
+	public void onHurt(DamageData.Offence event, LivingEntity le, ItemStack stack) {
+		EffectUtil.addEffect(event.getTarget(), new MobEffectInstance(MobEffects.LEVITATION, 20), le);
+		EffectUtil.addEffect(event.getTarget(), new MobEffectInstance(MobEffects.SLOW_FALLING, 40), le);
 	}
 
 	@Override
