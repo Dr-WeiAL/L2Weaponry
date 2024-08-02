@@ -1,6 +1,0 @@
-{
-  "parent": "l2weaponry:item/battle_axe",
-  "textures": {
-    "layer0": "l2weaponry:item/generated/utherium/battle_axe"
-  }
-}

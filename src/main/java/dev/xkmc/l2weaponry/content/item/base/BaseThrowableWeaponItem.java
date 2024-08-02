@@ -33,13 +33,13 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 		return UseAnim.SPEAR;
 	}
 
-	public int getUseDuration(ItemStack stack) {
+	public int getUseDuration(ItemStack stack, LivingEntity le) {
 		return 72000;
 	}
 
 	public void releaseUsing(ItemStack stack, Level level, LivingEntity user, int timeLeft) {
 		if (user instanceof Player player) {
-			int time = this.getUseDuration(stack) - timeLeft;
+			int time = this.getUseDuration(stack, user) - timeLeft;
 			if (time >= 10) {
 				if (!level.isClientSide) {
 					serverThrow(stack, level, player);

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "l2complements:void_eye"
+  },
+  "base": {
+    "item": "l2weaponry:shulkerate_dagger"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:shadow_hunter"
+  },
+  "template": []
+}

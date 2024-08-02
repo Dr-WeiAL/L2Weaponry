@@ -1,6 +1,0 @@
-{
-  "parent": "l2weaponry:item/handheld_throwing",
-  "textures": {
-    "layer0": "l2weaponry:item/generated/fire_dragonsteel/throwing_axe"
-  }
-}

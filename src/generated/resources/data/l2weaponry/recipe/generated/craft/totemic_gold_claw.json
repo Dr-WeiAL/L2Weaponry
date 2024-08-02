@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": false,
+      "line": [
+        "defaultEnchantmentOnWeapons"
+      ],
+      "path": "l2configs/l2weaponry-common.toml"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "l2complements:totemic_gold_ingot"
+    },
+    "I": {
+      "item": "minecraft:emerald"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "III",
+    "HLH",
+    "H H"
+  ],
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:totemic_gold_claw"
+  }
+}

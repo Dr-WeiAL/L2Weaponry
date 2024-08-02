@@ -1,8 +1,0 @@
-// 1.20.1	2024-03-14T16:02:34.933018	Tags for minecraft:damage_type mod id l2weaponry
-9069b4b6103522399c3b9080942ed55b2a03c325 data/forge/tags/damage_type/direct.json
-9bebeb711ac3f37832306759bf0c3ffc81c31cde data/minecraft/tags/damage_type/bypasses_armor.json
-cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasses_effects.json
-cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasses_enchantments.json
-cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasses_resistance.json
-0d1afbb4677448f00fc5330455a73d4801eaf658 data/minecraft/tags/damage_type/is_projectile.json
-ca4e7b25a718d611bf6cc485ed6511760d687d16 data/minecraft/tags/damage_type/no_anger.json

@@ -7,8 +7,6 @@
   "mixins": [
 	"DrownedMixin",
 	"DrownedTridentAttackGoalMixin",
-	"ItemStackMixin",
-	"LightningBoltMixin",
 	"LivingEntityMixin",
 	"PlayerMixin",
 	"TargetGoalAccessor"

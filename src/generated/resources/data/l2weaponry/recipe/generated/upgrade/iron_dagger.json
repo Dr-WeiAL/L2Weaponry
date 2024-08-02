@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": true,
+      "line": [
+        "recipe",
+        "enableToolRecraftRecipe"
+      ],
+      "path": "l2configs/l2complements-common.toml"
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:iron_block"
+  },
+  "base": {
+    "tag": "l2weaponry:dagger"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:iron_dagger"
+  },
+  "template": []
+}

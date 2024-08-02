@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "l2complements:hard_ice"
+  },
+  "base": {
+    "item": "l2weaponry:iron_spear"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:spear_of_winter_storm"
+  },
+  "template": []
+}

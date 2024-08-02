@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "type": "l2core:enchantment",
+      "enchantment": "minecraft:quick_charge",
+      "minLevel": 1
+    },
+    "B": {
+      "item": "l2complements:storm_core"
+    },
+    "C": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "E": {
+      "item": "minecraft:crossbow"
+    }
+  },
+  "pattern": [
+    " B ",
+    "C1C",
+    " E "
+  ],
+  "result": {
+    "components": {
+      "minecraft:stored_enchantments": {
+        "levels": {
+          "l2weaponry:instant_shot": 1
+        }
+      }
+    },
+    "count": 1,
+    "id": "minecraft:enchanted_book"
+  }
+}

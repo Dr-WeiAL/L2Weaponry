@@ -4,9 +4,6 @@ import dev.xkmc.l2core.util.ConfigInit;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class LWConfig {
 
 	public static class Recipe extends ConfigInit {
@@ -15,7 +12,7 @@ public class LWConfig {
 
 		public Recipe(Builder builder) {
 			markL2();
-			defaultEnchantmentOnWeapons = builder.comment("Default enchantments on crafted weapons")
+			defaultEnchantmentOnWeapons = builder.text("Default enchantments on crafted weapons")
 					.define("defaultEnchantmentOnWeapons", true);
 		}
 
@@ -59,79 +56,80 @@ public class LWConfig {
 		public final ModConfigSpec.IntValue ironwoodRegenDuration;
 		public final ModConfigSpec.IntValue ironwoodEffectDuration;
 
-		Server(ModConfigSpec.Builder builder) {
-			builder.push("Weapon Type Features");
-			dagger_bonus = builder.comment("Dagger damage multiplier when hitting targets not targeting user")
+		Server(Builder builder) {
+			markL2();
+			builder.push("weapon_type", "Weapon Type Features");
+			dagger_bonus = builder.text("Dagger damage multiplier when hitting targets not targeting user")
 					.defineInRange("dagger_bonus", 2d, 1, 1000);
-			claw_bonus = builder.comment("Claw damage bonus for each consecutive hit")
+			claw_bonus = builder.text("Claw damage bonus for each consecutive hit")
 					.defineInRange("claw_bonus", 0.1d, 0, 10);
-			claw_max = builder.comment("Claw damage bonus maximum hit for one claw (two claw has double maximum)")
+			claw_max = builder.text("Claw damage bonus maximum hit for one claw (two claw has double maximum)")
 					.defineInRange("claw_max", 5, 1, 1000);
-			claw_timeout = builder.comment("Claw damage bonus timeout")
+			claw_timeout = builder.text("Claw damage bonus timeout")
 					.defineInRange("claw_timeout", 60, 1, 1000);
-			claw_block_time = builder.comment("Claw block damage time")
+			claw_block_time = builder.text("Claw block damage time")
 					.defineInRange("claw_block_time", 3, 0, 1000);
-			reflectCost = builder.comment("Shield reflect cost")
+			reflectCost = builder.text("Shield reflect cost")
 					.defineInRange("reflectCost", 0.2, 0, 1);
 
 			builder.pop();
-			builder.push("Legendary Weapon Effects");
-			shadowHunterDistance = builder.comment("Shadow Hunter teleport distance")
+			builder.push("legendary", "Legendary Weapon Effects");
+			shadowHunterDistance = builder.text("Shadow Hunter teleport distance")
 					.defineInRange("shadowHunterDistance", 8, 1, 128);
-			hauntingDemonDistance = builder.comment("Haunting Demon of the End teleport distance")
+			hauntingDemonDistance = builder.text("Haunting Demon of the End teleport distance")
 					.defineInRange("hauntingDemonDistance", 64, 1, 128);
-			hammerOfIncarcerationRadius = builder.comment("Hammer of Incarceration effect radius")
+			hammerOfIncarcerationRadius = builder.text("Hammer of Incarceration effect radius")
 					.defineInRange("hammerOfIncarcerationRadius", 8, 1, 64);
-			hammerOfIncarcerationDuration = builder.comment("Hammer of Incarceration effect duration")
+			hammerOfIncarcerationDuration = builder.text("Hammer of Incarceration effect duration")
 					.defineInRange("hammerOfIncarcerationDuration", 60, 1, 60000);
-			dogmaticStandoffGain = builder.comment("Dogmatic Standoff absorption gain percentage")
+			dogmaticStandoffGain = builder.text("Dogmatic Standoff absorption gain percentage")
 					.defineInRange("dogmaticStandoffGain", 0.02, 0.0001, 1);
-			dogmaticStandoffMax = builder.comment("Dogmatic Standoff absorption max percentage")
+			dogmaticStandoffMax = builder.text("Dogmatic Standoff absorption max percentage")
 					.defineInRange("dogmaticStandoffMax", 0.1, 0.0001, 100);
-			determinationRate = builder.comment("Claw of Determination increase rate")
+			determinationRate = builder.text("Claw of Determination increase rate")
 					.defineInRange("determinationRate", 2d, 0, 100);
-			illusionRate = builder.comment("Blade of illusion increase rate")
+			illusionRate = builder.text("Blade of illusion increase rate")
 					.defineInRange("illusionRate", 1d, 0, 100);
 			builder.pop();
-			builder.push("Enchantments");
-			heavySpeedReduction = builder.comment("Heavy enchantment reduction on attack speed")
+			builder.push("enchantments", "Enchantments");
+			heavySpeedReduction = builder.text("Heavy enchantment reduction on attack speed")
 					.defineInRange("heavySpeedReduction", 0.2, 0.0001, 100);
-			heavyCritBonus = builder.comment("Heavy enchantment crit damage bonus")
+			heavyCritBonus = builder.text("Heavy enchantment crit damage bonus")
 					.defineInRange("heavyCritBonus", 0.3, 0.0001, 100);
-			stealthChance = builder.comment("Stealth enchantment no aggro chance")
+			stealthChance = builder.text("Stealth enchantment no aggro chance")
 					.defineInRange("stealthChance", 0.2, 0.0001, 100);
-			heavyShieldSpeedReduction = builder.comment("HeavyShield enchantment reduction on attack speed")
+			heavyShieldSpeedReduction = builder.text("HeavyShield enchantment reduction on attack speed")
 					.defineInRange("heavyShieldSpeedReduction", 0.1, 0.0001, 100);
-			heavyShieldDefenseBonus = builder.comment("HeavyShield enchantment defense bonus")
+			heavyShieldDefenseBonus = builder.text("HeavyShield enchantment defense bonus")
 					.defineInRange("heavyShieldDefenseBonus", 0.1, 0.0001, 100);
-			hardShieldDefenseBonus = builder.comment("HardShield enchantment defense bonus")
+			hardShieldDefenseBonus = builder.text("HardShield enchantment defense bonus")
 					.defineInRange("hardShieldDefenseBonus", 0.05, 0.0001, 100);
-			raisedSpiritSpeedBonus = builder.comment("Raised Spirit enchantment bonus on attack speed per stacking level per enchantment level")
+			raisedSpiritSpeedBonus = builder.text("Raised Spirit enchantment bonus on attack speed per stacking level per enchantment level")
 					.defineInRange("raisedSpiritSpeedBonus", 0.01, 0.0001, 100);
-			energizedWillReachBonus = builder.comment("Energized Will enchantment bonus on attack range per stacking level per enchantment level")
+			energizedWillReachBonus = builder.text("Energized Will enchantment bonus on attack range per stacking level per enchantment level")
 					.defineInRange("energizedWillReachBonus", 0.02, 0.0001, 100);
-			instantThrowCooldown = builder.comment("Cooldown for Instant Throwing")
+			instantThrowCooldown = builder.text("Cooldown for Instant Throwing")
 					.defineInRange("instantThrowCooldown", 60, 1, 6000);
 			builder.pop();
 
-			builder.push("Twilight Forest Compat");
-			knightmetalBonus = builder.comment("Damage bonus to enemies with armor")
-					.defineInRange("knightmetalBonus", 0.2, 0, 1000);
-			knightmetalReflect = builder.comment("Extra damage reflection")
-					.defineInRange("knightmetalReflect", 0.5, 0, 1000);
-			fieryBonus = builder.comment("Damage bonus to enemies not immune to fire")
+			builder.push("twilight", "Twilight Forest Compat");
+			knightmetalBonus = builder.text("Damage bonus to enemies with armor")
 					.defineInRange("knightmetalBonus", 0.5, 0, 1000);
-			fieryDuration = builder.comment("Ignite enemy by seconds")
+			knightmetalReflect = builder.text("Extra damage reflection")
+					.defineInRange("knightmetalReflect", 0.5, 0, 1000);
+			fieryBonus = builder.text("Damage bonus to enemies not immune to fire")
+					.defineInRange("fieryBonus", 0.5, 0, 1000);
+			fieryDuration = builder.text("Ignite enemy by seconds")
 					.defineInRange("fieryDuration", 15, 0, 1000);
-			steeleafBonus = builder.comment("Damage bonus to enemies without armor")
+			steeleafBonus = builder.text("Damage bonus to enemies without armor")
 					.defineInRange("steeleafBonus", 0.5, 0, 1000);
-			steeleafReflect = builder.comment("Extra damage reflection")
+			steeleafReflect = builder.text("Extra damage reflection")
 					.defineInRange("steeleafReflect", 0.5, 0, 1000);
-			steeleafChance = builder.comment("Effect Application Chance")
+			steeleafChance = builder.text("Effect Application Chance")
 					.defineInRange("steeleafChance", 0.5, 0, 1000);
-			ironwoodRegenDuration = builder.comment("Regeneration interval (in ticks)")
+			ironwoodRegenDuration = builder.text("Regeneration interval (in ticks)")
 					.defineInRange("ironwoodRegenDuration", 100, 1, 10000);
-			ironwoodEffectDuration = builder.comment("Resistance duration (in ticks)")
+			ironwoodEffectDuration = builder.text("Resistance duration (in ticks)")
 					.defineInRange("ironwoodEffectDuration", 100, 1, 10000);
 			builder.pop();
 

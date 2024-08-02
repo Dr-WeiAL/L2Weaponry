@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "minecraft:iron_ingot"
+    },
+    "I": {
+      "item": "l2complements:shulkerate_ingot"
+    }
+  },
+  "pattern": [
+    " I ",
+    "IHI",
+    " I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:shulkerate_round_shield"
+  }
+}

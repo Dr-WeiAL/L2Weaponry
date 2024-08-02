@@ -2,6 +2,8 @@ package dev.xkmc.l2weaponry.init;
 
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.l2complements.events.ItemUseEventHandler;
+import dev.xkmc.l2complements.init.registrate.LCEnchantments;
+import dev.xkmc.l2core.init.L2TagGen;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.simple.Reg;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
@@ -87,6 +89,9 @@ public class L2Weaponry {
 		REGISTRATE.addDataGenerator(ProviderType.ENTITY_TAGS, TagGen::onEntityTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, LWAttributeConfigGen::onDataMapGen);
 		new LWDamageTypeGen(REGISTRATE).generate();
+		var init = REGISTRATE.getDataGenInitializer();
+		LWEnchantments.REG.addParent(LCEnchantments.REG);
+		init.addDependency(ProviderType.RECIPE, L2TagGen.ENCH_TAGS);
 	}
 
 	@SubscribeEvent

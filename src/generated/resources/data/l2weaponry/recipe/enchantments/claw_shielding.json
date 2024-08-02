@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:book"
+    },
+    "C": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "D": {
+      "item": "l2complements:explosion_shard"
+    },
+    "L": {
+      "item": "l2complements:warden_bone_shard"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "DBD",
+    "CCC"
+  ],
+  "result": {
+    "components": {
+      "minecraft:stored_enchantments": {
+        "levels": {
+          "l2weaponry:claw_shielding": 1
+        }
+      }
+    },
+    "count": 1,
+    "id": "minecraft:enchanted_book"
+  }
+}

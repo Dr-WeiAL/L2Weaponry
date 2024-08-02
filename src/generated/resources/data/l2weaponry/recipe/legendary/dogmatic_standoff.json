@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "l2complements:life_essence"
+  },
+  "base": {
+    "item": "l2weaponry:totemic_gold_battle_axe"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:dogmatic_standoff"
+  },
+  "template": []
+}

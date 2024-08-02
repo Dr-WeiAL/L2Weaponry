@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": true,
+      "line": [
+        "defaultEnchantmentOnWeapons"
+      ],
+      "path": "l2configs/l2weaponry-common.toml"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "I": {
+      "item": "l2complements:sculkium_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "IHI",
+    " H "
+  ],
+  "result": {
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "l2complements:cubic_mining": 1
+        }
+      }
+    },
+    "count": 1,
+    "id": "l2weaponry:sculkium_hammer"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": true,
+      "line": [
+        "defaultEnchantmentOnWeapons"
+      ],
+      "path": "l2configs/l2weaponry-common.toml"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_poseidite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "l2complements:poseidite_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "l2weaponry:generated/craft/poseidite_battle_axe_enchanted"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_poseidite_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "l2weaponry:generated/craft/poseidite_battle_axe_enchanted"
+    ]
+  }
+}

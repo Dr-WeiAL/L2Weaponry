@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": true,
+      "line": [
+        "defaultEnchantmentOnWeapons"
+      ],
+      "path": "l2configs/l2weaponry-common.toml"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "minecraft:iron_ingot"
+    },
+    "I": {
+      "item": "l2complements:shulkerate_ingot"
+    }
+  },
+  "pattern": [
+    "  I",
+    " I ",
+    " H "
+  ],
+  "result": {
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:sweeping_edge": 1
+        }
+      }
+    },
+    "count": 1,
+    "id": "l2weaponry:shulkerate_machete"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "l2complements:storm_core"
+  },
+  "base": {
+    "item": "l2weaponry:shulkerate_javelin"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:void_escape"
+  },
+  "template": []
+}

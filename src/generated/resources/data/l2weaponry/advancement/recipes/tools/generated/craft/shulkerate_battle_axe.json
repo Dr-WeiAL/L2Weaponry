@@ -1,0 +1,42 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": false,
+      "line": [
+        "defaultEnchantmentOnWeapons"
+      ],
+      "path": "l2configs/l2weaponry-common.toml"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_shulkerate_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "l2complements:shulkerate_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "l2weaponry:generated/craft/shulkerate_battle_axe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_shulkerate_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "l2weaponry:generated/craft/shulkerate_battle_axe"
+    ]
+  }
+}

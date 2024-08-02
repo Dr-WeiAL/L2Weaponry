@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "l2complements:sun_membrane"
+  },
+  "base": {
+    "item": "l2weaponry:totemic_gold_hammer"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:dogmatic_punishment"
+  },
+  "template": []
+}

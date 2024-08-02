@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "type": "l2core:enchantment",
+      "enchantment": "minecraft:infinity",
+      "minLevel": 1
+    },
+    "2": {
+      "type": "l2core:enchantment",
+      "enchantment": "minecraft:loyalty",
+      "minLevel": 1
+    },
+    "B": {
+      "item": "minecraft:zombie_head"
+    },
+    "C": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "D": {
+      "item": "minecraft:conduit"
+    },
+    "E": {
+      "item": "l2complements:poseidite_ingot"
+    },
+    "L": {
+      "item": "l2complements:void_eye"
+    },
+    "R": {
+      "item": "l2complements:guardian_eye"
+    }
+  },
+  "pattern": [
+    "CBC",
+    "1E2",
+    "LDR"
+  ],
+  "result": {
+    "components": {
+      "minecraft:stored_enchantments": {
+        "levels": {
+          "l2weaponry:projection": 1
+        }
+      }
+    },
+    "count": 1,
+    "id": "minecraft:enchanted_book"
+  }
+}

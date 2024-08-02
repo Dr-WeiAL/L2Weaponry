@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "I": {
+      "item": "l2complements:poseidite_ingot"
+    }
+  },
+  "pattern": [
+    " I",
+    "H "
+  ],
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:poseidite_dagger"
+  }
+}
