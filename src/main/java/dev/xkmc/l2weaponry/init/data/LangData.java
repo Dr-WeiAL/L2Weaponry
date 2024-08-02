@@ -96,7 +96,7 @@ public enum LangData {
 
 	public static Component getTooltip(MobEffectInstance eff) {
 		MutableComponent ans = Component.translatable(eff.getDescriptionId());
-		MobEffect mobeffect = eff.getEffect();
+		MobEffect mobeffect = eff.getEffect().value();
 		if (eff.getAmplifier() > 0) {
 			ans = Component.translatable("potion.withAmplifier", ans,
 					Component.translatable("potion.potency." + eff.getAmplifier()));
@@ -104,7 +104,7 @@ public enum LangData {
 
 		if (eff.getDuration() > 20) {
 			ans = Component.translatable("potion.withDuration", ans,
-					MobEffectUtil.formatDuration(eff, 1));
+					MobEffectUtil.formatDuration(eff, 1, 20));
 		}
 
 		return ans.withStyle(mobeffect.getCategory().getTooltipFormatting());

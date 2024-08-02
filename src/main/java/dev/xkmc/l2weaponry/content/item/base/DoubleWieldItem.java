@@ -4,16 +4,16 @@ import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.common.ForgeMod;
 
 public class DoubleWieldItem extends GenericWeaponItem {
 
-	public DoubleWieldItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
-		super(tier, damage, speed, prop, config, blocks);
+	public DoubleWieldItem(Tier tier, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
+		super(tier, prop, config, blocks);
 	}
 
 	public void accumulateDamage(ItemStack stack, LivingEntity entity) {
@@ -26,7 +26,7 @@ public class DoubleWieldItem extends GenericWeaponItem {
 
 	@Override
 	public AABB getSweepHitBoxImpl(ItemStack stack, LivingEntity player, Entity target) {
-		double r = player.getAttributeValue(ForgeMod.ENTITY_REACH.get());
+		double r = player.getAttributeValue(Attributes.ENTITY_INTERACTION_RANGE);
 		if (player.getOffhandItem().getItem() == this) {
 			return player.getBoundingBox().inflate(r + 1, r + 0.25, r + 1);
 		} else {

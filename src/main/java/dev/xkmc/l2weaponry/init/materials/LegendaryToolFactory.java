@@ -6,6 +6,6 @@ import net.minecraft.world.item.Tier;
 
 public interface LegendaryToolFactory<T extends Item> {
 
-	T get(Tier tier, int damage, float speed, Item.Properties prop, ExtraToolConfig config);
+	T get(Tier tier, Item.Properties prop, ExtraToolConfig config);
 
 }

@@ -18,13 +18,13 @@ public record LegendaryTool<T extends Item>(LWToolTypes type, LegendaryToolFacto
 	}
 
 	@Override
-	public float getSpeed(float v) {
-		return type.getSpeed(v);
+	public float getAtkSpeed(float v) {
+		return type.getAtkSpeed(v);
 	}
 
 	@Override
-	public Item create(Tier tier, int i, float v, Item.Properties properties, ExtraToolConfig extraToolConfig) {
-		return tool.get(tier, i, v, properties, extraToolConfig);
+	public Item create(Tier tier, Item.Properties properties, ExtraToolConfig extraToolConfig) {
+		return tool.get(tier, properties, extraToolConfig);
 	}
 
 }

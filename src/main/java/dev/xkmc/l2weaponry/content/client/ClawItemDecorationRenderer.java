@@ -1,7 +1,7 @@
 package dev.xkmc.l2weaponry.content.client;
 
-import dev.xkmc.l2complements.init.data.LCConfig;
-import dev.xkmc.l2library.util.Proxy;
+import dev.xkmc.l2core.init.L2CoreConfig;
+import dev.xkmc.l2core.util.Proxy;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import net.minecraft.client.Minecraft;
@@ -10,7 +10,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.client.IItemDecorator;
+import net.neoforged.neoforge.client.IItemDecorator;
 
 public class ClawItemDecorationRenderer implements IItemDecorator {
 
@@ -22,14 +22,13 @@ public class ClawItemDecorationRenderer implements IItemDecorator {
 		ItemStack off = player.getOffhandItem();
 		if (main != stack && off != stack) return false;
 		if (main != stack && off.getItem() != main.getItem()) return false;
-		if (!(stack.getItem() instanceof BaseClawItem)) return false;
-		if (!(main.getItem() instanceof BaseClawItem claw)) return false;
+		if (!(stack.getItem() instanceof BaseClawItem claw)) return false;
 		long last = BaseClawItem.getLastTime(main);
 		int timeout = LWConfig.SERVER.claw_timeout.get();
-		float time = (player.level().getGameTime() - last) + Minecraft.getInstance().getPartialTick();
+		float time = (player.level().getGameTime() - last) + Minecraft.getInstance().getTimer().getGameTimeDeltaTicks();
 		if (time > timeout) return false;
 		g.pose().pushPose();
-		int height = LCConfig.CLIENT.enchOverlayZVal.get();
+		int height = L2CoreConfig.CLIENT.overlayZVal.get();
 		g.pose().translate(0, 0, height);
 		float defenseLost = Mth.clamp(time, 0, timeout) / timeout;
 		float w = 13.0F * (1 - defenseLost);

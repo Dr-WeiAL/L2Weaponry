@@ -29,8 +29,6 @@ public class LWConfig {
 		public final ModConfigSpec.IntValue claw_timeout;
 		public final ModConfigSpec.IntValue claw_block_time;
 		public final ModConfigSpec.DoubleValue reflectCost;
-		public final ModConfigSpec.BooleanValue diggerEnchantmentOnWeapon;
-		public final ModConfigSpec.ConfigValue<List<String>> extraCompatibleEnchantmentCategories;
 
 		public final ModConfigSpec.IntValue shadowHunterDistance;
 		public final ModConfigSpec.IntValue hauntingDemonDistance;
@@ -75,13 +73,6 @@ public class LWConfig {
 					.defineInRange("claw_block_time", 3, 0, 1000);
 			reflectCost = builder.comment("Shield reflect cost")
 					.defineInRange("reflectCost", 0.2, 0, 1);
-			diggerEnchantmentOnWeapon = builder.comment("Allow digger enchantments on weapon")
-					.define("diggerEnchantmentOnWeapon", true);
-			extraCompatibleEnchantmentCategories = builder
-					.comment("List of enchantment categories for weapons. Use upper case enum name.")
-					.comment("For modded enchantment categories, find them in their code through GitHub")
-					.comment("Example: 'WEAPON', 'DIGGER'")
-					.define("extraCompatibleEnchantmentCategories", new ArrayList<>(List.of()));
 
 			builder.pop();
 			builder.push("Legendary Weapon Effects");

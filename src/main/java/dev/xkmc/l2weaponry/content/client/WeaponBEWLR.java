@@ -14,8 +14,6 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 
 import java.util.function.Consumer;
@@ -52,10 +50,10 @@ public class WeaponBEWLR extends BlockEntityWithoutLevelRenderer {
 							   MultiBufferSource bufferSource, int light, int overlay) {
 		var manager = Minecraft.getInstance().getModelManager();
 		render(stack, type, false, pose, bufferSource, light, overlay,
-				manager.getModel(ForgeRegistries.ITEMS.getKey(nunchaku).withPath(e -> "item/" + e + "_unroll"))
+				manager.getModel(nunchaku.unroll())
 				, WeaponBEWLR::nunchakuUnroll);
 		render(stack, type, false, pose, bufferSource, light, overlay,
-				manager.getModel(ForgeRegistries.ITEMS.getKey(nunchaku).withPath(e -> "item/" + e + "_roll")),
+				manager.getModel(nunchaku.roll()),
 				WeaponBEWLR::nunchakuRoll);
 	}
 
@@ -64,7 +62,7 @@ public class WeaponBEWLR extends BlockEntityWithoutLevelRenderer {
 	}
 
 	private static void nunchakuRoll(PoseStack pose) {
-		float tick = Minecraft.getInstance().getPartialTick() + Minecraft.getInstance().player.tickCount;
+		float tick = Minecraft.getInstance().getTimer().getGameTimeDeltaTicks() + Minecraft.getInstance().player.tickCount;
 		pose.translate(1, 1, 0);
 		pose.rotateAround(Axis.ZP.rotationDegrees(tick * 72), 0, 0, 0);
 	}

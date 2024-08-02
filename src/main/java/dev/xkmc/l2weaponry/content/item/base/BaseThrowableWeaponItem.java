@@ -7,7 +7,6 @@ import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
@@ -20,14 +19,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
 public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implements IThrowableCallback {
 
-	public BaseThrowableWeaponItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
-		super(tier, damage, speed, prop, config, blocks);
+	public BaseThrowableWeaponItem(Tier tier, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
+		super(tier, prop, config, blocks);
 		LWItems.THROW_DECO.add(this);
 	}
 
@@ -52,9 +50,9 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 
 	protected void serverThrow(ItemStack stack, Level level, Player player) {
 		int slot = player.getUsedItemHand() == InteractionHand.OFF_HAND ? 40 : player.getInventory().selected;
-		boolean projection = stack.getEnchantmentLevel(LWEnchantments.PROJECTION.get()) > 0;
+		boolean projection = LWEnchantments.PROJECTION.getLv(stack) > 0;
 		boolean no_pickup = projection || player.getAbilities().instabuild;
-		stack.hurtAndBreak(1, player, pl -> pl.broadcastBreakEvent(player.getUsedItemHand()));
+		stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 		AbstractArrow proj = getProjectile(level, player, stack, slot);
 		proj.setBaseDamage(player.getAttributeValue(Attributes.ATTACK_DAMAGE));
 		proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
@@ -65,7 +63,7 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 			proj.getPersistentData().putInt("DespawnFactor", 20);
 		}
 		level.addFreshEntity(proj);
-		level.playSound(null, proj, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+		player.playSound(SoundEvents.TRIDENT_THROW.value(), 1.0F, 1.0F);
 		if (!no_pickup) {
 			player.getInventory().removeItem(stack);
 		}
@@ -77,7 +75,7 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 		if (stack.getDamageValue() >= stack.getMaxDamage() - 1) {
 			return InteractionResultHolder.fail(stack);
 		} else {
-			boolean instant = stack.getEnchantmentLevel(LWEnchantments.INSTANT_THROWING.get()) > 0 &&
+			boolean instant = LWEnchantments.INSTANT_THROWING.getLv(stack) > 0 &&
 					!player.isShiftKeyDown();
 			if (instant) {
 				if (!level.isClientSide) {
@@ -93,13 +91,14 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 
 	public abstract BaseThrownWeaponEntity<?> getProjectile(Level level, LivingEntity player, ItemStack stack, int slot);
 
-	@Override
-	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {//TODO
 		if (getTier() == LCMats.POSEIDITE.getTier()) {
-			if (enchantment == Enchantments.CHANNELING) {
+			//if (enchantment == Enchantments.CHANNELING)
+			{
 				return true;
 			}
 		}
-		return enchantment == Enchantments.LOYALTY || super.canApplyAtEnchantingTable(stack, enchantment);
+		return true;//enchantment == Enchantments.LOYALTY || super.canApplyAtEnchantingTable(stack, enchantment);
 	}
+
 }

@@ -6,13 +6,13 @@ import dev.xkmc.l2core.serial.recipe.ConditionalRecipeWrapper;
 import dev.xkmc.l2core.serial.recipe.DataRecipeWrapper;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.neoforged.neoforge.common.conditions.ICondition;
@@ -42,11 +42,11 @@ public interface ILWToolMats {
 		return Items.CHAIN;
 	}
 
-	default void addEnchants(List<EnchantmentInstance> list, LWToolTypes type) {
+	default void addEnchants(List<LWToolTypes.DefaultEnch> list, LWToolTypes type) {
 	}
 
 	default void saveRecipe(Supplier<ShapedRecipeBuilder> b, RegistrateRecipeProvider pvd, LWToolTypes type, ResourceLocation id) {
-		ItemStack stack = getToolEnchanted(type);
+		ItemStack stack = getToolEnchanted(pvd.getProvider(), type);
 		if (!stack.isComponentsPatchEmpty()) {
 			b.get().save(DataRecipeWrapper.of(getProvider(pvd, BooleanValueCondition.of(LWConfig.RECIPE,
 					x -> x.defaultEnchantmentOnWeapons, true)), stack), id.withSuffix("_enchanted"));
@@ -98,13 +98,13 @@ public interface ILWToolMats {
 		return false;
 	}
 
-	default ItemStack getToolEnchanted(LWToolTypes type) {
-		List<EnchantmentInstance> enchs = new ArrayList<>(type.getEnchs());
+	default ItemStack getToolEnchanted(HolderLookup.Provider pvd, LWToolTypes type) {
+		var enchs = new ArrayList<>(type.getEnchs());
 		addEnchants(enchs, type);
 		ItemStack stack = getTool(type).getDefaultInstance();
 		if (!enchs.isEmpty()) {
 			for (var e : enchs) {
-				stack.enchant(e.enchantment, e.level);
+				stack.enchant(pvd.holderOrThrow(e.key()), e.lv());
 			}
 		}
 		return stack;

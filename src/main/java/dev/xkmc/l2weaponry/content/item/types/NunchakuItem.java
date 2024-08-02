@@ -6,6 +6,8 @@ import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
 import dev.xkmc.l2weaponry.events.ClientRenderEvents;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
@@ -24,8 +26,8 @@ import java.util.List;
 
 public class NunchakuItem extends GenericWeaponItem implements FastItem {
 
-	public NunchakuItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_HOE);
+	public NunchakuItem(Tier tier, Properties prop, ExtraToolConfig config) {
+		super(tier, prop, config, BlockTags.MINEABLE_WITH_HOE);
 		LWItems.NUNCHAKU_DECO.add(this);
 	}
 
@@ -64,12 +66,12 @@ public class NunchakuItem extends GenericWeaponItem implements FastItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
+	public void appendHoverText(ItemStack pStack, TooltipContext pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.TOOL_NUNCHAKU.get());
 		super.appendHoverText(pStack, pLevel, list, pIsAdvanced);
 	}
 
-	public int getUseDuration(ItemStack p_43107_) {
+	public int getUseDuration(ItemStack stack, LivingEntity le) {
 		return 72000;
 	}
 
@@ -81,6 +83,14 @@ public class NunchakuItem extends GenericWeaponItem implements FastItem {
 	@Override
 	public boolean isFast(ItemStack itemStack) {
 		return true;
+	}
+
+	public ModelResourceLocation roll() {
+		return ModelResourceLocation.standalone(BuiltInRegistries.ITEM.getKey(this).withPath(e -> "item/" + e + "_roll"));
+	}
+
+	public ModelResourceLocation unroll() {
+		return ModelResourceLocation.standalone(BuiltInRegistries.ITEM.getKey(this).withPath(e -> "item/" + e + "_unroll"));
 	}
 
 }

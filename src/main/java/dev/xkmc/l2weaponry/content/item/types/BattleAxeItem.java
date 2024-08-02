@@ -9,15 +9,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class BattleAxeItem extends SlowWieldItem {
 
-	public BattleAxeItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_AXE);
+	public BattleAxeItem(Tier tier, Properties prop, ExtraToolConfig config) {
+		super(tier, prop, config, BlockTags.MINEABLE_WITH_AXE);
 	}
 
 	@Override
@@ -31,7 +29,7 @@ public class BattleAxeItem extends SlowWieldItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
+	public void appendHoverText(ItemStack pStack, TooltipContext pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.TOOL_BATTLE_AXE.get());
 		super.appendHoverText(pStack, pLevel, list, pIsAdvanced);
 	}

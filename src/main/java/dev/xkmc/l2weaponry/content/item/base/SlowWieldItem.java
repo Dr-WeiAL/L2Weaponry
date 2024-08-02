@@ -1,43 +1,25 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
-import com.google.common.collect.ImmutableMultimap;
 import dev.xkmc.l2core.util.Proxy;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2library.util.Proxy;
-import dev.xkmc.l2library.util.math.MathHelper;
+import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.Unit;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 
-	public SlowWieldItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
-		super(tier, damage, speed, prop, config, blocks);
-	}
-
-	@Override
-	protected void addModifiers(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
-		float base_speed = 4 + this.attackSpeed;
-		float raw_speed = base_speed + this.attackDamage;
-		float reduce = 1f - Math.round(base_speed / raw_speed * 100) * 0.01f;
-		raw_speed = base_speed / (1 - reduce);
-		this.attackSpeed = raw_speed - 4;
-		super.addModifiers(builder);
-		AttributeModifier slow_2 = new AttributeModifier(MathHelper.getUUIDFromString("slow_wield"), "slow_wield", -reduce, AttributeModifier.Operation.MULTIPLY_TOTAL);
-		builder.put(Attributes.ATTACK_SPEED, slow_2);
+	public SlowWieldItem(Tier tier, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
+		super(tier, prop, config, blocks);
 	}
 
 	@Override
@@ -58,7 +40,7 @@ public class SlowWieldItem extends GenericWeaponItem implements DoubleHandItem {
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
 		ItemStack off = Proxy.getClientPlayer().getOffhandItem().copy();
 		Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer().offHandItem = off;
-		off.getOrCreateTag().putBoolean("reequip", true);
+		LWItems.REEQUIP.set(off, Unit.INSTANCE);
 		return super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged);
 	}
 

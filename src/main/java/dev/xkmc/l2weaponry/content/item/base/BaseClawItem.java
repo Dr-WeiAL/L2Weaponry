@@ -17,39 +17,39 @@ public class BaseClawItem extends DoubleWieldItem {
 	private static final String KEY_COUNT = "hit_count", KEY_TIME = "last_hit_time";
 
 	public static int getHitCount(ItemStack stack) {
-		return stack.getOrCreateTag().getInt(KEY_COUNT);
+		return LWItems.HIT_COUNT.getOrDefault(stack, 0);
 	}
 
 	public static long getLastTime(ItemStack stack) {
-		return stack.getOrCreateTag().getLong(KEY_TIME);
+		return LWItems.HIT_TIME.getOrDefault(stack, 0L);
 	}
 
-	public BaseClawItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_HOE);
+	public BaseClawItem(Tier tier, Properties prop, ExtraToolConfig config) {
+		super(tier, prop, config, BlockTags.MINEABLE_WITH_HOE);
 		LWItems.CLAW_DECO.add(this);
 	}
 
 	public void accumulateDamage(ItemStack stack, LivingEntity entity) {
 		long gameTime = entity.level().getGameTime();
-		long last = stack.getOrCreateTag().getLong(KEY_TIME);
+		long last = getLastTime(stack);
 		if (gameTime > last + LWConfig.SERVER.claw_timeout.get()) {
-			stack.getOrCreateTag().putInt(KEY_COUNT, 1);
+			LWItems.HIT_COUNT.set(stack, 1);
 		} else {
-			int count = stack.getOrCreateTag().getInt(KEY_COUNT);
+			int count = getHitCount(stack);
 			count = Math.min(count + 1, getMaxStack(stack, entity));
-			stack.getOrCreateTag().putInt(KEY_COUNT, count);
+			LWItems.HIT_COUNT.set(stack, count);
 		}
-		stack.getOrCreateTag().putLong(KEY_TIME, gameTime);
+		LWItems.HIT_TIME.set(stack, gameTime);
 	}
 
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
 		super.inventoryTick(stack, level, entity, slot, selected);
 		long gameTime = entity.level().getGameTime();
-		long last = stack.getOrCreateTag().getLong(KEY_TIME);
+		long last = getLastTime(stack);
 		if (gameTime > last + LWConfig.SERVER.claw_timeout.get()) {
-			stack.getOrCreateTag().remove(KEY_COUNT);
-			stack.getOrCreateTag().remove(KEY_TIME);
+			stack.remove(LWItems.HIT_COUNT);
+			stack.remove(LWItems.HIT_TIME);
 		}
 	}
 
@@ -63,7 +63,7 @@ public class BaseClawItem extends DoubleWieldItem {
 
 	@Override
 	public float getMultiplier(DamageData.Offence event) {
-		int count = event.getWeapon().getOrCreateTag().getInt(KEY_COUNT);
+		int count = getHitCount(event.getWeapon());
 		if (count > 1) {
 			int max = getMaxStack(event.getWeapon(), event.getAttacker());
 			return (float) (1 + LWConfig.SERVER.claw_bonus.get() * Mth.clamp(count - 1, 0, max));

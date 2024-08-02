@@ -2,17 +2,15 @@ package dev.xkmc.l2weaponry.content.entity;
 
 import com.google.common.collect.Lists;
 import dev.xkmc.l2complements.init.materials.LCMats;
+import dev.xkmc.l2core.init.reg.ench.EnchHelper;
 import dev.xkmc.l2weaponry.content.item.base.IThrowableCallback;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -27,23 +25,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.entity.IEntityAdditionalSpawnData;
-import net.minecraftforge.network.NetworkHooks;
-import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
 
 import javax.annotation.Nullable;
 
-public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends AbstractArrow implements IEntityWithComplexSpawn {
+public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends AbstractArrow {
 
 	private static final int LOWEST_HEIGHT = -32, MAX_DIST = 400, MAX_HOR_DIST = 100;
 
 	private static final EntityDataAccessor<Byte> ID_LOYALTY = SynchedEntityData.defineId(BaseThrownWeaponEntity.class, EntityDataSerializers.BYTE);
 	private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(BaseThrownWeaponEntity.class, EntityDataSerializers.BOOLEAN);
-	private ItemStack item;
 	public int remainingHit = 1;
 	public int clientSideReturnTridentTickCount;
 	public int slot;
@@ -62,11 +57,11 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	}
 
 	public BaseThrownWeaponEntity(EntityType<T> type, Level pLevel, LivingEntity pShooter, ItemStack pStack, int slot) {
-		super(type, pShooter, pLevel);
+		super(type, pShooter, pLevel, pStack, null);
 		this.setItem(pStack.copy());
 		this.slot = slot;
-		int loyalty = EnchantmentHelper.getLoyalty(pStack);
-		if (pStack.getEnchantmentLevel(LWEnchantments.PROJECTION.get()) > 0) {
+		int loyalty = EnchHelper.getLv(pStack, Enchantments.LOYALTY);
+		if (LWEnchantments.PROJECTION.getLv(pStack) > 0) {
 			loyalty = 0;
 		}
 		this.entityData.set(ID_LOYALTY, (byte) loyalty);
@@ -75,12 +70,17 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 
 	// ------ base weapon code
 
-	public ItemStack getItem() {
-		return item;
-	}
 
 	@Override
-	public void setPierceLevel(byte lv) {
+	protected ItemStack getDefaultPickupItem() {
+		return ItemStack.EMPTY;
+	}
+
+	public ItemStack getItem() {
+		return getPickupItem();
+	}
+
+	public void setPierce(byte lv) {
 		super.setPierceLevel(lv);
 		this.remainingHit = lv + 1;
 	}
@@ -110,10 +110,10 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 
 	// ------ default trident code
 
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.entityData.define(ID_LOYALTY, (byte) 0);
-		this.entityData.define(ID_FOIL, false);
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(ID_LOYALTY, (byte) 0);
+		builder.define(ID_FOIL, false);
 	}
 
 	public void tick() {
@@ -157,10 +157,6 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 		}
 	}
 
-	protected ItemStack getPickupItem() {
-		return this.item.copy();
-	}
-
 	public boolean isFoil() {
 		return this.entityData.get(ID_FOIL);
 	}
@@ -173,13 +169,13 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	protected void onHitEntity(EntityHitResult pResult) {
 		Entity entity = pResult.getEntity();
 		float damage = (float) getBaseDamage();
-		if (entity instanceof LivingEntity livingentity) {
-			damage += EnchantmentHelper.getDamageBonus(this.item, livingentity.getMobType());
-		}
-		Entity owner = this.getOwner();
 		targetCache = entity;
+		Entity owner = this.getOwner();
 		DamageSource damagesource = level().damageSources().trident(this, owner == null ? this : owner);
 		targetCache = null;
+		if (level() instanceof ServerLevel sl) {
+			damage = EnchantmentHelper.modifyDamage(sl, getItem(), entity, damagesource, damage);
+		}
 		if (this.remainingHit > 0) {
 			this.remainingHit--;
 			if (this.getPierceLevel() > 0) {
@@ -198,17 +194,16 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 			if (entity.getType() == EntityType.ENDERMAN) {
 				return;
 			}
+			if (this.level() instanceof ServerLevel sl) {
+				EnchantmentHelper.doPostAttackEffectsWithItemSource(sl, entity, damagesource, this.getWeaponItem());
+			}
 			if (entity instanceof LivingEntity le) {
-				if (owner instanceof LivingEntity) {
-					EnchantmentHelper.doPostHurtEffects(le, owner);
-					EnchantmentHelper.doPostDamageEffects((LivingEntity) owner, le);
-				}
 				this.doPostHurtEffects(le);
 				if (!entity.isAlive() && this.piercedAndKilledEntities != null) {
 					this.piercedAndKilledEntities.add(entity);
 				}
-				if (item.getItem() instanceof IThrowableCallback cb) {
-					cb.onHitEntity(this, item, le);
+				if (getPickupItem().getItem() instanceof IThrowableCallback cb) {
+					cb.onHitEntity(this, getPickupItem(), le);
 				}
 			}
 		}
@@ -221,8 +216,9 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	@Override
 	protected void onHitBlock(BlockHitResult pResult) {
 		super.onHitBlock(pResult);
-		if (item.getItem() instanceof IThrowableCallback cb) {
-			cb.onHitBlock(this, item);
+		ItemStack stack = getPickupItem();
+		if (stack.getItem() instanceof IThrowableCallback cb) {
+			cb.onHitBlock(this, stack);
 		}
 	}
 
@@ -262,17 +258,13 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 
 	public void readAdditionalSaveData(CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);
-		if (pCompound.contains("Item", 10)) {
-			this.setItem(ItemStack.of(pCompound.getCompound("Item")));
-		}
 		this.remainingHit = pCompound.getInt("RemainingHit");
 		this.slot = pCompound.getInt("playerSlot");
-		this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(this.item));
+		this.entityData.set(ID_LOYALTY, (byte) EnchHelper.getLv(getPickupItem(), Enchantments.LOYALTY));
 	}
 
 	public void addAdditionalSaveData(CompoundTag pCompound) {
 		super.addAdditionalSaveData(pCompound);
-		pCompound.put("Item", this.item.save(new CompoundTag()));
 		pCompound.putInt("RemainingHit", this.remainingHit);
 		pCompound.putInt("playerSlot", slot);
 	}
@@ -288,27 +280,12 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 		return true;
 	}
 
-	@Override
-	public final Packet<ClientGamePacketListener> getAddEntityPacket() {
-		return NetworkHooks.getEntitySpawningPacket(this);
-	}
-
-	@Override
-	public void writeSpawnData(RegistryFriendlyByteBuf buffer) {
-		buffer.writeItem(item);
-	}
-
-	@Override
-	public void readSpawnData(RegistryFriendlyByteBuf buffer) {
-		setItem(buffer.readItem());
-	}
-
 	protected float getWaterInertia() {
 		return waterInertia;
 	}
 
 	private void setItem(ItemStack item) {
-		this.item = item;
+		setPickupItemStack(item);
 		if (item.getItem() instanceof TieredItem tier && tier.getTier() == LCMats.POSEIDITE.getTier()) {
 			waterInertia = 0.99f;
 		} else {

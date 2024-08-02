@@ -36,18 +36,18 @@ public abstract class PlayerMixin extends LivingEntity {
 			double strength = shield.reflect(stack, player, pEntity);
 			pEntity.knockback(strength, player.getX() - pEntity.getX(), player.getZ() - pEntity.getZ());
 			if (pEntity.canDisableShield()) {
-				player.disableShield(true);
+				player.disableShield();
 			}
 			ci.cancel();
 		}
 	}
 
 	@Inject(at = @At("HEAD"), method = "disableShield", cancellable = true)
-	public void l2weaponry_disableShield_customShield(boolean axe, CallbackInfo ci) {
+	public void l2weaponry_disableShield_customShield(CallbackInfo ci) {
 		Player player = (Player) (Object) this;
 		ItemStack stack = player.getUseItem();
 		if (stack.getItem() instanceof BaseShieldItem shield) {
-			int cd = shield.damageShield(player, stack, axe ? 1 : 0.25);
+			int cd = shield.damageShield(player, stack, 1);
 			if (cd > 0) {
 				player.getCooldowns().addCooldown(player.getUseItem().getItem(), cd);
 				player.stopUsingItem();

@@ -2,7 +2,10 @@ package dev.xkmc.l2weaponry.init.registrate;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
+import dev.xkmc.l2core.init.reg.simple.DCReg;
+import dev.xkmc.l2core.init.reg.simple.DCVal;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
+import dev.xkmc.l2weaponry.content.item.types.NunchakuItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWGenItem;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
@@ -10,6 +13,7 @@ import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.materials.LegendaryToolFactory;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.util.Unit;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.item.CreativeModeTab;
@@ -18,6 +22,7 @@ import net.minecraft.world.item.Rarity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @SuppressWarnings({"unsafe"})
 @MethodsReturnNonnullByDefault
@@ -26,7 +31,7 @@ public class LWItems {
 	public static final List<Item> BLOCK_DECO = new ArrayList<>();
 	public static final List<Item> THROW_DECO = new ArrayList<>();
 	public static final List<Item> CLAW_DECO = new ArrayList<>();
-	public static final List<Item> NUNCHAKU_DECO = new ArrayList<>();
+	public static final List<NunchakuItem> NUNCHAKU_DECO = new ArrayList<>();
 
 	public static final SimpleEntry<CreativeModeTab> TAB =
 			L2Weaponry.REGISTRATE.buildL2CreativeTab("weaponry", "L2 Weaponry", b -> b
@@ -61,6 +66,15 @@ public class LWItems {
 	public static final ItemEntry<HolyAxe> HOLY_AXE;
 	public static final ItemEntry<HolyHammer> HOLY_HAMMER;
 	public static final ItemEntry<Item>[][] GEN_ITEM;
+
+	public static final DCReg DC = DCReg.of(L2Weaponry.REG);
+	public static final DCVal<Unit> REEQUIP = DC.unit("reequip");
+	public static final DCVal<Integer> HIT_COUNT = DC.intVal("hit_count");
+	public static final DCVal<Long> HIT_TIME = DC.longVal("last_hit_time");
+	public static final DCVal<Integer> BLOCKED_DAMAGE = DC.intVal("blocked_damage");
+	public static final DCVal<UUID> LAST_TARGET = DC.uuid("last_target");
+	public static final DCVal<Float> DAMAGE_BONUS = DC.floatVal("accumulated_damage");
+	public static final DCVal<Integer> KILL_COUNT = DC.intVal("kill_count");
 
 	static {
 		HANDLE = L2Weaponry.REGISTRATE.item("reinforced_handle", Item::new).defaultModel().defaultLang().register();

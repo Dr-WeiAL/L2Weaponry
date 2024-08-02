@@ -1,31 +1,22 @@
 package dev.xkmc.l2weaponry.content.item.types;
 
-import com.google.common.collect.ImmutableMultimap;
+import dev.xkmc.l2core.util.Proxy;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
 import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2damagetracker.init.L2DamageTracker;
-import dev.xkmc.l2library.util.Proxy;
-import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.item.base.DoubleHandItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericShieldItem;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.Unit;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -36,8 +27,8 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 	private static final String NAME_KB = "shield_knockback";
 	private static final String NAME_CRIT = "shield_crit";
 
-	public PlateShieldItem(Tier tier, int maxDefense, float recover, Properties prop, ExtraToolConfig config) {
-		super(tier, prop, config, maxDefense, recover, false);
+	public PlateShieldItem(Tier tier, Properties prop, ExtraToolConfig config) {
+		super(tier, prop, config, false);
 	}
 
 	@Override
@@ -46,38 +37,30 @@ public class PlateShieldItem extends GenericShieldItem implements DoubleHandItem
 	}
 
 	@Override
-	protected void buildAttributes(EquipmentSlot slot, ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
-		if (slot == EquipmentSlot.OFFHAND) return;
-		super.buildAttributes(slot, builder);
-		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", Math.round(maxDefense * 0.035), AttributeModifier.Operation.ADDITION));
-		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", 16, AttributeModifier.Operation.ADDITION));
-		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(MathHelper.getUUIDFromString("slow_wield"), "slow_wield", -0.95, AttributeModifier.Operation.MULTIPLY_TOTAL));
-		builder.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(MathHelper.getUUIDFromString(NAME_KB), NAME_KB, 4, AttributeModifier.Operation.ADDITION));
-		builder.put(LWItems.REFLECT_TIME.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_ATTR), NAME_ATTR, 20, AttributeModifier.Operation.ADDITION));
-		builder.put(L2DamageTracker.CRIT_DMG.get(), new AttributeModifier(MathHelper.getUUIDFromString(NAME_CRIT), NAME_CRIT, 1.5, AttributeModifier.Operation.ADDITION));
-	}
-
-	@Override
 	public boolean disableOffHand(Player player, ItemStack stack) {
 		return !lightWeight(stack);
 	}
 
-	@OnlyIn(Dist.CLIENT)
 	@Override
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
 		if (!lightWeight(newStack)) {
 			ItemStack off = Proxy.getClientPlayer().getOffhandItem().copy();
 			Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer().offHandItem = off;
-			off.getOrCreateTag().putBoolean("reequip", true);
+			LWItems.REEQUIP.set(off, Unit.INSTANCE);
 		}
 		return super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged);
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
+	public void appendHoverText(ItemStack pStack, TooltipContext pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.TOOL_PLATE_SHIELD.get());
 		list.add(LangData.TOOL_PLATE_SHIELD_EXTRA.get());
 		super.appendHoverText(pStack, pLevel, list, pIsAdvanced);
+	}
+
+	@Override
+	public double getDefenseRecover(ItemStack stack) {
+		return 1 / 8f;
 	}
 
 }

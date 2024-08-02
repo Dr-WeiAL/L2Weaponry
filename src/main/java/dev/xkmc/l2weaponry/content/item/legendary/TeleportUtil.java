@@ -1,15 +1,15 @@
 package dev.xkmc.l2weaponry.content.item.legendary;
 
-import dev.xkmc.l2library.util.raytrace.RayTraceUtil;
+import dev.xkmc.l2library.content.raytrace.RayTraceUtil;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.ForgeMod;
 
 public class TeleportUtil {
 
@@ -18,7 +18,7 @@ public class TeleportUtil {
 			return true;
 		}
 		Vec3 tPos = target.position();
-		double reach = player.getAttributeValue(ForgeMod.ENTITY_REACH.get()) - 0.5;
+		double reach = player.getAttributeValue(Attributes.ENTITY_INTERACTION_RANGE) - 0.5;
 		Vec3 end;
 		if (back) {
 			end = RayTraceUtil.getRayTerm(tPos, target.getXRot(), target.getYRot(), -reach);

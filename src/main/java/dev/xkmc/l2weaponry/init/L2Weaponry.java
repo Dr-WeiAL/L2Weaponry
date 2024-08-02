@@ -7,7 +7,6 @@ import dev.xkmc.l2core.init.reg.simple.Reg;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2serial.network.PacketHandler;
 import dev.xkmc.l2weaponry.compat.GolemCompat;
-import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
 import dev.xkmc.l2weaponry.events.LWClickListener;
 import dev.xkmc.l2weaponry.init.data.*;
@@ -16,10 +15,13 @@ import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackLocationInfo;
+import net.minecraft.server.packs.PackSelectionConfig;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.entity.EntityType;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
@@ -33,6 +35,8 @@ import net.neoforged.neoforgespi.language.IModFileInfo;
 import net.neoforged.neoforgespi.locating.IModFile;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Optional;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(L2Weaponry.MODID)
@@ -51,15 +55,9 @@ public class L2Weaponry {
 		LWEntities.register();
 		LWDamageTypeGen.register();
 		LWConfig.init();
-		LWPlayerData.register();
 		LWEnchantments.register();
 		ItemUseEventHandler.LIST.add(new LWClickListener());
 		if (ModList.get().isLoaded("modulargolems")) GolemCompat.register(bus);
-		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::addTranslations);
-		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipe);
-		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
-		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
-		REGISTRATE.addDataGenerator(ProviderType.ENTITY_TAGS, TagGen::onEntityTagGen);
 	}
 
 	public static ResourceLocation loc(String id) {
@@ -80,14 +78,15 @@ public class L2Weaponry {
 		event.add(EntityType.PLAYER, LWItems.REFLECT_TIME.holder());
 	}
 
-	@SubscribeEvent
+	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
-		boolean gen = event.includeServer();
-		var output = event.getGenerator().getPackOutput();
-		var lookup = event.getLookupProvider();
-		var helper = event.getExistingFileHelper();
-		new LWDamageTypeGen(output, lookup, helper).generate(gen, event.getGenerator());
-		event.getGenerator().addProvider(event.includeServer(), new LWAttributeConfigGen(event.getGenerator()));
+		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::addTranslations);
+		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipe);
+		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
+		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
+		REGISTRATE.addDataGenerator(ProviderType.ENTITY_TAGS, TagGen::onEntityTagGen);
+		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, LWAttributeConfigGen::onDataMapGen);
+		new LWDamageTypeGen(REGISTRATE).generate();
 	}
 
 	@SubscribeEvent
@@ -99,10 +98,13 @@ public class L2Weaponry {
 			String builtin = "old_weapon_model";
 			IModFile modFile = modFileInfo.getFile();
 			event.addRepositorySource((consumer) -> {
-				Pack pack = Pack.readMetaAndCreate(MODID + ":" + builtin,
-						Component.literal("Old L2Weaponry Model"), false,
-						(id) -> new ModFilePackResources(id, modFile, "resourcepacks/" + builtin),
-						PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
+				Pack pack = Pack.readMetaAndCreate(
+						new PackLocationInfo(MODID + ":" + builtin, Component.literal("Old L2Weaponry Model"),
+								PackSource.FEATURE, Optional.empty()),
+						new ModFilePackResources(modFile, "resourcepacks/" + builtin),
+						PackType.CLIENT_RESOURCES,
+						new PackSelectionConfig(false, Pack.Position.TOP, false)
+				);
 				if (pack != null) {
 					consumer.accept(pack);
 				}

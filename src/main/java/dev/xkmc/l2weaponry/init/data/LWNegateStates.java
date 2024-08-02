@@ -18,7 +18,7 @@ public enum LWNegateStates implements DamageState {
 
 	LWNegateStates(TagKey<DamageType> tag) {
 		this.tag = tag;
-		this.id = new ResourceLocation(L2Weaponry.MODID, name().toLowerCase(Locale.ROOT));
+		this.id = L2Weaponry.loc(name().toLowerCase(Locale.ROOT));
 	}
 
 	@Override

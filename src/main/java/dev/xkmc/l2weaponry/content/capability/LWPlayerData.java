@@ -1,57 +1,41 @@
 package dev.xkmc.l2weaponry.content.capability;
 
-import dev.xkmc.l2library.capability.player.PlayerCapabilityHolder;
-import dev.xkmc.l2library.capability.player.PlayerCapabilityNetworkHandler;
-import dev.xkmc.l2library.capability.player.PlayerCapabilityTemplate;
-import dev.xkmc.l2serial.serialization.SerialClass;
+import dev.xkmc.l2core.capability.player.PlayerCapabilityTemplate;
+import dev.xkmc.l2serial.serialization.marker.SerialClass;
+import dev.xkmc.l2serial.serialization.marker.SerialField;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
-import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
+import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.CapabilityManager;
-import net.minecraftforge.common.capabilities.CapabilityToken;
 
 @SerialClass
-public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> implements IShieldData {
+public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> {
 
-	public static final Capability<LWPlayerData> CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {
-	});
-
-	public static final PlayerCapabilityHolder<LWPlayerData> HOLDER = new PlayerCapabilityHolder<>(
-			new ResourceLocation(L2Weaponry.MODID, "main"),
-			CAPABILITY, LWPlayerData.class, LWPlayerData::new,
-			PlayerCapabilityNetworkHandler::new);
-
-	public static void register() {
+	public static LWPlayerData get(Player player) {
+		return LWEntities.PLAYER.type().getOrCreate(player);
 	}
 
-	@SerialClass.SerialField
+	public static IShieldData asData(Player player) {
+		return new Shield(player, get(player));
+	}
+
+	@SerialField
 	private double shieldDefense = 0;
-	@SerialClass.SerialField
+	@SerialField
 	private int reflectTimer = 0;
 
 	private double shieldRetain = 0;
 
-	public double getShieldDefense() {
-		return shieldDefense;
-	}
-
-	public void setShieldDefense(double shieldDefense) {
+	public void setShieldDefense(Player player, double shieldDefense) {
 		this.shieldDefense = shieldDefense;
 		if (player instanceof ServerPlayer sp)
-			HOLDER.network.toClientSyncAll(sp);
+			LWEntities.PLAYER.type().network.toClient(sp);
 	}
 
-	@Override
-	public int getReflectTimer() {
-		return reflectTimer;
-	}
-
-	public double getRecoverRate() {
+	public double getRecoverRate(Player player) {
 		ItemStack stack = player.getUseItem();
 		double recover = 0.01;
 		if (stack.getItem() instanceof BaseShieldItem shield) {
@@ -61,8 +45,8 @@ public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> impleme
 	}
 
 	@Override
-	public void tick() {
-		double recover = getRecoverRate();
+	public void tick(Player player) {
+		double recover = getRecoverRate(player);
 		if (shieldDefense > 0) {
 			shieldDefense -= recover;
 			if (shieldDefense < 0) {
@@ -77,17 +61,17 @@ public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> impleme
 		}
 	}
 
-	public boolean canReflect() {
-		return !player.isShiftKeyDown() && player.getAttributeValue(LWItems.REFLECT_TIME.get()) > 0;
+	public boolean canReflect(Player player) {
+		return !player.isShiftKeyDown() && player.getAttributeValue(LWItems.REFLECT_TIME.holder()) > 0;
 	}
 
-	public void startReflectTimer() {
-		if (!canReflect() || shieldDefense > 0) {
+	public void startReflectTimer(Player player) {
+		if (!canReflect(player) || shieldDefense > 0) {
 			return;
 		}
 		shieldDefense += LWConfig.SERVER.reflectCost.get();
-		shieldRetain = shieldDefense * player.getAttributeValue(LWItems.SHIELD_DEFENSE.get());
-		reflectTimer = (int) player.getAttributeValue(LWItems.REFLECT_TIME.get());
+		shieldRetain = shieldDefense * player.getAttributeValue(LWItems.SHIELD_DEFENSE.holder());
+		reflectTimer = (int) player.getAttributeValue(LWItems.REFLECT_TIME.holder());
 	}
 
 	public void clearReflectTimer() {
@@ -100,6 +84,33 @@ public class LWPlayerData extends PlayerCapabilityTemplate<LWPlayerData> impleme
 		shieldRetain = 0;
 		reflectTimer = 0;
 		return ans;
+	}
+
+	private record Shield(Player player, LWPlayerData data) implements IShieldData {
+		@Override
+		public double getShieldDefense() {
+			return data.shieldDefense;
+		}
+
+		@Override
+		public void setShieldDefense(double i) {
+			data.setShieldDefense(player, i);
+		}
+
+		@Override
+		public int getReflectTimer() {
+			return data.reflectTimer;
+		}
+
+		@Override
+		public boolean canReflect() {
+			return data.canReflect(player);
+		}
+
+		@Override
+		public double popRetain() {
+			return data.popRetain();
+		}
 	}
 
 }

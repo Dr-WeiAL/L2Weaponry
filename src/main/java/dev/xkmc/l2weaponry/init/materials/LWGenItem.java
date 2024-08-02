@@ -12,9 +12,6 @@ import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
@@ -39,7 +36,7 @@ public class LWGenItem {
 						.transform(e -> mat.isOptional() ? e.asOptional() : e).tag(type.tag)
 						.model((ctx, pvd) -> model(type, mat, ctx, pvd, mat_name, tool_name, mat.is3D(type)))
 						.tab(LWItems.TAB.key(), (ctx, e) -> e.accept(LWConfig.RECIPE.defaultEnchantmentOnWeapons.get() ?
-								mat.getToolEnchanted(type) : mat.getTool(type).getDefaultInstance()))
+								mat.getToolEnchanted(e.getParameters().holders(), type) : mat.getTool(type).getDefaultInstance()))
 						.transform(e -> type == LWToolTypes.NUNCHAKU ? e.clientExtension(() -> () -> WeaponBEWLR.EXTENSIONS) : e)
 						.lang(mat.prefix() + RegistrateLangProvider.toEnglishName(english + "_" + tool_name)).register();
 			}

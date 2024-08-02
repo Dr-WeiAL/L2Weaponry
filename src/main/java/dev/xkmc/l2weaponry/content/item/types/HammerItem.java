@@ -12,15 +12,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class HammerItem extends SlowWieldItem {
 
-	public HammerItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config, BlockTags.MINEABLE_WITH_PICKAXE);
+	public HammerItem(Tier tier, Properties prop, ExtraToolConfig config) {
+		super(tier, prop, config, BlockTags.MINEABLE_WITH_PICKAXE);
 	}
 
 	@Override
@@ -34,7 +33,7 @@ public class HammerItem extends SlowWieldItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
+	public void appendHoverText(ItemStack pStack, TooltipContext pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.TOOL_HAMMER.get());
 		super.appendHoverText(pStack, pLevel, list, pIsAdvanced);
 	}

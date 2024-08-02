@@ -28,8 +28,8 @@ import java.util.List;
 
 public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowingTarget {
 
-	public EnderDagger(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config);
+	public EnderDagger(Tier tier, Properties prop, ExtraToolConfig config) {
+		super(tier, prop, config);
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
+	public void appendHoverText(ItemStack pStack, TooltipContext pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.ENDER_DAGGER.get(getDistance(pStack)));
 	}
 

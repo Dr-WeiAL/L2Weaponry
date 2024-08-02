@@ -1,6 +1,10 @@
 package dev.xkmc.l2weaponry.init.registrate;
 
 import com.tterrag.registrate.util.entry.EntityEntry;
+import dev.xkmc.l2core.capability.player.PlayerCapabilityNetworkHandler;
+import dev.xkmc.l2core.init.reg.simple.AttReg;
+import dev.xkmc.l2core.init.reg.simple.AttVal;
+import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.content.client.ThrownWeaponRenderer;
 import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.entity.ThrowingAxeEntity;
@@ -8,6 +12,11 @@ import dev.xkmc.l2weaponry.init.L2Weaponry;
 import net.minecraft.world.entity.MobCategory;
 
 public class LWEntities {
+
+	public static final AttReg REG = AttReg.of(L2Weaponry.REG);
+
+	public static final AttVal.PlayerVal<LWPlayerData> PLAYER = REG.player("shield", LWPlayerData.class,
+			LWPlayerData::new, PlayerCapabilityNetworkHandler::new);
 
 	public static final EntityEntry<ThrowingAxeEntity> ET_AXE;
 	public static final EntityEntry<JavelinEntity> TE_JAVELIN;

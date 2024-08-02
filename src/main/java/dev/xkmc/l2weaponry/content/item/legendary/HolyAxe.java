@@ -10,15 +10,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class HolyAxe extends BattleAxeItem implements LegendaryWeapon {
 
-	public HolyAxe(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config);
+	public HolyAxe(Tier tier, Properties prop, ExtraToolConfig config) {
+		super(tier, prop, config);
 	}
 
 	@Override
@@ -35,7 +33,7 @@ public class HolyAxe extends BattleAxeItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
+	public void appendHoverText(ItemStack pStack, TooltipContext pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		int max = (int) Math.round(LWConfig.SERVER.dogmaticStandoffMax.get() * 100);
 		int inc = (int) Math.round(LWConfig.SERVER.dogmaticStandoffGain.get() * 100);
 		list.add(LangData.HOLY_AXE.get(inc, max));

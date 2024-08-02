@@ -1,21 +1,16 @@
 package dev.xkmc.l2weaponry.init.data;
 
-import dev.xkmc.l2library.serial.config.ConfigDataProvider;
+import com.tterrag.registrate.providers.RegistrateDataMapProvider;
 import dev.xkmc.l2tabs.init.L2Tabs;
-import dev.xkmc.l2tabs.init.data.AttributeDisplayConfig;
-import dev.xkmc.l2weaponry.init.L2Weaponry;
+import dev.xkmc.l2tabs.init.data.AttrDispEntry;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
 
-public class LWAttributeConfigGen extends ConfigDataProvider {
-    public LWAttributeConfigGen(DataGenerator generator) {
-        super(generator, "L2Weaponry Attribute Config Gen");
-    }
+public class LWAttributeConfigGen {
 
-    public void add(Collector collector) {
-        collector.add(L2Tabs.ATTRIBUTE_ENTRY, new ResourceLocation(L2Weaponry.MODID, L2Weaponry.MODID), new AttributeDisplayConfig()
-                        .add(LWItems.REFLECT_TIME.get(), false, 14000, 0)
-                .add(LWItems.SHIELD_DEFENSE.get(), false, 15000, 0));
-    }
+	public static void onDataMapGen(RegistrateDataMapProvider pvd) {
+		pvd.builder(L2Tabs.ATTRIBUTE_ENTRY.reg())
+				.add(LWItems.REFLECT_TIME.key(), new AttrDispEntry(false, 14000, 0), false)
+				.add(LWItems.SHIELD_DEFENSE.key(), new AttrDispEntry(false, 15000, 0), false);
+	}
+
 }

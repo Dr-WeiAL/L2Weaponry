@@ -12,15 +12,14 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class AbyssDagger extends DaggerItem implements LegendaryWeapon {
 
-	public AbyssDagger(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config);
+	public AbyssDagger(Tier tier, Properties prop, ExtraToolConfig config) {
+		super(tier, prop, config);
 	}
 
 	@Override
@@ -33,7 +32,7 @@ public class AbyssDagger extends DaggerItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
+	public void appendHoverText(ItemStack pStack, TooltipContext pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.ABYSS_DAGGER.get());
 	}
 

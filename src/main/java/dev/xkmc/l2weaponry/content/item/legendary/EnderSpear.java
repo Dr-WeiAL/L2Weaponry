@@ -23,8 +23,8 @@ import java.util.List;
 
 public class EnderSpear extends SpearItem implements LegendaryWeapon, IGlowingTarget {
 
-	public EnderSpear(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config);
+	public EnderSpear(Tier tier, Properties prop, ExtraToolConfig config) {
+		super(tier, prop, config);
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class EnderSpear extends SpearItem implements LegendaryWeapon, IGlowingTa
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
+	public void appendHoverText(ItemStack pStack, TooltipContext pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		list.add(LangData.ENDER_SPEAR.get(getDistance(pStack)));
 	}
 

@@ -1,7 +1,8 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
+import dev.xkmc.l2core.init.reg.ench.EnchHelper;
+import dev.xkmc.l2library.init.FlagMarker;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
-import dev.xkmc.l2weaponry.events.LWGeneralEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -29,7 +30,7 @@ public interface IThrowableCallback {
 	default boolean causeThunder(BaseThrownWeaponEntity<?> entity) {
 		return entity.level().isThundering() &&
 				entity.level().canSeeSky(entity.blockPosition()) &&
-				entity.getItem().getEnchantmentLevel(Enchantments.CHANNELING) > 0;
+				EnchHelper.getLv(entity.getItem(), Enchantments.CHANNELING) > 0;
 	}
 
 	static void thunderHit(BaseThrownWeaponEntity<?> entity) {
@@ -37,11 +38,11 @@ public interface IThrowableCallback {
 		BlockPos blockpos = entity.blockPosition();
 		LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(entity.level());
 		assert bolt != null;
-		bolt.addTag(LWGeneralEvents.LIGHTNING);
+		bolt.addTag(FlagMarker.LIGHTNING);
 		bolt.moveTo(Vec3.atBottomCenterOf(blockpos));
 		bolt.setCause(entity.getOwner() instanceof ServerPlayer ? (ServerPlayer) entity.getOwner() : null);
 		entity.level().addFreshEntity(bolt);
-		entity.playSound(SoundEvents.TRIDENT_THUNDER, 5, 1);
+		entity.playSound(SoundEvents.TRIDENT_THUNDER.value(), 5, 1);
 	}
 
 }

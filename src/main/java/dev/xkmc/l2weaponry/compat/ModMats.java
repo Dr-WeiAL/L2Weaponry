@@ -4,6 +4,7 @@ import dev.xkmc.l2damagetracker.contents.materials.api.*;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2damagetracker.contents.materials.vanilla.GenItemVanillaType;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 
 public record ModMats(Tier tier, ExtraToolConfig config) implements IMatToolType, IToolStats {
 
@@ -40,12 +41,17 @@ public record ModMats(Tier tier, ExtraToolConfig config) implements IMatToolType
 		return this.tier.getEnchantmentValue();
 	}
 
+	@Override
+	public void configure(ITool tool, ItemAttributeModifiers.Builder builder) {
+
+	}
+
 	public int getDamage(ITool tool) {
 		return tool.getDamage(Math.round(this.tier.getAttackDamageBonus()) + 4);
 	}
 
-	public float getSpeed(ITool tool) {
-		return tool.getSpeed(1.0F);
+	public float getAtkSpeed(ITool tool) {
+		return tool.getAtkSpeed(1.0F);
 	}
 
 }

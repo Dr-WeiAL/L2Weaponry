@@ -1,52 +1,35 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class WeaponItem extends TieredItem {
 
-	public float attackDamage, attackSpeed;
-	/**
-	 * Modifiers applied when the item is in the mainhand of a user.
-	 */
-	private final Multimap<Attribute, AttributeModifier> defaultModifiers;
-	private final TagKey<Block> blocks;
-
-	public WeaponItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties, TagKey<Block> blocks) {
-		super(pTier, pProperties);
-		this.blocks = blocks;
-		this.attackDamage = pAttackDamageModifier;
-		this.attackSpeed = pAttackSpeedModifier;
-		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-		addModifiers(builder);
-		this.defaultModifiers = builder.build();
-	}
-
-	protected void addModifiers(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder) {
-		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", attackDamage, AttributeModifier.Operation.ADDITION));
-		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", attackSpeed, AttributeModifier.Operation.ADDITION));
-
+	public WeaponItem(Tier tier, Tool tool, Item.Properties properties) {
+		super(tier, properties.component(DataComponents.TOOL, tool));
 	}
 
 	public boolean isSwordLike() {
@@ -57,63 +40,18 @@ public class WeaponItem extends TieredItem {
 		return !isSwordLike() || !pPlayer.isCreative();
 	}
 
-
-	public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-		if (isSwordLike() && pState.is(Blocks.COBWEB)) {
-			return 15;
-		}
-		return pState.is(this.blocks) ? this.getTier().getSpeed() : 1.0F;
-	}
-
-	/**
-	 * Check whether this Item can harvest the given Block
-	 */
-	@Deprecated // FORGE: Use stack sensitive variant below
-	public boolean isCorrectToolForDrops(BlockState pBlock) {
-		if (net.minecraftforge.common.TierSortingRegistry.isTierSorted(getTier())) {
-			return net.minecraftforge.common.TierSortingRegistry.isCorrectTierForDrops(getTier(), pBlock) && pBlock.is(this.blocks);
-		}
-		int i = this.getTier().getLevel();
-		if (i < 3 && pBlock.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
-			return false;
-		} else if (i < 2 && pBlock.is(BlockTags.NEEDS_IRON_TOOL)) {
-			return false;
-		} else {
-			return (i >= 1 || !pBlock.is(BlockTags.NEEDS_STONE_TOOL)) && pBlock.is(this.blocks);
-		}
-	}
-
-	// FORGE START
-	@Override
-	public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
-		Tool tool = stack.get(DataComponents.TOOL);
-		return tool != null && tool.isCorrectForDrops(state);
-	}
-
 	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
 		return true;
 	}
 
 	@Override
 	public void postHurtEnemy(ItemStack stack, LivingEntity target, LivingEntity user) {
-		stack.hurtAndBreak(1,user,EquipmentSlot.MAINHAND);
+		stack.hurtAndBreak(1, user, EquipmentSlot.MAINHAND);
 	}
 
-	/**
-	 * Called when a Block is destroyed using this Item. Return true to trigger the "Use Item" statistic.
-	 */
-	public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
-		if (pState.getDestroySpeed(pLevel, pPos) != 0.0F) {
-			pStack.hurtAndBreak(1, pEntityLiving, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-		}
-		return true;
-	}
-
-	/**
-	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
-	 */
-	public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
-		return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
+	@Override
+	public boolean canPerformAction(ItemStack stack, ItemAbility ability) {
+		return ItemAbilities.DEFAULT_SWORD_ACTIONS.contains(ability);
 	}
 
 	public AABB getSweepHitBoxImpl(ItemStack stack, LivingEntity attacker, Entity target) {

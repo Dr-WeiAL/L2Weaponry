@@ -15,15 +15,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class BlackHammer extends HammerItem implements LegendaryWeapon {
 
-	public BlackHammer(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config) {
-		super(tier, damage, speed, prop, config);
+	public BlackHammer(Tier tier, Properties prop, ExtraToolConfig config) {
+		super(tier, prop, config);
 	}
 
 	@Override
@@ -38,7 +36,7 @@ public class BlackHammer extends HammerItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
+	public void appendHoverText(ItemStack pStack, TooltipContext pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
 		int radius = LWConfig.SERVER.hammerOfIncarcerationRadius.get();
 		list.add(LangData.BLACK_HAMMER.get(radius));
 	}

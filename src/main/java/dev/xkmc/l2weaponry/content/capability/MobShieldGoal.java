@@ -1,8 +1,7 @@
 package dev.xkmc.l2weaponry.content.capability;
 
-import dev.xkmc.l2library.init.events.GeneralEventHandler;
+import dev.xkmc.l2core.events.SchedulerHandler;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
-import dev.xkmc.l2weaponry.events.LWGeneralEvents;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -10,18 +9,16 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.item.ItemStack;
 
-import java.util.function.Consumer;
-
 public class MobShieldGoal extends Goal implements IShieldData {
 
 	public static MobShieldGoal getShieldGoal(Mob mob) {
-		var opt = mob.goalSelector.getRunningGoals()
+		var opt = mob.goalSelector.getAvailableGoals().stream()
 				.filter(e -> e.getGoal() instanceof MobShieldGoal).findFirst();
 		if (opt.isPresent()) {
 			return (MobShieldGoal) opt.get().getGoal();
 		} else {
 			var ans = new MobShieldGoal(mob);
-			GeneralEventHandler.schedule(() -> mob.goalSelector.addGoal(0, ans));
+			SchedulerHandler.schedule(() -> mob.goalSelector.addGoal(0, ans));
 			return ans;
 		}
 	}
@@ -46,7 +43,7 @@ public class MobShieldGoal extends Goal implements IShieldData {
 	}
 
 	public void onShieldDamage(ItemStack stack, BaseShieldItem item, double damage) {
-		stack.getOrCreateTag().putInt(BaseShieldItem.KEY_LAST_DAMAGE, (int) damage);
+		LWItems.BLOCKED_DAMAGE.set(stack, (int) damage);
 	}
 
 	@Override
@@ -76,7 +73,8 @@ public class MobShieldGoal extends Goal implements IShieldData {
 
 	@Override
 	public boolean canReflect() {
-		return mob.getAttribute(LWItems.REFLECT_TIME.get()) != null && mob.getAttributeValue(LWItems.REFLECT_TIME.get()) > 0;
+		return mob.getAttribute(LWItems.REFLECT_TIME.holder()) != null &&
+				mob.getAttributeValue(LWItems.REFLECT_TIME.holder()) > 0;
 	}
 
 	@Override

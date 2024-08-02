@@ -1,28 +1,20 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2weaponry.init.data.LWConfig;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.ToolAction;
-import net.minecraftforge.common.ToolActions;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -32,46 +24,44 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 
 	private final ExtraToolConfig config;
 
-	public GenericWeaponItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
-		super(tier, damage, speed, prop, blocks);
+	public GenericWeaponItem(Tier tier, Properties prop, ExtraToolConfig config, TagKey<Block> tags) {
+		super(tier, tier.createToolProperties(tags), prop);
 		this.config = config;
 	}
 
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
 		config.inventoryTick(stack, level, entity, slot, selected);
-		super.inventoryTick(stack, level, entity, slot, selected);
 	}
 
 	@Override
-	public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
+	public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @Nullable T entity, Consumer<Item> onBroken) {
 		return config.damageItem(stack, amount, entity);
 	}
 
 	@Override
-	public boolean canBeDepleted() {
-		return config.canBeDepleted;
+	public ExtraToolConfig getExtraConfig() {
+		return config;
 	}
 
 	@Override
-	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity user) {
-		config.onHit(stack, target, user);
-		if (config.sword_hit > 0)
-			stack.hurtAndBreak(config.sword_hit, user, (level) -> level.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-		return true;
+	public ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
+		var parent = super.getDefaultAttributeModifiers(stack);
+		var b = ItemAttributeModifiers.builder();
+		for (var e : parent.modifiers()) b.add(e.attribute(), e.modifier(), e.slot());
+		config.modifyDynamicAttributes(b, stack);
+		return b.build();
 	}
 
 	@Override
-	public void postHurtEnemy(ItemStack p_346136_, LivingEntity p_346250_, LivingEntity p_346014_) {
-		super.postHurtEnemy(p_346136_, p_346250_, p_346014_);
+	public float getDestroySpeed(ItemStack stack, BlockState state) {
+		float old = super.getDestroySpeed(stack, state);
+		return config.getDestroySpeed(stack, state, old);
 	}
 
 	@Override
-	public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
-		if (config.tool_mine > 0 && state.getDestroySpeed(level, pos) != 0.0F) {
-			stack.hurtAndBreak(config.tool_mine, entity, (l) -> l.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-		}
-		return true;
+	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> list, TooltipFlag tooltipFlag) {
+		config.addTooltip(stack, list);
 	}
 
 	public boolean isSharp() {
@@ -83,54 +73,10 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 	}
 
 	@Override
-	public ExtraToolConfig getExtraConfig() {
-		return config;
-	}
-
-	@Override
-	public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
-		var parent = super.getAttributeModifiers(slot, stack);
-		if (slot != EquipmentSlot.MAINHAND) return parent;
-		Multimap<Attribute, AttributeModifier> cur = HashMultimap.create();
-		cur.putAll(parent);
-		return config.modify(cur, slot, stack);
-	}
-
-	@Override
-	public float getDestroySpeed(ItemStack stack, BlockState state) {
-		float old = super.getDestroySpeed(stack, state);
-		return config.getDestroySpeed(stack, state, old);
-	}
-
-	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-		config.addTooltip(pStack, pTooltipComponents);
-	}
-
-	@Override
-	public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
-		if (toolAction == ToolActions.SWORD_DIG) return true;
-		if (toolAction == ToolActions.SWORD_SWEEP) return canSweep();
+	public boolean canPerformAction(ItemStack stack, ItemAbility toolAction) {
+		if (toolAction == ItemAbilities.SWORD_DIG) return true;
+		if (toolAction == ItemAbilities.SWORD_SWEEP) return canSweep();
 		return false;
-	}
-
-	@Override
-	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-		if (enchantment == Enchantments.SWEEPING_EDGE)
-			return canSweep();
-		if (enchantment == Enchantments.SHARPNESS)
-			return isSharp();
-		if (enchantment.category == EnchantmentCategory.WEAPON)
-			return true;
-		if (LWConfig.SERVER.diggerEnchantmentOnWeapon.get())
-			if (enchantment.category == EnchantmentCategory.DIGGER)
-				return true;
-		for (var e : LWConfig.SERVER.extraCompatibleEnchantmentCategories.get()) {
-			if (enchantment.category.name().equals(e)) {
-				return true;
-			}
-		}
-		return super.canApplyAtEnchantingTable(stack, enchantment);
 	}
 
 }
