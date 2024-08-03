@@ -1,4 +1,4 @@
-// 1.21	2024-08-02T23:08:05.885296	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
+// 1.21	2024-08-02T23:39:10.075245	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
 cfc0916b6d744b7a45fc5b2d5f1438575b1b38fb assets/l2weaponry/lang/en_ud.json
 63ebbbe7e1f891c0823e1a76156d32c0a15ef7eb assets/l2weaponry/lang/en_us.json
 c5eec27d9446bf5395b623559c1b7dff15c9509c assets/l2weaponry/models/item/abyss_echo.json
@@ -176,7 +176,12 @@ d744e443529cdb1233b4d8b788c10f5b00ef52ff assets/l2weaponry/models/item/totemic_g
 95b753d58b4dcf176e037ad07a41d617b8b1803d assets/l2weaponry/models/item/vampire_desire.json
 7e922b997af9ddb6eb7defbab46a4c4f968426b8 assets/l2weaponry/models/item/void_escape.json
 59008f23fd8b9902a82a574effb03e6ceddccbbe assets/l2weaponry/models/item/void_escape_throwing.json
-dca419f625694397194820a3848c608e23839bf6 data/c/tags/item/tools/shield.json
+ea7a2d2799909746d709566db594f63f3d09f2de data/c/tags/item/enchantables.json
+44aa99aa2330231ba1dc1e9dd0c167cdd607c04d data/c/tags/item/tools/melee_weapon.json
+59901be3eba0927052a1d7c1124659d0b82fb199 data/c/tags/item/tools/mining_tool.json
+8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/c/tags/item/tools/ranged_weapon.json
+6e0458925fe48c471517d8e8cd80166feb528609 data/c/tags/item/tools/shield.json
+060f0cf809f182f8ba44e285ff845966c9ef2ca5 data/c/tags/item/tools/spear.json
 9069b4b6103522399c3b9080942ed55b2a03c325 data/l2damagetracker/tags/damage_type/direct.json
 e2e1939d812c38d4222afffa3820c57064b3d2b6 data/l2tabs/data_maps/attribute/attribute_entry.json
 7b83c883da768d596e677decec3298ead3266b08 data/l2weaponry/advancement/recipes/combat/generated/upgrade/diamond_battle_axe.json
@@ -900,12 +905,15 @@ aa6e3b19fc2ff0cb88999ec97efd06e1de4187d5 data/l2weaponry/recipe/legendary/void_e
 64a0fe519073eb27c37c58c1bfeb50501afd9788 data/l2weaponry/tags/item/battle_axe.json
 6f4820b142b01c772079ddf18f314a9685325a3e data/l2weaponry/tags/item/claw.json
 415bc72f47c473f40ed6504a249f34ef97b8ba3b data/l2weaponry/tags/item/dagger.json
+44c7b7870ad6234cedad8550633889deab46ef20 data/l2weaponry/tags/item/double_wield.json
 198411dbaf18619eca680aa0e153dd867a55e23e data/l2weaponry/tags/item/hammer.json
+77d34796fd67e7d4dbceba849f8c4dee69aaf088 data/l2weaponry/tags/item/heavy.json
 78098cf5b6ff7feb49a053618a1efd5ab71f70e8 data/l2weaponry/tags/item/javelin.json
 8037d8e64f643955c8a1b36203dcbd1d22aceafc data/l2weaponry/tags/item/machete.json
 a6c2d1737824dbad8a2cbc96a2f906c4f0f58c42 data/l2weaponry/tags/item/nunchaku.json
 e5246222ba1e299ca9162b627635dffa5d338077 data/l2weaponry/tags/item/plate_shield.json
 94bc49f3f27492b13136ef41b76e1afb1cceb028 data/l2weaponry/tags/item/round_shield.json
+dca419f625694397194820a3848c608e23839bf6 data/l2weaponry/tags/item/shields.json
 7c88a7cc744871435c268324991377ce9b19007e data/l2weaponry/tags/item/spear.json
 8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/l2weaponry/tags/item/throwable.json
 abe8f6d13d7390bab9718f6c1603394ea6870e7c data/l2weaponry/tags/item/throwing_axe.json
@@ -916,4 +924,7 @@ cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasse
 0d1afbb4677448f00fc5330455a73d4801eaf658 data/minecraft/tags/damage_type/is_projectile.json
 ca4e7b25a718d611bf6cc485ed6511760d687d16 data/minecraft/tags/damage_type/no_anger.json
 4ab37eb3dc580ff1ff88e814ca291a0192381718 data/minecraft/tags/entity_type/impact_projectiles.json
+a62ac0dcbd4a18a42f79cbfd00e22bf7f1c7b2d4 data/minecraft/tags/item/enchantable/sharp_weapon.json
+59901be3eba0927052a1d7c1124659d0b82fb199 data/minecraft/tags/item/enchantable/sword.json
+59901be3eba0927052a1d7c1124659d0b82fb199 data/minecraft/tags/item/enchantable/weapon.json
 27ea24ac200dc638a17d80feb60a5fbe93083322 data/skilltree/tags/item/melee_weapon.json

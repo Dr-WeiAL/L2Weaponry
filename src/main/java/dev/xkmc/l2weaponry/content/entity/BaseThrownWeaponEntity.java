@@ -7,6 +7,7 @@ import dev.xkmc.l2weaponry.content.item.base.IThrowableCallback;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -30,10 +31,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
 
 import javax.annotation.Nullable;
 
-public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends AbstractArrow {
+public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends AbstractArrow implements IEntityWithComplexSpawn {
 
 	private static final int LOWEST_HEIGHT = -32, MAX_DIST = 400, MAX_HOR_DIST = 100;
 
@@ -292,4 +294,15 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 			waterInertia = 0.6f;
 		}
 	}
+
+	@Override
+	public void writeSpawnData(RegistryFriendlyByteBuf buffer) {
+		ItemStack.OPTIONAL_STREAM_CODEC.encode(buffer, getPickupItem());
+	}
+
+	@Override
+	public void readSpawnData(RegistryFriendlyByteBuf additionalData) {
+		setItem(ItemStack.OPTIONAL_STREAM_CODEC.decode(additionalData));
+	}
+
 }
