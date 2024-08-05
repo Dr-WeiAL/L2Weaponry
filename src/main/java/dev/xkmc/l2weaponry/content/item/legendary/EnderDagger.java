@@ -16,6 +16,8 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.NeutralMob;
+import net.minecraft.world.entity.ai.goal.WrappedGoal;
 import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -83,8 +85,13 @@ public class EnderDagger extends DaggerItem implements LegendaryWeapon, IGlowing
 			mob.setTarget(null);
 			mob.setLastHurtByMob(null);
 			mob.setLastHurtByPlayer(null);
+			if (mob instanceof NeutralMob neutral){
+				neutral.setPersistentAngerTarget(null);
+			}
 			for (var e : mob.targetSelector.getAvailableGoals()) {
-				if (e.getGoal() instanceof TargetGoal t) {
+				var g = e.getGoal();
+				if (g instanceof WrappedGoal w) g = w.getGoal();
+				if (g instanceof TargetGoal t) {
 					((TargetGoalAccessor) t).setTargetMob(null);
 				}
 			}

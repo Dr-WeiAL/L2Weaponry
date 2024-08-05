@@ -7,6 +7,8 @@ import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
@@ -25,10 +27,13 @@ public class HolyAxe extends BattleAxeItem implements LegendaryWeapon {
 		float ans = le.getAbsorptionAmount();
 		float health = event.getTarget().getHealth();
 		if (health > 0) {
+			var ins = le.getAttribute(Attributes.MAX_ABSORPTION);
+			if (ins == null) return;
 			double max = LWConfig.SERVER.dogmaticStandoffMax.get();
 			double inc = LWConfig.SERVER.dogmaticStandoffGain.get();
-			ans = (float) Math.max(ans, Math.min(health * max, health * inc + ans));
-			le.setAbsorptionAmount(ans);
+			ins.addOrReplacePermanentModifier(new AttributeModifier(id(), health * max,
+					AttributeModifier.Operation.ADD_VALUE));
+			le.setAbsorptionAmount((float) (ans + health * inc));
 		}
 	}
 

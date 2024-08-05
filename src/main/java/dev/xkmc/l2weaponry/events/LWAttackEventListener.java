@@ -63,7 +63,7 @@ public class LWAttackEventListener implements AttackListener {
 
 	@Override
 	public boolean onAttack(DamageData.Attack data) {
-		if (data.getWeapon().getItem() instanceof LegendaryWeapon weapon) {
+		if (data.getTarget().getMainHandItem().getItem() instanceof LegendaryWeapon weapon) {
 			return weapon.isImmuneTo(data.getSource());
 		}
 		return false;

@@ -25,7 +25,7 @@ public class ClawItemDecorationRenderer implements IItemDecorator {
 		if (!(stack.getItem() instanceof BaseClawItem claw)) return false;
 		long last = BaseClawItem.getLastTime(main);
 		int timeout = LWConfig.SERVER.claw_timeout.get();
-		float time = (player.level().getGameTime() - last) + Minecraft.getInstance().getTimer().getGameTimeDeltaTicks();
+		float time = (player.level().getGameTime() - last) + Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true);
 		if (time > timeout) return false;
 		g.pose().pushPose();
 		int height = L2CoreConfig.CLIENT.overlayZVal.get();
