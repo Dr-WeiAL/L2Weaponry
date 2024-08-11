@@ -6,7 +6,7 @@ import dev.xkmc.l2core.init.reg.ench.EnchReg;
 import dev.xkmc.l2core.init.reg.ench.EnchVal;
 import dev.xkmc.l2weaponry.content.enchantments.*;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
-import dev.xkmc.l2weaponry.init.data.TagGen;
+import dev.xkmc.l2weaponry.init.data.LWTagGen;
 import net.minecraft.ChatFormatting;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -37,73 +37,73 @@ public class LWEnchantments {
 
 		ENDER_HAND = REG.enchLegacy("ender_hand", "Ender Hand",
 				"Thrown attacks will appear as direct hit.",
-				e -> e.items(TagGen.THROWABLE)
+				e -> e.items(LWTagGen.THROWABLE)
 						.color(green).special(LCEnchantments.CRAFT, craft.of(col))
 				, EnderHandEnchantment::new);
 
 		PROJECTION = REG.ench("projection", "Projection",
 				"Thrown attacks will not consume the used weapon",
-				e -> e.items(TagGen.THROWABLE).exclusive(Enchantments.LOYALTY)
+				e -> e.items(LWTagGen.THROWABLE).exclusive(Enchantments.LOYALTY)
 						.color(gold).special(LCEnchantments.CRAFT, craft.of(col))
 		);
 
 		INSTANT_THROWING = REG.ench("instant_shot", "Instant Throwing",
 				"Throw the weapon out immediately on right click when not sneaking",
-				e -> e.items(TagGen.THROWABLE)
+				e -> e.items(LWTagGen.THROWABLE)
 						.color(gold).special(LCEnchantments.CRAFT, craft.of(col))
 		);
 
 		NO_AGGRO = REG.enchLegacy("stealth", "Stealth Attack",
 				"Dagger damage has %s chance to not aggravate enemy",
-				e -> e.items(TagGen.DAGGER).maxLevel(5)
+				e -> e.items(LWTagGen.DAGGER).maxLevel(5)
 						.color(green).special(LCEnchantments.CRAFT, craft.of(col)),
 				StealthEnchantment::new
 		);
 
 		HEAVY = REG.enchLegacy("heavy", "Heavy",
 				"For axe and heavy weapons:",
-				e -> e.items(TagGen.HEAVY).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
+				e -> e.items(LWTagGen.HEAVY).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
 						.color(purple).special(LCEnchantments.CRAFT, craft.of(col)),
 				HeavyEnchantment::new
 		);
 
 		HARD_SHIELD = REG.enchLegacy("hard_shield", "Hard Shield",
 				"For plate and round shields on both hands:",
-				e -> e.items(TagGen.SHIELDS).maxLevel(5).group(EquipmentSlotGroup.HAND)
+				e -> e.items(LWTagGen.SHIELDS).maxLevel(5).group(EquipmentSlotGroup.HAND)
 						.color(green).special(LCEnchantments.CRAFT, craft.of(col)),
 				HardShieldEnchantment::new
 		);
 
 		HEAVY_SHIELD = REG.enchLegacy("heavy_shield", "Heavy Shield",
 				"For plate and round shields on main hand:",
-				e -> e.items(TagGen.SHIELDS).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
+				e -> e.items(LWTagGen.SHIELDS).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
 						.color(purple).special(LCEnchantments.CRAFT, craft.of(col)),
 				HeavyShieldEnchantment::new
 		);
 
 		ENERGIZED_WILL = REG.enchLegacy("energized_will", "Energized Will",
 				"Gradually increase machete attack range when stacking consecutive attacks. Conflicts with Raised Spirit.",
-				e -> e.items(TagGen.MACHETE).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
+				e -> e.items(LWTagGen.MACHETE).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
 						.color(green).special(LCEnchantments.CRAFT, craft.of(col)),
 				EnergizedWillEnchantment::new
 		);
 
 		RAISED_SPIRIT = REG.enchLegacy("raised_spirit", "Raised Spirit",
 				"Gradually increase machete attack speed when stacking consecutive attacks. Conflicts with Raised Spirit.",
-				e -> e.items(TagGen.MACHETE).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
+				e -> e.items(LWTagGen.MACHETE).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
 						.color(green).special(LCEnchantments.CRAFT, craft.of(col)),
 				RaisedSpiritEnchantment::new
 		);
 
 		GHOST_SLASH = REG.ench("ghost_slash", "Ghost Slash",
 				"Empty hits will stack hit count and consume durability as well.",
-				e -> e.items(TagGen.DOUBLE_WIELD)
+				e -> e.items(LWTagGen.DOUBLE_WIELD)
 						.color(gold).special(LCEnchantments.CRAFT, craft.of(col))
 		);
 
 		CLAW_BLOCK = REG.ench("claw_shielding", "Claw Shielding",
 				"Increase damage blocking time for claws. Works on either hand",
-				e -> e.items(TagGen.CLAW).maxLevel(3)
+				e -> e.items(LWTagGen.CLAW).maxLevel(3)
 						.color(gold).special(LCEnchantments.CRAFT, craft.of(col))
 		);
 

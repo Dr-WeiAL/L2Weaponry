@@ -7,7 +7,7 @@ import dev.xkmc.l2damagetracker.contents.materials.vanilla.RawToolFactory;
 import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2weaponry.content.item.types.*;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
-import dev.xkmc.l2weaponry.init.data.TagGen;
+import dev.xkmc.l2weaponry.init.data.LWTagGen;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
@@ -24,17 +24,17 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public enum LWToolTypes implements ITool {
-	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 3, -1, "claw_base", new DefaultEnch(Enchantments.SWEEPING_EDGE, 2)),
-	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4, -1),
-	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.2f, 1f, 0, new DefaultEnch(Enchantments.SWEEPING_EDGE, 1)),
-	THROWING_AXE(TagGen.THROWING_AXE, ThrowingAxeItem::new, 1.4f, 1f, -0.5f),
-	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, 0, new DefaultEnch(LCEnchantments.CUBIC.id(), 1)),
-	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, 0, "battle_axe", new DefaultEnch(LCEnchantments.TREE.id(), 1)),
-	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1f, 2, "long_weapon", new DefaultEnch(LCEnchantments.PLANE.id(), 1)),
-	JAVELIN(TagGen.JAVELIN, JavelinItem::new, 1f, 1.2f, 2, "long_weapon", new DefaultEnch(LCEnchantments.DRILL.id(), 1)),
-	ROUND_SHIELD(TagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 0, 0),
-	PLATE_SHIELD(TagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 0, 0),
-	NUNCHAKU(TagGen.NUNCHAKU, NunchakuItem::new, 0.5f, 4, 0);
+	CLAW(LWTagGen.CLAW, ClawItem::new, 0.7f, 3, -1, "claw_base", new DefaultEnch(Enchantments.SWEEPING_EDGE, 2)),
+	DAGGER(LWTagGen.DAGGER, DaggerItem::new, 0.7f, 4, -1),
+	MACHETE(LWTagGen.MACHETE, MacheteItem::new, 1.2f, 1f, 0, new DefaultEnch(Enchantments.SWEEPING_EDGE, 1)),
+	THROWING_AXE(LWTagGen.THROWING_AXE, ThrowingAxeItem::new, 1.4f, 1f, -0.5f),
+	HAMMER(LWTagGen.HAMMER, HammerItem::new, 2f, 0.7f, 0, new DefaultEnch(LCEnchantments.CUBIC.id(), 1)),
+	BATTLE_AXE(LWTagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, 0, "battle_axe", new DefaultEnch(LCEnchantments.TREE.id(), 1)),
+	SPEAR(LWTagGen.SPEAR, SpearItem::new, 1f, 1f, 2, "long_weapon", new DefaultEnch(LCEnchantments.PLANE.id(), 1)),
+	JAVELIN(LWTagGen.JAVELIN, JavelinItem::new, 1f, 1.2f, 2, "long_weapon", new DefaultEnch(LCEnchantments.DRILL.id(), 1)),
+	ROUND_SHIELD(LWTagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 0, 0),
+	PLATE_SHIELD(LWTagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 0, 0),
+	NUNCHAKU(LWTagGen.NUNCHAKU, NunchakuItem::new, 0.5f, 4, 0);
 
 	public final TagKey<Item> tag;
 	private final RawToolFactory fac;

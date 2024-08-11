@@ -2,7 +2,7 @@ package dev.xkmc.l2weaponry.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import dev.xkmc.l2weaponry.init.data.TagGen;
+import dev.xkmc.l2weaponry.init.data.LWTagGen;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,7 +13,7 @@ public abstract class DrownedTridentAttackGoalMixin {
 
 	@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"), method = "canUse")
 	public boolean l2weaponry$canUse$useOtherThrowables(ItemStack stack, Item item, Operation<Boolean> op) {
-		return op.call(stack, item) || stack.is(TagGen.THROWABLE);
+		return op.call(stack, item) || stack.is(LWTagGen.THROWABLE);
 	}
 
 }

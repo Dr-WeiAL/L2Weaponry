@@ -1,4 +1,4 @@
-// 1.21	2024-08-02T23:39:10.075245	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
+// 1.21.1	2024-08-11T20:49:16.23072	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
 cfc0916b6d744b7a45fc5b2d5f1438575b1b38fb assets/l2weaponry/lang/en_ud.json
 63ebbbe7e1f891c0823e1a76156d32c0a15ef7eb assets/l2weaponry/lang/en_us.json
 c5eec27d9446bf5395b623559c1b7dff15c9509c assets/l2weaponry/models/item/abyss_echo.json
@@ -177,8 +177,8 @@ d744e443529cdb1233b4d8b788c10f5b00ef52ff assets/l2weaponry/models/item/totemic_g
 7e922b997af9ddb6eb7defbab46a4c4f968426b8 assets/l2weaponry/models/item/void_escape.json
 59008f23fd8b9902a82a574effb03e6ceddccbbe assets/l2weaponry/models/item/void_escape_throwing.json
 ea7a2d2799909746d709566db594f63f3d09f2de data/c/tags/item/enchantables.json
-44aa99aa2330231ba1dc1e9dd0c167cdd607c04d data/c/tags/item/tools/melee_weapon.json
-59901be3eba0927052a1d7c1124659d0b82fb199 data/c/tags/item/tools/mining_tool.json
+88fd7f8ff1e09d0e367765e65c938731394355fa data/c/tags/item/tools/melee_weapon.json
+213bcd8a20ff59d45a2089dbd79125bbabc00c38 data/c/tags/item/tools/mining_tool.json
 8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/c/tags/item/tools/ranged_weapon.json
 6e0458925fe48c471517d8e8cd80166feb528609 data/c/tags/item/tools/shield.json
 060f0cf809f182f8ba44e285ff845966c9ef2ca5 data/c/tags/item/tools/spear.json
@@ -917,6 +917,7 @@ dca419f625694397194820a3848c608e23839bf6 data/l2weaponry/tags/item/shields.json
 7c88a7cc744871435c268324991377ce9b19007e data/l2weaponry/tags/item/spear.json
 8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/l2weaponry/tags/item/throwable.json
 abe8f6d13d7390bab9718f6c1603394ea6870e7c data/l2weaponry/tags/item/throwing_axe.json
+59901be3eba0927052a1d7c1124659d0b82fb199 data/l2weaponry/tags/item/weapons.json
 9bebeb711ac3f37832306759bf0c3ffc81c31cde data/minecraft/tags/damage_type/bypasses_armor.json
 cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasses_effects.json
 cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasses_enchantments.json
@@ -924,7 +925,10 @@ cab1d33e3ea76b3254c59ad927e28332eebeee5b data/minecraft/tags/damage_type/bypasse
 0d1afbb4677448f00fc5330455a73d4801eaf658 data/minecraft/tags/damage_type/is_projectile.json
 ca4e7b25a718d611bf6cc485ed6511760d687d16 data/minecraft/tags/damage_type/no_anger.json
 4ab37eb3dc580ff1ff88e814ca291a0192381718 data/minecraft/tags/entity_type/impact_projectiles.json
+223cbf8d47c836710496b97776bf109187d94381 data/minecraft/tags/item/enchantable/durability.json
+213bcd8a20ff59d45a2089dbd79125bbabc00c38 data/minecraft/tags/item/enchantable/mining.json
+213bcd8a20ff59d45a2089dbd79125bbabc00c38 data/minecraft/tags/item/enchantable/mining_loot.json
 a62ac0dcbd4a18a42f79cbfd00e22bf7f1c7b2d4 data/minecraft/tags/item/enchantable/sharp_weapon.json
-59901be3eba0927052a1d7c1124659d0b82fb199 data/minecraft/tags/item/enchantable/sword.json
-59901be3eba0927052a1d7c1124659d0b82fb199 data/minecraft/tags/item/enchantable/weapon.json
+213bcd8a20ff59d45a2089dbd79125bbabc00c38 data/minecraft/tags/item/enchantable/sword.json
+213bcd8a20ff59d45a2089dbd79125bbabc00c38 data/minecraft/tags/item/enchantable/weapon.json
 27ea24ac200dc638a17d80feb60a5fbe93083322 data/skilltree/tags/item/melee_weapon.json

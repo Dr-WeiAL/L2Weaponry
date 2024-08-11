@@ -31,7 +31,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
-public class RecipeGen {
+public class LWRecipeGen {
 
 	private static String currentFolder = "";
 

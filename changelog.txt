@@ -1,3 +1,6 @@
+3.0.0+4
+- Use NeoForge 21.1.4 to fix enchantability
+
 3.0.0+3
 - fix ghost slash fix
 - fix Shadow Hunter
