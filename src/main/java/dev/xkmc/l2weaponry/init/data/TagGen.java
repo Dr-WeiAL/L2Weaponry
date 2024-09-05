@@ -22,6 +22,7 @@ public class TagGen {
 	public static final TagKey<Item> DAGGER = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "dagger"));
 	public static final TagKey<Item> HAMMER = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "hammer"));
 	public static final TagKey<Item> BATTLE_AXE = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "battle_axe"));
+	public static final TagKey<Item> SCYTHE = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "scythe"));
 	public static final TagKey<Item> SPEAR = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "spear"));
 	public static final TagKey<Item> MACHETE = ItemTags.create(new ResourceLocation(L2Weaponry.MODID, "machete"));
 
@@ -48,7 +49,7 @@ public class TagGen {
 		pvd.addTag(Tags.Items.TOOLS_SHIELDS).addTags(ROUND_SHIELD, PLATE_SHIELD);
 		pvd.addTag(ItemTags.create(new ResourceLocation("skilltree", "melee_weapon")))
 				.addTags(ItemTags.SWORDS, ItemTags.AXES, JAVELIN, THROWING_AXE,
-				CLAW, DAGGER, HAMMER, BATTLE_AXE, SPEAR, MACHETE, NUNCHAKU);
+						CLAW, DAGGER, HAMMER, BATTLE_AXE, SCYTHE, SPEAR, MACHETE, NUNCHAKU);
 
 	}
 

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "l2complements:soul_flame"
+  },
+  "base": {
+    "item": "l2weaponry:netherite_scythe"
+  },
+  "result": {
+    "item": "l2weaponry:death_scythe"
+  },
+  "template": []
+}

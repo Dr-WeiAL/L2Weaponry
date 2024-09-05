@@ -1,3 +1,9 @@
+2.4.34
+- Add Scythe
+
+2.4.33
+- Add config to toggle default enchantments
+
 2.4.32
 - Add old 2D model back as resource pack
 - StormJavelin and L2W channeling weapon no longer light things on fire

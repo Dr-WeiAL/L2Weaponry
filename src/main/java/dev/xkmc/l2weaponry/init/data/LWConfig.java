@@ -38,6 +38,7 @@ public class LWConfig {
 		public final ForgeConfigSpec.DoubleValue dogmaticStandoffMax;
 		public final ForgeConfigSpec.DoubleValue determinationRate;
 		public final ForgeConfigSpec.DoubleValue illusionRate;
+		public final ForgeConfigSpec.DoubleValue deathScytheMax;
 
 		public final ForgeConfigSpec.DoubleValue heavySpeedReduction;
 		public final ForgeConfigSpec.DoubleValue heavyCritBonus;
@@ -102,6 +103,8 @@ public class LWConfig {
 					.defineInRange("determinationRate", 2d, 0, 100);
 			illusionRate = builder.comment("Blade of illusion increase rate")
 					.defineInRange("illusionRate", 1d, 0, 100);
+			deathScytheMax = builder.comment("Increase damage by this factor of percentage of target health lost")
+					.defineInRange("deathScytheMax", 1d, 0, 100);
 			builder.pop();
 			builder.push("Enchantments");
 			heavySpeedReduction = builder.comment("Heavy enchantment reduction on attack speed")

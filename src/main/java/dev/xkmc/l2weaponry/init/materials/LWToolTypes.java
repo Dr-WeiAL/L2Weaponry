@@ -23,6 +23,7 @@ public enum LWToolTypes implements ITool {
 	THROWING_AXE(TagGen.THROWING_AXE, ThrowingAxeItem::new, 1.4f, 1f),
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, () -> new EnchantmentInstance(LCEnchantments.CUBIC.get(), 1)),
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, "battle_axe", () -> new EnchantmentInstance(LCEnchantments.TREE.get(), 1)),
+	SCYTHE(TagGen.SCYTHE, ScytheItem::new, 1.5f, 0.7f, "battle_axe", () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 3)),
 	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1f, "long_weapon", () -> new EnchantmentInstance(LCEnchantments.PLANE.get(), 1)),
 	JAVELIN(TagGen.JAVELIN, JavelinItem::new, 1f, 1.2f, "long_weapon", () -> new EnchantmentInstance(LCEnchantments.DRILL.get(), 1)),
 	ROUND_SHIELD(TagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 1f / 2),
