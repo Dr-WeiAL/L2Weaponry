@@ -78,6 +78,8 @@
 	"steeleafChance": "钢叶：效果应用几率",
 	"steeleafChance.tooltip": "范围: 0.0 ~ 1000.0",
 	"steeleafReflect": "钢叶：额外伤害反射",
-	"steeleafReflect.tooltip": "范围: 0.0 ~ 1000.0"
+	"steeleafReflect.tooltip": "范围: 0.0 ~ 1000.0",
+	"deathScytheMax": "伤害增加目标损失血量百分比的这个比例",
+	"deathScytheMax.tooltip": "默认：1（100%）"
   }
 }
