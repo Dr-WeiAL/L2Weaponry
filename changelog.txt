@@ -1,5 +1,7 @@
 3.0.1
 - Add Twilight Forest crossover weapons
+- Add Scythe
+- Fix heavy enchantment applicable items
 
 3.0.0+5
 - Fix emissive models
