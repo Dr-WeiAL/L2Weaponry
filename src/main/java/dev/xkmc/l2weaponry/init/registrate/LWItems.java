@@ -4,6 +4,7 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
+import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.content.item.types.NunchakuItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -19,6 +20,8 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.neoforged.fml.ModList;
+import twilightforest.TwilightForestMod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +68,7 @@ public class LWItems {
 	public static final ItemEntry<CheaterMachete> CHEATER_MACHETE;
 	public static final ItemEntry<HolyAxe> HOLY_AXE;
 	public static final ItemEntry<HolyHammer> HOLY_HAMMER;
+	public static final ItemEntry<DeathScythe> DEATH_SCYTHE;
 	public static final ItemEntry<Item>[][] GEN_ITEM;
 
 	public static final DCReg DC = DCReg.of(L2Weaponry.REG);
@@ -94,6 +98,7 @@ public class LWItems {
 		FLAME_AXE = regLegendary("axe_of_cursed_flame", FlameAxe::new, LWToolTypes.BATTLE_AXE, LWToolMats.NETHERITE, Rarity.UNCOMMON, true);
 		ABYSS_AXE = regLegendary("abyss_terror", AbyssAxe::new, LWToolTypes.BATTLE_AXE, LWToolMats.SCULKIUM, Rarity.RARE, true);
 		HOLY_AXE = regLegendary("dogmatic_standoff", HolyAxe::new, LWToolTypes.BATTLE_AXE, LWToolMats.TOTEMIC_GOLD, Rarity.RARE, true);
+		DEATH_SCYTHE = regLegendary("death_scythe", DeathScythe::new, LWToolTypes.SCYTHE, LWToolMats.NETHERITE, Rarity.RARE, false);
 		FROZEN_SPEAR = regLegendary("spear_of_winter_storm", FrozenSpear::new, LWToolTypes.SPEAR, LWToolMats.IRON, Rarity.UNCOMMON, true);
 		ENDER_SPEAR = regLegendary("haunting_demon_of_the_end", EnderSpear::new, LWToolTypes.SPEAR, LWToolMats.SHULKERATE, Rarity.EPIC, true);
 		STORM_JAVELIN = regLegendary("poseidon_madness", StormJavelin::new, LWToolTypes.JAVELIN, LWToolMats.POSEIDITE, Rarity.EPIC, false);
@@ -101,10 +106,11 @@ public class LWItems {
 
 		GEN_ITEM = LWGenItem.generate(LWToolMats.values());
 
-		/* TODO compat
 		if (ModList.get().isLoaded(TwilightForestMod.ID)) {
 			TFCompat.register();
 		}
+
+		/* TODO compat
 		if (ModList.get().isLoaded(IceAndFire.MODID)) {
 			DragonCompat.register();
 		}

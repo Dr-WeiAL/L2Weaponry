@@ -1,14 +1,6 @@
 {
   "values": [
-    "#l2weaponry:dagger",
-    "#l2weaponry:spear",
-    "#l2weaponry:nunchaku",
-    "#l2weaponry:hammer",
-    "#l2weaponry:battle_axe",
-    "#l2weaponry:claw",
-    "#l2weaponry:machete",
-    "#l2weaponry:javelin",
-    "#l2weaponry:throwing_axe",
+    "#l2weaponry:weapons",
     "#l2weaponry:plate_shield"
   ]
 }

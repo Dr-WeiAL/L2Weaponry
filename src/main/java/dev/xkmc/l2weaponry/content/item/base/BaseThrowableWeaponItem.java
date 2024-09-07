@@ -6,6 +6,7 @@ import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
+import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.TagKey;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
@@ -91,14 +93,14 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 
 	public abstract BaseThrownWeaponEntity<?> getProjectile(Level level, LivingEntity player, ItemStack stack, int slot);
 
-	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {//TODO
+	@Override
+	public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
 		if (getTier() == LCMats.POSEIDITE.getTier()) {
-			//if (enchantment == Enchantments.CHANNELING)
-			{
+			if (enchantment.is(Enchantments.CHANNELING)) {
 				return true;
 			}
 		}
-		return true;//enchantment == Enchantments.LOYALTY || super.canApplyAtEnchantingTable(stack, enchantment);
+		return enchantment == Enchantments.LOYALTY || super.supportsEnchantment(stack, enchantment);
 	}
 
 }

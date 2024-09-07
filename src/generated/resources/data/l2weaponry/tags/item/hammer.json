@@ -11,6 +11,22 @@
     "l2weaponry:poseidite_hammer",
     "l2weaponry:shulkerate_hammer",
     "l2weaponry:sculkium_hammer",
-    "l2weaponry:eternium_hammer"
+    "l2weaponry:eternium_hammer",
+    {
+      "id": "l2weaponry:ironwood_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:steeleaf_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:knightmetal_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fiery_hammer",
+      "required": false
+    }
   ]
 }

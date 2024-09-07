@@ -83,10 +83,10 @@ public class L2Weaponry {
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::addTranslations);
-		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipe);
-		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
-		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
-		REGISTRATE.addDataGenerator(ProviderType.ENTITY_TAGS, TagGen::onEntityTagGen);
+		REGISTRATE.addDataGenerator(ProviderType.RECIPE, LWRecipeGen::genRecipe);
+		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, LWTagGen::onBlockTagGen);
+		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, LWTagGen::onItemTagGen);
+		REGISTRATE.addDataGenerator(ProviderType.ENTITY_TAGS, LWTagGen::onEntityTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, LWAttributeConfigGen::onDataMapGen);
 		new LWDamageTypeGen(REGISTRATE).generate();
 		var init = REGISTRATE.getDataGenInitializer();

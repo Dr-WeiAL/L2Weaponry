@@ -1,6 +1,7 @@
 package dev.xkmc.l2weaponry.content.item.base;
 
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
@@ -10,6 +11,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -77,6 +80,15 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 		if (toolAction == ItemAbilities.SWORD_DIG) return true;
 		if (toolAction == ItemAbilities.SWORD_SWEEP) return canSweep();
 		return false;
+	}
+
+	@Override
+	public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
+		if (enchantment.is(Enchantments.SWEEPING_EDGE))
+			return canSweep();
+		if (enchantment.is(Enchantments.SHARPNESS))
+			return isSharp();
+		return super.supportsEnchantment(stack, enchantment);
 	}
 
 }

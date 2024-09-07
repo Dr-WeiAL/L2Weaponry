@@ -1,0 +1,30 @@
+{
+  "values": [
+    "l2weaponry:death_scythe",
+    "l2weaponry:iron_scythe",
+    "l2weaponry:gold_scythe",
+    "l2weaponry:diamond_scythe",
+    "l2weaponry:netherite_scythe",
+    "l2weaponry:totemic_gold_scythe",
+    "l2weaponry:poseidite_scythe",
+    "l2weaponry:shulkerate_scythe",
+    "l2weaponry:sculkium_scythe",
+    "l2weaponry:eternium_scythe",
+    {
+      "id": "l2weaponry:ironwood_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:steeleaf_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:knightmetal_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fiery_scythe",
+      "required": false
+    }
+  ]
+}

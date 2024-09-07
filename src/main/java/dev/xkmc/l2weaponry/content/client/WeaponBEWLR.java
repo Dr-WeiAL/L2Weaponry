@@ -62,7 +62,7 @@ public class WeaponBEWLR extends BlockEntityWithoutLevelRenderer {
 	}
 
 	private static void nunchakuRoll(PoseStack pose) {
-		float tick = Minecraft.getInstance().getTimer().getGameTimeDeltaTicks() + Minecraft.getInstance().player.tickCount;
+		float tick = Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true) + Minecraft.getInstance().player.tickCount;
 		pose.translate(1, 1, 0);
 		pose.rotateAround(Axis.ZP.rotationDegrees(tick * 72), 0, 0, 0);
 	}
