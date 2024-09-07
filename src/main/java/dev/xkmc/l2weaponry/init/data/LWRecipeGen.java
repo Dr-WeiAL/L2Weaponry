@@ -106,6 +106,7 @@ public class LWRecipeGen {
 			smithing(pvd, LWToolMats.NETHERITE.getTool(LWToolTypes.BATTLE_AXE), LCItems.SOUL_FLAME.get(), LWItems.FLAME_AXE.get());
 			smithing(pvd, LWToolMats.NETHERITE.getTool(LWToolTypes.HAMMER), LCItems.BLACKSTONE_CORE.get(), LWItems.BLACK_HAMMER.get());
 			smithing(pvd, LWToolMats.NETHERITE.getTool(LWToolTypes.THROWING_AXE), LCItems.BLACKSTONE_CORE.get(), LWItems.BLACK_AXE.get());
+			smithing(pvd, LWToolMats.NETHERITE.getTool(LWToolTypes.SCYTHE), LCItems.SOUL_FLAME.get(), LWItems.DEATH_SCYTHE.get());
 			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.SPEAR), LCItems.VOID_EYE.get(), LWItems.ENDER_SPEAR.get());
 			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.JAVELIN), LCItems.STORM_CORE.get(), LWItems.ENDER_JAVELIN.get());
 			smithing(pvd, LWToolMats.SHULKERATE.getTool(LWToolTypes.DAGGER), LCItems.VOID_EYE.get(), LWItems.ENDER_DAGGER.get());

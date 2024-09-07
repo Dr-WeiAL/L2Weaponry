@@ -17,6 +17,7 @@ public enum LangData {
 	TOOL_CLAW_EXTRA("tool.claw.extra", "Double weld for larger sweep range, higher damage stack limit, and full angle blocking.", 0),
 	TOOL_HAMMER("tool.hammer", "Double hand weapon. Break through armors", 0),
 	TOOL_BATTLE_AXE("tool.battle_axe", "Double Hand weapon. Sweeping attack", 0),
+	TOOL_SCYTHE("tool.scythe", "Double Hand weapon. Sweeping attack deal damage to all surrounding mobs.", 0),
 	TOOL_SPEAR("tool.spear", "Sweeping attack, long attack range.", 0),
 	TOOL_MACHETE("tool.machete", "Deal damage to all surrounding mobs. Increase damage for consecutive attack.", 0),
 	TOOL_MACHETE_EXTRA("tool.machete.extra", "Double weld for larger sweep range and higher damage stack limit.", 0),
@@ -48,6 +49,7 @@ public enum LangData {
 	CHEATER_MACHETE("legendary.blade_of_illusion", "When target has less lost health than consecutive damage dealt, next consecutive attack to the same target will increase that difference.", 0),
 	HOLY_AXE("legendary.dogmatic_standoff", "Gain damage absorption equal to %s%% of target health. Would not exceed %s%% of target health.", 2),
 	HOLY_HAMMER("legendary.dogmatic_punishment", "On critical hit, increase damage by user's damage absorption.", 0),
+	DEATH_SCYTHE("legendary.death_scythe", "Increase damage by %s%% of the percentage of target health lost", 1),
 
 	MATS_FIERY("mats.tf.fiery", "Deal %s%% more damage to mobs not immune to fire, and ignite it for %s seconds.", 2),
 	MATS_KNIGHTMETAL("mats.tf.knightmetal", "Increase damage by %s%% of enemy armor.", 1),

@@ -35,6 +35,7 @@ public class LWConfig {
 		public final ModConfigSpec.DoubleValue dogmaticStandoffMax;
 		public final ModConfigSpec.DoubleValue determinationRate;
 		public final ModConfigSpec.DoubleValue illusionRate;
+		public final ModConfigSpec.DoubleValue deathScytheMax;
 
 		public final ModConfigSpec.DoubleValue heavySpeedReduction;
 		public final ModConfigSpec.DoubleValue heavyCritBonus;
@@ -90,6 +91,9 @@ public class LWConfig {
 					.defineInRange("determinationRate", 2d, 0, 100);
 			illusionRate = builder.text("Blade of illusion increase rate")
 					.defineInRange("illusionRate", 1d, 0, 100);
+			deathScytheMax = builder.text("Increase damage by this factor of percentage of target health lost")
+					.defineInRange("deathScytheMax", 1d, 0, 100);
+
 			builder.pop();
 			builder.push("enchantments", "Enchantments");
 			heavySpeedReduction = builder.text("Heavy enchantment reduction on attack speed")

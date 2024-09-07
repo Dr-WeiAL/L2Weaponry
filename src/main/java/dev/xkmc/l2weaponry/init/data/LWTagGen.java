@@ -18,6 +18,7 @@ public class LWTagGen {
 	public static final TagKey<Item> DAGGER = ItemTags.create(L2Weaponry.loc("dagger"));
 	public static final TagKey<Item> HAMMER = ItemTags.create(L2Weaponry.loc("hammer"));
 	public static final TagKey<Item> BATTLE_AXE = ItemTags.create(L2Weaponry.loc("battle_axe"));
+	public static final TagKey<Item> SCYTHE = ItemTags.create(L2Weaponry.loc("scythe"));
 	public static final TagKey<Item> SPEAR = ItemTags.create(L2Weaponry.loc("spear"));
 	public static final TagKey<Item> MACHETE = ItemTags.create(L2Weaponry.loc("machete"));
 	public static final TagKey<Item> NUNCHAKU = ItemTags.create(L2Weaponry.loc("nunchaku"));
@@ -40,10 +41,10 @@ public class LWTagGen {
 		pvd.addTag(DOUBLE_WIELD).addTags(CLAW, MACHETE);
 		pvd.addTag(THROWABLE).addTags(JAVELIN, THROWING_AXE);
 		pvd.addTag(SHIELDS).addTags(ROUND_SHIELD, PLATE_SHIELD);
-		pvd.addTag(HEAVY).addTags(ItemTags.AXES, DOUBLE_WIELD, PLATE_SHIELD);
+		pvd.addTag(HEAVY).addTags(ItemTags.AXES, BATTLE_AXE, HAMMER, SCYTHE, PLATE_SHIELD);
 		pvd.addTag(Tags.Items.ENCHANTABLES).addTags(DOUBLE_WIELD, THROWABLE, SHIELDS, HEAVY);
 		pvd.addTag(WEAPONS).addTags(
-				DAGGER, SPEAR, NUNCHAKU, HAMMER, BATTLE_AXE, CLAW, MACHETE, JAVELIN, THROWING_AXE
+				DAGGER, SPEAR, NUNCHAKU, HAMMER, BATTLE_AXE, SCYTHE, CLAW, MACHETE, JAVELIN, THROWING_AXE
 		);
 		pvd.addTag(ItemTags.WEAPON_ENCHANTABLE).addTag(WEAPONS);
 		pvd.addTag(ItemTags.SWORD_ENCHANTABLE).addTags(WEAPONS);
@@ -51,7 +52,7 @@ public class LWTagGen {
 		pvd.addTag(ItemTags.MINING_LOOT_ENCHANTABLE).addTags(WEAPONS);
 		pvd.addTag(ItemTags.DURABILITY_ENCHANTABLE).addTags(WEAPONS, SHIELDS);
 		pvd.addTag(ItemTags.SHARP_WEAPON_ENCHANTABLE).addTags(
-				DAGGER, SPEAR, BATTLE_AXE, CLAW, MACHETE, JAVELIN, THROWING_AXE
+				DAGGER, SPEAR, BATTLE_AXE, SCYTHE, CLAW, MACHETE, JAVELIN, THROWING_AXE
 		);
 
 		pvd.addTag(Tags.Items.TOOLS_SHIELD).addTag(SHIELDS);
@@ -62,7 +63,7 @@ public class LWTagGen {
 
 		pvd.addTag(ItemTags.create(ResourceLocation.fromNamespaceAndPath("skilltree", "melee_weapon")))
 				.addTags(ItemTags.SWORDS, ItemTags.AXES, JAVELIN, THROWING_AXE,
-						CLAW, DAGGER, HAMMER, BATTLE_AXE, SPEAR, MACHETE, NUNCHAKU);
+						CLAW, DAGGER, HAMMER, BATTLE_AXE, SCYTHE, SPEAR, MACHETE, NUNCHAKU);
 
 	}
 
