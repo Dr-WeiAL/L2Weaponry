@@ -1,3 +1,6 @@
+3.0.1
+- Add Twilight Forest crossover weapons
+
 3.0.0+5
 - Fix emissive models
 
