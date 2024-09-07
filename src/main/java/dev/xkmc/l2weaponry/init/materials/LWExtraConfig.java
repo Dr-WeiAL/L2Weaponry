@@ -21,7 +21,7 @@ public interface LWExtraConfig {
 		return reflect;
 	}
 
-	default void addEnchants(List<EnchantmentInstance> list, LWToolTypes type, Item tool) {
+	default void addEnchants(List<LWToolTypes.DefaultEnch> list, LWToolTypes type, Item tool) {
 	}
 
 	@Nullable

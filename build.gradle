@@ -159,6 +159,7 @@ dependencies {
     implementation "mezz.jei:jei-${jei_minecraft_version}:${jei_version}"
     implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}"
     implementation "vazkii.patchouli:Patchouli:${patchouli_ver}"
+    implementation "curse.maven:the-twilight-forest-227639:5699076"
     compileOnly "curse.maven:mouse-tweaks-60089:5437296"
 }
 

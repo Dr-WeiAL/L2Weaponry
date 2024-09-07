@@ -1,0 +1,24 @@
+{
+  "parent": "l2weaponry:item/long_weapon",
+  "loader": "neoforge:item_layers",
+  "neoforge_data": {
+    "layers": {
+      "0": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  },
+  "overrides": [
+    {
+      "model": "l2weaponry:item/fiery_javelin_throwing",
+      "predicate": {
+        "l2weaponry:throwing": 1.0
+      }
+    }
+  ],
+  "render_types": {},
+  "textures": {
+    "layer0": "l2weaponry:item/generated/fiery/javelin"
+  }
+}

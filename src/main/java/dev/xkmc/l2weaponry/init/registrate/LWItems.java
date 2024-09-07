@@ -4,6 +4,7 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
+import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.content.item.types.NunchakuItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -19,6 +20,8 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.neoforged.fml.ModList;
+import twilightforest.TwilightForestMod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,10 +104,11 @@ public class LWItems {
 
 		GEN_ITEM = LWGenItem.generate(LWToolMats.values());
 
-		/* TODO compat
 		if (ModList.get().isLoaded(TwilightForestMod.ID)) {
 			TFCompat.register();
 		}
+
+		/* TODO compat
 		if (ModList.get().isLoaded(IceAndFire.MODID)) {
 			DragonCompat.register();
 		}

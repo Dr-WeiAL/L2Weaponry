@@ -9,6 +9,7 @@ import dev.xkmc.l2complements.init.registrate.LCItems;
 import dev.xkmc.l2core.serial.configval.BooleanValueCondition;
 import dev.xkmc.l2core.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2core.serial.recipe.AbstractSmithingRecipe;
+import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
@@ -27,6 +28,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.neoforged.fml.ModList;
+import twilightforest.TwilightForestMod;
 
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
@@ -57,12 +60,14 @@ public class LWRecipeGen {
 					}
 				}
 			}
-			/* TODO compat recipe
 			if (ModList.get().isLoaded(TwilightForestMod.ID)) {
 				for (ILWToolMats mat : TFToolMats.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
+
+			/* TODO compat recipe
+
 			if (ModList.get().isLoaded(IceAndFire.MODID)) {
 				for (ILWToolMats mat : DragonToolMats.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);

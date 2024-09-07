@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": true,
+      "line": [
+        "recipe",
+        "enableToolRecraftRecipe"
+      ],
+      "path": "l2configs/l2complements-common.toml"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "twilightforest:steeleaf_block"
+  },
+  "base": {
+    "tag": "l2weaponry:claw"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:steeleaf_claw"
+  },
+  "template": []
+}

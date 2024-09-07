@@ -8,6 +8,22 @@
     "l2weaponry:poseidite_round_shield",
     "l2weaponry:shulkerate_round_shield",
     "l2weaponry:sculkium_round_shield",
-    "l2weaponry:eternium_round_shield"
+    "l2weaponry:eternium_round_shield",
+    {
+      "id": "l2weaponry:ironwood_round_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:steeleaf_round_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:knightmetal_round_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fiery_round_shield",
+      "required": false
+    }
   ]
 }

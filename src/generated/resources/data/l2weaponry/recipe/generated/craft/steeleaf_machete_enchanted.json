@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": true,
+      "line": [
+        "defaultEnchantmentOnWeapons"
+      ],
+      "path": "l2configs/l2weaponry-common.toml"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "l2weaponry:reinforced_handle"
+    },
+    "I": {
+      "item": "twilightforest:steeleaf_ingot"
+    }
+  },
+  "pattern": [
+    "  I",
+    " I ",
+    " H "
+  ],
+  "result": {
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:looting": 2,
+          "minecraft:sharpness": 2,
+          "minecraft:sweeping_edge": 1
+        }
+      }
+    },
+    "count": 1,
+    "id": "l2weaponry:steeleaf_machete"
+  }
+}
