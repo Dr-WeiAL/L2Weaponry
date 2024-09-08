@@ -43,15 +43,9 @@ public record ModMats(Tier tier, ExtraToolConfig config) implements IMatToolType
 
 	@Override
 	public void configure(ITool tool, ItemAttributeModifiers.Builder builder) {
-
-	}
-
-	public int getDamage(ITool tool) {
-		return tool.getDamage(Math.round(this.tier.getAttackDamageBonus()) + 4);
-	}
-
-	public float getAtkSpeed(ITool tool) {
-		return tool.getAtkSpeed(1.0F);
+		int dmg = tool.getDamage(Math.round(tier.getAttackDamageBonus()) + 4);
+		float atkSpeed = tool.getAtkSpeed(1);
+		tool.configure(builder, dmg, atkSpeed);
 	}
 
 }
