@@ -7,6 +7,7 @@ import dev.xkmc.l2core.init.reg.ench.LegacyEnchantment;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LWDamageStates;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
@@ -24,7 +25,9 @@ public class StealthEnchantment extends LegacyEnchantment implements SourceModif
 
 	@Override
 	public List<Component> descFull(int lv, String key, boolean alt, boolean book, EnchColor color) {
-		return List.of(Component.translatable(key).withStyle(color.desc()));
+		double chance = LWConfig.SERVER.stealthChance.get() * lv;
+		var comp = Component.literal(Math.round(chance * 100) + "").withStyle(ChatFormatting.AQUA);
+		return List.of(Component.translatable(key, comp).withStyle(color.desc()));
 	}
 
 }
