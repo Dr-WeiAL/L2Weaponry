@@ -306,6 +306,7 @@ public class LWRecipeGen {
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.DAGGER, " I", "H ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.HAMMER, "III", "IHI", " H ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.BATTLE_AXE, "III", "IH ", "H  ");
+		buildTool(pvd, handle, ingot, mat, LWToolTypes.SCYTHE, "III", " HI", "H  ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.SPEAR, " II", " HI", "H  ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.MACHETE, "  I", " I ", " H ");
 		buildTool(pvd, handle, ingot, mat, LWToolTypes.ROUND_SHIELD, " I ", "IHI", " I ");
