@@ -2,7 +2,6 @@
   "attributes": {
     "attack_range": 3,
     "two_handed": true,
-    "pose": " ",
     "attacks": [
       {
         "hitbox": "HORIZONTAL_PLANE",

@@ -20,7 +20,7 @@ public class BetterCombat extends ResourceOrganizer {
 	}
 
 	public enum BCToolTypes {
-		CLAW, DAGGER, HAMMER, BATTLE_AXE, SPEAR, MACHETE, THROWING_AXE, JAVELIN
+		CLAW, DAGGER, HAMMER, BATTLE_AXE, SPEAR, MACHETE, THROWING_AXE, JAVELIN, SCYTHE
 	}
 
 	public enum BCLegendary {
@@ -42,6 +42,7 @@ public class BetterCombat extends ResourceOrganizer {
 		claw_of_determination(BCToolTypes.CLAW, 0),
 		dogmatic_standoff(BCToolTypes.BATTLE_AXE, 0),
 		dogmatic_punishment(BCToolTypes.HAMMER, 0),
+		death_scythe(BCToolTypes.SCYTHE, 0),
 		;
 
 		private final BCToolTypes type;
