@@ -1,6 +1,6 @@
 package dev.xkmc.l2weaponry.compat.twilightforest;
 
-import dev.xkmc.l2complements.content.effect.skill.StackingEffect;
+import dev.xkmc.l2complements.content.effect.StackingEffect;
 import dev.xkmc.l2complements.init.registrate.LCEffects;
 import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.attack.DamageModifier;

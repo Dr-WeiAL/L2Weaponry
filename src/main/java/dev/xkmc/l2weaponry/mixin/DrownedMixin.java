@@ -27,6 +27,8 @@ public abstract class DrownedMixin extends Zombie {
 			var ans = item.getProjectile(level(), this, stack, 0);
 			ans.setBaseDamage(getAttributeValue(Attributes.ATTACK_DAMAGE));
 			ans.getPersistentData().putInt("DespawnFactor", 20);
+
+			// vanilla code starting from here
 			double d0 = target.getX() - this.getX();
 			double d1 = target.getY(0.3333333333333333D) - ans.getY();
 			double d2 = target.getZ() - this.getZ();

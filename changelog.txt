@@ -1,3 +1,6 @@
+3.0.1+5
+- Fix steeleaf weapon crashing
+
 3.0.1+4
 - Fix better combat compat
 
