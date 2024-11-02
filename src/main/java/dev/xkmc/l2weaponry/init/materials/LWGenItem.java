@@ -8,19 +8,19 @@ import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.renderer.block.model.BlockModel;
-import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
 
 public class LWGenItem {
 
-	public static PackOutput ALT;
+	public static LWItemModelProvider ALT;
 
 	@SuppressWarnings({"unchecked", "unsafe", "rawtypes"})
 	public static ItemEntry<Item>[][] generate(ILWToolMats... values) {
@@ -48,93 +48,99 @@ public class LWGenItem {
 	public static <T extends Item> void model(LWToolTypes type, ILWToolMats mat, DataGenContext<Item, T> ctx,
 											  RegistrateItemModelProvider pvd, String matName, String toolName,
 											  boolean is3D) {
-
+		boolean iconic = type == LWToolTypes.BATTLE_AXE;
+		ResourceLocation tex3d = pvd.modLoc("item/3d/" + toolName + "/" + matName);
+		ResourceLocation icon = pvd.modLoc("item/" + (iconic ? "icon" : "generated") + "/" + matName + "/" + toolName);
+		ResourceLocation tex2d = pvd.modLoc("item/generated/" + matName + "/" + toolName);
 		if (is3D) {
 			if (matName.equals("legendary")) {
-				String parent = "3d_legendary/" + toolName;
-				var model = pvd.getBuilder(ctx.getName());
 				// TODO javelin
-				ResourceLocation icon = pvd.modLoc("item/generated/" + matName + "/" + toolName);
-				model.guiLight(BlockModel.GuiLight.FRONT);
-				model.customLoader(SeparateTransformsModelBuilder::begin)
-						.base(mat.model(type, new ItemModelBuilder(null, pvd.existingFileHelper)
-								.parent(pvd.getExistingFile(pvd.modLoc("item/" + parent)))))
-						.perspective(ItemDisplayContext.GUI,
-								mat.model(type, new ItemModelBuilder(null, pvd.existingFileHelper)
-										.parent(pvd.getExistingFile(pvd.mcLoc("item/generated")))
-										.texture("layer0", icon)));
-				return;
-			}
-			ResourceLocation texture = pvd.modLoc("item/3d/" + toolName + "/" + matName);
-			String parent = "3d_" + toolName;
-			var model = pvd.getBuilder(ctx.getName());
-			if (type == LWToolTypes.JAVELIN) {
-				model.override().predicate(pvd.modLoc("throwing"), 1)
-						.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
-				mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/" + parent + "_throwing"))
-						.texture("layer0", texture));
-			}
-			ResourceLocation icon = pvd.modLoc("item/generated/" + matName + "/" + toolName);
-			model.guiLight(BlockModel.GuiLight.FRONT);
-			model.customLoader(SeparateTransformsModelBuilder::begin)
-					.base(mat.model(type, new ItemModelBuilder(null, pvd.existingFileHelper)
-							.parent(pvd.getExistingFile(pvd.modLoc("item/" + parent)))
-							.texture("layer0", texture)))
-					.perspective(ItemDisplayContext.GUI,
-							mat.model(type, new ItemModelBuilder(null, pvd.existingFileHelper)
-									.parent(pvd.getExistingFile(pvd.mcLoc("item/generated")))
-									.texture("layer0", icon)));
-			if (type == LWToolTypes.BATTLE_AXE) {
-				pvd = new RegistrateItemModelProvider(L2Weaponry.REGISTRATE, ALT, pvd.existingFileHelper);
+				genSeparate(pvd, pvd.getBuilder(ctx.getName()), mat, type, "3d_legendary/" + toolName, null, icon);
 			} else {
-				return;
+				String parent = "3d_" + toolName;
+				var model = pvd.getBuilder(ctx.getName());
+				if (type == LWToolTypes.JAVELIN) {
+					model.override().predicate(pvd.modLoc("throwing"), 1)
+							.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
+					mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/" + parent + "_throwing"))
+							.texture("layer0", tex3d));
+				}
+				genSeparate(pvd, model, mat, type, parent, tex3d, icon);
 			}
+			pvd = ALT;
 		}
-		ResourceLocation texture = pvd.modLoc("item/generated/" + matName + "/" + toolName);
 		if (type == LWToolTypes.ROUND_SHIELD) {
-			String str = mat.emissive() ? "_emissive" : "";
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/round_shield" + str))
-							.texture("0", texture))
-					.override().predicate(pvd.modLoc("blocking"), 1)
-					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_blocking"))).end();
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_blocking", pvd.modLoc("item/round_shield_blocking" + str))
-					.texture("0", texture));
+			shield(ctx, pvd, mat, type, "round", tex2d);
 		} else if (type == LWToolTypes.PLATE_SHIELD) {
-			String str = mat.emissive() ? "_emissive" : "";
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/plate_shield" + str))
-							.texture("0", texture))
-					.override().predicate(pvd.modLoc("blocking"), 1)
-					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_blocking"))).end();
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_blocking", pvd.modLoc("item/plate_shield_blocking" + str))
-					.texture("0", texture));
-		} else if (type == LWToolTypes.THROWING_AXE) {
-			mat.model(type, pvd.handheld(ctx, texture))
-					.override().predicate(pvd.modLoc("throwing"), 1)
-					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/handheld_throwing"))
-					.texture("layer0", texture));
-		} else if (type == LWToolTypes.JAVELIN) {
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/long_weapon"))
-							.texture("layer0", texture))
-					.override().predicate(pvd.modLoc("throwing"), 1)
-					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/long_weapon_throwing"))
-					.texture("layer0", texture));
+			shield(ctx, pvd, mat, type, "plate", tex2d);
 		} else if (type == LWToolTypes.NUNCHAKU) {
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/nunchaku"))
-							.texture("layer0", texture))
+							.texture("layer0", tex2d))
 					.override().predicate(pvd.modLoc("spinning"), 1)
 					.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/nunchaku_spinning"))).end();
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_roll", pvd.modLoc("item/nunchaku_roll"))
 					.texture("layer0", pvd.modLoc("item/generated/" + matName + "/" + toolName + "_roll")));
 			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_unroll", pvd.modLoc("item/nunchaku_unroll"))
 					.texture("layer0", pvd.modLoc("item/generated/" + matName + "/" + toolName + "_unroll")));
-		} else if (type.customModel() != null) {
-			mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + type.customModel()))
-					.texture("layer0", texture));
 		} else {
-			mat.model(type, pvd.handheld(ctx, texture));
+			ItemModelBuilder model;
+			if (type.customModel() != null) {
+				if (iconic) {
+					model = pvd.getBuilder(pvd.name(ctx));
+					genSeparate(pvd, model, mat, type, type.customModel(), tex2d, icon);
+				} else {
+					model = pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + type.customModel()))
+							.texture("layer0", tex2d);
+					mat.model(type, model);
+				}
+			} else {
+				model = pvd.handheld(ctx, tex2d);
+				mat.model(type, model);
+			}
+			if (type == LWToolTypes.THROWING_AXE) {
+				throwing(ctx, pvd, model, mat, type, pvd.modLoc("item/handheld_throwing"), tex2d);
+			} else if (type == LWToolTypes.JAVELIN) {
+				throwing(ctx, pvd, model, mat, type, pvd.modLoc("item/long_weapon_throwing"), tex2d);
+			}
+
 		}
+	}
+
+	private static <T extends Item> void shield(
+			DataGenContext<Item, T> ctx, RegistrateItemModelProvider pvd, ILWToolMats mat, LWToolTypes type,
+			String kind, ResourceLocation tex2d) {
+		String str = mat.emissive() ? "_emissive" : "";
+		mat.model(type, pvd.withExistingParent(pvd.name(ctx), pvd.modLoc("item/" + kind + "_shield" + str))
+						.texture("0", tex2d))
+				.override().predicate(pvd.modLoc("blocking"), 1)
+				.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_blocking"))).end();
+		mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_blocking", pvd.modLoc("item/" + kind + "_shield_blocking" + str))
+				.texture("0", tex2d));
+	}
+
+	private static <T extends Item> void throwing(
+			DataGenContext<Item, T> ctx, RegistrateItemModelProvider pvd, ItemModelBuilder model,
+			ILWToolMats mat, LWToolTypes type, ResourceLocation throwing, ResourceLocation tex2d) {
+		model.override().predicate(pvd.modLoc("throwing"), 1)
+				.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
+		mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", throwing)
+				.texture("layer0", tex2d));
+	}
+
+	private static void genSeparate(
+			RegistrateItemModelProvider pvd, ItemModelBuilder model, ILWToolMats mat, LWToolTypes type,
+			String parent, @Nullable ResourceLocation tex, ResourceLocation icon) {
+		model.guiLight(BlockModel.GuiLight.FRONT);
+		var baseModel = new ItemModelBuilder(null, pvd.existingFileHelper)
+				.parent(pvd.getExistingFile(pvd.modLoc("item/" + parent)));
+		if (tex != null) baseModel.texture("layer0", tex);
+		var iconModel = new ItemModelBuilder(null, pvd.existingFileHelper)
+				.parent(pvd.getExistingFile(pvd.mcLoc("item/generated")))
+				.texture("layer0", icon);
+		model.customLoader(SeparateTransformsModelBuilder::begin)
+				.base(mat.model(type, baseModel))
+				.perspective(ItemDisplayContext.GUI,
+						mat.model(type, iconModel));
 	}
 
 }

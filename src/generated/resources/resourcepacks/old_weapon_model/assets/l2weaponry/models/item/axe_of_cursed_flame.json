@@ -1,6 +1,9 @@
 {
   "base": {
-    "parent": "l2weaponry:item/3d_legendary/axe_of_cursed_flame"
+    "parent": "l2weaponry:item/battle_axe",
+    "textures": {
+      "layer0": "l2weaponry:item/generated/legendary/axe_of_cursed_flame"
+    }
   },
   "gui_light": "front",
   "loader": "forge:separate_transforms",

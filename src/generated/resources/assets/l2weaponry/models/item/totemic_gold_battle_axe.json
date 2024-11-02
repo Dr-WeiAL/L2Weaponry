@@ -11,7 +11,7 @@
     "gui": {
       "parent": "minecraft:item/generated",
       "textures": {
-        "layer0": "l2weaponry:item/generated/totemic_gold/battle_axe"
+        "layer0": "l2weaponry:item/icon/totemic_gold/battle_axe"
       }
     }
   }

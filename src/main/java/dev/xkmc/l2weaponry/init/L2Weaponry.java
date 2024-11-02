@@ -12,11 +12,11 @@ import dev.xkmc.l2weaponry.events.LWAttackEventListener;
 import dev.xkmc.l2weaponry.events.LWClickListener;
 import dev.xkmc.l2weaponry.init.data.*;
 import dev.xkmc.l2weaponry.init.materials.LWGenItem;
+import dev.xkmc.l2weaponry.init.materials.LWItemModelProvider;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.l2weaponry.init.registrate.LWRegistrate;
-import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -93,7 +93,12 @@ public class L2Weaponry {
 		var helper = event.getExistingFileHelper();
 		new LWDamageTypeGen(output, lookup, helper).generate(gen, event.getGenerator());
 		event.getGenerator().addProvider(event.includeServer(), new LWAttributeConfigGen(event.getGenerator()));
-		LWGenItem.ALT = new PackOutput(output.getOutputFolder().resolve("resourcepacks").resolve("old_weapon_model"));
+		LWGenItem.ALT = new LWItemModelProvider(L2Weaponry.REGISTRATE, output, helper);
+	}
+
+	@SubscribeEvent(priority = EventPriority.LOW)
+	public static void gatherDataLate(GatherDataEvent event) {
+		event.getGenerator().addProvider(event.includeClient(), LWGenItem.ALT);
 	}
 
 	@SubscribeEvent
