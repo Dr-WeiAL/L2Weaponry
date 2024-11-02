@@ -1,17 +1,17 @@
-// 1.21.1	2024-09-07T23:19:36.290677	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
-6fbde1e6b6c8f1bfba43960648bd80d5500abee3 assets/l2weaponry/lang/en_ud.json
-04560462b88b12d3f3352bd6f4cbbf2bc89d331f assets/l2weaponry/lang/en_us.json
+// 1.21.1	2024-11-03T02:38:21.641667	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
+160a87b2583100eb66a8b0f75b3fce9b4c0da78e assets/l2weaponry/lang/en_ud.json
+fcb729c6c127ddd915c2c83f9bb03392cf8956a2 assets/l2weaponry/lang/en_us.json
 c5eec27d9446bf5395b623559c1b7dff15c9509c assets/l2weaponry/models/item/abyss_echo.json
 22506e91ca3739268a06e9228746033ec8fc719d assets/l2weaponry/models/item/abyss_resonance.json
 d47545da1671ad0770e33927d7903f1e68e778ec assets/l2weaponry/models/item/abyss_shock.json
-17f1e528dad53be2710fd315b44096f55e3d59ac assets/l2weaponry/models/item/abyss_terror.json
-a05838b744612e6263bd8eb6a3e898abaafd421b assets/l2weaponry/models/item/axe_of_cursed_flame.json
+3bbd40516e349d0343e02e2f452e93d3414a8f5a assets/l2weaponry/models/item/abyss_terror.json
+ff1ed9718865fd869a1d599b39e8ca806e47dc29 assets/l2weaponry/models/item/axe_of_cursed_flame.json
 54ef825581fcfe3e2082032ae501ec76d7c8b80b assets/l2weaponry/models/item/barbaric_hallow.json
 2bd7ffad46fcf23199c84d067e459836bb403bc8 assets/l2weaponry/models/item/barbaric_hallow_throwing.json
 81094316e9621e0ca5cc41d448d2db6c790a4827 assets/l2weaponry/models/item/blade_of_illusion.json
 5f1b31eb74737d14b0e733712b2975501c156e14 assets/l2weaponry/models/item/claw_of_determination.json
 5cdbebbd8438cd047f8b5601f22a67f4af96a4e0 assets/l2weaponry/models/item/death_scythe.json
-31632fb7c3e468e03b18ef64ddf6d83f4b20afa4 assets/l2weaponry/models/item/diamond_battle_axe.json
+efd9dad77a2c3890d1f1abeb6c869bbb2e627014 assets/l2weaponry/models/item/diamond_battle_axe.json
 41e1387f442ad1c9f13ebab154b1a5fe475f2eeb assets/l2weaponry/models/item/diamond_claw.json
 806475bad1d3ce6b454c9d32c87e9db5d54112a6 assets/l2weaponry/models/item/diamond_dagger.json
 1527b2774a3e30b5a34c742402951d491ceba536 assets/l2weaponry/models/item/diamond_hammer.json
@@ -30,8 +30,8 @@ ba979d0cd0836650e73f1970a95a0fbad9837322 assets/l2weaponry/models/item/diamond_s
 028ddea6449e7cdb12360de1c8cd18c4946f448b assets/l2weaponry/models/item/diamond_throwing_axe.json
 e261f15e4e655db3c2a6f45d7c96ceb323e7c882 assets/l2weaponry/models/item/diamond_throwing_axe_throwing.json
 7994c210f4bcfeec8135c7d285e2bf459d2a76c6 assets/l2weaponry/models/item/dogmatic_punishment.json
-aea46cf7f089c468c69f78ad8705b530f25ecfd6 assets/l2weaponry/models/item/dogmatic_standoff.json
-1ef4d7c9cf48f85d17a5b69b52d0044a08fe0322 assets/l2weaponry/models/item/eternium_battle_axe.json
+c9695fc8c7a88bccda250071c25948bfcf1166ec assets/l2weaponry/models/item/dogmatic_standoff.json
+11af913526ed10d840daecd5b6cc483f7213833e assets/l2weaponry/models/item/eternium_battle_axe.json
 5a0219ffd29c495cc11f2009a761ac6a8d73dd22 assets/l2weaponry/models/item/eternium_claw.json
 5ef7aa3c04b9c07411ed73757a0e451fca4a167c assets/l2weaponry/models/item/eternium_dagger.json
 06700bebbfd1ca488845c623063858e7bb708c58 assets/l2weaponry/models/item/eternium_hammer.json
@@ -49,7 +49,7 @@ ea6ab56b6e33af4c28f62eba9179d735ec2f4075 assets/l2weaponry/models/item/eternium_
 e0a59b1e0f6b5ad8affa00ec89d22a4e940c9dda assets/l2weaponry/models/item/eternium_spear.json
 83e334b5c76c1af66a80de120420326c08230e2e assets/l2weaponry/models/item/eternium_throwing_axe.json
 56edee3b256a08a46a83932dd9033773853e83de assets/l2weaponry/models/item/eternium_throwing_axe_throwing.json
-b78f109ffe984212955a43a37c32bdbe8f9695ed assets/l2weaponry/models/item/fiery_battle_axe.json
+ff64bf070c9da5917fe812ee4b6e068d829a747b assets/l2weaponry/models/item/fiery_battle_axe.json
 c77f254bf241ee99194bb7651ba2835e275e2637 assets/l2weaponry/models/item/fiery_claw.json
 be3eb7d526b06ba7e199ef8c668d849fabe17ca3 assets/l2weaponry/models/item/fiery_dagger.json
 48875b21b1c19174bbd9fed3f8a5f486160d387d assets/l2weaponry/models/item/fiery_hammer.json
@@ -67,7 +67,7 @@ f13d4854fb8d2a3c5a80c55c792f3196cf18df90 assets/l2weaponry/models/item/fiery_rou
 bd23125cb3728b6e6ba36398076c64f920e4eeff assets/l2weaponry/models/item/fiery_spear.json
 c2da156090cdd7857e9d33aa586a2b972e21e82c assets/l2weaponry/models/item/fiery_throwing_axe.json
 2a008c573c38bd88975f6b59ba90f3cc9fc972fd assets/l2weaponry/models/item/fiery_throwing_axe_throwing.json
-e6eeaff340056bc5d61e96e508db8ef20633ac49 assets/l2weaponry/models/item/gold_battle_axe.json
+5f39b7d0a1fabbeadcbd498f968cbcf300218abf assets/l2weaponry/models/item/gold_battle_axe.json
 1594699f90801f99971c3677c588601178675c81 assets/l2weaponry/models/item/gold_claw.json
 7ab62a22fac5f24a1ef22836a528afcce44274f3 assets/l2weaponry/models/item/gold_dagger.json
 efcecb491aa4ee3dcb05e0939df9832b05d2e165 assets/l2weaponry/models/item/gold_hammer.json
@@ -87,7 +87,7 @@ e3ed081d5843379309af097d99b67eeb8543404c assets/l2weaponry/models/item/gold_plat
 148257cf602177b4c7dcb96df70fb1066ebae9a6 assets/l2weaponry/models/item/gold_throwing_axe_throwing.json
 32fdb1a35883158c0eb2e5615cc8c8353d1221e4 assets/l2weaponry/models/item/hammer_of_incarceration.json
 9253aa12299330bcd4b7464c0aa10bda4232f1f4 assets/l2weaponry/models/item/haunting_demon_of_the_end.json
-26f9f9da934a739710646c9e5d03559ad22c79e6 assets/l2weaponry/models/item/iron_battle_axe.json
+6c7ebc36f4ac3c9336a508bddd5191a06abdcdfc assets/l2weaponry/models/item/iron_battle_axe.json
 4fa2ecc0d74e5d7f5ad1a0b221e6724d8dac8596 assets/l2weaponry/models/item/iron_claw.json
 7fc55a82dde0c50156f0543504778d385d6a4373 assets/l2weaponry/models/item/iron_dagger.json
 98b718319a736cf0466aa855aada7aea58124628 assets/l2weaponry/models/item/iron_hammer.json
@@ -105,7 +105,7 @@ ed9c17b56c2c3e979367feea9f53695a41fec28d assets/l2weaponry/models/item/iron_scyt
 c0fb50e390f90dace0063563568ee68d15a3c3bb assets/l2weaponry/models/item/iron_spear.json
 3cc94f6c6fa1fc31647981e03b05d40a267ac18a assets/l2weaponry/models/item/iron_throwing_axe.json
 cf74cb6d5404227f8b2eae291ea23b334db0da99 assets/l2weaponry/models/item/iron_throwing_axe_throwing.json
-42ff06628dc3a467f4f5a4a20be352f19bc3e0ef assets/l2weaponry/models/item/ironwood_battle_axe.json
+295ed09e5a1194de75e71724a5120ad8e5b1de3f assets/l2weaponry/models/item/ironwood_battle_axe.json
 0e675602874c9458d1dc9aa5b65188bd879d188e assets/l2weaponry/models/item/ironwood_claw.json
 99ac6467b71446fe8f239c53c72af7b8f1fd84d8 assets/l2weaponry/models/item/ironwood_dagger.json
 18196513b4d0dbed8134e415a0e4d8e311d27941 assets/l2weaponry/models/item/ironwood_hammer.json
@@ -123,7 +123,7 @@ fedfbc1315d3bba8dad1913f18a00591a0a96a17 assets/l2weaponry/models/item/ironwood_
 de19b894a8f182b1fb62ccfc99fe56d3ef70407f assets/l2weaponry/models/item/ironwood_spear.json
 4519d77b1ac33c1a8cfaabb4f96e89297667b97c assets/l2weaponry/models/item/ironwood_throwing_axe.json
 679f356bff22ccac42faf4ed66ba8a75854bb44f assets/l2weaponry/models/item/ironwood_throwing_axe_throwing.json
-61fef23f73cf7016684c12c786f324d74d6811bb assets/l2weaponry/models/item/knightmetal_battle_axe.json
+8f9a4df7356e0d3d2a8714751f93fe9b84714d8b assets/l2weaponry/models/item/knightmetal_battle_axe.json
 73774d3047d876b5c2a4a4e206c51109c40b93f3 assets/l2weaponry/models/item/knightmetal_claw.json
 9317e05d1300ad3b93a43c6ec1fb0be9e9ddde7c assets/l2weaponry/models/item/knightmetal_dagger.json
 83b43ca63b64ab6606d7f7da7edaef515e57800d assets/l2weaponry/models/item/knightmetal_hammer.json
@@ -141,7 +141,7 @@ c781c4b8579469cb2f06ac7a7c8e9aad7804dc6d assets/l2weaponry/models/item/knightmet
 761c135b2326e44e572c43c0d244a1bfb52eabb1 assets/l2weaponry/models/item/knightmetal_spear.json
 bd43d3dc2f8b8ce5f174ece1436e7214dd1f247c assets/l2weaponry/models/item/knightmetal_throwing_axe.json
 7801c37eb10ee899596ad6cb286a2f5375e35b88 assets/l2weaponry/models/item/knightmetal_throwing_axe_throwing.json
-74a9f1bc8a4406d66ca4f9980696d484c2c02fe3 assets/l2weaponry/models/item/netherite_battle_axe.json
+cdb80cd37060fd9428111e24e35f6edca0758881 assets/l2weaponry/models/item/netherite_battle_axe.json
 95bfc8750e9ec5f8ef678d2ba52c5f6e105b38fd assets/l2weaponry/models/item/netherite_claw.json
 3b90be2c12acf4e578d0227cb8bce4ddafc46dcd assets/l2weaponry/models/item/netherite_dagger.json
 bc0ba5b15ee20054de1fb3a6699cc5b3533ff1e3 assets/l2weaponry/models/item/netherite_hammer.json
@@ -159,7 +159,7 @@ f2dce528b46a66dee92b0d220a0ee4ba9fc609b1 assets/l2weaponry/models/item/netherite
 dc1b5868184989214f0c30c28db0d3582f571ee5 assets/l2weaponry/models/item/netherite_spear.json
 62140865738e49eccffc04353b1ce5a0313e8a50 assets/l2weaponry/models/item/netherite_throwing_axe.json
 ca3b6b54f8861d305974d96941a3346f82d8f974 assets/l2weaponry/models/item/netherite_throwing_axe_throwing.json
-45408f098dfc76bfe96ed5a6ff1c935b8483c611 assets/l2weaponry/models/item/poseidite_battle_axe.json
+4214ea570d6590c2b95097f65e833ec987009771 assets/l2weaponry/models/item/poseidite_battle_axe.json
 fd349ad07fded0bf7fc4f974091298bb876446bc assets/l2weaponry/models/item/poseidite_claw.json
 c1e1fc501d96531a8e9fbe7b38c3670d36b99449 assets/l2weaponry/models/item/poseidite_dagger.json
 813b5f734cec6431c8b9414c4c0969e26f8a80d5 assets/l2weaponry/models/item/poseidite_hammer.json
@@ -180,7 +180,7 @@ ed20c1e9b25396aebb87a2458b730bcc626ccc2f assets/l2weaponry/models/item/poseidite
 3d7321e0970cd2f0965e7e69fd6b889dc80f7dca assets/l2weaponry/models/item/poseidon_madness.json
 f73872cec0f029ae1075c622246f710d67cc75fd assets/l2weaponry/models/item/poseidon_madness_throwing.json
 59dbb1e96087069657af0db04f7a9b9065d8bb70 assets/l2weaponry/models/item/reinforced_handle.json
-7b6c5af4bf4fd7ea70d3c3781d663e701d4d3b87 assets/l2weaponry/models/item/sculkium_battle_axe.json
+0bbabae6a14d0c3e48426333a63e3d8b6bcc3ef6 assets/l2weaponry/models/item/sculkium_battle_axe.json
 e13edc999095451a3795075834bd38f17ea44fa0 assets/l2weaponry/models/item/sculkium_claw.json
 44146e2e49e5f842794210ee4aeac3ebfe865346 assets/l2weaponry/models/item/sculkium_dagger.json
 9803a3400e66753f224455db02b92f9bfe9aa4c2 assets/l2weaponry/models/item/sculkium_hammer.json
@@ -200,7 +200,7 @@ c5b26eb112608e666027edae00d025ebe0ee56ad assets/l2weaponry/models/item/sculkium_
 bf77e52f243752f9ac93757db3da6f5c02274bbd assets/l2weaponry/models/item/sculkium_throwing_axe_throwing.json
 be784d7613fb79df25445c1b01e46809fb19d30a assets/l2weaponry/models/item/shadow_hunter.json
 e7357d1d6f02a3efa79c5584a801580d2ae12712 assets/l2weaponry/models/item/shadow_shredder.json
-6c8a4ec99e8df506ca733abad6ad3a152d0fb0c8 assets/l2weaponry/models/item/shulkerate_battle_axe.json
+2512d3ed9632c904e53112063b4eefa3ba32fb0a assets/l2weaponry/models/item/shulkerate_battle_axe.json
 4ccf5b646a588f41e584b17db403fbf1a844dd58 assets/l2weaponry/models/item/shulkerate_claw.json
 05b9790b58655c7f0a9a557165f2f2dcf597a0ae assets/l2weaponry/models/item/shulkerate_dagger.json
 959fe582a3800093ac152739efaaf373aef31256 assets/l2weaponry/models/item/shulkerate_hammer.json
@@ -219,7 +219,7 @@ c5cd16e248609615f3174dd2ec7f57e3af263fae assets/l2weaponry/models/item/shulkerat
 482dd79072e787a1ee9de21b9eb70421aa8bf496 assets/l2weaponry/models/item/shulkerate_throwing_axe.json
 3784b42d295c5a7ee35df525ef018619271819d9 assets/l2weaponry/models/item/shulkerate_throwing_axe_throwing.json
 30d9dd904c11773d9e81c8df504b648ba3845a4a assets/l2weaponry/models/item/spear_of_winter_storm.json
-287a9765f3a36b18879b71580d42de13c0f0be33 assets/l2weaponry/models/item/steeleaf_battle_axe.json
+4b033e0cc462c209b57427147579a42e784c9325 assets/l2weaponry/models/item/steeleaf_battle_axe.json
 7f0dd581cb970b39921139c3e7e5ba9ce99a2b41 assets/l2weaponry/models/item/steeleaf_claw.json
 bb70c2f5ee84b44f604f42c325d5faf09875ac19 assets/l2weaponry/models/item/steeleaf_dagger.json
 b8eead11c8b0439e456e4bb97ad67d827a04ae68 assets/l2weaponry/models/item/steeleaf_hammer.json
@@ -237,7 +237,7 @@ a8eb9cd69ef23e7a191bf6ef3e5ce5aec82a9323 assets/l2weaponry/models/item/steeleaf_
 35818d90c802920a88229cc085e40691ca505a65 assets/l2weaponry/models/item/steeleaf_spear.json
 0fec7bfb6c6c6e47d9bdac34d79e1fdbb4f6a421 assets/l2weaponry/models/item/steeleaf_throwing_axe.json
 33e807876d1a262052a8a94eec7a5ebaf4ec076b assets/l2weaponry/models/item/steeleaf_throwing_axe_throwing.json
-2bb7a4f73017a58d807c975a77b5d1012e65e0e9 assets/l2weaponry/models/item/totemic_gold_battle_axe.json
+45921eba3ad2c0ae3930f757468b22414e81d4bb assets/l2weaponry/models/item/totemic_gold_battle_axe.json
 1e4db0a18184b2859b89cc2591c00a4d7a9208ea assets/l2weaponry/models/item/totemic_gold_claw.json
 bf92efd41ba063a1501a862604b98766ddeb8ad2 assets/l2weaponry/models/item/totemic_gold_dagger.json
 808475b073ae6e44059112f3560a716cc1c196fb assets/l2weaponry/models/item/totemic_gold_hammer.json

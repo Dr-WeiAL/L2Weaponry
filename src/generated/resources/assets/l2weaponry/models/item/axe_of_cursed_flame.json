@@ -8,7 +8,7 @@
     "gui": {
       "parent": "minecraft:item/generated",
       "textures": {
-        "layer0": "l2weaponry:item/generated/legendary/axe_of_cursed_flame"
+        "layer0": "l2weaponry:item/icon/legendary/axe_of_cursed_flame"
       }
     }
   }

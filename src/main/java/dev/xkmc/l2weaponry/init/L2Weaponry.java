@@ -12,6 +12,8 @@ import dev.xkmc.l2weaponry.compat.GolemCompat;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
 import dev.xkmc.l2weaponry.events.LWClickListener;
 import dev.xkmc.l2weaponry.init.data.*;
+import dev.xkmc.l2weaponry.init.materials.LWGenItem;
+import dev.xkmc.l2weaponry.init.materials.LWItemModelProvider;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
@@ -92,6 +94,12 @@ public class L2Weaponry {
 		var init = REGISTRATE.getDataGenInitializer();
 		LWEnchantments.REG.addParent(LCEnchantments.REG);
 		init.addDependency(ProviderType.RECIPE, L2TagGen.ENCH_TAGS);
+		LWGenItem.ALT = new LWItemModelProvider(L2Weaponry.REGISTRATE, event.getGenerator().getPackOutput(), event.getExistingFileHelper());
+	}
+
+	@SubscribeEvent(priority = EventPriority.LOW)
+	public static void gatherDataLate(GatherDataEvent event) {
+		event.getGenerator().addProvider(event.includeClient(), LWGenItem.ALT);
 	}
 
 	@SubscribeEvent
