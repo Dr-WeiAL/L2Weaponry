@@ -1,3 +1,9 @@
+2.4.35
+- Fix machete and claw description
+- Improve Better Combat integration
+- Introduce 16x battle axe item icon
+- Improve scythe texture
+
 2.4.34
 - Add Scythe
 

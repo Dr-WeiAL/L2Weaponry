@@ -28,7 +28,7 @@ public enum LWToolTypes implements ITool {
 	JAVELIN(TagGen.JAVELIN, JavelinItem::new, 1f, 1.2f, "long_weapon", () -> new EnchantmentInstance(LCEnchantments.DRILL.get(), 1)),
 	ROUND_SHIELD(TagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 1f / 2),
 	PLATE_SHIELD(TagGen.PLATE_SHIELD, PlateShieldItem::new, 20f, 1f / 8),
-	NUNCHAKU(TagGen.NUNCHAKU, NunchakuItem::new, 0.5f, 4);
+	NUNCHAKU(TagGen.NUNCHAKU, NunchakuItem::new, 0.5f, 4, "nunchaku");
 
 	public final TagKey<Item> tag;
 	private final RawToolFactory fac;
