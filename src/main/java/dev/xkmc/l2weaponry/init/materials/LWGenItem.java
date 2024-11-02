@@ -8,6 +8,7 @@ import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.renderer.block.model.BlockModel;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -18,6 +19,8 @@ import net.minecraftforge.client.model.generators.loaders.SeparateTransformsMode
 import java.util.Locale;
 
 public class LWGenItem {
+
+	public static PackOutput ALT;
 
 	@SuppressWarnings({"unchecked", "unsafe", "rawtypes"})
 	public static ItemEntry<Item>[][] generate(ILWToolMats... values) {
@@ -81,7 +84,11 @@ public class LWGenItem {
 							mat.model(type, new ItemModelBuilder(null, pvd.existingFileHelper)
 									.parent(pvd.getExistingFile(pvd.mcLoc("item/generated")))
 									.texture("layer0", icon)));
-			return;
+			if (type == LWToolTypes.BATTLE_AXE) {
+				pvd = new RegistrateItemModelProvider(L2Weaponry.REGISTRATE, ALT, pvd.existingFileHelper);
+			} else {
+				return;
+			}
 		}
 		ResourceLocation texture = pvd.modLoc("item/generated/" + matName + "/" + toolName);
 		if (type == LWToolTypes.ROUND_SHIELD) {

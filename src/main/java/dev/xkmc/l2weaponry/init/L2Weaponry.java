@@ -11,10 +11,12 @@ import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
 import dev.xkmc.l2weaponry.events.LWAttackEventListener;
 import dev.xkmc.l2weaponry.events.LWClickListener;
 import dev.xkmc.l2weaponry.init.data.*;
+import dev.xkmc.l2weaponry.init.materials.LWGenItem;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWEntities;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import dev.xkmc.l2weaponry.init.registrate.LWRegistrate;
+import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -24,6 +26,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -82,7 +85,7 @@ public class L2Weaponry {
 		event.add(EntityType.PLAYER, LWItems.REFLECT_TIME.get());
 	}
 
-	@SubscribeEvent
+	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
 		boolean gen = event.includeServer();
 		var output = event.getGenerator().getPackOutput();
@@ -90,6 +93,7 @@ public class L2Weaponry {
 		var helper = event.getExistingFileHelper();
 		new LWDamageTypeGen(output, lookup, helper).generate(gen, event.getGenerator());
 		event.getGenerator().addProvider(event.includeServer(), new LWAttributeConfigGen(event.getGenerator()));
+		LWGenItem.ALT = new PackOutput(output.getOutputFolder().resolve("resourcepacks").resolve("old_weapon_model"));
 	}
 
 	@SubscribeEvent
