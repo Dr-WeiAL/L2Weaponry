@@ -48,7 +48,7 @@ public class LWGenItem {
 	public static <T extends Item> void model(LWToolTypes type, ILWToolMats mat, DataGenContext<Item, T> ctx,
 											  RegistrateItemModelProvider pvd, String matName, String toolName,
 											  boolean is3D) {
-		boolean iconic = type == LWToolTypes.BATTLE_AXE;
+		boolean iconic = type.hasIcon();
 		ResourceLocation tex3d = pvd.modLoc("item/3d/" + toolName + "/" + matName);
 		ResourceLocation icon = pvd.modLoc("item/icon/" + matName + "/" + toolName);
 		ResourceLocation tex2d = pvd.modLoc("item/generated/" + matName + "/" + toolName);

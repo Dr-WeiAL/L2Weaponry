@@ -18,12 +18,12 @@ import java.util.function.Supplier;
 
 public enum LWToolTypes implements ITool {
 	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 3, "claw_base", () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 2)),
-	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4),
-	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.2f, 1f, () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 1)),
-	THROWING_AXE(TagGen.THROWING_AXE, ThrowingAxeItem::new, 1.4f, 1f),
-	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, () -> new EnchantmentInstance(LCEnchantments.CUBIC.get(), 1)),
+	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4, "dagger"),
+	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.2f, 1f, "machete", () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 1)),
+	THROWING_AXE(TagGen.THROWING_AXE, ThrowingAxeItem::new, 1.4f, 1f, "throwing_axe"),
+	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, "hammer", () -> new EnchantmentInstance(LCEnchantments.CUBIC.get(), 1)),
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, "battle_axe", () -> new EnchantmentInstance(LCEnchantments.TREE.get(), 1)),
-	SCYTHE(TagGen.SCYTHE, ScytheItem::new, 1.5f, 0.7f, "battle_axe", () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 3)),
+	SCYTHE(TagGen.SCYTHE, ScytheItem::new, 1.5f, 0.7f, "scythe", () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 3)),
 	SPEAR(TagGen.SPEAR, SpearItem::new, 1f, 1f, "long_weapon", () -> new EnchantmentInstance(LCEnchantments.PLANE.get(), 1)),
 	JAVELIN(TagGen.JAVELIN, JavelinItem::new, 1f, 1.2f, "long_weapon", () -> new EnchantmentInstance(LCEnchantments.DRILL.get(), 1)),
 	ROUND_SHIELD(TagGen.ROUND_SHIELD, RoundShieldItem::new, 5f, 1f / 2),
@@ -80,4 +80,7 @@ public enum LWToolTypes implements ITool {
 		return enchs.stream().map(Supplier::get).toList();
 	}
 
+	public boolean hasIcon() {
+		return this == BATTLE_AXE || this == SCYTHE;
+	}
 }

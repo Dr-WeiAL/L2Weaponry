@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "l2weaponry:item/hammer",
   "textures": {
     "layer0": "l2weaponry:item/generated/lightning_dragonsteel/hammer"
   }
