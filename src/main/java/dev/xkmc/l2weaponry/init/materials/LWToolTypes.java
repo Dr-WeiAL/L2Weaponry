@@ -81,6 +81,6 @@ public enum LWToolTypes implements ITool {
 	}
 
 	public boolean hasIcon() {
-		return this == BATTLE_AXE || this == SCYTHE;
+		return this == BATTLE_AXE || this == SCYTHE || this == SPEAR || this == JAVELIN;
 	}
 }

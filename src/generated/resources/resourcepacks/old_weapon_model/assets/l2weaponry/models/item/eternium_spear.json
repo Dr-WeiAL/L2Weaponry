@@ -1,6 +1,18 @@
 {
-  "parent": "l2weaponry:item/long_weapon",
-  "textures": {
-    "layer0": "l2weaponry:item/generated/eternium/spear"
+  "base": {
+    "parent": "l2weaponry:item/long_weapon",
+    "textures": {
+      "layer0": "l2weaponry:item/generated/eternium/spear"
+    }
+  },
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "l2weaponry:item/icon/eternium/spear"
+      }
+    }
   }
 }

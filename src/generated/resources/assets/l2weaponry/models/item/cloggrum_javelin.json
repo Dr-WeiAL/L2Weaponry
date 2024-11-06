@@ -1,5 +1,12 @@
 {
-  "parent": "l2weaponry:item/long_weapon",
+  "base": {
+    "parent": "l2weaponry:item/long_weapon",
+    "textures": {
+      "layer0": "l2weaponry:item/generated/cloggrum/javelin"
+    }
+  },
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
   "overrides": [
     {
       "model": "l2weaponry:item/cloggrum_javelin_throwing",
@@ -8,7 +15,12 @@
       }
     }
   ],
-  "textures": {
-    "layer0": "l2weaponry:item/generated/cloggrum/javelin"
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "l2weaponry:item/icon/cloggrum/javelin"
+      }
+    }
   }
 }
