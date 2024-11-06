@@ -6,6 +6,19 @@
     "attacks": [
       {
         "conditions": [
+          "NOT_DUAL_WIELDING"
+        ],
+        "hitbox": "FORWARD_BOX",
+        "damage_multiplier": 1,
+        "angle": 120,
+        "upswing": 0.5,
+        "animation": "bettercombat:one_handed_stab",
+        "swing_sound": {
+          "id": "bettercombat:dagger_slash"
+        }
+      },
+      {
+        "conditions": [
           "MAIN_HAND_ONLY"
         ],
         "hitbox": "FORWARD_BOX",
@@ -41,7 +54,8 @@
         "upswing": 0.5,
         "animation": "l2weaponry:dual_handed_dagger_three",
         "swing_sound": {
-          "id": "bettercombat:dagger_slash"
+          "id": "bettercombat:dagger_slash",
+          "pitch": "1.3"
         }
       },
       {
@@ -55,7 +69,8 @@
         "upswing": 0.5,
         "animation": "l2weaponry:dual_handed_dagger_four",
         "swing_sound": {
-          "id": "bettercombat:dagger_slash"
+          "id": "bettercombat:dagger_slash",
+          "pitch": "0.7"
         }
       }
     ]

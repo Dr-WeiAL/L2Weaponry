@@ -23,6 +23,7 @@
         "animation": "bettercombat:two_handed_slam_heavy",
         "swing_sound": {
           "id": "bettercombat:hammer_slam",
+          "pitch": "0.8",
           "randomness": 0
         }
       }
