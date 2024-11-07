@@ -42,8 +42,7 @@ public class BetterCombat extends ResourceOrganizer {
 		claw_of_determination(BCToolTypes.CLAW, 0),
 		dogmatic_standoff(BCToolTypes.BATTLE_AXE, 0),
 		dogmatic_punishment(BCToolTypes.HAMMER, 0),
-		death_scythe(BCToolTypes.SCYTHE, 0)
-		;
+		death_scythe(BCToolTypes.SCYTHE, 0);
 
 		private final BCToolTypes type;
 		private final int range;
@@ -61,7 +60,7 @@ public class BetterCombat extends ResourceOrganizer {
 	@Override
 	public void organize(File f) throws Exception {
 		for (BCToolTypes type : BCToolTypes.values()) {
-			File fi = f.toPath().resolve(type.toString().toLowerCase(Locale.ROOT) + ".json").toFile();
+			File fi = f.toPath().resolve("iron_" + type.toString().toLowerCase(Locale.ROOT) + ".json").toFile();
 			JsonObject json = new JsonParser().parse(new FileReader(fi.getPath())).getAsJsonObject();
 			for (BCToolMats mat : BCToolMats.values()) {
 				JsonObject copy = json.deepCopy();
@@ -77,7 +76,7 @@ public class BetterCombat extends ResourceOrganizer {
 			}
 		}
 		for (BCLegendary legendary : BCLegendary.values()) {
-			File fi = f.toPath().resolve(legendary.type.toString().toLowerCase(Locale.ROOT) + ".json").toFile();
+			File fi = f.toPath().resolve("iron_" + legendary.type.toString().toLowerCase(Locale.ROOT) + ".json").toFile();
 			JsonObject json = new JsonParser().parse(new FileReader(fi.getPath())).getAsJsonObject();
 			JsonObject copy = json.deepCopy();
 			double val = copy.getAsJsonObject("attributes").get("attack_range").getAsDouble();
