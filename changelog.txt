@@ -1,3 +1,10 @@
+2.4.36
+- Add 16x gui icon texture for all weapons
+- Fix loyalty enchanted throwable weapons not able to be pickup if player switch from creative to survival
+- Fix Void Escape client stall when returning javelin hit an entity
+- Refactor BetterCombat integration
+- Fix certain item description
+
 2.4.35
 - Fix machete and claw description
 - Improve Better Combat integration
