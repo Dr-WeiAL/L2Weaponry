@@ -1,14 +1,22 @@
 {
-  "parent": "l2weaponry:item/long_weapon",
-  "loader": "neoforge:item_layers",
-  "neoforge_data": {
-    "layers": {
-      "0": {
-        "block_light": 15,
-        "sky_light": 15
+  "base": {
+    "parent": "l2weaponry:item/long_weapon",
+    "loader": "neoforge:item_layers",
+    "neoforge_data": {
+      "layers": {
+        "0": {
+          "block_light": 15,
+          "sky_light": 15
+        }
       }
+    },
+    "render_types": {},
+    "textures": {
+      "layer0": "l2weaponry:item/generated/fiery/javelin"
     }
   },
+  "gui_light": "front",
+  "loader": "neoforge:separate_transforms",
   "overrides": [
     {
       "model": "l2weaponry:item/fiery_javelin_throwing",
@@ -17,8 +25,22 @@
       }
     }
   ],
-  "render_types": {},
-  "textures": {
-    "layer0": "l2weaponry:item/generated/fiery/javelin"
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "loader": "neoforge:item_layers",
+      "neoforge_data": {
+        "layers": {
+          "0": {
+            "block_light": 15,
+            "sky_light": 15
+          }
+        }
+      },
+      "render_types": {},
+      "textures": {
+        "layer0": "l2weaponry:item/icon/fiery/javelin"
+      }
+    }
   }
 }

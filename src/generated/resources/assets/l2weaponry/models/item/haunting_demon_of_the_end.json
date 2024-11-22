@@ -8,7 +8,7 @@
     "gui": {
       "parent": "minecraft:item/generated",
       "textures": {
-        "layer0": "l2weaponry:item/generated/legendary/haunting_demon_of_the_end"
+        "layer0": "l2weaponry:item/icon/legendary/haunting_demon_of_the_end"
       }
     }
   }

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "l2weaponry:item/throwing_axe",
   "loader": "neoforge:item_layers",
   "neoforge_data": {
     "layers": {

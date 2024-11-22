@@ -1,16 +1,38 @@
 {
-  "parent": "l2weaponry:item/battle_axe",
-  "loader": "neoforge:item_layers",
-  "neoforge_data": {
-    "layers": {
-      "0": {
-        "block_light": 15,
-        "sky_light": 15
+  "base": {
+    "parent": "l2weaponry:item/scythe",
+    "loader": "neoforge:item_layers",
+    "neoforge_data": {
+      "layers": {
+        "0": {
+          "block_light": 15,
+          "sky_light": 15
+        }
       }
+    },
+    "render_types": {},
+    "textures": {
+      "layer0": "l2weaponry:item/generated/fiery/scythe"
     }
   },
-  "render_types": {},
-  "textures": {
-    "layer0": "l2weaponry:item/generated/fiery/scythe"
+  "gui_light": "front",
+  "loader": "neoforge:separate_transforms",
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "loader": "neoforge:item_layers",
+      "neoforge_data": {
+        "layers": {
+          "0": {
+            "block_light": 15,
+            "sky_light": 15
+          }
+        }
+      },
+      "render_types": {},
+      "textures": {
+        "layer0": "l2weaponry:item/icon/fiery/scythe"
+      }
+    }
   }
 }

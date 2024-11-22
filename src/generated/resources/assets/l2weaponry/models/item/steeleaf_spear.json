@@ -1,6 +1,18 @@
 {
-  "parent": "l2weaponry:item/long_weapon",
-  "textures": {
-    "layer0": "l2weaponry:item/generated/steeleaf/spear"
+  "base": {
+    "parent": "l2weaponry:item/long_weapon",
+    "textures": {
+      "layer0": "l2weaponry:item/generated/steeleaf/spear"
+    }
+  },
+  "gui_light": "front",
+  "loader": "neoforge:separate_transforms",
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "l2weaponry:item/icon/steeleaf/spear"
+      }
+    }
   }
 }

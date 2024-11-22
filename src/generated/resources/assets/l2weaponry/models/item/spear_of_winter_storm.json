@@ -8,7 +8,7 @@
     "gui": {
       "parent": "minecraft:item/generated",
       "textures": {
-        "layer0": "l2weaponry:item/generated/legendary/spear_of_winter_storm"
+        "layer0": "l2weaponry:item/icon/legendary/spear_of_winter_storm"
       }
     }
   }

@@ -11,7 +11,7 @@
     "gui": {
       "parent": "minecraft:item/generated",
       "textures": {
-        "layer0": "l2weaponry:item/generated/eternium/spear"
+        "layer0": "l2weaponry:item/icon/eternium/spear"
       }
     }
   }

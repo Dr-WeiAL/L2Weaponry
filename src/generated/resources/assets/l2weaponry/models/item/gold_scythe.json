@@ -1,6 +1,18 @@
 {
-  "parent": "l2weaponry:item/battle_axe",
-  "textures": {
-    "layer0": "l2weaponry:item/generated/gold/scythe"
+  "base": {
+    "parent": "l2weaponry:item/scythe",
+    "textures": {
+      "layer0": "l2weaponry:item/generated/gold/scythe"
+    }
+  },
+  "gui_light": "front",
+  "loader": "neoforge:separate_transforms",
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "l2weaponry:item/icon/gold/scythe"
+      }
+    }
   }
 }
