@@ -165,7 +165,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 
 	@Nullable
 	protected EntityHitResult findHitEntity(Vec3 pStartVec, Vec3 pEndVec) {
-		return this.remainingHit == 0 ? null : super.findHitEntity(pStartVec, pEndVec);
+		return (remainingHit == 0 || isNoPhysics()) ? null : super.findHitEntity(pStartVec, pEndVec);
 	}
 
 	protected void onHitEntity(EntityHitResult pResult) {
@@ -225,27 +225,7 @@ public class BaseThrownWeaponEntity<T extends BaseThrownWeaponEntity<T>> extends
 	}
 
 	protected boolean tryPickup(Player player) {
-		if (pickup == Pickup.CREATIVE_ONLY) {
-			return player.getAbilities().instabuild;
-		}
-		if (pickup == Pickup.ALLOWED || isNoPhysics() && ownedBy(player)) {
-			return addToPlayer(player, getPickupItem());
-		}
-		return false;
-	}
-
-	protected boolean addToPlayer(Player player, ItemStack stack) {
-		if (slot == 40) {
-			if (player.getOffhandItem().isEmpty()) {
-				player.setItemInHand(InteractionHand.OFF_HAND, stack.copy());
-				stack.setCount(0);
-				return true;
-			}
-		} else if (player.getInventory().getItem(slot).isEmpty()) {
-			if (player.getInventory().add(slot, stack))
-				return true;
-		}
-		return player.getInventory().add(stack);
+		return super.tryPickup(player) || this.isNoPhysics() && this.ownedBy(player) && player.getInventory().add(this.getPickupItem());
 	}
 
 	protected SoundEvent getDefaultHitGroundSoundEvent() {

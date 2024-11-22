@@ -50,7 +50,7 @@ public class LWGenItem {
 	public static <T extends Item> void model(LWToolTypes type, ILWToolMats mat, DataGenContext<Item, T> ctx,
 											  RegistrateItemModelProvider pvd, String matName, String toolName,
 											  boolean is3D) {
-		boolean iconic = type == LWToolTypes.BATTLE_AXE;
+		boolean iconic = type.hasIcon();
 		ResourceLocation tex3d = pvd.modLoc("item/3d/" + toolName + "/" + matName);
 		ResourceLocation icon = pvd.modLoc("item/icon/" + matName + "/" + toolName);
 		ResourceLocation tex2d = pvd.modLoc("item/generated/" + matName + "/" + toolName);
@@ -63,7 +63,7 @@ public class LWGenItem {
 				String parent = "3d_" + toolName;
 				var model = pvd.getBuilder(ctx.getName());
 				if (type == LWToolTypes.JAVELIN) {
-					throwing(ctx, pvd, model, mat, type, pvd.modLoc("item/" + parent + "_throwing"), tex3d);
+					throwing(ctx, pvd, model, mat, type, parent + "_throwing", tex3d, iconic, icon);
 				}
 				genSeparate(pvd, model, mat, type, parent, tex3d, icon);
 			}
@@ -76,9 +76,9 @@ public class LWGenItem {
 		} else {
 			var model = defaultModel(ctx, pvd, mat, type, iconic, tex2d, icon);
 			if (type == LWToolTypes.THROWING_AXE) {
-				throwing(ctx, pvd, model, mat, type, pvd.modLoc("item/handheld_throwing"), tex2d);
+				throwing(ctx, pvd, model, mat, type, "handheld_throwing", tex2d, iconic, icon);
 			} else if (type == LWToolTypes.JAVELIN) {
-				throwing(ctx, pvd, model, mat, type, pvd.modLoc("item/long_weapon_throwing"), tex2d);
+				throwing(ctx, pvd, model, mat, type, "long_weapon_throwing", tex2d, iconic, icon);
 			} else if (type == LWToolTypes.NUNCHAKU) {
 				spinning(ctx, pvd, model, mat, type, tex2d);
 			}
@@ -119,11 +119,15 @@ public class LWGenItem {
 
 	private static <T extends Item> void throwing(
 			DataGenContext<Item, T> ctx, RegistrateItemModelProvider pvd, ItemModelBuilder model,
-			ILWToolMats mat, LWToolTypes type, ResourceLocation throwing, ResourceLocation tex2d) {
+			ILWToolMats mat, LWToolTypes type, String throwing, ResourceLocation tex2d,
+			boolean iconic, ResourceLocation icon) {
 		model.override().predicate(pvd.modLoc("throwing"), 1)
 				.model(new ModelFile.UncheckedModelFile(pvd.modLoc("item/" + pvd.name(ctx) + "_throwing"))).end();
-		mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", throwing)
-				.texture("layer0", tex2d));
+		if (iconic) {
+			genSeparate(pvd, pvd.getBuilder(pvd.name(ctx) + "_throwing"), mat, type, throwing, tex2d, icon);
+		} else {
+			mat.model(type, pvd.withExistingParent(pvd.name(ctx) + "_throwing", pvd.modLoc("item/" + throwing)).texture("layer0", tex2d));
+		}
 	}
 
 	private static <T extends Item> void spinning(
@@ -152,5 +156,6 @@ public class LWGenItem {
 				.perspective(ItemDisplayContext.GUI,
 						mat.model(type, iconModel));
 	}
+
 
 }
