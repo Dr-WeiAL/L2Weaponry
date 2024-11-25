@@ -1,3 +1,8 @@
+3.0.2
+- Improve BetterCombat integration
+- Fix loyalty enchanted javelin return problem
+- Add more 16x iconic texture for items that are using 32x model texture
+
 3.0.1+5
 - Fix steeleaf weapon crashing
 

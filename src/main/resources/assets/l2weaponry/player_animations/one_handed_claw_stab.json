@@ -1,7 +1,7 @@
 {
-    "name": "one_handed_stab",
-    "author": "Daedelus",
-    "description": "One handed stab attack",
+    "name": "one_handed_claw_stab",
+    "author": "WeiAL",
+    "description": "One handed claw stab attack",
     "emote":{
         "isLoop": "false",
         "returnTick": 2,
