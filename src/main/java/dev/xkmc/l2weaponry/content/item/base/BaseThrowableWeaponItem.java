@@ -65,7 +65,7 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 			proj.getPersistentData().putInt("DespawnFactor", 20);
 		}
 		level.addFreshEntity(proj);
-		player.playSound(SoundEvents.TRIDENT_THROW.value(), 1.0F, 1.0F);
+		proj.playSound(SoundEvents.TRIDENT_THROW.value(), 1.0F, 1.0F);
 		if (!no_pickup) {
 			player.getInventory().removeItem(stack);
 		}
