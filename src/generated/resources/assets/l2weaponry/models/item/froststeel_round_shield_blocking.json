@@ -1,0 +1,6 @@
+{
+  "parent": "l2weaponry:item/round_shield_blocking",
+  "textures": {
+    "0": "l2weaponry:item/generated/froststeel/round_shield"
+  }
+}

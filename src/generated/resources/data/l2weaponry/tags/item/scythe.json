@@ -25,6 +25,22 @@
     {
       "id": "l2weaponry:fiery_scythe",
       "required": false
+    },
+    {
+      "id": "l2weaponry:cloggrum_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_scythe",
+      "required": false
     }
   ]
 }

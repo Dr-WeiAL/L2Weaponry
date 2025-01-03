@@ -1,29 +1,23 @@
+3.0.3
+- Fix Fiery shields model
+- Add Undergarden integration
+
 3.0.2
 - Improve BetterCombat integration
 - Fix loyalty enchanted javelin return problem
 - Add more 16x iconic texture for items that are using 32x model texture
 
-3.0.1+5
+3.0.1+x
 - Fix steeleaf weapon crashing
-
-3.0.1+4
 - Fix better combat compat
-
-3.0.1+3
 - Fix enchantment tooltip
-
-3.0.1+2
 - Add Twilight Forest crossover weapons
 - Add Scythe
 - Fix heavy enchantment applicable items
 
-3.0.0+5
+3.0.0+x
 - Fix emissive models
-
-3.0.0+4
 - Use NeoForge 21.1.4 to fix enchantability
-
-3.0.0+3
 - fix ghost slash fix
 - fix Shadow Hunter
 - fix Flame Axe

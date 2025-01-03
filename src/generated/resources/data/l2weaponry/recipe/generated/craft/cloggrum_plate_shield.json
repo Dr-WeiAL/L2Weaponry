@@ -1,0 +1,27 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "undergarden:underbean_on_a_stick"
+    },
+    "I": {
+      "item": "undergarden:cloggrum_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "IHI",
+    " I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:cloggrum_plate_shield"
+  }
+}

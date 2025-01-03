@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "undergarden:underbean_on_a_stick"
+    },
+    "I": {
+      "item": "undergarden:forgotten_ingot"
+    }
+  },
+  "pattern": [
+    "II",
+    "IH"
+  ],
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:forgotten_throwing_axe"
+  }
+}

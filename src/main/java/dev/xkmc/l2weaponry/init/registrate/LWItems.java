@@ -5,6 +5,7 @@ import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
+import dev.xkmc.l2weaponry.compat.undergarden.UGCompat;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.content.item.types.NunchakuItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -21,6 +22,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.neoforged.fml.ModList;
+import quek.undergarden.Undergarden;
 import twilightforest.TwilightForestMod;
 
 import java.util.ArrayList;
@@ -110,12 +112,12 @@ public class LWItems {
 			TFCompat.register();
 		}
 
+		if (ModList.get().isLoaded(Undergarden.MODID)) {
+			UGCompat.register();
+		}
 		/* TODO compat
 		if (ModList.get().isLoaded(IceAndFire.MODID)) {
 			DragonCompat.register();
-		}
-		if (ModList.get().isLoaded(Undergarden.MODID)) {
-			UGCompat.register();
 		}
 		if (ModList.get().isLoaded(AerialHell.MODID)) {
 			AHCompat.register();

@@ -26,6 +26,22 @@
     {
       "id": "l2weaponry:fiery_claw",
       "required": false
+    },
+    {
+      "id": "l2weaponry:cloggrum_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_claw",
+      "required": false
     }
   ]
 }

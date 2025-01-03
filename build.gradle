@@ -5,7 +5,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.151'
+    id 'net.neoforged.gradle.userdev' version '7.0.165'
     id 'net.darkhax.curseforgegradle' version '[1.1.24,)'
     id "at.stnwtr.gradle-secrets-plugin" version "1.0.1"
     id "com.modrinth.minotaur" version "2.+"
@@ -161,6 +161,8 @@ dependencies {
     implementation "vazkii.patchouli:Patchouli:${patchouli_ver}"
     implementation "curse.maven:the-twilight-forest-227639:5699076"
     compileOnly "curse.maven:mouse-tweaks-60089:5437296"
+
+    implementation "curse.maven:the-undergarden-379849:5769852"
 }
 
 

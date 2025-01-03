@@ -24,6 +24,22 @@
     {
       "id": "l2weaponry:fiery_round_shield",
       "required": false
+    },
+    {
+      "id": "l2weaponry:cloggrum_round_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:froststeel_round_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:utherium_round_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:forgotten_round_shield",
+      "required": false
     }
   ]
 }
