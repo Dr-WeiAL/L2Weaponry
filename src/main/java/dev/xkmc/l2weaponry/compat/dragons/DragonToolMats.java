@@ -1,9 +1,5 @@
 package dev.xkmc.l2weaponry.compat.dragons;
 
-import com.github.alexthe666.iceandfire.IceAndFire;
-import com.github.alexthe666.iceandfire.block.IafBlockRegistry;
-import com.github.alexthe666.iceandfire.item.DragonSteelTier;
-import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.google.common.collect.Lists;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
@@ -22,9 +18,9 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public enum DragonToolMats implements ILWToolMats {
-	ICE_DRAGONSTEEL(new ModMats(DragonSteelTier.DRAGONSTEEL_TIER_ICE, new IceDragonBoneTool()), true, IafItemRegistry.DRAGONSTEEL_ICE_INGOT, IafBlockRegistry.DRAGONSTEEL_ICE_BLOCK),
-	FIRE_DRAGONSTEEL(new ModMats(DragonSteelTier.DRAGONSTEEL_TIER_FIRE, new FireDragonBoneTool()), true, IafItemRegistry.DRAGONSTEEL_FIRE_INGOT, IafBlockRegistry.DRAGONSTEEL_FIRE_BLOCK),
-	LIGHTNING_DRAGONSTEEL(new ModMats(DragonSteelTier.DRAGONSTEEL_TIER_LIGHTNING, new LightningDragonBoneTool()), true, IafItemRegistry.DRAGONSTEEL_LIGHTNING_INGOT, IafBlockRegistry.DRAGONSTEEL_LIGHTNING_BLOCK),
+	ICE_DRAGONSTEEL(new ModMats(IAFProxy.get().tierIce(), new IceDragonBoneTool()), true, IAFProxy.get().ingotIceSteel(), IAFProxy.get().blockIceSteel()),
+	FIRE_DRAGONSTEEL(new ModMats(IAFProxy.get().tierFire(), new FireDragonBoneTool()), true, IAFProxy.get().ingotFireSteel(), IAFProxy.get().blockFireSteel()),
+	LIGHTNING_DRAGONSTEEL(new ModMats(IAFProxy.get().tierLightning(), new LightningDragonBoneTool()), true, IAFProxy.get().ingotLightningSteel(), IAFProxy.get().blockLightningSteel()),
 	;
 
 	private final IMatToolType type;
@@ -66,12 +62,12 @@ public enum DragonToolMats implements ILWToolMats {
 
 	@Override
 	public Item getStick() {
-		return IafItemRegistry.WITHERBONE.get();
+		return IAFProxy.get().witherBone();
 	}
 
 	@Override
 	public Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd, ICondition... cond) {
-		List<ICondition> list = Lists.asList(new ModLoadedCondition(IceAndFire.MODID), cond);
+		List<ICondition> list = Lists.asList(new ModLoadedCondition(IAFProxy.get().modid()), cond);
 		return ConditionalRecipeWrapper.of(pvd, list.toArray(ICondition[]::new));
 	}
 

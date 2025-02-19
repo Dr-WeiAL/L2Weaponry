@@ -170,6 +170,9 @@ repositories {
         // Location of the maven for mixed mappings, Registrate, and Flywheel
         name 'tterrag maven'
         url 'https://maven.tterrag.com/'
+        content {
+            includeGroup "com.tterrag.registrate"
+        }
     }
     maven {
         url 'https://www.cursemaven.com'
@@ -177,11 +180,24 @@ repositories {
             includeGroup "curse.maven"
         }
     }
-    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    maven {
+        url 'https://maven.iafenvoy.com/releases/'
+        content {
+            includeGroup "com.iafenvoy"
+        }
+    }
+    maven {
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+    }
     maven {
         url = "https://maven.theillusivec4.top/"
     }
-    maven { url 'https://jitpack.io' }
+    maven {
+        url 'https://jitpack.io'
+        content {
+            includeGroup "com.github.llamalad7.mixinextras"
+        }
+    }
 }
 
 dependencies {
@@ -227,12 +243,17 @@ dependencies {
     implementation fg.deobf("curse.maven:deeperdarker-659011:4807511")
     implementation fg.deobf("curse.maven:the-undergarden-379849:5182632")
 
+    compileOnly fg.deobf("curse.maven:architectury-api-419699:5137938")
+    compileOnly fg.deobf("curse.maven:uranus-1010827:6095271")
+    compileOnly fg.deobf("curse.maven:jupiter-1072905:5881564")
+    compileOnly fg.deobf("com.iafenvoy:iceandfire:1.0-1.20.1-forge")
+
 }
 
 tasks.register('publishCurseForge', TaskPublishCurseForge) {
     apiToken = secrets.get("curseforge_token")
     def mainFile = upload(project.curseforge_project, new File("./build/libs/${modid}-${ll_version}.jar"))
-    mainFile.changelog = new File('./changelog.txt')
+    mainFile.changelog = new File('./changelog.txt').text.split("\n\n\n")[0]
     mainFile.addEnvironment("Client", "Server")
     mainFile.addGameVersion("1.20.1")
     mainFile.addModLoader("Forge","NeoForge")

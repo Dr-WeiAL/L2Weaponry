@@ -1,3 +1,7 @@
+2.4.37
+- Support Ice and Fire Community Edition
+
+
 2.4.36
 - Add 16x gui icon texture for all weapons
 - Fix loyalty enchanted throwable weapons not able to be pickup if player switch from creative to survival
