@@ -40,6 +40,18 @@
     {
       "id": "l2weaponry:forgotten_round_shield",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ice_dragonsteel_round_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_round_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_round_shield",
+      "required": false
     }
   ]
 }

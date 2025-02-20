@@ -40,6 +40,18 @@
     {
       "id": "l2weaponry:forgotten_plate_shield",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ice_dragonsteel_plate_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_plate_shield",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_plate_shield",
+      "required": false
     }
   ]
 }

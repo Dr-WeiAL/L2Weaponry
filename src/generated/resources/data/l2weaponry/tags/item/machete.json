@@ -43,6 +43,18 @@
     {
       "id": "l2weaponry:forgotten_machete",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ice_dragonsteel_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_machete",
+      "required": false
     }
   ]
 }

@@ -40,6 +40,18 @@
     {
       "id": "l2weaponry:forgotten_nunchaku",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ice_dragonsteel_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_nunchaku",
+      "required": false
     }
   ]
 }

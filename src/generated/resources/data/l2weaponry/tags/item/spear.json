@@ -42,6 +42,18 @@
     {
       "id": "l2weaponry:forgotten_spear",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ice_dragonsteel_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_spear",
+      "required": false
     }
   ]
 }

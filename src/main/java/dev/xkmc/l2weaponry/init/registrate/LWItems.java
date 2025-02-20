@@ -1,9 +1,11 @@
 package dev.xkmc.l2weaponry.init.registrate;
 
+import com.iafenvoy.iceandfire.IceAndFire;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
+import dev.xkmc.l2weaponry.compat.dragons.DragonCompat;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
 import dev.xkmc.l2weaponry.compat.undergarden.UGCompat;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
@@ -115,10 +117,11 @@ public class LWItems {
 		if (ModList.get().isLoaded(Undergarden.MODID)) {
 			UGCompat.register();
 		}
-		/* TODO compat
-		if (ModList.get().isLoaded(IceAndFire.MODID)) {
+
+		if (ModList.get().isLoaded(IceAndFire.MOD_ID)) {
 			DragonCompat.register();
 		}
+		/* TODO compat
 		if (ModList.get().isLoaded(AerialHell.MODID)) {
 			AHCompat.register();
 		}

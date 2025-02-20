@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.init.data;
 
+import com.iafenvoy.iceandfire.IceAndFire;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
 import dev.xkmc.l2complements.content.enchantment.core.EnchantmentRecipeBuilder;
@@ -9,6 +10,7 @@ import dev.xkmc.l2complements.init.registrate.LCItems;
 import dev.xkmc.l2core.serial.configval.BooleanValueCondition;
 import dev.xkmc.l2core.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2core.serial.recipe.AbstractSmithingRecipe;
+import dev.xkmc.l2weaponry.compat.dragons.DragonToolMats;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
 import dev.xkmc.l2weaponry.compat.undergarden.UGToolMats;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -73,13 +75,14 @@ public class LWRecipeGen {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
-			/* TODO compat recipe
 
-			if (ModList.get().isLoaded(IceAndFire.MODID)) {
+			if (ModList.get().isLoaded(IceAndFire.MOD_ID)) {
 				for (ILWToolMats mat : DragonToolMats.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
+			/* TODO compat recipe
+
 			if (ModList.get().isLoaded(AerialHell.MODID)) {
 				for (ILWToolMats mat : AHToolMats.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
