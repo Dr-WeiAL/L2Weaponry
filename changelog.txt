@@ -1,3 +1,6 @@
+3.0.4
+- Add Ice and Fire compat
+
 3.0.3
 - Fix Fiery shields model
 - Add Undergarden integration
