@@ -19,5 +19,7 @@
   "result": {
     "item": "l2weaponry:gold_javelin"
   },
-  "template": []
+  "template": {
+    "tag": "l2library:dummy_smithing_template"
+  }
 }

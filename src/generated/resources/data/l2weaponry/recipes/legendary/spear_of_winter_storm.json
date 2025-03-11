@@ -9,5 +9,7 @@
   "result": {
     "item": "l2weaponry:spear_of_winter_storm"
   },
-  "template": []
+  "template": {
+    "tag": "l2library:dummy_smithing_template"
+  }
 }

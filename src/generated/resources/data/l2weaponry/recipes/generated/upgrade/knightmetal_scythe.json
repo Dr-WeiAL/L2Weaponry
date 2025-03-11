@@ -23,5 +23,7 @@
   "result": {
     "item": "l2weaponry:knightmetal_scythe"
   },
-  "template": []
+  "template": {
+    "tag": "l2library:dummy_smithing_template"
+  }
 }

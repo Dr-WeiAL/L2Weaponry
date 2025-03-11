@@ -23,5 +23,7 @@
   "result": {
     "item": "l2weaponry:fiery_nunchaku"
   },
-  "template": []
+  "template": {
+    "tag": "l2library:dummy_smithing_template"
+  }
 }

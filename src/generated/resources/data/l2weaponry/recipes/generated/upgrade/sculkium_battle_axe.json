@@ -19,5 +19,7 @@
   "result": {
     "item": "l2weaponry:sculkium_battle_axe"
   },
-  "template": []
+  "template": {
+    "tag": "l2library:dummy_smithing_template"
+  }
 }

@@ -23,5 +23,7 @@
   "result": {
     "item": "l2weaponry:volucite_round_shield"
   },
-  "template": []
+  "template": {
+    "tag": "l2library:dummy_smithing_template"
+  }
 }

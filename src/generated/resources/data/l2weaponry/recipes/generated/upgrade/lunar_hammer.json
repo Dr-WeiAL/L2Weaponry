@@ -23,5 +23,7 @@
   "result": {
     "item": "l2weaponry:lunar_hammer"
   },
-  "template": []
+  "template": {
+    "tag": "l2library:dummy_smithing_template"
+  }
 }
