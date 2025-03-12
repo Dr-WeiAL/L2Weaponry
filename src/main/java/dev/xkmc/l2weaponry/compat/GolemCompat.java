@@ -6,7 +6,6 @@ import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
 import dev.xkmc.l2weaponry.content.item.base.GenericShieldItem;
 import dev.xkmc.l2weaponry.content.item.base.WeaponItem;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
-import dev.xkmc.modulargolems.content.entity.humanoid.HumanoidGolemEntity;
 import dev.xkmc.modulargolems.events.event.*;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -14,6 +13,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -32,8 +32,9 @@ public class GolemCompat {
 
 	@SubscribeEvent
 	public static void onEquip(GolemEquipEvent event) {
+		LivingEvent ge = event;
 		if (event.getStack().getItem() instanceof GenericShieldItem item) {
-			if (item.lightWeight(event.getStack()) && event.getEntity().getItemBySlot(EquipmentSlot.OFFHAND).isEmpty())
+			if (item.lightWeight(event.getStack()) && ge.getEntity().getItemBySlot(EquipmentSlot.OFFHAND).isEmpty())
 				event.setSlot(EquipmentSlot.OFFHAND, 1);
 			else event.setSlot(EquipmentSlot.MAINHAND, 1);
 		}
@@ -41,7 +42,8 @@ public class GolemCompat {
 
 	@SubscribeEvent
 	public static void onThrow(GolemThrowableEvent event) {
-		var golem = event.getEntity();
+		LivingEvent ge = event;
+		var golem = ge.getEntity();
 		if (event.getStack().getItem() instanceof BaseThrowableWeaponItem item) {
 			event.setThrowable(level -> {
 				var ans = item.getProjectile(level, golem, event.getStack(), 0);
@@ -53,19 +55,20 @@ public class GolemCompat {
 
 	@SubscribeEvent
 	public static void onBlock(GolemDisableShieldEvent event) {
+		GolemEvent ge = event;
 		ItemStack stack = event.getStack();
 		if (stack.getItem() instanceof BaseShieldItem item) {
-			HumanoidGolemEntity golem = event.getEntity();
-			MobShieldGoal goal = MobShieldGoal.getShieldGoal(golem);
+			MobShieldGoal goal = MobShieldGoal.getShieldGoal(ge.getEntity());
 			event.setDisabled(goal.onBlock(stack, item, event.shouldDisable(), event.getSource()));
 		}
 	}
 
 	@SubscribeEvent
 	public static void onDamageShield(GolemDamageShieldEvent event) {
+		GolemEvent ge = event;
 		ItemStack stack = event.getStack();
 		if (stack.getItem() instanceof BaseShieldItem item) {
-			HumanoidGolemEntity golem = event.getEntity();
+			var golem = ge.getEntity();
 			MobShieldGoal goal = MobShieldGoal.getShieldGoal(golem);
 			goal.onShieldDamage(stack, item, event.getDamage());
 		}
@@ -73,8 +76,9 @@ public class GolemCompat {
 
 	@SubscribeEvent
 	public static void onSweep(GolemSweepEvent event) {
+		LivingEvent ge = event;
 		if (event.getStack().getItem() instanceof WeaponItem weapon) {
-			event.setBox(weapon.getSweepHitBoxImpl(event.getStack(), event.getEntity(), event.getTarget()));
+			event.setBox(weapon.getSweepHitBoxImpl(event.getStack(), ge.getEntity(), event.getTarget()));
 		}
 	}
 
