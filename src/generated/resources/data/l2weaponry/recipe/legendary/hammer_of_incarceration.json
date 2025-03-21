@@ -10,5 +10,7 @@
     "count": 1,
     "id": "l2weaponry:hammer_of_incarceration"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

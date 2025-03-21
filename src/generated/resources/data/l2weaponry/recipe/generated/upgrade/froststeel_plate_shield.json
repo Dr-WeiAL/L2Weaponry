@@ -25,5 +25,7 @@
     "count": 1,
     "id": "l2weaponry:froststeel_plate_shield"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

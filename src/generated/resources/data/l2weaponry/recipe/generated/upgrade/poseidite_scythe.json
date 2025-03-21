@@ -21,5 +21,7 @@
     "count": 1,
     "id": "l2weaponry:poseidite_scythe"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

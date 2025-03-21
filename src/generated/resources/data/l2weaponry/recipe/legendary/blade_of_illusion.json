@@ -10,5 +10,7 @@
     "count": 1,
     "id": "l2weaponry:blade_of_illusion"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

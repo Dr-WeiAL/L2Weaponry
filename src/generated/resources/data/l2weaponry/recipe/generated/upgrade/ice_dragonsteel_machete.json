@@ -25,5 +25,7 @@
     "count": 1,
     "id": "l2weaponry:ice_dragonsteel_machete"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

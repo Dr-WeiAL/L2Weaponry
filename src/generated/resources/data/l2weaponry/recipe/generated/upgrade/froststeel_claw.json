@@ -25,5 +25,7 @@
     "count": 1,
     "id": "l2weaponry:froststeel_claw"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

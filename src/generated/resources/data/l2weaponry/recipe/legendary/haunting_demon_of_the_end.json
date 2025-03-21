@@ -10,5 +10,7 @@
     "count": 1,
     "id": "l2weaponry:haunting_demon_of_the_end"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

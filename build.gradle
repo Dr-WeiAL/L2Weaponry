@@ -154,7 +154,7 @@ dependencies {
     implementation "dev.xkmc:l2library:${l2library_ver}"
     implementation "dev.xkmc:l2damagetracker:${l2damagetracker_ver}"
     implementation "dev.xkmc:modulargolems:${modulargolems_ver}"
-    implementation "dev.xkmc:l2complements:${l2complements_ver}"
+    implementation "dev.xkmc:l2complements:${l2complements_ver}-slim"
 
     implementation "mezz.jei:jei-${jei_minecraft_version}:${jei_version}"
     implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}"

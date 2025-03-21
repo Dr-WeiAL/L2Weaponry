@@ -10,5 +10,7 @@
     "count": 1,
     "id": "l2weaponry:void_escape"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

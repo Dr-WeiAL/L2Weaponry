@@ -21,5 +21,7 @@
     "count": 1,
     "id": "l2weaponry:iron_hammer"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

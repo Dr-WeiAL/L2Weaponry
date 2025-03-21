@@ -21,5 +21,7 @@
     "count": 1,
     "id": "l2weaponry:eternium_plate_shield"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

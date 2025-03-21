@@ -25,5 +25,7 @@
     "count": 1,
     "id": "l2weaponry:cloggrum_nunchaku"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

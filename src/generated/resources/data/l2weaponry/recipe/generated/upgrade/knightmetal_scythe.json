@@ -25,5 +25,7 @@
     "count": 1,
     "id": "l2weaponry:knightmetal_scythe"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

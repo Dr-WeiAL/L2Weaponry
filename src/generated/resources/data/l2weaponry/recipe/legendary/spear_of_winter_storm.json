@@ -10,5 +10,7 @@
     "count": 1,
     "id": "l2weaponry:spear_of_winter_storm"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

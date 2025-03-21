@@ -21,5 +21,7 @@
     "count": 1,
     "id": "l2weaponry:gold_machete"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

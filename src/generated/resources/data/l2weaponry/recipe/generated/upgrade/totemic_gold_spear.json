@@ -21,5 +21,7 @@
     "count": 1,
     "id": "l2weaponry:totemic_gold_spear"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

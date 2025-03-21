@@ -10,5 +10,7 @@
     "count": 1,
     "id": "l2weaponry:dogmatic_standoff"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

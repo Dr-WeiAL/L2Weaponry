@@ -25,5 +25,7 @@
     "count": 1,
     "id": "l2weaponry:knightmetal_javelin"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

@@ -10,5 +10,7 @@
     "count": 1,
     "id": "l2weaponry:axe_of_cursed_flame"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

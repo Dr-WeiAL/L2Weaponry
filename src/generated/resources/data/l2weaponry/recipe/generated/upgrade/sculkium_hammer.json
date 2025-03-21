@@ -21,5 +21,7 @@
     "count": 1,
     "id": "l2weaponry:sculkium_hammer"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

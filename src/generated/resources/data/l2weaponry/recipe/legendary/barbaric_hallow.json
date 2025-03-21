@@ -10,5 +10,7 @@
     "count": 1,
     "id": "l2weaponry:barbaric_hallow"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

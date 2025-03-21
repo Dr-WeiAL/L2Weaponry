@@ -25,5 +25,7 @@
     "count": 1,
     "id": "l2weaponry:ice_dragonsteel_throwing_axe"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }

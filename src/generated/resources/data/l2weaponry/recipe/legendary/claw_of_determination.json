@@ -10,5 +10,7 @@
     "count": 1,
     "id": "l2weaponry:claw_of_determination"
   },
-  "template": []
+  "template": {
+    "item": "minecraft:paper"
+  }
 }
