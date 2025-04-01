@@ -1,8 +1,8 @@
 {
   "base": {
-    "parent": "l2weaponry:item/long_weapon",
+    "parent": "l2weaponry:item/3d_spear",
     "textures": {
-      "layer0": "l2weaponry:item/generated/allthemodium/spear"
+      "layer0": "l2weaponry:item/3d/spear/allthemodium"
     }
   },
   "gui_light": "front",

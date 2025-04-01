@@ -1,8 +1,8 @@
 {
   "base": {
-    "parent": "l2weaponry:item/battle_axe",
+    "parent": "l2weaponry:item/3d_battle_axe",
     "textures": {
-      "layer0": "l2weaponry:item/generated/vibranium/battle_axe"
+      "layer0": "l2weaponry:item/3d/battle_axe/vibranium"
     }
   },
   "gui_light": "front",

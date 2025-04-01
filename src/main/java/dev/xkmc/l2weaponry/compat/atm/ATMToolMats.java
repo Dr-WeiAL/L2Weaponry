@@ -4,6 +4,9 @@ import com.mojang.datafixers.util.Pair;
 import com.thevortex.allthemodium.material.ATMTier;
 import com.thevortex.allthemodium.registry.ModRegistry;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.l2complements.content.enchantment.digging.RangeDiggingEnchantment;
+import dev.xkmc.l2complements.init.registrate.LCEnchantments;
+import dev.xkmc.l2core.init.L2LibReg;
 import dev.xkmc.l2core.util.MathHelper;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import dev.xkmc.l2weaponry.compat.ModMats;
@@ -71,6 +74,7 @@ public enum ATMToolMats implements ILWToolMats {
 		return Items.STICK;
 	}
 
+
 	@Override
 	public boolean hasTool(LWToolTypes type) {
 		if (type == LWToolTypes.ROUND_SHIELD || type == LWToolTypes.PLATE_SHIELD)
@@ -85,9 +89,16 @@ public enum ATMToolMats implements ILWToolMats {
 		}
 		List<LWToolTypes.DefaultEnch> copy = new ArrayList<>(list);
 		list.clear();
+		boolean dig = false;
 		for (var e : copy) {
 			int max = pvd.holderOrThrow(e.key()).value().getMaxLevel();
 			list.add(new LWToolTypes.DefaultEnch(e.key(), Math.min(e.lv() + ordinal() + 1, max)));
+			if (L2LibReg.ENCH.get().get(e.key().location()) instanceof RangeDiggingEnchantment) {
+				dig = true;
+			}
+		}
+		if (dig) {
+			list.add(new LWToolTypes.DefaultEnch(LCEnchantments.ENDER_TRANSPORT.id(), 1));
 		}
 	}
 
@@ -113,6 +124,12 @@ public enum ATMToolMats implements ILWToolMats {
 			case VIBRANIUM -> Pair.of(ALLTHEMODIUM, ModRegistry.VIB_SMITHING.get());
 			case UNOBTAINIUM -> Pair.of(UNOBTAINIUM, ModRegistry.UNO_SMITHING.get());
 		};
+	}
+
+	@Override
+	public boolean is3D(LWToolTypes type) {
+		return type == LWToolTypes.BATTLE_AXE || type == LWToolTypes.HAMMER ||
+				type == LWToolTypes.JAVELIN || type == LWToolTypes.SPEAR;
 	}
 
 }

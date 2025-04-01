@@ -1,6 +1,18 @@
 {
-  "parent": "l2weaponry:item/hammer",
-  "textures": {
-    "layer0": "l2weaponry:item/generated/unobtainium/hammer"
+  "base": {
+    "parent": "l2weaponry:item/3d_hammer",
+    "textures": {
+      "layer0": "l2weaponry:item/3d/hammer/unobtainium"
+    }
+  },
+  "gui_light": "front",
+  "loader": "neoforge:separate_transforms",
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "l2weaponry:item/generated/unobtainium/hammer"
+      }
+    }
   }
 }

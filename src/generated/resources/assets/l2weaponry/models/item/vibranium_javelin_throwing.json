@@ -1,8 +1,8 @@
 {
   "base": {
-    "parent": "l2weaponry:item/long_weapon_throwing",
+    "parent": "l2weaponry:item/3d_javelin_throwing",
     "textures": {
-      "layer0": "l2weaponry:item/generated/vibranium/javelin"
+      "layer0": "l2weaponry:item/3d/javelin/vibranium"
     }
   },
   "gui_light": "front",
