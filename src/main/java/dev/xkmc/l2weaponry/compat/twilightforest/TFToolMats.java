@@ -8,6 +8,7 @@ import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -71,7 +72,7 @@ public enum TFToolMats implements ILWToolMats {
 	}
 
 	@Override
-	public void addEnchants(List<LWToolTypes.DefaultEnch> list, LWToolTypes type) {
+	public void addEnchants(HolderLookup.Provider pvd, List<LWToolTypes.DefaultEnch> list, LWToolTypes type) {
 		if (this.type.getExtraToolConfig() instanceof LWExtraConfig lw) {
 			lw.addEnchants(list, type, getTool(type));
 		}

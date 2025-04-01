@@ -43,7 +43,7 @@ public interface ILWToolMats {
 		return Items.CHAIN;
 	}
 
-	default void addEnchants(List<LWToolTypes.DefaultEnch> list, LWToolTypes type) {
+	default void addEnchants(HolderLookup.Provider pvd, List<LWToolTypes.DefaultEnch> list, LWToolTypes type) {
 	}
 
 	default void saveRecipe(Supplier<ShapedRecipeBuilder> b, RegistrateRecipeProvider pvd, LWToolTypes type, ResourceLocation id) {
@@ -101,7 +101,7 @@ public interface ILWToolMats {
 
 	default ItemStack getToolEnchanted(HolderLookup.Provider pvd, LWToolTypes type) {
 		var enchs = new ArrayList<>(type.getEnchs());
-		addEnchants(enchs, type);
+		addEnchants(pvd, enchs, type);
 		ItemStack stack = getTool(type).getDefaultInstance();
 		if (!enchs.isEmpty()) {
 			for (var e : enchs) {

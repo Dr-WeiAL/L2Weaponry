@@ -5,39 +5,35 @@
     "attacks": [
       {
         "hitbox": "HORIZONTAL_PLANE",
-        "damage_multiplier": 1.0,
+        "damage_multiplier": 1,
         "angle": 120,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_slash_horizontal_right",
         "swing_sound": {
-          "id": "bettercombat:sword_slash"
+          "id": "bettercombat:claymore_stab"
         }
       },
       {
-        "conditions": [
-          "NOT_DUAL_WIELDING"
-        ],
         "hitbox": "HORIZONTAL_PLANE",
-        "damage_multiplier": 1.0,
+        "damage_multiplier": 1,
         "angle": 120,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_slash_horizontal_left",
         "swing_sound": {
-          "id": "bettercombat:sword_slash"
+          "id": "bettercombat:claymore_stab"
         }
       },
       {
         "conditions": [
-          "DUAL_WIELDING_SAME",
           "MAIN_HAND_ONLY"
         ],
-        "hitbox": "HORIZONTAL_PLANE",
-        "damage_multiplier": 1.2,
-        "angle": 120,
+        "hitbox": "FORWARD_BOX",
+        "damage_multiplier": 1,
+        "angle": 0,
         "upswing": 0.5,
-        "animation": "bettercombat:dual_handed_slash_cross",
+        "animation": "bettercombat:one_handed_stab",
         "swing_sound": {
-          "id": "bettercombat:sickle_slash"
+          "id": "bettercombat:katana_slash"
         }
       },
       {
@@ -46,13 +42,12 @@
           "OFF_HAND_ONLY"
         ],
         "hitbox": "HORIZONTAL_PLANE",
-        "damage_multiplier": 1.2,
+        "damage_multiplier": 0.8,
         "angle": 360,
         "upswing": 0.5,
-        "animation": "l2weaponry:dual_handed_machete_backwards",
+        "animation": "bettercombat:two_handed_spin",
         "swing_sound": {
-          "id": "bettercombat:sickle_slash",
-          "pitch": "1.2"
+          "id": "bettercombat:claymore_stab"
         }
       }
     ]
