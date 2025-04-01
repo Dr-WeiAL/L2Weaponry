@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "allthemodium:allthemodium_ingot"
+  },
+  "base": {
+    "item": "l2weaponry:netherite_dagger"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:allthemodium_dagger"
+  },
+  "template": {
+    "item": "allthemodium:allthemodium_upgrade_smithing_template"
+  }
+}

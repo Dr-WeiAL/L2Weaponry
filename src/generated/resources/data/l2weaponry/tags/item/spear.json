@@ -54,6 +54,18 @@
     {
       "id": "l2weaponry:lightning_dragonsteel_spear",
       "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_spear",
+      "required": false
     }
   ]
 }

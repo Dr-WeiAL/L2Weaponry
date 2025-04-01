@@ -55,6 +55,18 @@
     {
       "id": "l2weaponry:lightning_dragonsteel_machete",
       "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_machete",
+      "required": false
     }
   ]
 }

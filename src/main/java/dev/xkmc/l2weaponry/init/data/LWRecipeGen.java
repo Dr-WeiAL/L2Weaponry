@@ -10,6 +10,7 @@ import dev.xkmc.l2complements.init.registrate.LCItems;
 import dev.xkmc.l2core.serial.configval.BooleanValueCondition;
 import dev.xkmc.l2core.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2core.serial.recipe.AbstractSmithingRecipe;
+import dev.xkmc.l2weaponry.compat.atm.ATMToolMats;
 import dev.xkmc.l2weaponry.compat.dragons.DragonToolMats;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
 import dev.xkmc.l2weaponry.compat.undergarden.UGToolMats;
@@ -78,6 +79,12 @@ public class LWRecipeGen {
 
 			if (ModList.get().isLoaded(IceAndFire.MOD_ID)) {
 				for (ILWToolMats mat : DragonToolMats.values()) {
+					tools(pvd, mat.getStick(), mat.getIngot(), mat);
+				}
+			}
+
+			if (ModList.get().isLoaded("allthemodium")) {
+				for (ILWToolMats mat : ATMToolMats.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
@@ -292,18 +299,18 @@ public class LWRecipeGen {
 		mat.saveRecipe(sup, pvd, type, getID(mat.getTool(type)));
 	}
 
-	public static void upgrade(RegistrateRecipeProvider pvd, ILWToolMats base, ILWToolMats mat) {
+	public static void upgrade(RegistrateRecipeProvider pvd, ILWToolMats base, ILWToolMats mat, Item template) {
 		currentFolder = "generated/upgrade/";
 		for (LWToolTypes t : LWToolTypes.values()) {
 			if (!mat.hasTool(t)) continue;
-			smithing(pvd, base.getTool(t), mat.getIngot(), mat.getTool(t));
+			smithing(pvd, base.getTool(t), mat.getIngot(), mat.getTool(t), template);
 		}
 	}
 
 	public static void tools(RegistrateRecipeProvider pvd, Item handle, Item ingot, ILWToolMats mat) {
 		var base = mat.getBaseUpgrade();
 		if (base != null) {
-			upgrade(pvd, base, mat);
+			upgrade(pvd, base.getFirst(), mat, base.getSecond());
 			return;
 		}
 		currentFolder = "generated/craft/";
@@ -332,6 +339,12 @@ public class LWRecipeGen {
 
 	public static void smithing(RegistrateRecipeProvider pvd, TagKey<Item> in, Item mat, Item out) {
 		unlock(pvd, SmithingTransformRecipeBuilder.smithing(AbstractSmithingRecipe.TEMPLATE_PLACEHOLDER, Ingredient.of(in), Ingredient.of(mat),
+				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out));
+	}
+
+
+	public static void smithing(RegistrateRecipeProvider pvd, Item in, Item mat, Item out, Item template) {
+		unlock(pvd, SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(in), Ingredient.of(mat),
 				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out));
 	}
 

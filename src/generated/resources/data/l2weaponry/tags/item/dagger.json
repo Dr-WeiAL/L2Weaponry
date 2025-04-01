@@ -54,6 +54,18 @@
     {
       "id": "l2weaponry:lightning_dragonsteel_dagger",
       "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_dagger",
+      "required": false
     }
   ]
 }

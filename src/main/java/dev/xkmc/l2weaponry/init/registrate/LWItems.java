@@ -5,6 +5,7 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
+import dev.xkmc.l2weaponry.compat.atm.ATMCompat;
 import dev.xkmc.l2weaponry.compat.dragons.DragonCompat;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
 import dev.xkmc.l2weaponry.compat.undergarden.UGCompat;
@@ -120,6 +121,9 @@ public class LWItems {
 
 		if (ModList.get().isLoaded(IceAndFire.MOD_ID)) {
 			DragonCompat.register();
+		}
+		if (ModList.get().isLoaded("allthemodium")) {
+			ATMCompat.register();
 		}
 		/* TODO compat
 		if (ModList.get().isLoaded(AerialHell.MODID)) {

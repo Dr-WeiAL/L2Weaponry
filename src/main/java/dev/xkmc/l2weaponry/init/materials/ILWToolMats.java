@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.init.materials;
 
+import com.mojang.datafixers.util.Pair;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2core.serial.configval.BooleanValueCondition;
 import dev.xkmc.l2core.serial.recipe.ConditionalRecipeWrapper;
@@ -90,7 +91,7 @@ public interface ILWToolMats {
 	}
 
 	@Nullable
-	default ILWToolMats getBaseUpgrade() {
+	default Pair<ILWToolMats,Item> getBaseUpgrade() {
 		return null;
 	}
 

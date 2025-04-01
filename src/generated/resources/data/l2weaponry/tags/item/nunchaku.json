@@ -52,6 +52,18 @@
     {
       "id": "l2weaponry:lightning_dragonsteel_nunchaku",
       "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_nunchaku",
+      "required": false
     }
   ]
 }

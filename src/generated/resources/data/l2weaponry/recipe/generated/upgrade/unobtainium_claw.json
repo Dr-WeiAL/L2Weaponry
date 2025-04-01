@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "allthemodium:unobtainium_ingot"
+  },
+  "base": {
+    "item": "l2weaponry:unobtainium_claw"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:unobtainium_claw"
+  },
+  "template": {
+    "item": "allthemodium:unobtainium_upgrade_smithing_template"
+  }
+}

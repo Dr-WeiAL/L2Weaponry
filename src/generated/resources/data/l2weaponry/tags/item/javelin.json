@@ -54,6 +54,18 @@
     {
       "id": "l2weaponry:lightning_dragonsteel_javelin",
       "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_javelin",
+      "required": false
     }
   ]
 }

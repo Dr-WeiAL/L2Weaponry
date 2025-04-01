@@ -1,5 +1,6 @@
 package dev.xkmc.l2weaponry.init.materials;
 
+import com.mojang.datafixers.util.Pair;
 import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatToolType;
 import dev.xkmc.l2damagetracker.contents.materials.vanilla.VanillaMats;
@@ -59,8 +60,8 @@ public enum LWToolMats implements ILWToolMats {
 	}
 
 	@Override
-	public @Nullable ILWToolMats getBaseUpgrade() {
-		return this == NETHERITE ? DIAMOND : null;
+	public @Nullable Pair<ILWToolMats, Item> getBaseUpgrade() {
+		return this == NETHERITE ? Pair.of(DIAMOND, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE) : null;
 	}
 
 	@Override

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "allthemodium:vibranium_ingot"
+  },
+  "base": {
+    "item": "l2weaponry:allthemodium_hammer"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:vibranium_hammer"
+  },
+  "template": {
+    "item": "allthemodium:vibranium_upgrade_smithing_template"
+  }
+}

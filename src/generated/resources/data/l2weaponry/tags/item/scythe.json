@@ -53,6 +53,18 @@
     {
       "id": "l2weaponry:lightning_dragonsteel_scythe",
       "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_scythe",
+      "required": false
     }
   ]
 }

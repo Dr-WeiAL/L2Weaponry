@@ -53,6 +53,18 @@
     {
       "id": "l2weaponry:lightning_dragonsteel_throwing_axe",
       "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_throwing_axe",
+      "required": false
     }
   ]
 }

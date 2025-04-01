@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "allthemodium:vibranium_ingot"
+  },
+  "base": {
+    "item": "l2weaponry:allthemodium_throwing_axe"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:vibranium_throwing_axe"
+  },
+  "template": {
+    "item": "allthemodium:vibranium_upgrade_smithing_template"
+  }
+}
