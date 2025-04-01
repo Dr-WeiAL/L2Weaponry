@@ -1,0 +1,41 @@
+{
+    "attributes": {
+      "attack_range": 2,
+      "two_handed": false,
+      "pose": "bettercombat:pose_one_handed_backwards",
+      "attacks": [
+        {
+            "hitbox": "FORWARD_BOX",
+            "damage_multiplier": 1,
+            "angle": 120,
+            "upswing": 0.5,
+            "animation": "bettercombat:one_handed_stab",
+            "swing_sound": {
+              "id": "bettercombat:dagger_slash"
+            }
+          },
+          {
+            "hitbox": "HORIZONTAL_PLANE",
+            "damage_multiplier": 1,
+            "angle": 120,
+            "upswing": 0.5,
+            "animation": "bettercombat:one_handed_uppercut_right",
+            "swing_sound": {
+              "id": "bettercombat:dagger_slash"
+            }
+          },
+        {
+            "conditions": ["DUAL_WIELDING_SAME","MAIN_HAND_ONLY"],
+            "hitbox": "FORWARD_BOX",
+            "damage_multiplier": 1.2,
+            "angle": 0,
+            "upswing": 0.5,
+            "animation": "bettercombat:dual_handed_stab",
+            "swing_sound": {
+              "id": "bettercombat:katana_slash",
+              "randomness": 0
+            }
+          }
+      ]
+    }
+  }
