@@ -1,5 +1,8 @@
-3.0.7
+3.0.8
 - Fix Unobtainium weapon recipe. Makes ATM weapons unbreakable
+- Add ATM Scythe model
+- Adjust ATM stats
+- Require NeoForge version that has correct sweeping range hook
 
 3.0.6
 - ATM integration

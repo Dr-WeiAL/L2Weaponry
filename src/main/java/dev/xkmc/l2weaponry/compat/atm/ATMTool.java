@@ -18,9 +18,13 @@ public class ATMTool extends ExtraToolConfig {
 	@Override
 	public void configureAttributes(ItemAttributeModifiers.Builder builder) {
 		var prev = builder.build();
-		var range = prev.modifiers().stream().filter(
+		var lowRange = prev.modifiers().stream().filter(
 				e -> e.attribute().is(Attributes.ENTITY_INTERACTION_RANGE.getKey()) &&
 						e.modifier().amount() < 0
+		).findFirst();
+		var highRange = prev.modifiers().stream().filter(
+				e -> e.attribute().is(Attributes.ENTITY_INTERACTION_RANGE.getKey()) &&
+						e.modifier().amount() > 0
 		).findFirst();
 		var speed = prev.modifiers().stream().filter(
 				e -> e.attribute().is(Attributes.ATTACK_SPEED.getKey()) &&
@@ -31,9 +35,9 @@ public class ATMTool extends ExtraToolConfig {
 						e.modifier().operation() != AttributeModifier.Operation.ADD_VALUE
 		).findFirst();
 
-		if (heavy.isPresent()) {
+		if (highRange.isPresent() || heavy.isPresent() || speed.isPresent() && speed.get().modifier().amount() < -3.05) {
 			builder.add(Attributes.ATTACK_SPEED, new AttributeModifier(L2Complements.loc("atm_tool"), 0.2 * rank, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND);
-		} else if (range.isPresent() || speed.isPresent() && speed.get().modifier().amount() > -2.2) {
+		} else if (lowRange.isPresent() || speed.isPresent() && speed.get().modifier().amount() > -2.2) {
 			builder.add(Attributes.BLOCK_INTERACTION_RANGE, new AttributeModifier(L2Complements.loc("atm_tool"), 0.5 * rank, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND);
 			builder.add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(L2Complements.loc("atm_tool"), 0.5 * rank, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND);
 		} else {

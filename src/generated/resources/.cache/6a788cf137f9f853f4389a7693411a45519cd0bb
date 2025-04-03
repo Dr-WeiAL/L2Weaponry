@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-03T11:59:02.045748	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
+// 1.21.1	2025-04-03T13:08:32.161867	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
 dbd28315b93e2f84bd201975f418a1f44d7a5766 assets/l2weaponry/lang/en_ud.json
 1c91b5cf68ec9b5fd4b9b3a4ecb31f482b99c140 assets/l2weaponry/lang/en_us.json
 c5eec27d9446bf5395b623559c1b7dff15c9509c assets/l2weaponry/models/item/abyss_echo.json
@@ -15,7 +15,7 @@ c2d92222fd29e27a7e687bb0495d5ef4541a5a49 assets/l2weaponry/models/item/allthemod
 78e5bf55ed6e1cfa4317889e637194e3b12dffa7 assets/l2weaponry/models/item/allthemodium_nunchaku.json
 db0a9e7fffdb1265ec34cb4a72e74ec269661a9d assets/l2weaponry/models/item/allthemodium_nunchaku_roll.json
 f2ab9c849913c3381f030c36bb315d32a926ff84 assets/l2weaponry/models/item/allthemodium_nunchaku_unroll.json
-06da5a6d3768bf75b03a2af928af6e8053d30241 assets/l2weaponry/models/item/allthemodium_scythe.json
+1e76b9967f69d0babec7db8e66ee6771a435426c assets/l2weaponry/models/item/allthemodium_scythe.json
 52ae9939dd0ea16158f6f18ddae4c75913860c0f assets/l2weaponry/models/item/allthemodium_spear.json
 70cbb7a13bdbd6ae0bedbcd5e8e78175e0eb7dd6 assets/l2weaponry/models/item/allthemodium_throwing_axe.json
 115076fd6a6fc045df1e7b3262e023b2fd34d511 assets/l2weaponry/models/item/allthemodium_throwing_axe_throwing.json
@@ -387,7 +387,7 @@ a784cc1895682ba52b4df4d74a8d243bb30d1ad5 assets/l2weaponry/models/item/unobtaini
 30ecd28acd25b67bbbb809d2f6b43d02ffae43d9 assets/l2weaponry/models/item/unobtainium_nunchaku.json
 ac871e258ac4936b7fdab75746177106cfd206f8 assets/l2weaponry/models/item/unobtainium_nunchaku_roll.json
 7c5cbb2d2e0972e14993e43f295aa0fa22519f8d assets/l2weaponry/models/item/unobtainium_nunchaku_unroll.json
-536ec5d0b398bc03d71b476804fac50bda5bcf33 assets/l2weaponry/models/item/unobtainium_scythe.json
+7801e80833cffcef29447eaa8c08844271d10f14 assets/l2weaponry/models/item/unobtainium_scythe.json
 a513fa832268f304617f6547d21ca3b22098ce9c assets/l2weaponry/models/item/unobtainium_spear.json
 49a9e7851c916e3f9d73c7fdcbc958259f941cfb assets/l2weaponry/models/item/unobtainium_throwing_axe.json
 dc801e6cde5415313733a4b4ea7982bcc55da9ee assets/l2weaponry/models/item/unobtainium_throwing_axe_throwing.json
@@ -420,7 +420,7 @@ ea22f4c1a0955c9e38be7afe81c9303bffb42d60 assets/l2weaponry/models/item/vibranium
 3caaba5d34357e1c80347017c03369adb8f6821c assets/l2weaponry/models/item/vibranium_nunchaku.json
 4da004c81d9e3c30e3e589af9cffac0d7cefd360 assets/l2weaponry/models/item/vibranium_nunchaku_roll.json
 026c276849d039dd50a71ae3efa46ce73125918b assets/l2weaponry/models/item/vibranium_nunchaku_unroll.json
-b389d1e4ddd9fed8e73b07381b2e735452502cf0 assets/l2weaponry/models/item/vibranium_scythe.json
+a2471f505fc1bbcfc93b7e08bc7e2968cadf9166 assets/l2weaponry/models/item/vibranium_scythe.json
 85c7007a0556ccc36800d6eaa100e865cb1031e5 assets/l2weaponry/models/item/vibranium_spear.json
 35cd241b2372444d49ce1ce07c618f480f072cdb assets/l2weaponry/models/item/vibranium_throwing_axe.json
 992822d1a6be83e1cb902f55a6c8a662683299a0 assets/l2weaponry/models/item/vibranium_throwing_axe_throwing.json
