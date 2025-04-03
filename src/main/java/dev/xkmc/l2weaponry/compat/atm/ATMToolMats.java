@@ -27,9 +27,9 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public enum ATMToolMats implements ILWToolMats {
-	ALLTHEMODIUM(new ModMats(() -> ATMTier.ALLTHEMODIUM, new ATMTool(1)), true, ModRegistry.ALLTHEMODIUM_INGOT, ModRegistry.ALLTHEMODIUM_BLOCK),
-	VIBRANIUM(new ModMats(() -> ATMTier.VIBRANIUM, new ATMTool(2)), true, ModRegistry.VIBRANIUM_INGOT, ModRegistry.VIBRANIUM_BLOCK),
-	UNOBTAINIUM(new ModMats(() -> ATMTier.UNOBTAINIUM, new ATMTool(3)), true, ModRegistry.UNOBTAINIUM_INGOT, ModRegistry.UNOBTAINIUM_BLOCK),
+	ALLTHEMODIUM(new ModMats(() -> ATMTier.ALLTHEMODIUM, new ATMTool(1), true), true, ModRegistry.ALLTHEMODIUM_INGOT, ModRegistry.ALLTHEMODIUM_BLOCK),
+	VIBRANIUM(new ModMats(() -> ATMTier.VIBRANIUM, new ATMTool(2), true), true, ModRegistry.VIBRANIUM_INGOT, ModRegistry.VIBRANIUM_BLOCK),
+	UNOBTAINIUM(new ModMats(() -> ATMTier.UNOBTAINIUM, new ATMTool(3), true), true, ModRegistry.UNOBTAINIUM_INGOT, ModRegistry.UNOBTAINIUM_BLOCK),
 	;
 
 	private final IMatToolType type;
@@ -122,14 +122,16 @@ public enum ATMToolMats implements ILWToolMats {
 		return switch (this) {
 			case ALLTHEMODIUM -> Pair.of(LWToolMats.NETHERITE, ModRegistry.ATM_SMITHING.get());
 			case VIBRANIUM -> Pair.of(ALLTHEMODIUM, ModRegistry.VIB_SMITHING.get());
-			case UNOBTAINIUM -> Pair.of(UNOBTAINIUM, ModRegistry.UNO_SMITHING.get());
+			case UNOBTAINIUM -> Pair.of(VIBRANIUM, ModRegistry.UNO_SMITHING.get());
 		};
 	}
 
 	@Override
 	public boolean is3D(LWToolTypes type) {
 		return type == LWToolTypes.BATTLE_AXE || type == LWToolTypes.HAMMER ||
-				type == LWToolTypes.JAVELIN || type == LWToolTypes.SPEAR;
+				type == LWToolTypes.JAVELIN || type == LWToolTypes.SPEAR
+				//|| type == LWToolTypes.SCYTHE
+				;
 	}
 
 }

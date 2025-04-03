@@ -1,8 +1,12 @@
+3.0.7
+- Fix Unobtainium weapon recipe. Makes ATM weapons unbreakable
+
 3.0.6
 - ATM integration
 
 3.0.5
 - Use paper as template
+
 
 3.0.4
 - Add Ice and Fire compat

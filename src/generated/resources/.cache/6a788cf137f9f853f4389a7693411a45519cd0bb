@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-01T21:45:43.914756	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
+// 1.21.1	2025-04-03T11:59:02.045748	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
 dbd28315b93e2f84bd201975f418a1f44d7a5766 assets/l2weaponry/lang/en_ud.json
 1c91b5cf68ec9b5fd4b9b3a4ecb31f482b99c140 assets/l2weaponry/lang/en_us.json
 c5eec27d9446bf5395b623559c1b7dff15c9509c assets/l2weaponry/models/item/abyss_echo.json
@@ -1930,16 +1930,16 @@ a6fe145ed43881a92b2b71e423779d91112fc844 data/l2weaponry/recipe/generated/upgrad
 3bacc815f89c3a92f58f5c17a833a3c3a6faf12a data/l2weaponry/recipe/generated/upgrade/totemic_gold_scythe.json
 74d26646f1e8aa3500715752f3047efd755bd2ee data/l2weaponry/recipe/generated/upgrade/totemic_gold_spear.json
 63618c4305b1e2d27d7b503723a6bed56764bf90 data/l2weaponry/recipe/generated/upgrade/totemic_gold_throwing_axe.json
-125977e1c7c30795d210d38b83d4d7a64a79e8fc data/l2weaponry/recipe/generated/upgrade/unobtainium_battle_axe.json
-17a341c8e3dd6405747635d09b9f9a3fa9b83dfb data/l2weaponry/recipe/generated/upgrade/unobtainium_claw.json
-bf4a9ac402ddbca0dbb6c9eef00cc593cf7bf580 data/l2weaponry/recipe/generated/upgrade/unobtainium_dagger.json
-a05ac7e8051a446307093594ec1d23f8d28b16e1 data/l2weaponry/recipe/generated/upgrade/unobtainium_hammer.json
-4b41e1a1d1b005b536bd671253334673b1a68999 data/l2weaponry/recipe/generated/upgrade/unobtainium_javelin.json
-b934b7a18c992b0b5f4cadf257d99d158a798b3b data/l2weaponry/recipe/generated/upgrade/unobtainium_machete.json
-3b2e0d47392a8f2a16768356b7ba3d37db2f03ac data/l2weaponry/recipe/generated/upgrade/unobtainium_nunchaku.json
-d3488d84bfa97c00a4e3103a8f7c95fe42d06a59 data/l2weaponry/recipe/generated/upgrade/unobtainium_scythe.json
-154d095f929d9d389df8b4ed467888b7bf3ecb3d data/l2weaponry/recipe/generated/upgrade/unobtainium_spear.json
-79c83ee3b9f37ebe5c142ce68e268dfaffd96460 data/l2weaponry/recipe/generated/upgrade/unobtainium_throwing_axe.json
+81ec0015bdf07497eeac902fb72b092d2210c53c data/l2weaponry/recipe/generated/upgrade/unobtainium_battle_axe.json
+6d9823b8ef40b511c53d8e6ab76b75f81782a92b data/l2weaponry/recipe/generated/upgrade/unobtainium_claw.json
+f2ca5684efbaeeb34f2c8aaf128684805b2f574c data/l2weaponry/recipe/generated/upgrade/unobtainium_dagger.json
+36408c392641e5b59780f1059e9d6fa54d40289d data/l2weaponry/recipe/generated/upgrade/unobtainium_hammer.json
+83d2493447cb0c7a400a503ddfc0c5dc0315ca2e data/l2weaponry/recipe/generated/upgrade/unobtainium_javelin.json
+298d012f06e14231d801dc19abf59d43455b5936 data/l2weaponry/recipe/generated/upgrade/unobtainium_machete.json
+b6d0a1f31ee1f31898c39cd86b1dc64366bab9f4 data/l2weaponry/recipe/generated/upgrade/unobtainium_nunchaku.json
+64850a86c135f7d61ae0f7aa8c74660e3a8a21fb data/l2weaponry/recipe/generated/upgrade/unobtainium_scythe.json
+854bd16065dd35bdcbe5b88dea8f8804c75cccc7 data/l2weaponry/recipe/generated/upgrade/unobtainium_spear.json
+84438d49037ba839d40fb2b19e78a84656c9c677 data/l2weaponry/recipe/generated/upgrade/unobtainium_throwing_axe.json
 0c7e2a16dd710a0dba0f4d241626bc36f4c526fc data/l2weaponry/recipe/generated/upgrade/utherium_battle_axe.json
 1db66c6c57890209ede08c4c1020fc8be71d436c data/l2weaponry/recipe/generated/upgrade/utherium_claw.json
 eab4fda1141680571253a3b9e115b2fd3d4bcd4c data/l2weaponry/recipe/generated/upgrade/utherium_dagger.json
