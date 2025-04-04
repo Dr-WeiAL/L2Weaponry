@@ -91,7 +91,7 @@ public interface ILWToolMats {
 	}
 
 	@Nullable
-	default Pair<ILWToolMats,Item> getBaseUpgrade() {
+	default Pair<ILWToolMats, Item> getBaseUpgrade() {
 		return null;
 	}
 

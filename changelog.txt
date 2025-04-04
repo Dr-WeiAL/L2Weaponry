@@ -1,3 +1,6 @@
+3.0.9
+- Make ATM compat weapon recipe not log spam when ATM is not present
+
 3.0.8
 - Fix Unobtainium weapon recipe. Makes ATM weapons unbreakable
 - Add ATM Scythe model

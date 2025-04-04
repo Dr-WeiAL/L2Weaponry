@@ -303,7 +303,7 @@ public class LWRecipeGen {
 		currentFolder = "generated/upgrade/";
 		for (LWToolTypes t : LWToolTypes.values()) {
 			if (!mat.hasTool(t)) continue;
-			smithing(pvd, base.getTool(t), mat.getIngot(), mat.getTool(t), template);
+			smithing(pvd, mat.getProvider(pvd), base.getTool(t), mat.getIngot(), mat.getTool(t), template);
 		}
 	}
 
@@ -343,9 +343,9 @@ public class LWRecipeGen {
 	}
 
 
-	public static void smithing(RegistrateRecipeProvider pvd, Item in, Item mat, Item out, Item template) {
+	public static void smithing(RegistrateRecipeProvider pvd, RecipeOutput rec, Item in, Item mat, Item out, Item template) {
 		unlock(pvd, SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(in), Ingredient.of(mat),
-				RecipeCategory.COMBAT, out)::unlocks, mat).save(pvd, getID(out));
+				RecipeCategory.COMBAT, out)::unlocks, mat).save(rec, getID(out));
 	}
 
 	public static void smithing(RegistrateRecipeProvider pvd, Item in, Item mat, Item out) {
