@@ -8,7 +8,7 @@ displayName = "${mod_name}" #mandatory
 authors = "${mod_authors}" #optional
 description = '''${mod_description}'''
 [[mixins]]
-config="${mod_id}.mixins.json"
+config = "${mod_id}.mixins.json"
 [[dependencies.${ mod_id }]] #optional
 modId = "neoforge" #mandatory
 type = "required" #mandatory
@@ -31,5 +31,11 @@ side = "BOTH"
 modId = "l2complements"
 type = "required"
 versionRange = "${project.l2complements_version_range}"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.${ mod_id }]]
+modId = "iceandfire"
+type = "optional"
+versionRange = "[1.0-beta.7,)"
 ordering = "NONE"
 side = "BOTH"

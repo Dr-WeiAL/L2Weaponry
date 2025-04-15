@@ -1,6 +1,6 @@
-// 1.21.1	2025-04-04T21:39:38.892263	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
-dbd28315b93e2f84bd201975f418a1f44d7a5766 assets/l2weaponry/lang/en_ud.json
-1c91b5cf68ec9b5fd4b9b3a4ecb31f482b99c140 assets/l2weaponry/lang/en_us.json
+// 1.21.1	2025-04-15T20:37:02.642799	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
+d88873e916b319b31edd99e12a2bbbba28b242ae assets/l2weaponry/lang/en_ud.json
+3f43f16dabcb0a32526744d7ad0767f5a70d2fa1 assets/l2weaponry/lang/en_us.json
 c5eec27d9446bf5395b623559c1b7dff15c9509c assets/l2weaponry/models/item/abyss_echo.json
 3041a33a8b01ef0bda8b52c1f701aa3ab301762c assets/l2weaponry/models/item/abyss_resonance.json
 30ac5eb366241602fc692fa8cd529f5b7bb77085 assets/l2weaponry/models/item/abyss_shock.json
@@ -734,6 +734,7 @@ ed2862fd861b951f2dd48142630498857bda7d7d data/l2weaponry/advancement/recipes/mis
 e0121dedf99ac710311221c4af197ae3107da5b6 data/l2weaponry/advancement/recipes/misc/enchantments/projection.json
 2d0c03568a8a5792535ce33216ed6b39a9f10251 data/l2weaponry/advancement/recipes/misc/enchantments/raised_spirit.json
 11b3318a2d1a6f8646a87861157cda6541d48b8e data/l2weaponry/advancement/recipes/misc/enchantments/stealth.json
+6d99ecb7be9b9d48c43c78f2337f47e5c7db7b2c data/l2weaponry/advancement/recipes/misc/enchantments/thin_blade.json
 cb4275878322364636e6a83c4797f1a4c82c7c0e data/l2weaponry/advancement/recipes/misc/generated/recycle/eternium_battle_axe.json
 798f197aa487635606d2f2c5876534a2b64ef4e7 data/l2weaponry/advancement/recipes/misc/generated/recycle/eternium_claw.json
 5d57fde3d285ea3067e0345828450c291d5e2451 data/l2weaponry/advancement/recipes/misc/generated/recycle/eternium_dagger.json
@@ -1225,6 +1226,7 @@ d68391210baa7451a0668882cade63eecf14ec58 data/l2weaponry/enchantment/instant_sho
 969ba7253a6af38fb6565cb27d8c20e0c530cfa3 data/l2weaponry/enchantment/projection.json
 6330a35ab84bb5eb6b2cbb864d355bb128be3b6b data/l2weaponry/enchantment/raised_spirit.json
 2efbcab281b0d3bff79d3d923a2965c9026515f3 data/l2weaponry/enchantment/stealth.json
+5c944ae4573f25ff2ee32b742b1eac3d4cd199b4 data/l2weaponry/enchantment/thin_blade.json
 828123fd293362808ca8ed79ab222d76a578bf0a data/l2weaponry/recipe/enchantments/claw_shielding.json
 fb02b6e1ab1f727449b7d0c3a8385b7c07cefb7b data/l2weaponry/recipe/enchantments/ender_hand.json
 edc634ab9133b603c3bdd6a5b61353b2e2a387e3 data/l2weaponry/recipe/enchantments/energized_will.json
@@ -1236,6 +1238,7 @@ c1d717b1f09302e420911d41c0c31e9e14d83999 data/l2weaponry/recipe/enchantments/hea
 bab1e9f237aff245ca35f14bf018a3bc59db9e81 data/l2weaponry/recipe/enchantments/projection.json
 b40ed4135b57766bea622ebd4fb772a854ec9262 data/l2weaponry/recipe/enchantments/raised_spirit.json
 c62e3a417b0298d4486141015769b578235134d7 data/l2weaponry/recipe/enchantments/stealth.json
+c7a280af279fab77fca9662296af23477de8fa5b data/l2weaponry/recipe/enchantments/thin_blade.json
 ac4fa69bbb8651ef9c1ca58617bd293511b9115b data/l2weaponry/recipe/generated/craft/cloggrum_battle_axe.json
 64860fb1060fc892ae142e9eda186bd48dc8b5c2 data/l2weaponry/recipe/generated/craft/cloggrum_battle_axe_enchanted.json
 dc63c76acc33cda000576b82ccafc13a75118a2f data/l2weaponry/recipe/generated/craft/cloggrum_claw.json

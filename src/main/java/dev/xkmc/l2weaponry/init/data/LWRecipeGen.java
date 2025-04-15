@@ -212,6 +212,14 @@ public class LWRecipeGen {
 					.define('C', Items.LAPIS_LAZULI)
 					.save(pvd, getID(LWEnchantments.CLAW_BLOCK.id()));
 
+			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.THIN_BLADE, pvd, 1)::unlockedBy, LCItems.CAPTURED_WIND.get())
+					.pattern(" L ").pattern("CBC").pattern(" D ")
+					.define('B', Items.BOOK)
+					.define('L', LCItems.CAPTURED_WIND)
+					.define('D', LCItems.CAPTURED_BULLET)
+					.define('C', Items.LAPIS_LAZULI)
+					.save(pvd, getID(LWEnchantments.THIN_BLADE.id()));
+
 			unlock(pvd, new EnchantmentRecipeBuilder(LWEnchantments.PROJECTION, pvd, 1)::unlockedBy, LCItems.VOID_EYE.get())
 					.pattern("CBC").pattern("1E2").pattern("LDR")
 					.define('1', EnchantmentIngredient.of(pvd.getProvider(), Enchantments.INFINITY, 1))

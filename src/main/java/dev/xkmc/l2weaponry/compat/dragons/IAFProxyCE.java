@@ -29,7 +29,7 @@ public class IAFProxyCE implements IAFProxy {
 
 	@Override
 	public void fireHit(ItemStack stack, LivingEntity target, LivingEntity user) {
-		if (IafCommonConfig.INSTANCE.armors.dragonFireAbility.getValue()) {
+		if (IafCommonConfig.INSTANCE.tools.dragonFireAbility.getValue()) {
 			if (target instanceof EntityIceDragon) {
 				target.hurt(user.level().damageSources().inFire(), 13.5F);
 			}
@@ -42,7 +42,7 @@ public class IAFProxyCE implements IAFProxy {
 	@Override
 	public void fireDesc(ItemStack stack, List<Component> list) {
 		list.add(Component.translatable("dragon_sword_fire.hurt1").withStyle(ChatFormatting.GREEN));
-		if (IafCommonConfig.INSTANCE.armors.dragonFireAbility.getValue()) {
+		if (IafCommonConfig.INSTANCE.tools.dragonFireAbility.getValue()) {
 			list.add(Component.translatable("dragon_sword_fire.hurt2").withStyle(ChatFormatting.DARK_RED));
 		}
 	}
@@ -50,7 +50,7 @@ public class IAFProxyCE implements IAFProxy {
 	@Override
 	public void iceHit(ItemStack stack, LivingEntity target, LivingEntity user) {
 
-		if (IafCommonConfig.INSTANCE.armors.dragonIceAbility.getValue()) {
+		if (IafCommonConfig.INSTANCE.tools.dragonIceAbility.getValue()) {
 			if (target instanceof EntityFireDragon) {
 				target.hurt(user.level().damageSources().drown(), 13.5F);
 			}
@@ -66,30 +66,28 @@ public class IAFProxyCE implements IAFProxy {
 	@Override
 	public void iceDesc(ItemStack stack, List<Component> list) {
 		list.add(Component.translatable("dragon_sword_ice.hurt1").withStyle(ChatFormatting.GREEN));
-		if (IafCommonConfig.INSTANCE.armors.dragonIceAbility.getValue()) {
+		if (IafCommonConfig.INSTANCE.tools.dragonIceAbility.getValue()) {
 			list.add(Component.translatable("dragon_sword_ice.hurt2").withStyle(ChatFormatting.AQUA));
 		}
 	}
 
 	@Override
 	public void lightningHit(ItemStack stack, LivingEntity target, LivingEntity user) {
-		if (IafCommonConfig.INSTANCE.armors.dragonLightningAbility.getValue()) {
+		if (IafCommonConfig.INSTANCE.tools.dragonLightningAbility.getValue()) {
 			boolean flag = true;
 			if (user instanceof Player && (double) user.attackAnim > 0.2) {
 				flag = false;
 			}
 
 			if (!user.level().isClientSide && flag) {
-				LightningBolt lightningboltentity = (LightningBolt) EntityType.LIGHTNING_BOLT.create(target.level());
-
-				assert lightningboltentity != null;
-
-				lightningboltentity.getTags().add("iceandfire.bolt_skip_loot");
-				lightningboltentity.getTags().add(user.getStringUUID());
-				lightningboltentity.addTag(FlagMarker.LIGHTNING);
-				lightningboltentity.moveTo(target.position());
+				LightningBolt e =  EntityType.LIGHTNING_BOLT.create(target.level());
+				assert e != null;
+				e.getTags().add("iceandfire.bolt_skip_loot");
+				e.getTags().add(user.getStringUUID());
+				e.addTag(FlagMarker.LIGHTNING);
+				e.moveTo(target.position());
 				if (!target.level().isClientSide) {
-					target.level().addFreshEntity(lightningboltentity);
+					target.level().addFreshEntity(e);
 				}
 			}
 
@@ -105,7 +103,7 @@ public class IAFProxyCE implements IAFProxy {
 	@Override
 	public void lightningDesc(ItemStack stack, List<Component> list) {
 		list.add(Component.translatable("dragon_sword_lightning.hurt1").withStyle(ChatFormatting.GREEN));
-		if (IafCommonConfig.INSTANCE.armors.dragonLightningAbility.getValue()) {
+		if (IafCommonConfig.INSTANCE.tools.dragonLightningAbility.getValue()) {
 			list.add(Component.translatable("dragon_sword_lightning.hurt2").withStyle(ChatFormatting.DARK_PURPLE));
 		}
 	}
@@ -122,17 +120,17 @@ public class IAFProxyCE implements IAFProxy {
 
 	@Override
 	public Tier tierIce() {
-		return IafToolMaterials.DRAGON_STEEL_ICE;
+		return IafToolMaterials.DRAGONSTEEL_ICE;
 	}
 
 	@Override
 	public Tier tierFire() {
-		return IafToolMaterials.DRAGON_STEEL_FIRE;
+		return IafToolMaterials.DRAGONSTEEL_FIRE;
 	}
 
 	@Override
 	public Tier tierLightning() {
-		return IafToolMaterials.DRAGON_STEEL_LIGHTNING;
+		return IafToolMaterials.DRAGONSTEEL_LIGHTNING;
 	}
 
 	@Override

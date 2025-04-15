@@ -26,6 +26,7 @@ public class LWEnchantments {
 	public static final EnchVal.Legacy<RaisedSpiritEnchantment> RAISED_SPIRIT;
 	public static final EnchVal GHOST_SLASH;
 	public static final EnchVal CLAW_BLOCK;
+	public static final EnchVal.Legacy<ThinBladeEnchantment> THIN_BLADE;
 
 
 	static {
@@ -105,6 +106,13 @@ public class LWEnchantments {
 				"Increase damage blocking time for claws. Works on either hand",
 				e -> e.items(LWTagGen.CLAW).maxLevel(3)
 						.color(gold).special(LCEnchantments.CRAFT, craft.of(col))
+		);
+
+		THIN_BLADE = REG.enchLegacy("thin_blade", "Thin Blade",
+				"For Scythe:",
+				e -> e.items(LWTagGen.SCYTHE).maxLevel(5).group(EquipmentSlotGroup.MAINHAND)
+						.color(purple).special(LCEnchantments.CRAFT, craft.of(col)),
+				ThinBladeEnchantment::new
 		);
 
 	}

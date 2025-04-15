@@ -45,6 +45,8 @@ public class LWConfig {
 		public final ModConfigSpec.DoubleValue hardShieldDefenseBonus;
 		public final ModConfigSpec.DoubleValue raisedSpiritSpeedBonus;
 		public final ModConfigSpec.DoubleValue energizedWillReachBonus;
+		public final ModConfigSpec.DoubleValue thinBladeAttackSpeedBonus;
+		public final ModConfigSpec.DoubleValue thinBladeAttackReduction;
 		public final ModConfigSpec.IntValue instantThrowCooldown;
 
 		public final ModConfigSpec.DoubleValue knightmetalBonus;
@@ -114,6 +116,10 @@ public class LWConfig {
 					.defineInRange("energizedWillReachBonus", 0.02, 0.0001, 100);
 			instantThrowCooldown = builder.text("Cooldown for Instant Throwing")
 					.defineInRange("instantThrowCooldown", 60, 1, 6000);
+			thinBladeAttackSpeedBonus = builder.text("Thin Blade enchantment attack speed bonus")
+					.defineInRange("thinBladeAttackSpeedBonus", 0.2, 0.0001, 100);
+			thinBladeAttackReduction = builder.text("Thin Bladeeavy enchantment attack damage reduction")
+					.defineInRange("thinBladeAttackReduction", 0.1, 0.0001, 100);
 			builder.pop();
 
 			builder.push("twilight", "Twilight Forest Compat");

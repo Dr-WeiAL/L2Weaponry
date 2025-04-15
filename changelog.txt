@@ -1,3 +1,10 @@
+3.0.11
+- Add Thin Blade enchantment
+- Change base Scythe attack speed from 0.7 to 0.9
+
+3.0.10
+- Compatible with IaFce 1.0-beta.7
+
 3.0.9
 - Make ATM compat weapon recipe not log spam when ATM is not present
 
