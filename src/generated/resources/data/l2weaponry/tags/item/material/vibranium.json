@@ -1,0 +1,44 @@
+{
+  "values": [
+    {
+      "id": "l2weaponry:vibranium_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_battle_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:vibranium_nunchaku",
+      "required": false
+    }
+  ]
+}

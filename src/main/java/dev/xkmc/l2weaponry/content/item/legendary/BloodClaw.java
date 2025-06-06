@@ -3,7 +3,6 @@ package dev.xkmc.l2weaponry.content.item.legendary;
 import dev.xkmc.l2damagetracker.contents.attack.DamageData;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.types.ClawItem;
-import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.network.chat.Component;
@@ -34,12 +33,8 @@ public class BloodClaw extends ClawItem implements LegendaryWeapon {
 	}
 
 	@Override
-	public int getMaxStack(ItemStack stack, LivingEntity user) {
-		int max = LWConfig.SERVER.claw_max.get() + getBonus(LWItems.KILL_COUNT.getOrDefault(stack, 0));
-		if (user.getOffhandItem().getItem() == this) {
-			max *= 2;
-		}
-		return max;
+	protected int getMaxStackIntrinsic(ItemStack stack) {
+		return super.getMaxStackIntrinsic(stack) + getBonus(LWItems.KILL_COUNT.getOrDefault(stack, 0));
 	}
 
 	@Override

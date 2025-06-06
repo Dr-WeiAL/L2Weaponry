@@ -10,6 +10,7 @@ import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
@@ -34,9 +35,11 @@ public class LWGenItem {
 				String mat_name = mat.name().toLowerCase(Locale.ROOT);
 				String english = mat.englishName();
 				String tool_name = type.name().toLowerCase(Locale.ROOT);
+				var matTag = ItemTags.create(L2Weaponry.loc("material/" + mat.englishName().toLowerCase(Locale.ROOT)));
 				ans[i][j] = L2Weaponry.REGISTRATE.item(mat_name + "_" + tool_name,
 								p -> mat.type().getToolConfig().sup().get(mat.type(), type, mat.fireRes() ? p.fireResistant() : p))
-						.transform(e -> mat.isOptional() ? e.asOptional() : e).tag(type.tag)
+						.transform(e -> mat.isOptional() ? e.asOptional() : e)
+						.tag(type.tag, matTag)
 						.model((ctx, pvd) -> model(type, mat, ctx, pvd, mat_name, tool_name, mat.is3D(type)))
 						.tab(LWItems.TAB.key(), (ctx, e) -> e.accept(LWConfig.RECIPE.defaultEnchantmentOnWeapons.get() ?
 								mat.getToolEnchanted(e.getParameters().holders(), type) : mat.getTool(type).getDefaultInstance()))

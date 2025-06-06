@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-15T20:37:02.642799	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
+// 1.21.1	2025-06-06T16:34:04.721512	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
 d88873e916b319b31edd99e12a2bbbba28b242ae assets/l2weaponry/lang/en_ud.json
 3f43f16dabcb0a32526744d7ad0767f5a70d2fa1 assets/l2weaponry/lang/en_us.json
 c5eec27d9446bf5395b623559c1b7dff15c9509c assets/l2weaponry/models/item/abyss_echo.json
@@ -426,7 +426,7 @@ a2471f505fc1bbcfc93b7e08bc7e2968cadf9166 assets/l2weaponry/models/item/vibranium
 992822d1a6be83e1cb902f55a6c8a662683299a0 assets/l2weaponry/models/item/vibranium_throwing_axe_throwing.json
 f9c43c19cc4e5d607ab20b39024602ec84f56326 assets/l2weaponry/models/item/void_escape.json
 2e8234dd224846b1915a4b9e14d32ce6780fa619 assets/l2weaponry/models/item/void_escape_throwing.json
-ea7a2d2799909746d709566db594f63f3d09f2de data/c/tags/item/enchantables.json
+0ada876e1fdd50699ff6e71a8a2c625df2bc01e4 data/c/tags/item/enchantables.json
 88fd7f8ff1e09d0e367765e65c938731394355fa data/c/tags/item/tools/melee_weapon.json
 213bcd8a20ff59d45a2089dbd79125bbabc00c38 data/c/tags/item/tools/mining_tool.json
 8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/c/tags/item/tools/ranged_weapon.json
@@ -1218,7 +1218,7 @@ b487f200974846cdd0f9d4f94d06b7e9be39b4f0 data/l2weaponry/damage_type/trident-no_
 2be06c1d8c409f3c8b39a6199e2f841f67681de8 data/l2weaponry/enchantment/claw_shielding.json
 9d2969e70a8d6c18ea8a81b6ae71b707d33acade data/l2weaponry/enchantment/ender_hand.json
 fc7fe7ce47e8adabdc37bd2e5857336731889959 data/l2weaponry/enchantment/energized_will.json
-4f0b53bd93317659e526f9980a6a6357bd3996d5 data/l2weaponry/enchantment/ghost_slash.json
+2b0f079c561a88899007472496bc2eeda8275537 data/l2weaponry/enchantment/ghost_slash.json
 e3adb75727e6510245af40542d99df62f0822004 data/l2weaponry/enchantment/hard_shield.json
 e823e382119921df0dd862b44f1bd28e51d2b188 data/l2weaponry/enchantment/heavy.json
 4da6d642c435dd1d80fb77b60962803c35f4f9d3 data/l2weaponry/enchantment/heavy_shield.json
@@ -1993,12 +1993,36 @@ cc4d45ca7282d2992d05268af389c8e1e1708d36 data/l2weaponry/tags/item/dagger.json
 57d4780948943c69c088b452f2af012530c60ec2 data/l2weaponry/tags/item/heavy.json
 9b6f2e3e8c2cb9ad8ee0ab47ac3223d4c34dd3e6 data/l2weaponry/tags/item/javelin.json
 f8e53b20ac6bbe04cb487b86117db87e466f4ced data/l2weaponry/tags/item/machete.json
+ae843a150b753eca697fc4eec072277a4b58ee51 data/l2weaponry/tags/item/material/allthemodium.json
+0805d6c62f9a3ee5810b0789d48afce147dba7df data/l2weaponry/tags/item/material/cloggrum.json
+c4e02c399a0f749a11f96d8297dee7cd6959d81e data/l2weaponry/tags/item/material/diamond.json
+6881a232ea5374cd73adf567b3b9e20e9d32cdca data/l2weaponry/tags/item/material/eternium.json
+7b83d5a35066f93b59c7e6f002a027938f4e5cbb data/l2weaponry/tags/item/material/fiery.json
+bd2b73047dd3459193a3cc14968475fa2ccf6730 data/l2weaponry/tags/item/material/fire_dragonsteel.json
+6a10cff2d3290ded738a71a11f3ad9821cfabb28 data/l2weaponry/tags/item/material/forgotten.json
+79831e9731eab6461035bbc90bbddc9e67c35e33 data/l2weaponry/tags/item/material/froststeel.json
+59d5f4e3ee67e53bca72bb67e61772adbcdde97d data/l2weaponry/tags/item/material/gold.json
+eb226abfdd828ffb3d8c5470f941edc36e7076e1 data/l2weaponry/tags/item/material/ice_dragonsteel.json
+eec7cf8c00a3057544eef88b215bab0ebf2a2825 data/l2weaponry/tags/item/material/iron.json
+1bcc7ee905f8d551c1b3801d0665e520c8afa8f0 data/l2weaponry/tags/item/material/ironwood.json
+a1abf7d915d32fc3adce2838a95d4f8cebdbc84c data/l2weaponry/tags/item/material/knightly.json
+007ddc4ce194ac6b5b2ecfe378f85c6aec03b8b7 data/l2weaponry/tags/item/material/lightning_dragonsteel.json
+5cc30f7747667c9a436509a6001ae92b8418aa36 data/l2weaponry/tags/item/material/netherite.json
+62ab6e69f9192671cbf5868de6f0bee8bb1c6100 data/l2weaponry/tags/item/material/poseidite.json
+bde9e63e01cd4dea128b0d3d34d71d7437dc2665 data/l2weaponry/tags/item/material/sculkium.json
+2e0c70bb05e98603b623f787600deeb3ac6fae7a data/l2weaponry/tags/item/material/shulkerate.json
+d30898b402086266d68d65c6bde8a711b1c1a7d6 data/l2weaponry/tags/item/material/steeleaf.json
+342581a34b2878a49296617d81b5a72455db377b data/l2weaponry/tags/item/material/totemic_gold.json
+059378c381cc34232ef7738e29bf3897efd356fa data/l2weaponry/tags/item/material/unobtainium.json
+f9a5abfdd8f81aa483184f62f30e377245fba98c data/l2weaponry/tags/item/material/utherium.json
+d26cd886b04acf61a34602639ad31f6cb17b340c data/l2weaponry/tags/item/material/vibranium.json
 371c736a4988133318d595becb83ce3c1d7b7018 data/l2weaponry/tags/item/nunchaku.json
 1ecf15a25ca02493a3e1b756db70249d618ef424 data/l2weaponry/tags/item/plate_shield.json
 8ab5d0256e1505f8d14b05b04e2432965bcb42c6 data/l2weaponry/tags/item/round_shield.json
 157976472a475d2e14b8e693131ad85b71950207 data/l2weaponry/tags/item/scythe.json
 dca419f625694397194820a3848c608e23839bf6 data/l2weaponry/tags/item/shields.json
 81f4534e1b90328bfa2637a0ae8ae3432d7033b7 data/l2weaponry/tags/item/spear.json
+b09ba327295ee25088f1477e969156bdc869f320 data/l2weaponry/tags/item/stacking.json
 8b1ac9bdf81643884c8a4b4ef6ca14d3d87c4fe7 data/l2weaponry/tags/item/throwable.json
 d093be323ff851b3df3ae34539ec582dd58d553c data/l2weaponry/tags/item/throwing_axe.json
 bb603619a2ffefe3a6ff9fcd64a14e0836e6c8ab data/l2weaponry/tags/item/weapons.json

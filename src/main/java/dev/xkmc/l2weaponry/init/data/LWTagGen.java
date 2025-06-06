@@ -32,6 +32,7 @@ public class LWTagGen {
 	public static final TagKey<Item> WEAPONS = ItemTags.create(L2Weaponry.loc("weapons"));
 	public static final TagKey<Item> SHIELDS = ItemTags.create(L2Weaponry.loc("shields"));
 	public static final TagKey<Item> DOUBLE_WIELD = ItemTags.create(L2Weaponry.loc("double_wield"));
+	public static final TagKey<Item> STACKING = ItemTags.create(L2Weaponry.loc("stacking"));
 
 	public static void onBlockTagGen(RegistrateTagsProvider<Block> pvd) {
 	}
@@ -39,10 +40,11 @@ public class LWTagGen {
 	@SuppressWarnings({"unchecked"})
 	public static void onItemTagGen(RegistrateTagsProvider<Item> pvd) {
 		pvd.addTag(DOUBLE_WIELD).addTags(CLAW, MACHETE);
+		pvd.addTag(STACKING).addTag(DOUBLE_WIELD);
 		pvd.addTag(THROWABLE).addTags(JAVELIN, THROWING_AXE);
 		pvd.addTag(SHIELDS).addTags(ROUND_SHIELD, PLATE_SHIELD);
 		pvd.addTag(HEAVY).addTags(ItemTags.AXES, BATTLE_AXE, HAMMER, SCYTHE, PLATE_SHIELD);
-		pvd.addTag(Tags.Items.ENCHANTABLES).addTags(DOUBLE_WIELD, THROWABLE, SHIELDS, HEAVY);
+		pvd.addTag(Tags.Items.ENCHANTABLES).addTags(STACKING, THROWABLE, SHIELDS, HEAVY);
 		pvd.addTag(WEAPONS).addTags(
 				DAGGER, SPEAR, NUNCHAKU, HAMMER, BATTLE_AXE, SCYTHE, CLAW, MACHETE, JAVELIN, THROWING_AXE
 		);

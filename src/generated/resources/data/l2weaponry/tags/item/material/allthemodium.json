@@ -1,0 +1,44 @@
+{
+  "values": [
+    {
+      "id": "l2weaponry:allthemodium_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_battle_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:allthemodium_nunchaku",
+      "required": false
+    }
+  ]
+}

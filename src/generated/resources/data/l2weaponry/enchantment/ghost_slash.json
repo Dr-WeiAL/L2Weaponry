@@ -27,8 +27,8 @@
     "base": 10,
     "per_level_above_first": 5
   },
-  "primary_items": "#l2weaponry:double_wield",
+  "primary_items": "#l2weaponry:stacking",
   "slots": [],
-  "supported_items": "#l2weaponry:double_wield",
+  "supported_items": "#l2weaponry:stacking",
   "weight": 1
 }

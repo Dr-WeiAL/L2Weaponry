@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.content.item.types;
 
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
+import dev.xkmc.l2weaponry.content.item.base.IAttackBlockingWeapon;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
@@ -13,7 +14,7 @@ import net.minecraft.world.item.TooltipFlag;
 
 import java.util.List;
 
-public class ClawItem extends BaseClawItem {
+public class ClawItem extends BaseClawItem implements IAttackBlockingWeapon {
 
 	public ClawItem(Tier tier, Properties prop, ExtraToolConfig config) {
 		super(tier, prop, config);

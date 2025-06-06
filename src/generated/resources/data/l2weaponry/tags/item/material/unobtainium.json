@@ -1,0 +1,44 @@
+{
+  "values": [
+    {
+      "id": "l2weaponry:unobtainium_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_battle_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:unobtainium_nunchaku",
+      "required": false
+    }
+  ]
+}

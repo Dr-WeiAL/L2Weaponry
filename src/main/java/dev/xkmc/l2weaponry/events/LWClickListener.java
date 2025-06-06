@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.events;
 
 import dev.xkmc.l2complements.events.ItemUseEventHandler;
 import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
+import dev.xkmc.l2weaponry.content.item.base.IStackableWeapon;
 import dev.xkmc.l2weaponry.content.item.base.WeaponItem;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -20,7 +21,7 @@ public class LWClickListener implements ItemUseEventHandler.ItemClickHandler {
 	@Override
 	public void onPlayerLeftClickEmpty(ItemStack stack, PlayerInteractEvent.LeftClickEmpty event) {
 		if (!event.getLevel().isClientSide()) {
-			if (stack.getItem() instanceof DoubleWieldItem item) {
+			if (stack.getItem() instanceof IStackableWeapon item) {
 				doubleWeldSwing(event.getEntity(), item, stack);
 			}
 		}
@@ -29,13 +30,13 @@ public class LWClickListener implements ItemUseEventHandler.ItemClickHandler {
 	@Override
 	public void onPlayerLeftClickBlock(ItemStack stack, PlayerInteractEvent.LeftClickBlock event) {
 		if (!event.getLevel().isClientSide()) {
-			if (stack.getItem() instanceof DoubleWieldItem item) {
+			if (stack.getItem() instanceof IStackableWeapon item) {
 				doubleWeldSwing(event.getEntity(), item, stack);
 			}
 		}
 	}
 
-	private static void doubleWeldSwing(Player player, DoubleWieldItem item, ItemStack stack) {
+	private static void doubleWeldSwing(Player player, IStackableWeapon item, ItemStack stack) {
 		if (LWEnchantments.GHOST_SLASH.getLv(stack) > 0 && player.getAttackStrengthScale(0) >= 0.9) {
 			item.accumulateDamage(stack, player);
 			if (!player.getAbilities().instabuild) {

@@ -62,6 +62,7 @@ public class EnderSpear extends SpearItem implements LegendaryWeapon, IGlowingTa
 
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+		super.inventoryTick(stack, level, entity, slot, selected);
 		if (selected && level.isClientSide() && entity instanceof Player player) {
 			RayTraceUtil.clientUpdateTarget(player, getDistance(stack));
 		}

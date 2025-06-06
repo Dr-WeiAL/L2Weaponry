@@ -3,6 +3,7 @@ package dev.xkmc.l2weaponry.content.item.legendary;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
 import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2weaponry.content.item.base.IStackableWeapon;
 import dev.xkmc.l2weaponry.content.item.types.MacheteItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
@@ -24,7 +25,7 @@ public class AbyssMachete extends MacheteItem implements LegendaryWeapon {
 
 	@Override
 	public void modifySource(LivingEntity attacker, CreateSourceEvent event, ItemStack item, @Nullable Entity target) {
-		int count = getHitCount(item);
+		int count = IStackableWeapon.getHitCount(item);
 		int max = LWConfig.SERVER.claw_max.get();
 		if (count >= max) {
 			event.enable(DefaultDamageState.BYPASS_MAGIC);

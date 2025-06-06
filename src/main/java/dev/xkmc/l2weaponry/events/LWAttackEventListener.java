@@ -6,6 +6,7 @@ import dev.xkmc.l2damagetracker.contents.attack.*;
 import dev.xkmc.l2damagetracker.contents.materials.generic.GenericTieredItem;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
+import dev.xkmc.l2weaponry.content.item.base.IStackableWeapon;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -81,7 +82,7 @@ public class LWAttackEventListener implements AttackListener {
 					return;
 				}
 			}
-			if (stack.getItem() instanceof DoubleWieldItem claw) {
+			if (stack.getItem() instanceof IStackableWeapon claw) {
 				claw.accumulateDamage(stack, le);
 			}
 		}
@@ -113,7 +114,7 @@ public class LWAttackEventListener implements AttackListener {
 		if (stack.getItem() instanceof LegendaryWeapon weapon) {
 			weapon.onDamageFinal(data, le);
 		}
-		if (stack.getItem() instanceof DoubleWieldItem item) {
+		if (stack.getItem() instanceof IStackableWeapon item) {
 			if (LWEnchantments.GHOST_SLASH.getLv(stack) > 0 && data.getStrength() >= 0.9) {
 				item.accumulateDamage(stack, le);
 				if (!(le instanceof Player player) || !player.getAbilities().instabuild) {

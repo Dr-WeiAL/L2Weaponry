@@ -98,7 +98,7 @@ public class LWEnchantments {
 
 		GHOST_SLASH = REG.ench("ghost_slash", "Ghost Slash",
 				"Empty hits will stack hit count and consume durability as well.",
-				e -> e.items(LWTagGen.DOUBLE_WIELD)
+				e -> e.items(LWTagGen.STACKING)
 						.color(gold).special(LCEnchantments.CRAFT, craft.of(col))
 		);
 
