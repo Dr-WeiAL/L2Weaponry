@@ -1,4 +1,14 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": false,
+      "line": [
+        "defaultEnchantmentOnWeapons"
+      ],
+      "path": "l2configs/l2weaponry-common.toml"
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_diamond": {

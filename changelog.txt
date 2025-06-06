@@ -1,3 +1,7 @@
+3.0.12
+- Make dagger throwable
+- Fix projectile fast despawn
+
 3.0.11
 - Add Thin Blade enchantment
 - Change base Scythe attack speed from 0.7 to 0.9

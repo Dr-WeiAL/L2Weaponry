@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.content.item.base;
 
 import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
+import dev.xkmc.l2library.init.FlagMarker;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
@@ -50,6 +51,14 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 		}
 	}
 
+	protected void shoot(AbstractArrow proj, ItemStack stack, Level level, Player player) {
+		proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+	}
+
+	protected int getInstantThrowCoolDown() {
+		return LWConfig.SERVER.instantThrowCooldown.get();
+	}
+
 	protected void serverThrow(ItemStack stack, Level level, Player player) {
 		int slot = player.getUsedItemHand() == InteractionHand.OFF_HAND ? 40 : player.getInventory().selected;
 		boolean projection = LWEnchantments.PROJECTION.getLv(stack) > 0;
@@ -57,12 +66,10 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 		stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
 		AbstractArrow proj = getProjectile(level, player, stack, slot);
 		proj.setBaseDamage(player.getAttributeValue(Attributes.ATTACK_DAMAGE));
-		proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+		shoot(proj, stack, level, player);
 		if (no_pickup) {
 			proj.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
-		}
-		if (projection) {
-			proj.getPersistentData().putInt("DespawnFactor", 20);
+			proj.getPersistentData().putInt(FlagMarker.ARROW_DESPAWN, 20);
 		}
 		level.addFreshEntity(proj);
 		proj.playSound(SoundEvents.TRIDENT_THROW.value(), 1.0F, 1.0F);
@@ -82,7 +89,7 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 			if (instant) {
 				if (!level.isClientSide) {
 					serverThrow(stack, level, player);
-					player.getCooldowns().addCooldown(this, LWConfig.SERVER.instantThrowCooldown.get());
+					player.getCooldowns().addCooldown(this, getInstantThrowCoolDown());
 				}
 			} else {
 				player.startUsingItem(pHand);
@@ -92,6 +99,11 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 	}
 
 	public abstract BaseThrownWeaponEntity<?> getProjectile(Level level, LivingEntity player, ItemStack stack, int slot);
+
+	@Override
+	public boolean isPrimaryItemFor(ItemStack stack, Holder<Enchantment> enchantment) {
+		return enchantment == Enchantments.LOYALTY || super.isPrimaryItemFor(stack, enchantment);
+	}
 
 	@Override
 	public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {

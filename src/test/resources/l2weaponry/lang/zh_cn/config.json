@@ -55,6 +55,8 @@
 		"illusionRate.tooltip": "范围: 0.0 ~ 100.0",
 		"instantThrowCooldown": "速射：冷却时间",
 		"instantThrowCooldown.tooltip": "范围: 1 ~ 6000",
+		"daggerInstantThrowCooldown": "匕首速射：冷却时间",
+		"daggerInstantThrowCooldown.tooltip": "匕首范围: 1 ~ 6000",
 		"ironwoodEffectDuration": "铁木：抗性持续时间（以刻度为单位）",
 		"ironwoodEffectDuration.tooltip": "范围: 1 ~ 10000",
 		"ironwoodRegenDuration": "铁木：再生间隔（以刻度为单位）",

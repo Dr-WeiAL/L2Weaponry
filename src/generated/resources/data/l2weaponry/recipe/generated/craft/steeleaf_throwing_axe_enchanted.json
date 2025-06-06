@@ -32,6 +32,7 @@
       "minecraft:enchantments": {
         "levels": {
           "minecraft:looting": 2,
+          "minecraft:loyalty": 1,
           "minecraft:sharpness": 2
         }
       }

@@ -31,7 +31,8 @@
     "components": {
       "minecraft:enchantments": {
         "levels": {
-          "l2complements:smelt_touch": 1
+          "l2complements:smelt_touch": 1,
+          "l2weaponry:instant_shot": 1
         }
       }
     },

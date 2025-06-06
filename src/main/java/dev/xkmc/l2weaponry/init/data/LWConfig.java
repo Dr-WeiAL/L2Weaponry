@@ -48,6 +48,7 @@ public class LWConfig {
 		public final ModConfigSpec.DoubleValue thinBladeAttackSpeedBonus;
 		public final ModConfigSpec.DoubleValue thinBladeAttackReduction;
 		public final ModConfigSpec.IntValue instantThrowCooldown;
+		public final ModConfigSpec.IntValue daggerInstantThrowCooldown;
 
 		public final ModConfigSpec.DoubleValue knightmetalBonus;
 		public final ModConfigSpec.DoubleValue knightmetalReflect;
@@ -116,6 +117,8 @@ public class LWConfig {
 					.defineInRange("energizedWillReachBonus", 0.02, 0.0001, 100);
 			instantThrowCooldown = builder.text("Cooldown for Instant Throwing")
 					.defineInRange("instantThrowCooldown", 60, 1, 6000);
+			daggerInstantThrowCooldown = builder.text("Cooldown for Dagger Instant Throwing")
+					.defineInRange("daggerInstantThrowCooldown", 15, 1, 6000);
 			thinBladeAttackSpeedBonus = builder.text("Thin Blade enchantment attack speed bonus")
 					.defineInRange("thinBladeAttackSpeedBonus", 0.2, 0.0001, 100);
 			thinBladeAttackReduction = builder.text("Thin Bladeeavy enchantment attack damage reduction")

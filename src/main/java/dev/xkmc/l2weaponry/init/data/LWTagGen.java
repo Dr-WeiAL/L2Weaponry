@@ -41,7 +41,7 @@ public class LWTagGen {
 	public static void onItemTagGen(RegistrateTagsProvider<Item> pvd) {
 		pvd.addTag(DOUBLE_WIELD).addTags(CLAW, MACHETE);
 		pvd.addTag(STACKING).addTag(DOUBLE_WIELD);
-		pvd.addTag(THROWABLE).addTags(JAVELIN, THROWING_AXE);
+		pvd.addTag(THROWABLE).addTags(JAVELIN, THROWING_AXE, DAGGER);
 		pvd.addTag(SHIELDS).addTags(ROUND_SHIELD, PLATE_SHIELD);
 		pvd.addTag(HEAVY).addTags(ItemTags.AXES, BATTLE_AXE, HAMMER, SCYTHE, PLATE_SHIELD);
 		pvd.addTag(Tags.Items.ENCHANTABLES).addTags(STACKING, THROWABLE, SHIELDS, HEAVY);
@@ -70,7 +70,7 @@ public class LWTagGen {
 	}
 
 	public static void onEntityTagGen(RegistrateTagsProvider.IntrinsicImpl<EntityType<?>> pvd) {
-		pvd.addTag(EntityTypeTags.IMPACT_PROJECTILES).add(LWEntities.ET_AXE.get(), LWEntities.TE_JAVELIN.get());
+		pvd.addTag(EntityTypeTags.IMPACT_PROJECTILES).add(LWEntities.ET_AXE.get(), LWEntities.ET_JAVELIN.get());
 	}
 
 }
