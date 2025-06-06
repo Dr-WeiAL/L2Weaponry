@@ -30,7 +30,7 @@
   ],
   "result": {
     "item": "l2weaponry:froststeel_throwing_axe",
-    "nbt": "{}"
+    "nbt": "{Enchantments:[{id:\"minecraft:loyalty\",lvl:1s}]}"
   },
   "show_notification": true
 }

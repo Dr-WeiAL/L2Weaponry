@@ -30,7 +30,7 @@
   ],
   "result": {
     "item": "l2weaponry:steeleaf_dagger",
-    "nbt": "{Enchantments:[{id:\"minecraft:sharpness\",lvl:2s},{id:\"minecraft:looting\",lvl:2s}]}"
+    "nbt": "{Enchantments:[{id:\"l2weaponry:instant_shot\",lvl:1s},{id:\"minecraft:sharpness\",lvl:2s},{id:\"minecraft:looting\",lvl:2s}]}"
   },
   "show_notification": true
 }

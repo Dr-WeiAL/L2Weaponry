@@ -42,7 +42,7 @@ public class TagGen {
 
 	@SuppressWarnings({"unchecked"})
 	public static void onItemTagGen(RegistrateTagsProvider<Item> pvd) {
-		pvd.addTag(Tags.Items.TOOLS_TRIDENTS).addTags(JAVELIN, THROWING_AXE);
+		pvd.addTag(Tags.Items.TOOLS_TRIDENTS).addTags(JAVELIN, THROWING_AXE, DAGGER);
 		for (var e : LIST) {
 			pvd.addTag(e.getFirst()).addOptional(e.getSecond());
 		}
@@ -54,7 +54,7 @@ public class TagGen {
 	}
 
 	public static void onEntityTagGen(RegistrateTagsProvider.IntrinsicImpl<EntityType<?>> pvd) {
-		pvd.addTag(EntityTypeTags.IMPACT_PROJECTILES).add(LWEntities.ET_AXE.get(), LWEntities.TE_JAVELIN.get());
+		pvd.addTag(EntityTypeTags.IMPACT_PROJECTILES).add(LWEntities.ET_AXE.get(), LWEntities.ET_JAVELIN.get());
 	}
 
 	public static void addItem(TagKey<Item> tag, ResourceLocation id) {

@@ -54,6 +54,7 @@
 			"round_shield": "持盾防御时不减速且可以疾跑",
 			"spear": "长距离横扫攻击",
 			"throwing_axe": "可投掷",
+			"throw_dagger": "可投掷",
 			"javelin": "投掷时可穿透多个目标",
 			"nunchaku": "按住右键以持续攻击",
 			"scythe": "双手武器，长距离全方位横扫攻击"
@@ -88,6 +89,7 @@
 	"attribute.name.reflect_time": "盾反时间",
 	"entity.l2weaponry.javelin": "标枪",
 	"entity.l2weaponry.throwing_axe": "短柄斧",
+	"entity.l2weaponry.dagger": "匕首",
 	"subtitles.item.trident": {
 		"hit": "投掷武器：突刺",
 		"hit_ground": "投掷武器：振动",

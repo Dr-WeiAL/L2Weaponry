@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.init.registrate;
 
 import com.tterrag.registrate.util.entry.EntityEntry;
 import dev.xkmc.l2weaponry.content.client.ThrownWeaponRenderer;
+import dev.xkmc.l2weaponry.content.entity.DaggerEntity;
 import dev.xkmc.l2weaponry.content.entity.JavelinEntity;
 import dev.xkmc.l2weaponry.content.entity.ThrowingAxeEntity;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -11,7 +12,9 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 public class LWEntities {
 
 	public static final EntityEntry<ThrowingAxeEntity> ET_AXE;
-	public static final EntityEntry<JavelinEntity> TE_JAVELIN;
+	public static final EntityEntry<DaggerEntity> ET_DAGGER;
+	public static final EntityEntry<JavelinEntity> ET_JAVELIN;
+
 
 	static {
 		ET_AXE = L2Weaponry.REGISTRATE
@@ -20,7 +23,13 @@ public class LWEntities {
 				.renderer(() -> ThrownWeaponRenderer::new)
 				.defaultLang().register();
 
-		TE_JAVELIN = L2Weaponry.REGISTRATE
+		ET_DAGGER = L2Weaponry.REGISTRATE
+				.<DaggerEntity>entity("dagger", DaggerEntity::new, MobCategory.MISC)
+				.properties(e -> e.sized(0.5f, 0.5f).clientTrackingRange(4).updateInterval(10))
+				.renderer(() -> ThrownWeaponRenderer::new)
+				.defaultLang().register();
+
+		ET_JAVELIN = L2Weaponry.REGISTRATE
 				.<JavelinEntity>entity("javelin", JavelinEntity::new, MobCategory.MISC)
 				.properties(e -> e.sized(0.5f, 0.5f).clientTrackingRange(4).updateInterval(10))
 				.renderer(() -> ThrownWeaponRenderer::new)

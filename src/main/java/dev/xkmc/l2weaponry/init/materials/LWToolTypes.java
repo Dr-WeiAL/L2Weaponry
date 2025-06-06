@@ -6,6 +6,7 @@ import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2damagetracker.contents.materials.vanilla.RawToolFactory;
 import dev.xkmc.l2weaponry.content.item.types.*;
 import dev.xkmc.l2weaponry.init.data.TagGen;
+import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
@@ -18,9 +19,9 @@ import java.util.function.Supplier;
 
 public enum LWToolTypes implements ITool {
 	CLAW(TagGen.CLAW, ClawItem::new, 0.7f, 3, "claw_base", () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 2)),
-	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4, "dagger"),
+	DAGGER(TagGen.DAGGER, DaggerItem::new, 0.7f, 4, "dagger", () -> new EnchantmentInstance(LWEnchantments.INSTANT_THROWING.get(), 1)),
 	MACHETE(TagGen.MACHETE, MacheteItem::new, 1.2f, 1f, "machete", () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 1)),
-	THROWING_AXE(TagGen.THROWING_AXE, ThrowingAxeItem::new, 1.4f, 1f, "throwing_axe"),
+	THROWING_AXE(TagGen.THROWING_AXE, ThrowingAxeItem::new, 1.4f, 1f, "throwing_axe", () -> new EnchantmentInstance(Enchantments.LOYALTY, 1)),
 	HAMMER(TagGen.HAMMER, HammerItem::new, 2f, 0.7f, "hammer", () -> new EnchantmentInstance(LCEnchantments.CUBIC.get(), 1)),
 	BATTLE_AXE(TagGen.BATTLE_AXE, BattleAxeItem::new, 2f, 0.7f, "battle_axe", () -> new EnchantmentInstance(LCEnchantments.TREE.get(), 1)),
 	SCYTHE(TagGen.SCYTHE, ScytheItem::new, 1.5f, 0.7f, "scythe", () -> new EnchantmentInstance(Enchantments.SWEEPING_EDGE, 3)),

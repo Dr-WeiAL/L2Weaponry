@@ -50,6 +50,8 @@ public class LWConfig {
 		public final ForgeConfigSpec.DoubleValue raisedSpiritSpeedBonus;
 		public final ForgeConfigSpec.DoubleValue energizedWillReachBonus;
 		public final ForgeConfigSpec.IntValue instantThrowCooldown;
+		public final ForgeConfigSpec.IntValue daggerInstantThrowCooldown;
+
 
 		public final ForgeConfigSpec.DoubleValue knightmetalBonus;
 		public final ForgeConfigSpec.DoubleValue knightmetalReflect;
@@ -127,6 +129,8 @@ public class LWConfig {
 					.defineInRange("energizedWillReachBonus", 0.02, 0.0001, 100);
 			instantThrowCooldown = builder.comment("Cooldown for Instant Throwing")
 					.defineInRange("instantThrowCooldown", 60, 1, 6000);
+			daggerInstantThrowCooldown = builder.comment("Cooldown for Dagger Instant Throwing")
+					.defineInRange("daggerInstantThrowCooldown", 15, 1, 6000);
 			builder.pop();
 
 			builder.push("Twilight Forest Compat");

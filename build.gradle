@@ -248,6 +248,9 @@ dependencies {
     compileOnly fg.deobf("curse.maven:jupiter-1072905:5881564")
     compileOnly fg.deobf("com.iafenvoy:iceandfire:1.0-1.20.1-forge")
 
+    implementation fg.deobf("curse.maven:valhelsia-core-416935:5189548")
+    implementation fg.deobf("curse.maven:forbidden-arcanus-309858:5198323")
+
 }
 
 tasks.register('publishCurseForge', TaskPublishCurseForge) {

@@ -26,7 +26,7 @@
   ],
   "result": {
     "item": "l2weaponry:gold_dagger",
-    "nbt": "{}"
+    "nbt": "{Enchantments:[{id:\"l2weaponry:instant_shot\",lvl:1s}]}"
   },
   "show_notification": true
 }

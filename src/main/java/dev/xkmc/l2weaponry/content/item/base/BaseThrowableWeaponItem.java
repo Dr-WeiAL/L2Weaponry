@@ -50,6 +50,14 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 		}
 	}
 
+	protected void shoot(AbstractArrow proj, ItemStack stack, Level level, Player player) {
+		proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+	}
+
+	protected int getInstantThrowCoolDown() {
+		return LWConfig.COMMON.instantThrowCooldown.get();
+	}
+
 	protected void serverThrow(ItemStack stack, Level level, Player player) {
 		int slot = player.getUsedItemHand() == InteractionHand.OFF_HAND ? 40 : player.getInventory().selected;
 		boolean projection = stack.getEnchantmentLevel(LWEnchantments.PROJECTION.get()) > 0;
@@ -57,7 +65,7 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 		stack.hurtAndBreak(1, player, pl -> pl.broadcastBreakEvent(player.getUsedItemHand()));
 		AbstractArrow proj = getProjectile(level, player, stack, slot);
 		proj.setBaseDamage(player.getAttributeValue(Attributes.ATTACK_DAMAGE));
-		proj.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+		shoot(proj, stack, level, player);
 		if (no_pickup) {
 			proj.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
 		}
@@ -82,7 +90,7 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 			if (instant) {
 				if (!level.isClientSide) {
 					serverThrow(stack, level, player);
-					player.getCooldowns().addCooldown(this, LWConfig.COMMON.instantThrowCooldown.get());
+					player.getCooldowns().addCooldown(this, getInstantThrowCoolDown());
 				}
 			} else {
 				player.startUsingItem(pHand);

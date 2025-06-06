@@ -26,6 +26,7 @@ public enum LangData {
 	TOOL_PLATE_SHIELD_EXTRA("tool.plate_shield.extra", " Knockback enemies on hit, and deal 3x damage on critical hit. Damage bypass armor.", 0),
 
 	TOOL_THROWING_AXE("tool.throwing_axe", "You can throw this axe toward target.", 0),
+	TOOL_THROW_DAGGER("tool.throw_dagger", "You can throw this dagger toward target.", 0),
 	TOOL_JAVELIN("tool.javelin", "Pierce through multiple enemies when thrown", 0),
 	TOOL_NUNCHAKU("tool.nunchaku", "Hold Right Click to perform continuous attack", 0),
 
