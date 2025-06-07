@@ -33,7 +33,7 @@ public interface LWExtraConfig {
 		return 0;
 	}
 
-	default void onDamageFinal(DamageData.OffenceMax data, LivingEntity le, ItemStack stack){
+	default void onDamageFinal(DamageData.DefenceMax data, LivingEntity le, ItemStack stack){
 
 	}
 

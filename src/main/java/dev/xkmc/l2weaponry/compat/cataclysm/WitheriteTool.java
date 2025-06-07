@@ -25,7 +25,7 @@ import java.util.List;
 public class WitheriteTool extends ExtraToolConfig implements LWExtraConfig {
 
 	@Override
-	public void onDamageFinal(DamageData.OffenceMax data, LivingEntity attacker, ItemStack stack) {
+	public void onDamageFinal(DamageData.DefenceMax data, LivingEntity attacker, ItemStack stack) {
 		if (data.getStrength() < 0.95) return;
 		int vis = 1;
 		if (!data.getSource().is(L2DamageTypes.DIRECT)) {

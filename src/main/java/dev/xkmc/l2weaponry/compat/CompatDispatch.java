@@ -2,6 +2,7 @@ package dev.xkmc.l2weaponry.compat;
 
 import com.github.L_Ender.cataclysm.Cataclysm;
 import com.iafenvoy.iceandfire.IceAndFire;
+import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2weaponry.compat.atm.ATMCompat;
 import dev.xkmc.l2weaponry.compat.cataclysm.CataCompat;
 import dev.xkmc.l2weaponry.compat.dragons.DragonCompat;
@@ -34,5 +35,8 @@ public abstract class CompatDispatch {
 	}
 
 	public abstract ILWToolMats[] values();
+
+	public void regExtraRecipes(RegistrateRecipeProvider pvd) {
+	}
 
 }

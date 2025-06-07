@@ -71,7 +71,6 @@ public enum CataToolMats implements ILWToolMats {
 		};
 	}
 
-
 	@Override
 	public void addEnchants(HolderLookup.Provider pvd, List<LWToolTypes.DefaultEnch> list, LWToolTypes type) {
 		if (this.type.getExtraToolConfig() instanceof LWExtraConfig lw) {
@@ -101,4 +100,5 @@ public enum CataToolMats implements ILWToolMats {
 	public boolean isOptional() {
 		return true;
 	}
+
 }

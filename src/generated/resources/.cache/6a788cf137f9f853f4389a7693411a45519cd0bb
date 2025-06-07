@@ -1,6 +1,6 @@
-// 1.21.1	2025-06-07T23:56:25.77454	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
-7b963de567c6a66b6e576b28d1aacad0c328dcab assets/l2weaponry/lang/en_ud.json
-8df3250c448d43be8c1a2a2066c24488188f8876 assets/l2weaponry/lang/en_us.json
+// 1.21.1	2025-06-08T01:27:15.964039	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
+45a55b63509e200f8696003bc57ef3bb4bf66310 assets/l2weaponry/lang/en_ud.json
+45711a97532affc040d2251d5d73b616596176ba assets/l2weaponry/lang/en_us.json
 c5eec27d9446bf5395b623559c1b7dff15c9509c assets/l2weaponry/models/item/abyss_echo.json
 3041a33a8b01ef0bda8b52c1f701aa3ab301762c assets/l2weaponry/models/item/abyss_resonance.json
 30ac5eb366241602fc692fa8cd529f5b7bb77085 assets/l2weaponry/models/item/abyss_shock.json
@@ -366,6 +366,7 @@ dbe6bacc2277149aaf2f18a2465726cd8049ec2c assets/l2weaponry/models/item/shulkerat
 1b96b9b77a499c5c22eb608b9fd00fa5aee65fbb assets/l2weaponry/models/item/shulkerate_spear.json
 8b93eaec74d7d5500521c863c8136447efe553b7 assets/l2weaponry/models/item/shulkerate_throwing_axe.json
 3784b42d295c5a7ee35df525ef018619271819d9 assets/l2weaponry/models/item/shulkerate_throwing_axe_throwing.json
+4cc404b09db4b09aef40ecdf2b9068867640d232 assets/l2weaponry/models/item/soul_harvester.json
 45e7c48ffd7dc2cd64e93aea76fe716bdfa91c39 assets/l2weaponry/models/item/spear_of_winter_storm.json
 4b033e0cc462c209b57427147579a42e784c9325 assets/l2weaponry/models/item/steeleaf_battle_axe.json
 7f0dd581cb970b39921139c3e7e5ba9ce99a2b41 assets/l2weaponry/models/item/steeleaf_claw.json
@@ -789,6 +790,7 @@ da277063d24db79a69e6b454aa4c9904cdd6805e data/l2weaponry/advancement/recipes/com
 c9e8f4d32aec0e9a435a84c3b07d0855ca6b98ad data/l2weaponry/advancement/recipes/combat/legendary/spear_of_winter_storm.json
 92cc6b498c14ccd19ceafd65062b2f46fc696705 data/l2weaponry/advancement/recipes/combat/legendary/vampire_desire.json
 4fabbd9a1ad64246190c406e59fa3aa2d5a3d1d7 data/l2weaponry/advancement/recipes/combat/legendary/void_escape.json
+93bd2b8ff2558803e34281b459b80de569e4dfba data/l2weaponry/advancement/recipes/combat/soul_harvester.json
 76315e2def0c4e56952b8c30b38ab19ec034b01c data/l2weaponry/advancement/recipes/misc/enchantments/claw_shielding.json
 df210637944593c4b283ccfff7bfe4d6f14da1fb data/l2weaponry/advancement/recipes/misc/enchantments/ender_hand.json
 e6e2aa66084276a4f5857c8a97bc8d6d0053f1ed data/l2weaponry/advancement/recipes/misc/enchantments/energized_will.json
@@ -2244,6 +2246,7 @@ fd54b74e07ead10cc60491eaae29666865d828fc data/l2weaponry/recipe/legendary/spear_
 d38f511d51f188487be43c3a80bfbf601bef6565 data/l2weaponry/recipe/legendary/vampire_desire.json
 01dc6fd55ee628a9e01576dc8f0a240074d4cefa data/l2weaponry/recipe/legendary/void_escape.json
 4d1789f69c4b12b68ee84c9ae229ed1573c71a21 data/l2weaponry/recipe/misc/reinforced_handle.json
+824efc62aeda97d4d325a18e0d1fe61c5c5dd17f data/l2weaponry/recipe/soul_harvester.json
 07677cd6019af23ff58e1cc1f4692e43f589e4a9 data/l2weaponry/tags/item/battle_axe.json
 569023b3fb91fc3828ebf51122371a2fd8b122e0 data/l2weaponry/tags/item/claw.json
 c4e13af0191cdc4fdb04b1de381a70aee6be3164 data/l2weaponry/tags/item/dagger.json
@@ -2281,7 +2284,7 @@ f4f8a136a4c23d0159675d993fa31973ec72d611 data/l2weaponry/tags/item/material/with
 7fe6bfa99fc4bd63b7b531b0ec05ae3442f98c15 data/l2weaponry/tags/item/nunchaku.json
 1ecf15a25ca02493a3e1b756db70249d618ef424 data/l2weaponry/tags/item/plate_shield.json
 8ab5d0256e1505f8d14b05b04e2432965bcb42c6 data/l2weaponry/tags/item/round_shield.json
-8f19704b50bc28474cbdf4f5b100ee9611eeeca5 data/l2weaponry/tags/item/scythe.json
+7627ab18af4fe73794c6fe5ffa8a8d8109949883 data/l2weaponry/tags/item/scythe.json
 dca419f625694397194820a3848c608e23839bf6 data/l2weaponry/tags/item/shields.json
 4b7dfecdb429792bc83d8a9784cad387b08efdb4 data/l2weaponry/tags/item/spear.json
 b09ba327295ee25088f1477e969156bdc869f320 data/l2weaponry/tags/item/stacking.json

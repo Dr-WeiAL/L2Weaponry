@@ -16,7 +16,7 @@ import java.util.List;
 public class IgnitiumTool extends ExtraToolConfig implements LWExtraConfig {
 
 	@Override
-	public void onDamageFinal(DamageData.OffenceMax data, LivingEntity le, ItemStack stack) {
+	public void onDamageFinal(DamageData.DefenceMax data, LivingEntity le, ItemStack stack) {
 		if (data.getStrength() < 0.95) return;
 		var attacker = data.getAttacker();
 		if (attacker == null) return;

@@ -1,6 +1,5 @@
 package dev.xkmc.l2weaponry.init.data;
 
-import com.iafenvoy.iceandfire.IceAndFire;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
 import dev.xkmc.l2complements.content.enchantment.core.EnchantmentRecipeBuilder;
@@ -11,10 +10,6 @@ import dev.xkmc.l2core.serial.configval.BooleanValueCondition;
 import dev.xkmc.l2core.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2core.serial.recipe.AbstractSmithingRecipe;
 import dev.xkmc.l2weaponry.compat.CompatDispatch;
-import dev.xkmc.l2weaponry.compat.atm.ATMToolMats;
-import dev.xkmc.l2weaponry.compat.dragons.DragonToolMats;
-import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
-import dev.xkmc.l2weaponry.compat.undergarden.UGToolMats;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
@@ -33,9 +28,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.neoforged.fml.ModList;
-import quek.undergarden.Undergarden;
-import twilightforest.TwilightForestMod;
 
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
@@ -70,6 +62,7 @@ public class LWRecipeGen {
 				for (ILWToolMats mat : dispatch.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
+				dispatch.regExtraRecipes(pvd);
 			}
 
 		}
