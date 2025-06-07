@@ -51,6 +51,7 @@ public class FrozenSpear extends SpearItem implements LegendaryWeapon {
 
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+		super.inventoryTick(stack, level, entity, slot, selected);
 		if (!level.isClientSide && selected && entity instanceof LivingEntity le) {
 			if (le.hasEffect(LCEffects.ICE.get())) {
 				le.removeEffect(LCEffects.ICE.get());

@@ -2,7 +2,8 @@ package dev.xkmc.l2weaponry.content.client;
 
 import dev.xkmc.l2complements.init.data.LCConfig;
 import dev.xkmc.l2library.util.Proxy;
-import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
+import dev.xkmc.l2weaponry.content.item.base.IAttackBlockingWeapon;
+import dev.xkmc.l2weaponry.content.item.base.IStackableWeapon;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -22,9 +23,9 @@ public class ClawItemDecorationRenderer implements IItemDecorator {
 		ItemStack off = player.getOffhandItem();
 		if (main != stack && off != stack) return false;
 		if (main != stack && off.getItem() != main.getItem()) return false;
-		if (!(stack.getItem() instanceof BaseClawItem)) return false;
-		if (!(main.getItem() instanceof BaseClawItem claw)) return false;
-		long last = BaseClawItem.getLastTime(main);
+		if (!(stack.getItem() instanceof IStackableWeapon claw)) return false;
+		if (claw.getMaxStack(stack, null) <= 0) return false;
+		long last = IStackableWeapon.getLastTime(main);
 		int timeout = LWConfig.COMMON.claw_timeout.get();
 		float time = (player.level().getGameTime() - last) + Minecraft.getInstance().getPartialTick();
 		if (time > timeout) return false;
@@ -34,12 +35,12 @@ public class ClawItemDecorationRenderer implements IItemDecorator {
 		float defenseLost = Mth.clamp(time, 0, timeout) / timeout;
 		float w = 13.0F * (1 - defenseLost);
 		int col = 0xffffffff;
-		if (time <= claw.getBlockTime(player)) {
+		if (claw instanceof IAttackBlockingWeapon block && time <= block.getBlockTime(player)) {
 			col = 0xff00ffff;
 		}
 		CommonDecoUtil.fillRect(g, x + 2, y + 14, w, 1, col);
 		CommonDecoUtil.fillRect(g, x + 2 + w, y + 14, 13 - w, 1, 0xff000000);
-		int stored_hit = BaseClawItem.getHitCount(main);
+		int stored_hit = IStackableWeapon.getHitCount(main);
 		int max_hit = claw.getMaxStack(main, Proxy.getClientPlayer());
 		int hit = Math.min(max_hit, stored_hit);
 		String s = "" + hit;

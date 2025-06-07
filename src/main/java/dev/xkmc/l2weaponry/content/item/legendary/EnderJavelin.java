@@ -46,6 +46,7 @@ public class EnderJavelin extends JavelinItem implements LegendaryWeapon {
 
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+		super.inventoryTick(stack, level, entity, slot, selected);
 		if (selected && !level.isClientSide && entity instanceof LivingEntity le && le.position().y() < level.getMinBuildHeight()) {
 			EffectUtil.refreshEffect(le, new MobEffectInstance(MobEffects.SLOW_FALLING, 219), EffectUtil.AddReason.SELF, le);
 			EffectUtil.refreshEffect(le, new MobEffectInstance(MobEffects.LEVITATION, 119), EffectUtil.AddReason.SELF, le);

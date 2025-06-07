@@ -4,6 +4,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
+import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
@@ -23,23 +24,27 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
+import org.jetbrains.annotations.MustBeInvokedByOverriders;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.Consumer;
 
-public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
+public class GenericWeaponItem extends WeaponItem implements LWTieredItem, IStackableWeapon {
 
 	private final ExtraToolConfig config;
 
 	public GenericWeaponItem(Tier tier, int damage, float speed, Properties prop, ExtraToolConfig config, TagKey<Block> blocks) {
 		super(tier, damage, speed, prop, blocks);
 		this.config = config;
+		register(this);
 	}
 
+	@MustBeInvokedByOverriders
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
 		config.inventoryTick(stack, level, entity, slot, selected);
+		tick(stack, entity);
 		super.inventoryTick(stack, level, entity, slot, selected);
 	}
 
@@ -126,6 +131,24 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem {
 			}
 		}
 		return super.canApplyAtEnchantingTable(stack, enchantment);
+	}
+
+	@Override
+	public final int getMaxStack(ItemStack stack, @Nullable LivingEntity user) {
+		int ans = getMaxStackIntrinsic(stack);
+		if (config instanceof LWExtraConfig c) {
+			ans += c.getExtraStacking(stack, user);
+		}
+		if (user != null) ans = getMaxStackUserBonus(ans, stack, user);
+		return ans;
+	}
+
+	protected int getMaxStackIntrinsic(ItemStack stack) {
+		return 0;
+	}
+
+	protected int getMaxStackUserBonus(int count, ItemStack stack, LivingEntity user) {
+		return count;
 	}
 
 }

@@ -1,9 +1,8 @@
 package dev.xkmc.l2weaponry.content.enchantments;
 
 import dev.xkmc.l2complements.content.enchantment.core.AttributeEnchantment;
-import dev.xkmc.l2complements.content.enchantment.core.UnobtainableEnchantment;
 import dev.xkmc.l2library.util.math.MathHelper;
-import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
+import dev.xkmc.l2weaponry.content.item.base.IStackableWeapon;
 import dev.xkmc.l2weaponry.content.item.types.MacheteItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -29,7 +28,7 @@ public class RaisedSpiritEnchantment extends BaseMacheteEnchantment implements A
 		if (event.getSlotType() == EquipmentSlot.MAINHAND) {
 			if (event.getItemStack().getItem() instanceof MacheteItem) {
 				double bonus = LWConfig.COMMON.raisedSpiritSpeedBonus.get() *
-						BaseClawItem.getHitCount(event.getItemStack()) * level;
+						IStackableWeapon.getHitCount(event.getItemStack()) * level;
 				event.addModifier(Attributes.ATTACK_SPEED, new AttributeModifier(ID_SPEED, NAME_SPEED, bonus,
 						AttributeModifier.Operation.ADDITION));
 			}

@@ -5,6 +5,7 @@ import dev.xkmc.l2damagetracker.contents.attack.*;
 import dev.xkmc.l2damagetracker.contents.materials.generic.GenericTieredItem;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
+import dev.xkmc.l2weaponry.content.item.base.IStackableWeapon;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
@@ -12,6 +13,7 @@ import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -70,7 +72,7 @@ public class LWAttackEventListener implements AttackListener {
 					}
 				}
 			}
-			if (!stack.isEmpty() && stack.getItem() instanceof DoubleWieldItem claw) {
+			if (!stack.isEmpty() && stack.getItem() instanceof IStackableWeapon claw) {
 				claw.accumulateDamage(stack, cache.getAttacker());
 			}
 		}

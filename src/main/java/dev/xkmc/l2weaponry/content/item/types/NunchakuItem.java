@@ -61,6 +61,7 @@ public class NunchakuItem extends GenericWeaponItem implements FastItem {
 
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+		super.inventoryTick(stack, level, entity, slot, selected);
 		if (selected && level.isClientSide() && entity instanceof Player player && player.isUsingItem()) {
 			ClientRenderEvents.onNunchakuUse(player, stack);
 		}

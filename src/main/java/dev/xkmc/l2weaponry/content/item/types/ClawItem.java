@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMultimap;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.item.base.BaseClawItem;
+import dev.xkmc.l2weaponry.content.item.base.IAttackBlockingWeapon;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
@@ -20,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ClawItem extends BaseClawItem {
+public class ClawItem extends BaseClawItem implements IAttackBlockingWeapon {
 
 	public static final AttributeModifier RANGE = new AttributeModifier(MathHelper.getUUIDFromString("claw_reach"), "claw_reach", -1, AttributeModifier.Operation.ADDITION);
 
