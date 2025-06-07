@@ -18,7 +18,7 @@ import java.util.List;
 public class UteriumTool extends ExtraToolConfig implements LWExtraConfig {
 
 	@Override
-	public void onHurt(DamageData.Offence cache, LivingEntity attacker, ItemStack stack) {
+	public void onDamage(DamageData.Offence cache, ItemStack stack) {
 		var target = cache.getTarget();
 		if (!target.getType().is(UGTags.Entities.ROTSPAWN)) return;
 		var id = stack.getItemHolder().unwrapKey().orElseThrow().location();

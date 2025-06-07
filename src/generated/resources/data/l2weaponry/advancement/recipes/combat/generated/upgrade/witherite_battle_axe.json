@@ -1,0 +1,47 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": true,
+      "line": [
+        "recipe",
+        "enableToolRecraftRecipe"
+      ],
+      "path": "l2configs/l2complements-common.toml"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "l2weaponry:generated/upgrade/witherite_battle_axe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_witherite_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "cataclysm:witherite_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_witherite_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "l2weaponry:generated/upgrade/witherite_battle_axe"
+    ]
+  }
+}

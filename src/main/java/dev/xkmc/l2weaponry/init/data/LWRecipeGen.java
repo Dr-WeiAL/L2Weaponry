@@ -10,6 +10,7 @@ import dev.xkmc.l2complements.init.registrate.LCItems;
 import dev.xkmc.l2core.serial.configval.BooleanValueCondition;
 import dev.xkmc.l2core.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2core.serial.recipe.AbstractSmithingRecipe;
+import dev.xkmc.l2weaponry.compat.CompatDispatch;
 import dev.xkmc.l2weaponry.compat.atm.ATMToolMats;
 import dev.xkmc.l2weaponry.compat.dragons.DragonToolMats;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
@@ -65,41 +66,12 @@ public class LWRecipeGen {
 					}
 				}
 			}
-			if (ModList.get().isLoaded(TwilightForestMod.ID)) {
-				for (ILWToolMats mat : TFToolMats.values()) {
+			for (var dispatch : CompatDispatch.LIST){
+				for (ILWToolMats mat : dispatch.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
 
-			if (ModList.get().isLoaded(Undergarden.MODID)) {
-				for (ILWToolMats mat : UGToolMats.values()) {
-					tools(pvd, mat.getStick(), mat.getIngot(), mat);
-				}
-			}
-
-			if (ModList.get().isLoaded(IceAndFire.MOD_ID)) {
-				for (ILWToolMats mat : DragonToolMats.values()) {
-					tools(pvd, mat.getStick(), mat.getIngot(), mat);
-				}
-			}
-
-			if (ModList.get().isLoaded("allthemodium")) {
-				for (ILWToolMats mat : ATMToolMats.values()) {
-					tools(pvd, mat.getStick(), mat.getIngot(), mat);
-				}
-			}
-			/* TODO compat recipe
-
-			if (ModList.get().isLoaded(AerialHell.MODID)) {
-				for (ILWToolMats mat : AHToolMats.values()) {
-					tools(pvd, mat.getStick(), mat.getIngot(), mat);
-				}
-			}
-			if (ModList.get().isLoaded(DeeperDarker.MOD_ID)) {
-				currentFolder = "generated/alternate/";
-				DDCompat.onRecipeGen(pvd);
-			}
-			*/
 		}
 
 		currentFolder = "legendary/";

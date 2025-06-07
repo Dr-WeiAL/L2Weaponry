@@ -53,7 +53,7 @@ public class StormJavelin extends JavelinItem implements LegendaryWeapon {
 	}
 
 	@Override
-	protected boolean canSweep() {
+	public boolean canSweep() {
 		return true;
 	}
 

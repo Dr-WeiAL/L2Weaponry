@@ -1,14 +1,10 @@
 package dev.xkmc.l2weaponry.init.registrate;
 
-import com.iafenvoy.iceandfire.IceAndFire;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.DCReg;
 import dev.xkmc.l2core.init.reg.simple.DCVal;
-import dev.xkmc.l2weaponry.compat.atm.ATMCompat;
-import dev.xkmc.l2weaponry.compat.dragons.DragonCompat;
-import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
-import dev.xkmc.l2weaponry.compat.undergarden.UGCompat;
+import dev.xkmc.l2weaponry.compat.CompatDispatch;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.content.item.types.NunchakuItem;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
@@ -24,9 +20,6 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.neoforged.fml.ModList;
-import quek.undergarden.Undergarden;
-import twilightforest.TwilightForestMod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,27 +103,7 @@ public class LWItems {
 		ENDER_JAVELIN = regLegendary("void_escape", EnderJavelin::new, LWToolTypes.JAVELIN, LWToolMats.SHULKERATE, Rarity.RARE, false);
 
 		GEN_ITEM = LWGenItem.generate(LWToolMats.values());
-
-		if (ModList.get().isLoaded(TwilightForestMod.ID)) {
-			TFCompat.register();
-		}
-
-		if (ModList.get().isLoaded(Undergarden.MODID)) {
-			UGCompat.register();
-		}
-
-		if (ModList.get().isLoaded(IceAndFire.MOD_ID)) {
-			DragonCompat.register();
-		}
-		if (ModList.get().isLoaded("allthemodium")) {
-			ATMCompat.register();
-		}
-		/* TODO compat
-		if (ModList.get().isLoaded(AerialHell.MODID)) {
-			AHCompat.register();
-		}
-		*/
-
+		CompatDispatch.register();
 	}
 
 	private static <T extends Item> ItemEntry<T> regLegendary(String name, LegendaryToolFactory<T> fac, LWToolTypes type, LWToolMats mat, Rarity r, boolean is3D) {

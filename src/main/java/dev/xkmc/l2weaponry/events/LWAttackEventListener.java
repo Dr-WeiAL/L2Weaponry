@@ -5,7 +5,6 @@ import dev.xkmc.l2core.init.reg.ench.LegacyEnchantment;
 import dev.xkmc.l2damagetracker.contents.attack.*;
 import dev.xkmc.l2damagetracker.contents.materials.generic.GenericTieredItem;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
-import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
 import dev.xkmc.l2weaponry.content.item.base.IStackableWeapon;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
@@ -75,22 +74,15 @@ public class LWAttackEventListener implements AttackListener {
 		LivingEntity le = data.getAttacker();
 		if (le == null) return;
 		ItemStack stack = data.getWeapon();
-		if (!stack.isEmpty()) {
-			if (stack.getItem() instanceof GenericTieredItem) {
-				if (data.getStrength() < 0.7f) {
-					data.addHurtModifier(DamageModifier.nonlinearFinal(10000, f -> 0.1f, STRENGTH_CHECK));
-					return;
-				}
-			}
-			if (stack.getItem() instanceof IStackableWeapon claw) {
-				claw.accumulateDamage(stack, le);
+		if (stack.isEmpty()) return;
+		if (stack.getItem() instanceof GenericTieredItem) {
+			if (data.getStrength() < 0.7f) {
+				data.addHurtModifier(DamageModifier.nonlinearFinal(10000, f -> 0.1f, STRENGTH_CHECK));
+				return;
 			}
 		}
-		if (!stack.isEmpty() && stack.getItem() instanceof LWTieredItem w) {
+		if (stack.getItem() instanceof LWTieredItem w) {
 			data.addHurtModifier(DamageModifier.multAttr(w.getMultiplier(data), WEAPON_BONUS));
-			if (w.getExtraConfig() instanceof LWExtraConfig config) {
-				config.onHurt(data, le, stack);
-			}
 		}
 		if (stack.getItem() instanceof LegendaryWeapon weapon) {
 			weapon.onHurt(data, le, stack);
@@ -100,9 +92,14 @@ public class LWAttackEventListener implements AttackListener {
 	@Override
 	public void onHurtMaximized(DamageData.OffenceMax data) {
 		LivingEntity le = data.getAttacker();
+		if (le == null) return;
 		ItemStack stack = data.getWeapon();
-		if (le != null && stack.getItem() instanceof LegendaryWeapon weapon) {
+		if (stack.isEmpty()) return;
+		if (stack.getItem() instanceof LegendaryWeapon weapon) {
 			weapon.onHurtMaximized(data, le);
+		}
+		if (stack.getItem() instanceof IStackableWeapon claw) {
+			claw.accumulateDamage(stack, le);
 		}
 	}
 
@@ -111,6 +108,10 @@ public class LWAttackEventListener implements AttackListener {
 		LivingEntity le = data.getAttacker();
 		ItemStack stack = data.getWeapon();
 		if (le == null || stack.isEmpty()) return;
+		if (stack.getItem() instanceof LWTieredItem w) {
+			if(w.getExtraConfig() instanceof LWExtraConfig c)
+				c.onDamageFinal(data, le, stack);
+		}
 		if (stack.getItem() instanceof LegendaryWeapon weapon) {
 			weapon.onDamageFinal(data, le);
 		}

@@ -5,7 +5,6 @@ import dev.xkmc.l2damagetracker.contents.materials.api.ITool;
 import dev.xkmc.l2damagetracker.contents.materials.api.IToolStats;
 import dev.xkmc.l2damagetracker.contents.materials.api.ToolConfig;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
-import dev.xkmc.l2damagetracker.contents.materials.vanilla.GenItemVanillaType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
@@ -34,7 +33,7 @@ public record ModMats(
 
 	@Override
 	public ToolConfig getToolConfig() {
-		return GenItemVanillaType.TOOL_GEN;
+		return new ToolConfig(this::genGenericTool);
 	}
 
 	@Override

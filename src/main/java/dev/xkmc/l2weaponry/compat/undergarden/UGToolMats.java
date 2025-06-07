@@ -83,11 +83,6 @@ public enum UGToolMats implements ILWToolMats {
 	}
 
 	@Override
-	public String englishName() {
-		return name();
-	}
-
-	@Override
 	public RecipeOutput getProvider(RegistrateRecipeProvider pvd, ICondition... cond) {
 		return ILWToolMats.super.getProvider(pvd, MathHelper.merge(cond, new ModLoadedCondition(Undergarden.MODID)));
 	}

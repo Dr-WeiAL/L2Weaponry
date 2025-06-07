@@ -65,6 +65,18 @@
     {
       "id": "l2weaponry:unobtainium_throwing_axe",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ignitium_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_throwing_axe",
+      "required": false
     }
   ]
 }

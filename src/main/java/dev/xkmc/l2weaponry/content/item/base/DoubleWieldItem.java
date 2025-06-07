@@ -17,7 +17,7 @@ public class DoubleWieldItem extends GenericWeaponItem {
 	}
 
 	@Override
-	protected final boolean canSweep() {
+	public final boolean canSweep() {
 		return true;
 	}
 

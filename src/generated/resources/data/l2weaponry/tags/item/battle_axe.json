@@ -67,6 +67,18 @@
     {
       "id": "l2weaponry:unobtainium_battle_axe",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ignitium_battle_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_battle_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_battle_axe",
+      "required": false
     }
   ]
 }

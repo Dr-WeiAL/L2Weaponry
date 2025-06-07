@@ -66,6 +66,18 @@
     {
       "id": "l2weaponry:unobtainium_dagger",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ignitium_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_dagger",
+      "required": false
     }
   ]
 }

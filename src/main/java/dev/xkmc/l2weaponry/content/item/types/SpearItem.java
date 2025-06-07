@@ -26,7 +26,7 @@ public class SpearItem extends GenericWeaponItem {
 	}
 
 	@Override
-	protected boolean canSweep() {
+	public boolean canSweep() {
 		return true;
 	}
 

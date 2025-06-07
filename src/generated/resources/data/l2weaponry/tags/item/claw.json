@@ -66,6 +66,18 @@
     {
       "id": "l2weaponry:unobtainium_claw",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ignitium_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_claw",
+      "required": false
     }
   ]
 }

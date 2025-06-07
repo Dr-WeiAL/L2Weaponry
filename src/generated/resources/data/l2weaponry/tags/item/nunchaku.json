@@ -64,6 +64,18 @@
     {
       "id": "l2weaponry:unobtainium_nunchaku",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ignitium_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_nunchaku",
+      "required": false
     }
   ]
 }

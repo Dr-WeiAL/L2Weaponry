@@ -76,7 +76,7 @@ public class GenericWeaponItem extends WeaponItem implements LWTieredItem, IStac
 		return true;
 	}
 
-	protected boolean canSweep() {
+	public boolean canSweep() {
 		return false;
 	}
 

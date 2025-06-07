@@ -30,9 +30,9 @@ public class BaseClawItem extends DoubleWieldItem {
 	public float getMultiplier(DamageData.Offence event) {
 		int count = IStackableWeapon.getHitCount(event.getWeapon());
 		var attacker = event.getAttacker();
-		if (count > 1 && attacker != null) {
+		if (count > 0 && attacker != null) {
 			int max = getMaxStack(event.getWeapon(), attacker);
-			return (float) (1 + LWConfig.SERVER.claw_bonus.get() * Mth.clamp(count - 1, 0, max));
+			return (float) (1 + LWConfig.SERVER.claw_bonus.get() * Mth.clamp(count, 0, max));
 		}
 		return super.getMultiplier(event);
 	}

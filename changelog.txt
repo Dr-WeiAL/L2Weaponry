@@ -1,3 +1,8 @@
+3.0.13
+- Add Ignitium, Witherite, Cursium weapons
+- Fix minor problem in claw / machete damage calculation
+- Make ATM weapons unbreakable
+
 3.0.12
 - Make dagger throwable
 - Fix projectile fast despawn
