@@ -38,7 +38,7 @@ public class ScytheItem extends SlowWieldItem {
 	}
 
 	@Override
-	protected boolean canSweep() {
+	public boolean canSweep() {
 		return true;
 	}
 

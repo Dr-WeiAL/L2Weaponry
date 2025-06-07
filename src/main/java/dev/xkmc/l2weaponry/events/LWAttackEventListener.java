@@ -4,7 +4,6 @@ import dev.xkmc.l2complements.content.enchantment.core.SourceModifierEnchantment
 import dev.xkmc.l2damagetracker.contents.attack.*;
 import dev.xkmc.l2damagetracker.contents.materials.generic.GenericTieredItem;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
-import dev.xkmc.l2weaponry.content.item.base.DoubleWieldItem;
 import dev.xkmc.l2weaponry.content.item.base.IStackableWeapon;
 import dev.xkmc.l2weaponry.content.item.base.LWTieredItem;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
@@ -13,7 +12,6 @@ import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -72,16 +70,9 @@ public class LWAttackEventListener implements AttackListener {
 					}
 				}
 			}
-			if (!stack.isEmpty() && stack.getItem() instanceof IStackableWeapon claw) {
-				claw.accumulateDamage(stack, cache.getAttacker());
-			}
 		}
 		if (!stack.isEmpty() && stack.getItem() instanceof LWTieredItem w) {
 			cache.addHurtModifier(DamageModifier.multAttr(w.getMultiplier(cache)));
-			var attacker = cache.getAttacker();
-			if (attacker != null && w.getExtraConfig() instanceof LWExtraConfig config) {
-				config.onHurt(cache, attacker, stack);
-			}
 		}
 		if (cache.getAttacker() != null && stack.getItem() instanceof LegendaryWeapon weapon) {
 			weapon.onHurt(cache, cache.getAttacker(), stack);
@@ -92,8 +83,14 @@ public class LWAttackEventListener implements AttackListener {
 	public void onHurtMaximized(AttackCache cache, ItemStack stack) {
 		LivingHurtEvent event = cache.getLivingHurtEvent();
 		assert event != null;
-		if (cache.getAttacker() != null && stack.getItem() instanceof LegendaryWeapon weapon) {
-			weapon.onHurtMaximized(cache, cache.getAttacker());
+		LivingEntity le = cache.getAttacker();
+		if (le == null) return;
+		if (stack.isEmpty()) return;
+		if (stack.getItem() instanceof LegendaryWeapon weapon) {
+			weapon.onHurtMaximized(cache, le);
+		}
+		if (stack.getItem() instanceof IStackableWeapon claw) {
+			claw.accumulateDamage(stack, le);
 		}
 	}
 
@@ -101,8 +98,14 @@ public class LWAttackEventListener implements AttackListener {
 	public void onDamageFinalized(AttackCache cache, ItemStack stack) {
 		LivingDamageEvent event = cache.getLivingDamageEvent();
 		assert event != null;
-		if (cache.getAttacker() != null && stack.getItem() instanceof LegendaryWeapon weapon) {
-			weapon.onDamageFinal(cache, cache.getAttacker());
+		var le = cache.getAttacker();
+		if (le == null) return;
+		if (stack.getItem() instanceof LWTieredItem w) {
+			if (w.getExtraConfig() instanceof LWExtraConfig c)
+				c.onDamageFinal(cache, le, stack);
+		}
+		if (stack.getItem() instanceof LegendaryWeapon weapon) {
+			weapon.onDamageFinal(cache, le);
 		}
 	}
 
@@ -120,7 +123,7 @@ public class LWAttackEventListener implements AttackListener {
 	public void postAttack(AttackCache cache, LivingAttackEvent event, ItemStack stack) {
 		LivingEntity attacker = cache.getAttacker();
 		if (attacker == null) return;
-		if (stack.getItem() instanceof DoubleWieldItem item) {
+		if (stack.getItem() instanceof IStackableWeapon item) {
 			if (stack.getEnchantmentLevel(LWEnchantments.GHOST_SLASH.get()) > 0 && cache.getStrength() >= 0.9) {
 				item.accumulateDamage(stack, attacker);
 				if (attacker instanceof Player player && !player.getAbilities().instabuild) {

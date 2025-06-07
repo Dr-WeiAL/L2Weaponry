@@ -28,18 +28,6 @@
       "required": false
     },
     {
-      "id": "l2weaponry:ice_dragonsteel_claw",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:fire_dragonsteel_claw",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:lightning_dragonsteel_claw",
-      "required": false
-    },
-    {
       "id": "l2weaponry:cloggrum_claw",
       "required": false
     },
@@ -53,6 +41,30 @@
     },
     {
       "id": "l2weaponry:forgotten_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ice_dragonsteel_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ignitium_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_claw",
       "required": false
     },
     {

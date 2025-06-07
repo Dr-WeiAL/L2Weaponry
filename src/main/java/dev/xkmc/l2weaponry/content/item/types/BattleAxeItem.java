@@ -21,7 +21,7 @@ public class BattleAxeItem extends SlowWieldItem {
 	}
 
 	@Override
-	protected boolean canSweep() {
+	public boolean canSweep() {
 		return true;
 	}
 

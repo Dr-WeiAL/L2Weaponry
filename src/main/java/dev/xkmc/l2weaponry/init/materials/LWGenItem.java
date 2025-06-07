@@ -34,7 +34,7 @@ public class LWGenItem {
 				String mat_name = mat.name().toLowerCase(Locale.ROOT);
 				String english = mat.englishName();
 				String tool_name = type.name().toLowerCase(Locale.ROOT);
-				var matTag = ItemTags.create(L2Weaponry.loc("material/" + mat.englishName().toLowerCase(Locale.ROOT)));
+				var matTag = mat.tag();
 				ans[i][j] = L2Weaponry.REGISTRATE.item(mat_name + "_" + tool_name,
 								p -> mat.type().getToolConfig().sup().get(mat.type(), type, mat.fireRes() ? p.fireResistant() : p))
 						.optionalTag(mat.isOptional(), type.tag).optionalTag(mat.isOptional(), matTag)

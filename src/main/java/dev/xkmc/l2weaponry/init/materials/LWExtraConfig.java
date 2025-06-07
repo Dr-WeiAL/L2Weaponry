@@ -29,12 +29,12 @@ public interface LWExtraConfig {
 		return null;
 	}
 
-	default void onHurt(AttackCache cache, LivingEntity attacker, ItemStack stack) {
-
-	}
-
 	default int getExtraStacking(ItemStack stack, @Nullable LivingEntity user) {
 		return 0;
+	}
+
+	default void onDamageFinal(AttackCache data, LivingEntity le, ItemStack stack) {
+
 	}
 
 }

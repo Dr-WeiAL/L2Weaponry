@@ -31,9 +31,9 @@ public class BaseClawItem extends DoubleWieldItem {
 	@Override
 	public float getMultiplier(AttackCache event) {
 		int count = event.getWeapon().getOrCreateTag().getInt(KEY_COUNT);
-		if (count > 1) {
+		if (count > 0) {
 			int max = getMaxStack(event.getWeapon(), event.getAttacker());
-			return (float) (1 + LWConfig.COMMON.claw_bonus.get() * Mth.clamp(count - 1, 0, max));
+			return (float) (1 + LWConfig.COMMON.claw_bonus.get() * Mth.clamp(count, 0, max));
 		}
 		return super.getMultiplier(event);
 	}

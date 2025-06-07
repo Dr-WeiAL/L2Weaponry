@@ -1,29 +1,21 @@
 package dev.xkmc.l2weaponry.init.registrate;
 
-import com.github.alexthe666.iceandfire.IceAndFire;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
-import dev.xkmc.l2weaponry.compat.aerial.AHCompat;
-import dev.xkmc.l2weaponry.compat.dragons.DragonCompat;
-import dev.xkmc.l2weaponry.compat.twilightforest.TFCompat;
-import dev.xkmc.l2weaponry.compat.undergarden.UGCompat;
+import dev.xkmc.l2weaponry.compat.CompatDispatch;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.LWGenItem;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.materials.LegendaryToolFactory;
-import fr.factionbedrock.aerialhell.AerialHell;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
-import quek.undergarden.Undergarden;
-import twilightforest.TwilightForestMod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,20 +89,7 @@ public class LWItems {
 		ENDER_JAVELIN = regLegendary("void_escape", EnderJavelin::new, LWToolTypes.JAVELIN, LWToolMats.SHULKERATE, Rarity.RARE, false);
 
 		GEN_ITEM = LWGenItem.generate(LWToolMats.values());
-
-		if (ModList.get().isLoaded(TwilightForestMod.ID)) {
-			TFCompat.register();
-		}
-		if (ModList.get().isLoaded(IceAndFire.MODID)) {
-			DragonCompat.register();
-		}
-		if (ModList.get().isLoaded(Undergarden.MODID)) {
-			UGCompat.register();
-		}
-		if (ModList.get().isLoaded(AerialHell.MODID)) {
-			AHCompat.register();
-		}
-
+		CompatDispatch.register();
 	}
 
 	private static <T extends Item> ItemEntry<T> regLegendary(String name, LegendaryToolFactory<T> fac, LWToolTypes type, LWToolMats mat, Rarity r, boolean is3D) {

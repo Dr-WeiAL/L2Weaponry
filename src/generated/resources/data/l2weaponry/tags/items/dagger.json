@@ -28,18 +28,6 @@
       "required": false
     },
     {
-      "id": "l2weaponry:ice_dragonsteel_dagger",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:fire_dragonsteel_dagger",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:lightning_dragonsteel_dagger",
-      "required": false
-    },
-    {
       "id": "l2weaponry:cloggrum_dagger",
       "required": false
     },
@@ -53,6 +41,30 @@
     },
     {
       "id": "l2weaponry:forgotten_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ice_dragonsteel_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ignitium_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_dagger",
       "required": false
     },
     {

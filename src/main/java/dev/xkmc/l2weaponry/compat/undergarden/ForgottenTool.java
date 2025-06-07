@@ -27,7 +27,7 @@ public class ForgottenTool extends ExtraToolConfig implements LWExtraConfig {
 	}
 
 	@Override
-	public void onHurt(AttackCache cache, LivingEntity attacker, ItemStack stack) {
+	public void onDamage(AttackCache cache, ItemStack stack) {
 		var target = cache.getAttackTarget();
 		if (target.getType().is(Tags.EntityTypes.BOSSES)) return;
 		var rl = ForgeRegistries.ENTITY_TYPES.getKey(cache.getAttackTarget().getType());

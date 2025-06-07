@@ -27,18 +27,6 @@
       "required": false
     },
     {
-      "id": "l2weaponry:ice_dragonsteel_scythe",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:fire_dragonsteel_scythe",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:lightning_dragonsteel_scythe",
-      "required": false
-    },
-    {
       "id": "l2weaponry:cloggrum_scythe",
       "required": false
     },
@@ -52,6 +40,30 @@
     },
     {
       "id": "l2weaponry:forgotten_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ice_dragonsteel_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ignitium_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_scythe",
       "required": false
     },
     {

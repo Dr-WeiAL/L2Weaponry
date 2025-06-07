@@ -28,18 +28,6 @@
       "required": false
     },
     {
-      "id": "l2weaponry:ice_dragonsteel_javelin",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:fire_dragonsteel_javelin",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:lightning_dragonsteel_javelin",
-      "required": false
-    },
-    {
       "id": "l2weaponry:cloggrum_javelin",
       "required": false
     },
@@ -53,6 +41,30 @@
     },
     {
       "id": "l2weaponry:forgotten_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ice_dragonsteel_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ignitium_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_javelin",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_javelin",
       "required": false
     },
     {

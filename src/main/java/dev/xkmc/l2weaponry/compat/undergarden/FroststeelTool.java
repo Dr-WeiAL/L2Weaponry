@@ -15,7 +15,7 @@ import java.util.List;
 public class FroststeelTool extends ExtraToolConfig implements LWExtraConfig {
 
 	@Override
-	public void onHurt(AttackCache cache, LivingEntity attacker, ItemStack stack) {
+	public void onDamage(AttackCache cache, ItemStack stack) {
 		cache.getAttackTarget().addEffect(new MobEffectInstance(UGEffects.CHILLY.get(), 600, 2, false, false));
 	}
 

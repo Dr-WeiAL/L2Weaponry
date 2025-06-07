@@ -85,11 +85,6 @@ public enum UGToolMats implements ILWToolMats {
 	}
 
 	@Override
-	public String englishName() {
-		return name();
-	}
-
-	@Override
 	public Consumer<FinishedRecipe> getProvider(RegistrateRecipeProvider pvd, ICondition... cond) {
 		List<ICondition> list = Lists.asList(new ModLoadedCondition(Undergarden.MODID), cond);
 		return ConditionalRecipeWrapper.of(pvd, list.toArray(ICondition[]::new));

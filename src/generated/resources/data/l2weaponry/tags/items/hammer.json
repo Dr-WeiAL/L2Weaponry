@@ -29,18 +29,6 @@
       "required": false
     },
     {
-      "id": "l2weaponry:ice_dragonsteel_hammer",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:fire_dragonsteel_hammer",
-      "required": false
-    },
-    {
-      "id": "l2weaponry:lightning_dragonsteel_hammer",
-      "required": false
-    },
-    {
       "id": "l2weaponry:cloggrum_hammer",
       "required": false
     },
@@ -54,6 +42,18 @@
     },
     {
       "id": "l2weaponry:forgotten_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:ice_dragonsteel_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:fire_dragonsteel_hammer",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:lightning_dragonsteel_hammer",
       "required": false
     },
     {
