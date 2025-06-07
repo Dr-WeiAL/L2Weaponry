@@ -1,6 +1,5 @@
 package dev.xkmc.l2weaponry.init.data;
 
-import com.github.alexthe666.iceandfire.IceAndFire;
 import com.kyanite.deeperdarker.DeeperDarker;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
@@ -13,18 +12,15 @@ import dev.xkmc.l2library.compat.jeed.JeedDataGenerator;
 import dev.xkmc.l2library.serial.conditions.BooleanValueCondition;
 import dev.xkmc.l2library.serial.ingredients.EnchantmentIngredient;
 import dev.xkmc.l2library.serial.recipe.AbstractSmithingRecipe;
+import dev.xkmc.l2weaponry.compat.CompatDispatch;
 import dev.xkmc.l2weaponry.compat.DDCompat;
-import dev.xkmc.l2weaponry.compat.aerial.AHToolMats;
-import dev.xkmc.l2weaponry.compat.dragons.DragonToolMats;
 import dev.xkmc.l2weaponry.compat.twilightforest.TFToolMats;
-import dev.xkmc.l2weaponry.compat.undergarden.UGToolMats;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
-import fr.factionbedrock.aerialhell.AerialHell;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -37,7 +33,6 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
-import quek.undergarden.Undergarden;
 import twilightforest.TwilightForestMod;
 
 import java.util.function.BiFunction;
@@ -70,24 +65,8 @@ public class RecipeGen {
 					}
 				}
 			}
-
-			if (ModList.get().isLoaded(TwilightForestMod.ID)) {
-				for (ILWToolMats mat : TFToolMats.values()) {
-					tools(pvd, mat.getStick(), mat.getIngot(), mat);
-				}
-			}
-			if (ModList.get().isLoaded(IceAndFire.MODID)) {
-				for (ILWToolMats mat : DragonToolMats.values()) {
-					tools(pvd, mat.getStick(), mat.getIngot(), mat);
-				}
-			}
-			if (ModList.get().isLoaded(Undergarden.MODID)) {
-				for (ILWToolMats mat : UGToolMats.values()) {
-					tools(pvd, mat.getStick(), mat.getIngot(), mat);
-				}
-			}
-			if (ModList.get().isLoaded(AerialHell.MODID)) {
-				for (ILWToolMats mat : AHToolMats.values()) {
+			for (var dispatch : CompatDispatch.LIST) {
+				for (var mat : dispatch.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
 			}
