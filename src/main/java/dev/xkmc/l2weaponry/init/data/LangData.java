@@ -67,6 +67,7 @@ public enum LangData {
 	MATS_IGNITIUM("mats.cata.ignitium", "Stack Blazing Brand on target and heals on attack.", 0),
 	MATS_WITHERITE("mats.cata.witherite", "Cause explosion on hit", 0),
 	MATS_CURSIUM("mats.cata.cursium", "Increase damage with consecutive hit", 0),
+	MATS_CURSIUM_PROJ("mats.cata.cursium_throw", "Summon phantom halberd on projectile hit", 0),
 
 	STAT_KILL("stat.kill_count", "Enemies killed: %s", 1),
 	STAT_BONUS_CLAW("stat.claw_bonus", "Damage stack limit: %s", 1);

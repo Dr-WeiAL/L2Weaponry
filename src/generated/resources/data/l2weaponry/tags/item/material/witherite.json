@@ -9,6 +9,10 @@
       "required": false
     },
     {
+      "id": "l2weaponry:witherite_machete",
+      "required": false
+    },
+    {
       "id": "l2weaponry:witherite_throwing_axe",
       "required": false
     },

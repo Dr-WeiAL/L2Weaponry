@@ -10,10 +10,10 @@ import dev.xkmc.l2weaponry.compat.ModMats;
 import dev.xkmc.l2weaponry.init.materials.ILWToolMats;
 import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
 import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
-import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
@@ -64,7 +64,11 @@ public enum CataToolMats implements ILWToolMats {
 
 	@Override
 	public Item getStick() {
-		return LWItems.HANDLE.get();
+		return switch (this) {
+			case IGNITIUM -> Items.BLAZE_ROD;
+			case WITHERITE -> Items.NETHERITE_INGOT;
+			case CURSIUM -> ModItems.BLACK_STEEL_INGOT.get();
+		};
 	}
 
 
@@ -83,7 +87,7 @@ public enum CataToolMats implements ILWToolMats {
 	@Override
 	public boolean hasTool(LWToolTypes type) {
 		return switch (type) {
-			case CLAW, DAGGER, NUNCHAKU, SPEAR, JAVELIN, THROWING_AXE, SCYTHE, BATTLE_AXE -> true;
+			case CLAW, DAGGER, NUNCHAKU, SPEAR, JAVELIN, THROWING_AXE, SCYTHE, BATTLE_AXE, MACHETE -> true;
 			default -> false;
 		};
 	}

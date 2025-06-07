@@ -67,6 +67,18 @@
     {
       "id": "l2weaponry:unobtainium_machete",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ignitium_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_machete",
+      "required": false
     }
   ]
 }

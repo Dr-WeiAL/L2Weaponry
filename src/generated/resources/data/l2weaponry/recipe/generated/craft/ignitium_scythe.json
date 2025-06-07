@@ -17,7 +17,7 @@
   "category": "equipment",
   "key": {
     "H": {
-      "item": "l2weaponry:reinforced_handle"
+      "item": "minecraft:blaze_rod"
     },
     "I": {
       "item": "cataclysm:ignitium_ingot"

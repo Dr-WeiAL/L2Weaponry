@@ -51,7 +51,7 @@ public class WitheriteTool extends ExtraToolConfig implements LWExtraConfig {
 			sl.sendParticles(DustParticleOptions.REDSTONE, pos.x, pos.y, pos.z, radius * 5, 0, 0, 0, 0);
 		}
 		int visual = vis;
-		SchedulerHandler.schedulePersistent(new Ticker(10, () -> makeExplosion(attacker, target, pos, radius, visual))::tick);
+		SchedulerHandler.schedulePersistent(new ToolTicker(10, () -> makeExplosion(attacker, target, pos, radius, visual))::tick);
 	}
 
 	@Override
@@ -80,24 +80,6 @@ public class WitheriteTool extends ExtraToolConfig implements LWExtraConfig {
 			}
 		}
 		return false;
-	}
-
-	private class Ticker {
-
-		private int time;
-		private final Runnable task;
-
-		private Ticker(int time, Runnable task) {
-			this.time = time;
-			this.task = task;
-		}
-
-		public boolean tick() {
-			time--;
-			if (time == 0) task.run();
-			return time <= 0;
-		}
-
 	}
 
 }
