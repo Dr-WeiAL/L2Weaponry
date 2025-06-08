@@ -44,7 +44,8 @@
 		"mats.cata": {
 			"ignitium": "攻击时叠加炽热烙印并恢复血量",
 			"witherite": "击中目标后制造小爆炸",
-			"cursium": "连击逐步提升伤害"
+			"cursium": "连击逐步提升伤害",
+			"cursium_throw": "投掷命中实体或者地面时召唤断魂戟"
 		},
 		"tool": {
 			"battle_axe": "双手武器。可进行横扫攻击",

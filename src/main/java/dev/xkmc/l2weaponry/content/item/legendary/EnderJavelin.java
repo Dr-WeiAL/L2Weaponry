@@ -36,6 +36,7 @@ public class EnderJavelin extends JavelinItem implements LegendaryWeapon {
 
 	@Override
 	public void onHitBlock(BaseThrownWeaponEntity<?> entity, ItemStack item) {
+		super.onHitBlock(entity, item);
 		if (entity.level().isClientSide) return;
 		if (!(entity.getOwner() instanceof Player player)) return;
 		if (player.level() != entity.level()) return;

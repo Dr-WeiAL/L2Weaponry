@@ -5,10 +5,7 @@ import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.l2weaponry.compat.CompatDispatch;
 import dev.xkmc.l2weaponry.content.item.legendary.*;
 import dev.xkmc.l2weaponry.init.L2Weaponry;
-import dev.xkmc.l2weaponry.init.materials.LWGenItem;
-import dev.xkmc.l2weaponry.init.materials.LWToolMats;
-import dev.xkmc.l2weaponry.init.materials.LWToolTypes;
-import dev.xkmc.l2weaponry.init.materials.LegendaryToolFactory;
+import dev.xkmc.l2weaponry.init.materials.*;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
@@ -92,7 +89,7 @@ public class LWItems {
 		CompatDispatch.register();
 	}
 
-	private static <T extends Item> ItemEntry<T> regLegendary(String name, LegendaryToolFactory<T> fac, LWToolTypes type, LWToolMats mat, Rarity r, boolean is3D) {
+	public static <T extends Item> ItemEntry<T> regLegendary(String name, LegendaryToolFactory<T> fac, LWToolTypes type, ILWToolMats mat, Rarity r, boolean is3D) {
 		return L2Weaponry.REGISTRATE.item(name, p -> type.legendary(fac).parse(mat, p.rarity(r)))
 				.model((ctx, pvd) -> LWGenItem.model(type, mat, ctx, pvd, "legendary", name, is3D))
 				.tag(type.tag).defaultLang().register();

@@ -69,6 +69,7 @@ public class RecipeGen {
 				for (var mat : dispatch.values()) {
 					tools(pvd, mat.getStick(), mat.getIngot(), mat);
 				}
+				dispatch.regExtraRecipes(pvd);
 			}
 			if (ModList.get().isLoaded(DeeperDarker.MOD_ID)) {
 				currentFolder = "generated/alternate/";

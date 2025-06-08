@@ -57,6 +57,18 @@
       "required": false
     },
     {
+      "id": "l2weaponry:ignitium_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:witherite_machete",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:cursium_machete",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_machete",
       "required": false
     },

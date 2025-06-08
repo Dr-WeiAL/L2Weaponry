@@ -9,6 +9,10 @@
       "required": false
     },
     {
+      "id": "l2weaponry:ignitium_machete",
+      "required": false
+    },
+    {
       "id": "l2weaponry:ignitium_throwing_axe",
       "required": false
     },

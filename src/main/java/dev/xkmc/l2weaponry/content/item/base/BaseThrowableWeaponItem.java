@@ -4,6 +4,7 @@ import dev.xkmc.l2complements.init.materials.LCMats;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
+import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWEnchantments;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.sounds.SoundEvents;
@@ -23,6 +24,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.MustBeInvokedByOverriders;
 
 public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implements IThrowableCallback {
 
@@ -100,6 +102,22 @@ public abstract class BaseThrowableWeaponItem extends GenericWeaponItem implemen
 	}
 
 	public abstract BaseThrownWeaponEntity<?> getProjectile(Level level, LivingEntity player, ItemStack stack, int slot);
+
+	@MustBeInvokedByOverriders
+	@Override
+	public void onHitBlock(BaseThrownWeaponEntity<?> entity, ItemStack item) {
+		IThrowableCallback.super.onHitBlock(entity, item);
+		if (getExtraConfig() instanceof LWExtraConfig w)
+			w.onHitBlock(entity, item);
+	}
+
+	@MustBeInvokedByOverriders
+	@Override
+	public void onHitEntity(BaseThrownWeaponEntity<?> entity, ItemStack item, LivingEntity le) {
+		IThrowableCallback.super.onHitEntity(entity, item, le);
+		if (getExtraConfig() instanceof LWExtraConfig w)
+			w.onHitEntity(entity, item, le);
+	}
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {

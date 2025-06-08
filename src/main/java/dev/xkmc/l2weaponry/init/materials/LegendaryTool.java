@@ -8,8 +8,8 @@ import net.minecraft.world.item.Tier;
 
 public record LegendaryTool<T extends Item>(LWToolTypes type, LegendaryToolFactory<T> tool) implements ITool {
 
-	public T parse(LWToolMats mat, Item.Properties p) {
-		return Wrappers.cast(mat.type.getToolConfig().sup().get(mat.type, this, p));
+	public T parse(ILWToolMats mat, Item.Properties p) {
+		return Wrappers.cast(mat.type().getToolConfig().sup().get(mat.type(), this, p));
 	}
 
 	@Override
