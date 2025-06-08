@@ -1,6 +1,6 @@
-// 1.21.1	2025-06-08T17:59:55.549306	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
-5202c118fd388ba6718ba2ec91eb1d89f6055fb7 assets/l2weaponry/lang/en_ud.json
-26b8e2b225e99913086910ed55c794e1468dcb57 assets/l2weaponry/lang/en_us.json
+// 1.21.1	2025-06-08T18:48:49.445657	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
+9f88ba720061c0f4b023610595d6d8253665dd8f assets/l2weaponry/lang/en_ud.json
+32c11e516487da598d8310f845b400d97eed6f35 assets/l2weaponry/lang/en_us.json
 c5eec27d9446bf5395b623559c1b7dff15c9509c assets/l2weaponry/models/item/abyss_echo.json
 3041a33a8b01ef0bda8b52c1f701aa3ab301762c assets/l2weaponry/models/item/abyss_resonance.json
 30ac5eb366241602fc692fa8cd529f5b7bb77085 assets/l2weaponry/models/item/abyss_shock.json
@@ -32,6 +32,7 @@ c46387eba998ba610a973a8288b714eb7d30383d assets/l2weaponry/models/item/ancient_m
 e02b686c0cdf739fcf29639f3d3fb5050c5d461b assets/l2weaponry/models/item/ancient_metal_spear.json
 6ed62271aafac3e31bd272ef9763883b0ed9d429 assets/l2weaponry/models/item/ancient_metal_throwing_axe.json
 ba3e108e862c9260f192cf9314a9dccd90647ed2 assets/l2weaponry/models/item/ancient_metal_throwing_axe_throwing.json
+0d4dc3af97a8ff11f9778a08d88817eb30bf901a assets/l2weaponry/models/item/ancient_traveller.json
 ff1ed9718865fd869a1d599b39e8ca806e47dc29 assets/l2weaponry/models/item/axe_of_cursed_flame.json
 0652f19c2d58e1235ee0e88c94eae17bddd54d7f assets/l2weaponry/models/item/barbaric_hallow.json
 2bd7ffad46fcf23199c84d067e459836bb403bc8 assets/l2weaponry/models/item/barbaric_hallow_throwing.json
@@ -500,6 +501,7 @@ a22ecb8b371e6a1b6556b537a7668dd231c83db6 assets/l2weaponry/models/item/witherite
 060f0cf809f182f8ba44e285ff845966c9ef2ca5 data/c/tags/item/tools/spear.json
 9069b4b6103522399c3b9080942ed55b2a03c325 data/l2damagetracker/tags/damage_type/direct.json
 e2e1939d812c38d4222afffa3820c57064b3d2b6 data/l2tabs/data_maps/attribute/attribute_entry.json
+b9e629596f65b3ca66dbd5d0132c5164a2dd47ab data/l2weaponry/advancement/recipes/combat/ancient_traveller.json
 2542096e9594d4c2444f62643166c7d15a33552a data/l2weaponry/advancement/recipes/combat/generated/upgrade/allthemodium_battle_axe.json
 a2d5dec21fc819540d03d3d3da188344fd7eb78f data/l2weaponry/advancement/recipes/combat/generated/upgrade/allthemodium_claw.json
 f6889d26a6db1fe2e4ed0a3c44a82c4fd6f6b54d data/l2weaponry/advancement/recipes/combat/generated/upgrade/allthemodium_dagger.json
@@ -1456,6 +1458,7 @@ d68391210baa7451a0668882cade63eecf14ec58 data/l2weaponry/enchantment/instant_sho
 6330a35ab84bb5eb6b2cbb864d355bb128be3b6b data/l2weaponry/enchantment/raised_spirit.json
 2efbcab281b0d3bff79d3d923a2965c9026515f3 data/l2weaponry/enchantment/stealth.json
 5c944ae4573f25ff2ee32b742b1eac3d4cd199b4 data/l2weaponry/enchantment/thin_blade.json
+907050343d2db874cc035861ed73c8e7e206b7d2 data/l2weaponry/recipe/ancient_traveller.json
 828123fd293362808ca8ed79ab222d76a578bf0a data/l2weaponry/recipe/enchantments/claw_shielding.json
 fb02b6e1ab1f727449b7d0c3a8385b7c07cefb7b data/l2weaponry/recipe/enchantments/ender_hand.json
 edc634ab9133b603c3bdd6a5b61353b2e2a387e3 data/l2weaponry/recipe/enchantments/energized_will.json
@@ -2384,7 +2387,7 @@ a7088bf9e35dfd1cc67129b61ababa022d7918e8 data/l2weaponry/tags/item/dagger.json
 9bea4e28f15a9e519d4640e3b40b70c8242cb3c6 data/l2weaponry/tags/item/hammer.json
 57d4780948943c69c088b452f2af012530c60ec2 data/l2weaponry/tags/item/heavy.json
 9d6e6c913344c95e5efe199015f617143513374d data/l2weaponry/tags/item/javelin.json
-711c7c7be5e1a641c3eab887a676d7f787032e88 data/l2weaponry/tags/item/machete.json
+75799ecd50050aabd91ec060959dff11f362e928 data/l2weaponry/tags/item/machete.json
 ae843a150b753eca697fc4eec072277a4b58ee51 data/l2weaponry/tags/item/material/allthemodium.json
 c042c0d0384737ac8d2b7e28ca95a9eaf0792312 data/l2weaponry/tags/item/material/ancient_metal.json
 b3fae5674e0607829b3ee68769f7cd25b786629d data/l2weaponry/tags/item/material/black_steel.json

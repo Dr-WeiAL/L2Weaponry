@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "cataclysm:ancient_metal_ingot"
+  },
+  "base": {
+    "item": "l2weaponry:witherite_machete"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:ancient_traveller"
+  },
+  "template": {
+    "item": "cataclysm:sandstorm_in_a_bottle"
+  }
+}

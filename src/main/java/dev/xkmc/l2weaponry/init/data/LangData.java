@@ -69,6 +69,7 @@ public enum LangData {
 	MATS_CURSIUM("mats.cata.cursium", "Increase damage with consecutive hit", 0),
 	MATS_CURSIUM_PROJ("mats.cata.cursium_throw", "Summon phantom halberd on projectile hit", 0),
 	MATS_ANCIENT("mats.cata.ancient", "Stun target on hit.", 0),
+	MATS_ANCIENT_TRAVELLER("mats.cata.ancient_traveller", "Explosion stuns target.", 0),
 
 	STAT_KILL("stat.kill_count", "Enemies killed: %s", 1),
 	STAT_BONUS_CLAW("stat.claw_bonus", "Damage stack limit: %s", 1);

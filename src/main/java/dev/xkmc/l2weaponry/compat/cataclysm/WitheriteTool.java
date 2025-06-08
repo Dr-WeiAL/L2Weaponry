@@ -7,6 +7,7 @@ import dev.xkmc.l2damagetracker.init.data.L2DamageTypes;
 import dev.xkmc.l2library.content.explosion.*;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
+import dev.xkmc.l2weaponry.content.item.base.IExplosionSource;
 import dev.xkmc.l2weaponry.content.item.types.*;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
@@ -29,9 +30,8 @@ public class WitheriteTool extends ExtraToolConfig implements LWExtraConfig {
 		if (data.getStrength() < 0.95) return;
 		int vis = 1;
 		if (!data.getSource().is(L2DamageTypes.DIRECT)) {
-			if (!(data.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?> e))
+			if (!(data.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?>))
 				return;
-			stack = e.getItem();
 			vis = 2;
 		}
 		if (!(stack.getItem() instanceof GenericWeaponItem w)) return;
@@ -51,7 +51,8 @@ public class WitheriteTool extends ExtraToolConfig implements LWExtraConfig {
 			sl.sendParticles(DustParticleOptions.REDSTONE, pos.x, pos.y, pos.z, radius * 5, 0, 0, 0, 0);
 		}
 		int visual = vis;
-		SchedulerHandler.schedulePersistent(new ToolTicker(10, () -> makeExplosion(attacker, target, pos, radius, visual))::tick);
+		SchedulerHandler.schedulePersistent(new ToolTicker(10,
+				() -> makeExplosion(attacker, target, pos, radius, visual, stack))::tick);
 	}
 
 	@Override
@@ -59,15 +60,25 @@ public class WitheriteTool extends ExtraToolConfig implements LWExtraConfig {
 		list.add(LangData.MATS_WITHERITE.get());
 	}
 
-	private void makeExplosion(LivingEntity attacker, LivingEntity target, Vec3 pos, int radius, int visual) {
+	private void makeExplosion(LivingEntity attacker, LivingEntity target, Vec3 pos, int radius, int visual, ItemStack stack) {
 		BaseExplosionContext base = new BaseExplosionContext(target.level(), pos.x(), pos.y(), pos.z(), radius);
 		Explosion.BlockInteraction type = Explosion.BlockInteraction.KEEP;
 		VanillaExplosionContext mc = new VanillaExplosionContext(null, null, null, false, type);
-		ModExplosionContext mod = (entity) -> this.onExplosionHurt(attacker, target, entity);
+		ModExplosionContext mod = (entity) -> this.onExplosionHurt(attacker, target, entity, stack);
 		ExplosionHandler.explode(new BaseExplosion(base, mc, mod, ParticleExplosionContext.of(visual)));
 	}
 
-	private boolean onExplosionHurt(LivingEntity attacker, LivingEntity target, Entity entity) {
+	private boolean onExplosionHurt(LivingEntity attacker, LivingEntity target, Entity entity, ItemStack stack) {
+		boolean ans = shouldExplosionHurt(attacker, target, entity);
+		if (ans) {
+			if (stack.getItem() instanceof IExplosionSource s){
+				s.onAffecting(attacker, entity, stack);
+			}
+		}
+		return ans;
+	}
+
+	private boolean shouldExplosionHurt(LivingEntity attacker, LivingEntity target, Entity entity) {
 		if (entity == attacker || entity.isAlliedTo(attacker) || attacker.isAlliedTo(entity))
 			return false;
 		if (entity == target) return true;

@@ -87,6 +87,7 @@
     {
       "id": "l2weaponry:black_steel_machete",
       "required": false
-    }
+    },
+    "l2weaponry:ancient_traveller"
   ]
 }

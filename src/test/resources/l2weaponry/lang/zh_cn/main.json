@@ -43,7 +43,8 @@
 			"witherite": "击中目标后制造小爆炸",
 			"cursium": "连击逐步提升伤害",
 			"cursium_throw": "投掷命中实体或者地面时召唤断魂戟",
-			"ancient": "击中时眩晕目标"
+			"ancient": "击中时眩晕目标",
+			"ancient_traveller": "爆炸眩晕目标"
 		},
 		"tool": {
 			"battle_axe": "双手武器。可进行横扫攻击",
