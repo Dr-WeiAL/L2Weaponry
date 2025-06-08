@@ -6,7 +6,6 @@ import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.IStackableWeapon;
 import dev.xkmc.l2weaponry.content.item.legendary.LegendaryWeapon;
 import dev.xkmc.l2weaponry.content.item.types.ScytheItem;
-import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -49,7 +48,7 @@ public class SoulHarvester extends ScytheItem implements LegendaryWeapon {
 
 	@Override
 	protected int getMaxStackIntrinsic(ItemStack stack) {
-		return 64;
+		return 64 - 5;
 	}
 
 	@Override
