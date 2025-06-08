@@ -6,7 +6,6 @@ import dev.xkmc.l2library.init.events.GeneralEventHandler;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.capability.IShieldData;
 import dev.xkmc.l2weaponry.content.capability.LWPlayerData;
-import dev.xkmc.l2weaponry.events.LWGeneralEvents;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;

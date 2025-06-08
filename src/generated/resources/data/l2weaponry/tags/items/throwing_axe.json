@@ -67,6 +67,14 @@
       "required": false
     },
     {
+      "id": "l2weaponry:ancient_metal_throwing_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:black_steel_throwing_axe",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_throwing_axe",
       "required": false
     },

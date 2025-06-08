@@ -7,7 +7,6 @@ import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.entity.DaggerEntity;
 import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
-import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import net.minecraft.network.chat.Component;

@@ -1,3 +1,8 @@
+2.5.2
+- Add Ignitium, Witherite, Cursium, Ancient Metal, Black Steel weapons
+- Add Soul Harvester and Ancient Traveller
+- Fix minor problem in claw / machete damage calculation
+
 2.5.1
 - Make dagger throwable
 - Fix projectile fast despawn

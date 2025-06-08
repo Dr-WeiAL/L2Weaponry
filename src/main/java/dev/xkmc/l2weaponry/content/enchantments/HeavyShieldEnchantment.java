@@ -2,10 +2,7 @@ package dev.xkmc.l2weaponry.content.enchantments;
 
 import dev.xkmc.l2complements.content.enchantment.core.AttributeEnchantment;
 import dev.xkmc.l2complements.content.enchantment.core.UnobtainableEnchantment;
-import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2library.util.math.MathHelper;
-import dev.xkmc.l2weaponry.content.item.base.BaseThrowableWeaponItem;
-import dev.xkmc.l2weaponry.init.L2Weaponry;
 import dev.xkmc.l2weaponry.init.data.LWConfig;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.ChatFormatting;

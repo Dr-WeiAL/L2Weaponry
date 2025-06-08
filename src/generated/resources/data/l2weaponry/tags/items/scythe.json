@@ -68,6 +68,14 @@
       "required": false
     },
     {
+      "id": "l2weaponry:ancient_metal_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:black_steel_scythe",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_scythe",
       "required": false
     },

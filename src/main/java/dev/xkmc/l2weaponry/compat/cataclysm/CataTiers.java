@@ -8,9 +8,10 @@ import net.minecraftforge.common.util.Lazy;
 import java.util.function.Supplier;
 
 public enum CataTiers implements Tier {
-	IGNITIUM(12, 8, 15, () -> Ingredient.of(ModItems.IGNITIUM_INGOT.get())),
+	IGNITIUM(12, 8, 20, () -> Ingredient.of(ModItems.IGNITIUM_INGOT.get())),
 	WITHERITE(12, 8, 15, () -> Ingredient.of(ModItems.WITHERITE_INGOT.get())),
-	CURSIUM(12, 8, 15, () -> Ingredient.of(ModItems.CURSIUM_INGOT.get()));
+	CURSIUM(12, 8, 20, () -> Ingredient.of(ModItems.CURSIUM_INGOT.get())),
+	ANCIENT_METAL(8, 4, 25, () -> Ingredient.of(ModItems.ANCIENT_METAL_INGOT.get()));
 
 	private final float speed;
 	private final float attack;
@@ -27,7 +28,7 @@ public enum CataTiers implements Tier {
 
 	@Override
 	public int getUses() {
-		return 1000;
+		return 3000;
 	}
 
 	@Override

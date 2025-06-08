@@ -2,15 +2,12 @@ package dev.xkmc.l2weaponry.content.capability;
 
 import dev.xkmc.l2library.init.events.GeneralEventHandler;
 import dev.xkmc.l2weaponry.content.item.base.BaseShieldItem;
-import dev.xkmc.l2weaponry.events.LWGeneralEvents;
 import dev.xkmc.l2weaponry.init.registrate.LWItems;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.item.ItemStack;
-
-import java.util.function.Consumer;
 
 public class MobShieldGoal extends Goal implements IShieldData {
 

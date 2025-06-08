@@ -68,6 +68,14 @@
       "required": false
     },
     {
+      "id": "l2weaponry:ancient_metal_claw",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:black_steel_claw",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_claw",
       "required": false
     },

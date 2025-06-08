@@ -34,7 +34,7 @@ public interface LWExtraConfig {
 		return 0;
 	}
 
-	default void onDamageFinal(AttackCache data, LivingEntity le, ItemStack stack){
+	default void onDamageFinal(AttackCache data, LivingEntity le, ItemStack stack) {
 
 	}
 

@@ -5,7 +5,7 @@ import dev.xkmc.l2weaponry.content.item.base.WeaponItem;
 
 public class XEnchCompat {
 
-	public static void onInit(){
+	public static void onInit() {
 		IncDamage.DAMAGE_GETTER.add(stack -> stack.getItem() instanceof WeaponItem weapon ? weapon.attackDamage : null);
 	}
 

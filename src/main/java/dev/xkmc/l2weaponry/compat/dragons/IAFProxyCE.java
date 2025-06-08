@@ -75,13 +75,10 @@ public class IAFProxyCE implements IAFProxy {
 	@Override
 	public void lightningHit(ItemStack stack, LivingEntity target, LivingEntity user) {
 		if (IafCommonConfig.INSTANCE.armors.dragonLightningAbility.getValue()) {
-			boolean flag = true;
-			if (user instanceof Player && (double) user.attackAnim > 0.2) {
-				flag = false;
-			}
+			boolean flag = !(user instanceof Player) || !((double) user.attackAnim > 0.2);
 
 			if (!user.level().isClientSide && flag) {
-				LightningBolt lightningboltentity = (LightningBolt) EntityType.LIGHTNING_BOLT.create(target.level());
+				LightningBolt lightningboltentity = EntityType.LIGHTNING_BOLT.create(target.level());
 
 				assert lightningboltentity != null;
 

@@ -1,0 +1,6 @@
+{
+  "parent": "l2weaponry:item/machete",
+  "textures": {
+    "layer0": "l2weaponry:item/generated/black_steel/machete"
+  }
+}

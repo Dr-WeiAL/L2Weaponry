@@ -68,6 +68,14 @@
       "required": false
     },
     {
+      "id": "l2weaponry:ancient_metal_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:black_steel_spear",
+      "required": false
+    },
+    {
       "id": "l2weaponry:arsonist_spear",
       "required": false
     },

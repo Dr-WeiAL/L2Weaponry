@@ -7,6 +7,7 @@ import dev.xkmc.l2library.init.events.GeneralEventHandler;
 import dev.xkmc.l2library.init.explosion.*;
 import dev.xkmc.l2weaponry.content.entity.BaseThrownWeaponEntity;
 import dev.xkmc.l2weaponry.content.item.base.GenericWeaponItem;
+import dev.xkmc.l2weaponry.content.item.base.IExplosionSource;
 import dev.xkmc.l2weaponry.content.item.types.*;
 import dev.xkmc.l2weaponry.init.data.LangData;
 import dev.xkmc.l2weaponry.init.materials.LWExtraConfig;
@@ -30,9 +31,8 @@ public class WitheriteTool extends ExtraToolConfig implements LWExtraConfig {
 		var event = data.getLivingDamageEvent();
 		assert event != null;
 		if (!event.getSource().is(L2DamageTypes.DIRECT)) {
-			if (!(event.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?> e))
+			if (!(event.getSource().getDirectEntity() instanceof BaseThrownWeaponEntity<?>))
 				return;
-			stack = e.getItem();
 		}
 		if (!(stack.getItem() instanceof GenericWeaponItem w)) return;
 		int radius = 1;
@@ -46,7 +46,8 @@ public class WitheriteTool extends ExtraToolConfig implements LWExtraConfig {
 			sl.sendParticles(DustParticleOptions.REDSTONE, pos.x, pos.y, pos.z, radius * 5, 0, 0, 0, 0);
 		}
 		int r = radius;
-		GeneralEventHandler.schedulePersistent(new ToolTicker(10, () -> makeExplosion(le, target, pos, r))::tick);
+		GeneralEventHandler.schedulePersistent(new ToolTicker(10,
+				() -> makeExplosion(le, target, pos, r, stack))::tick);
 	}
 
 	@Override
@@ -54,15 +55,25 @@ public class WitheriteTool extends ExtraToolConfig implements LWExtraConfig {
 		list.add(LangData.MATS_WITHERITE.get());
 	}
 
-	private void makeExplosion(LivingEntity attacker, LivingEntity target, Vec3 pos, int radius) {
+	private void makeExplosion(LivingEntity attacker, LivingEntity target, Vec3 pos, int radius, ItemStack stack) {
 		BaseExplosionContext base = new BaseExplosionContext(target.level(), pos.x(), pos.y(), pos.z(), radius);
 		Explosion.BlockInteraction type = Explosion.BlockInteraction.KEEP;
 		VanillaExplosionContext mc = new VanillaExplosionContext(null, null, null, false, type);
-		ModExplosionContext mod = (entity) -> this.onExplosionHurt(attacker, target, entity);
+		ModExplosionContext mod = (entity) -> this.onExplosionHurt(attacker, target, entity, stack);
 		ExplosionHandler.explode(new BaseExplosion(base, mc, mod));
 	}
 
-	private boolean onExplosionHurt(LivingEntity attacker, LivingEntity target, Entity entity) {
+	private boolean onExplosionHurt(LivingEntity attacker, LivingEntity target, Entity entity, ItemStack stack) {
+		boolean ans = shouldExplosionHurt(attacker, target, entity);
+		if (ans) {
+			if (stack.getItem() instanceof IExplosionSource s) {
+				s.onAffecting(attacker, entity, stack);
+			}
+		}
+		return ans;
+	}
+
+	private boolean shouldExplosionHurt(LivingEntity attacker, LivingEntity target, Entity entity) {
 		if (entity == attacker || entity.isAlliedTo(attacker) || attacker.isAlliedTo(entity))
 			return false;
 		if (entity == target) return true;
@@ -70,8 +81,7 @@ public class WitheriteTool extends ExtraToolConfig implements LWExtraConfig {
 			if (le.getLastHurtByMob() == attacker)
 				return true;
 			if (le instanceof Mob mob) {
-				if (mob.getTarget() == attacker)
-					return true;
+				return mob.getTarget() == attacker;
 			}
 		}
 		return false;

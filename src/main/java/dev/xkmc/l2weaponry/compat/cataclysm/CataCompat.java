@@ -22,9 +22,11 @@ public class CataCompat extends CompatDispatch {
 	public static final ItemEntry<Item>[][] ITEMS = LWGenItem.generate(CataToolMats.values());
 
 	public static final ItemEntry<SoulHarvester> SOUL_HARVESTER;
+	public static final ItemEntry<AncientTraveller> ANCIENT_TRAVELLER;
 
 	static {
 		SOUL_HARVESTER = LWItems.regLegendary("soul_harvester", SoulHarvester::new, LWToolTypes.SCYTHE, CataToolMats.CURSIUM, Rarity.EPIC, false);
+		ANCIENT_TRAVELLER = LWItems.regLegendary("ancient_traveller", AncientTraveller::new, LWToolTypes.MACHETE, CataToolMats.WITHERITE, Rarity.EPIC, false);
 	}
 
 	@Override
@@ -42,6 +44,16 @@ public class CataCompat extends CompatDispatch {
 				ModItems.IGNITIUM_INGOT.get()).save(
 				ConditionalRecipeWrapper.mod(pvd, Cataclysm.MODID),
 				SOUL_HARVESTER.getId());
+
+		RecipeGen.unlock(pvd, SmithingTransformRecipeBuilder.smithing(
+						Ingredient.of(ModItems.SANDSTORM_IN_A_BOTTLE.get()),
+						Ingredient.of(CataToolMats.WITHERITE.getTool(LWToolTypes.MACHETE)),
+						Ingredient.of(ModItems.ANCIENT_METAL_INGOT.get()),
+						RecipeCategory.COMBAT,
+						ANCIENT_TRAVELLER.get())::unlocks,
+				ModItems.SANDSTORM_IN_A_BOTTLE.get()).save(
+				ConditionalRecipeWrapper.mod(pvd, Cataclysm.MODID),
+				ANCIENT_TRAVELLER.getId());
 
 	}
 

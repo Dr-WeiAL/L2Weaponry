@@ -1,7 +1,11 @@
-// 1.20.1	2025-06-07T15:39:41.918935	Item models
+// 1.20.1	2025-06-08T20:42:16.974077	Item models
 3caa2feb54fc09eab6f4cfb8be27baa378649247 resourcepacks/old_weapon_model/assets/l2weaponry/models/item/abyss_echo.json
 65f858a023875f0419e263ed5f776117b115130a resourcepacks/old_weapon_model/assets/l2weaponry/models/item/abyss_terror.json
+8d4a514a5bbf09a71c2c0a9dbcc5d8aecb00edeb resourcepacks/old_weapon_model/assets/l2weaponry/models/item/ancient_metal_javelin.json
+2491f492db10bbf6f085dd4d07f232fc46fe7119 resourcepacks/old_weapon_model/assets/l2weaponry/models/item/ancient_metal_javelin_throwing.json
 675ea8ac0b652c03e1fa08e69630f22397b89490 resourcepacks/old_weapon_model/assets/l2weaponry/models/item/axe_of_cursed_flame.json
+476d0ac1ea90aae226e0f11a4e8a822d3de8b153 resourcepacks/old_weapon_model/assets/l2weaponry/models/item/black_steel_javelin.json
+d7eedbbda4843119749f0c64d0824a2d33159ff0 resourcepacks/old_weapon_model/assets/l2weaponry/models/item/black_steel_javelin_throwing.json
 46a482a720af67663721f6736ab0bfd085e93fd2 resourcepacks/old_weapon_model/assets/l2weaponry/models/item/cursium_javelin.json
 21fe412a6d1bfe191db00d7b7212af7be57a24ad resourcepacks/old_weapon_model/assets/l2weaponry/models/item/cursium_javelin_throwing.json
 037df59af5b99f49285b4a151077e53cf7b66ee9 resourcepacks/old_weapon_model/assets/l2weaponry/models/item/diamond_battle_axe.json

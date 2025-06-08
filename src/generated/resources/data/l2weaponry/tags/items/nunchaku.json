@@ -64,6 +64,14 @@
     {
       "id": "l2weaponry:cursium_nunchaku",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ancient_metal_nunchaku",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:black_steel_nunchaku",
+      "required": false
     }
   ]
 }
