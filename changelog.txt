@@ -1,5 +1,6 @@
 3.0.13
-- Add Ignitium, Witherite, Cursium weapons
+- Add Ignitium, Witherite, Cursium, Ancient Metal, Black Steel weapons
+- Add Soul Harvester and Ancient Traveller
 - Fix minor problem in claw / machete damage calculation
 - Make ATM weapons unbreakable
 
