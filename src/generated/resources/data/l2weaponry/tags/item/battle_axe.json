@@ -79,6 +79,14 @@
     {
       "id": "l2weaponry:cursium_battle_axe",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ancient_metal_battle_axe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:black_steel_battle_axe",
+      "required": false
     }
   ]
 }

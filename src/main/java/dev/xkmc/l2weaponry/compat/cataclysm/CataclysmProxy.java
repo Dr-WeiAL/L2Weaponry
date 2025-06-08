@@ -32,6 +32,15 @@ public class CataclysmProxy {
 		}
 	}
 
+	public static void inflictStun(LivingEntity user, LivingEntity target, int time) {
+		try {
+			var eff = ModEffect.EFFECTSTUN;
+			MobEffectInstance ins = new MobEffectInstance(eff, time, 0, false, true, true);
+			target.addEffect(ins);
+		} catch (Throwable e) {
+			L2Weaponry.LOGGER.error(e);
+		}
+	}
 
 	public static int spawnHalberd(Vec3 pos, LivingEntity player, int delay) {
 		try {

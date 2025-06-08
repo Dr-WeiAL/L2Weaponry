@@ -1,0 +1,26 @@
+{
+  "base": {
+    "parent": "l2weaponry:item/long_weapon",
+    "textures": {
+      "layer0": "l2weaponry:item/generated/black_steel/javelin"
+    }
+  },
+  "gui_light": "front",
+  "loader": "neoforge:separate_transforms",
+  "overrides": [
+    {
+      "model": "l2weaponry:item/black_steel_javelin_throwing",
+      "predicate": {
+        "l2weaponry:throwing": 1.0
+      }
+    }
+  ],
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "l2weaponry:item/icon/black_steel/javelin"
+      }
+    }
+  }
+}

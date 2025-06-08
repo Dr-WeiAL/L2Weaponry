@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "l2core:bool_config",
+      "expected": true,
+      "line": [
+        "recipe",
+        "enableToolRecraftRecipe"
+      ],
+      "path": "l2configs/l2complements-common.toml"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "cataclysm:ancient_metal_block"
+  },
+  "base": {
+    "tag": "l2weaponry:battle_axe"
+  },
+  "result": {
+    "count": 1,
+    "id": "l2weaponry:ancient_metal_battle_axe"
+  },
+  "template": {
+    "item": "minecraft:paper"
+  }
+}

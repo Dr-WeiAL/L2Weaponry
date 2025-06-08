@@ -78,6 +78,14 @@
     {
       "id": "l2weaponry:cursium_spear",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ancient_metal_spear",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:black_steel_spear",
+      "required": false
     }
   ]
 }

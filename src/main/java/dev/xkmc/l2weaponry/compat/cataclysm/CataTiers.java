@@ -11,9 +11,10 @@ import net.neoforged.neoforge.common.util.Lazy;
 import java.util.function.Supplier;
 
 public enum CataTiers implements Tier {
-	IGNITIUM(12, 8, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.IGNITIUM_INGOT)),
+	IGNITIUM(12, 8, 20, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.IGNITIUM_INGOT)),
 	WITHERITE(12, 8, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.WITHERITE_INGOT)),
-	CURSIUM(12, 8, 15, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.CURSIUM_INGOT));
+	CURSIUM(12, 8, 20, BlockTags.INCORRECT_FOR_NETHERITE_TOOL, () -> Ingredient.of(ModItems.CURSIUM_INGOT)),
+	ANCIENT_METAL(8, 4, 25, BlockTags.INCORRECT_FOR_DIAMOND_TOOL, () -> Ingredient.of(ModItems.ANCIENT_METAL_INGOT));
 
 	private final float speed;
 	private final float attack;
@@ -32,7 +33,7 @@ public enum CataTiers implements Tier {
 
 	@Override
 	public int getUses() {
-		return 1000;
+		return 3000;
 	}
 
 	@Override

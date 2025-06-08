@@ -78,6 +78,14 @@
     {
       "id": "l2weaponry:cursium_dagger",
       "required": false
+    },
+    {
+      "id": "l2weaponry:ancient_metal_dagger",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:black_steel_dagger",
+      "required": false
     }
   ]
 }
