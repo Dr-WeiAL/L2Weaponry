@@ -17,7 +17,7 @@ public class BetterCombat extends ResourceOrganizer {
 		IRONWOOD, STEELEAF, KNIGHTMETAL, FIERY,
 		FIRE_DRAGONSTEEL, ICE_DRAGONSTEEL, LIGHTNING_DRAGONSTEEL,
 		CLOGGRUM, FORGOTTEN, FROSTSTEEL, UTHERIUM,
-		IGNITIUM, WITHERITE, CURSIUM
+		IGNITIUM, WITHERITE, CURSIUM, ANCIENT_METAL, BLACK_STEEL
 	}
 
 	public enum BCToolTypes {
@@ -44,6 +44,8 @@ public class BetterCombat extends ResourceOrganizer {
 		dogmatic_standoff(BCToolTypes.BATTLE_AXE, 0),
 		dogmatic_punishment(BCToolTypes.HAMMER, 0),
 		death_scythe(BCToolTypes.SCYTHE, 0),
+		soul_harvester(BCToolTypes.SCYTHE, 0),
+		ancient_traveller(BCToolTypes.MACHETE, 0),
 		;
 
 		private final BCToolTypes type;
