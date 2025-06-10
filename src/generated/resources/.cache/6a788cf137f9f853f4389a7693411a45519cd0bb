@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-08T18:48:49.445657	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
+// 1.21.1	2025-06-10T11:09:51.175303	Registrate Provider for l2weaponry [Registries, Data Maps, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Patchouli Provider, Recipes]
 9f88ba720061c0f4b023610595d6d8253665dd8f assets/l2weaponry/lang/en_ud.json
 32c11e516487da598d8310f845b400d97eed6f35 assets/l2weaponry/lang/en_us.json
 c5eec27d9446bf5395b623559c1b7dff15c9509c assets/l2weaponry/models/item/abyss_echo.json
@@ -2387,7 +2387,7 @@ a7088bf9e35dfd1cc67129b61ababa022d7918e8 data/l2weaponry/tags/item/dagger.json
 9bea4e28f15a9e519d4640e3b40b70c8242cb3c6 data/l2weaponry/tags/item/hammer.json
 57d4780948943c69c088b452f2af012530c60ec2 data/l2weaponry/tags/item/heavy.json
 9d6e6c913344c95e5efe199015f617143513374d data/l2weaponry/tags/item/javelin.json
-75799ecd50050aabd91ec060959dff11f362e928 data/l2weaponry/tags/item/machete.json
+2001ebb79284fadd6e317a39b52dcac66c5ac345 data/l2weaponry/tags/item/machete.json
 ae843a150b753eca697fc4eec072277a4b58ee51 data/l2weaponry/tags/item/material/allthemodium.json
 c042c0d0384737ac8d2b7e28ca95a9eaf0792312 data/l2weaponry/tags/item/material/ancient_metal.json
 b3fae5674e0607829b3ee68769f7cd25b786629d data/l2weaponry/tags/item/material/black_steel.json
@@ -2419,7 +2419,7 @@ f4f8a136a4c23d0159675d993fa31973ec72d611 data/l2weaponry/tags/item/material/with
 26542d3eab468c8693c4521998fe6377294513d3 data/l2weaponry/tags/item/nunchaku.json
 1ecf15a25ca02493a3e1b756db70249d618ef424 data/l2weaponry/tags/item/plate_shield.json
 8ab5d0256e1505f8d14b05b04e2432965bcb42c6 data/l2weaponry/tags/item/round_shield.json
-f9c5b4cb07bf6558c3efabaeee5d0950af4a46c8 data/l2weaponry/tags/item/scythe.json
+1873d01f1194a755c1f46712250d55a8b50e3c78 data/l2weaponry/tags/item/scythe.json
 dca419f625694397194820a3848c608e23839bf6 data/l2weaponry/tags/item/shields.json
 69966733ebcf70cc32e6e6c561fa3adc8bb77f5c data/l2weaponry/tags/item/spear.json
 b09ba327295ee25088f1477e969156bdc869f320 data/l2weaponry/tags/item/stacking.json

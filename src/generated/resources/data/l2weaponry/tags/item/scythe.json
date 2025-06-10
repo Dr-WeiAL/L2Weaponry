@@ -86,6 +86,9 @@
       "id": "l2weaponry:black_steel_scythe",
       "required": false
     },
-    "l2weaponry:soul_harvester"
+    {
+      "id": "l2weaponry:soul_harvester",
+      "required": false
+    }
   ]
 }
