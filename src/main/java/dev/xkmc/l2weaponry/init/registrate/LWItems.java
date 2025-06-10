@@ -91,8 +91,9 @@ public class LWItems {
 
 	public static <T extends Item> ItemEntry<T> regLegendary(String name, LegendaryToolFactory<T> fac, LWToolTypes type, ILWToolMats mat, Rarity r, boolean is3D) {
 		return L2Weaponry.REGISTRATE.item(name, p -> type.legendary(fac).parse(mat, p.rarity(r)))
+				.optionalTag(mat.isOptional(), type.tag)
 				.model((ctx, pvd) -> LWGenItem.model(type, mat, ctx, pvd, "legendary", name, is3D))
-				.tag(type.tag).defaultLang().register();
+				.defaultLang().register();
 	}
 
 

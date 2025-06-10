@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-08T20:42:16.946622	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (enchantments), Tags (mob_effects), Tags (traits), Tags (attributes), Patchouli Provider]
+// 1.20.1	2025-06-10T11:21:30.193034	Registrate Provider for l2weaponry [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (enchantments), Tags (mob_effects), Tags (attributes), Tags (traits), Patchouli Provider]
 acbbd3f092e36e14f976c1cb145bd4b2db2610ca assets/l2weaponry/lang/en_ud.json
 07dedeef303c3031734f258dfbbbc7a001553338 assets/l2weaponry/lang/en_us.json
 3da370b79689e4fe8f61f504d8170c349fb1b34c assets/l2weaponry/models/item/abyss_echo.json
@@ -2689,7 +2689,7 @@ fb5a70759b87c70c6e86542a0d5750092a96cf5f data/l2weaponry/tags/items/battle_axe.j
 9bd0fbe910b17cc325de37adfa9ed8a6b378c570 data/l2weaponry/tags/items/dagger.json
 651d7bd3d11265766f1f0b7be7111a411251b898 data/l2weaponry/tags/items/hammer.json
 52d7250bf067ac4cb6fe0cd6595d42ae9f73d8b4 data/l2weaponry/tags/items/javelin.json
-c4945eff6fe812f4b7c3d36403e78a0c2fbbfe3c data/l2weaponry/tags/items/machete.json
+d0d45f2db24891559197941276ed5b5a5e9cea6d data/l2weaponry/tags/items/machete.json
 c042c0d0384737ac8d2b7e28ca95a9eaf0792312 data/l2weaponry/tags/items/material/ancient_metal.json
 0b05a9a1a3cdae5571f9444cbda087b6b0bd6a69 data/l2weaponry/tags/items/material/arsonist.json
 b3fae5674e0607829b3ee68769f7cd25b786629d data/l2weaponry/tags/items/material/black_steel.json
@@ -2722,7 +2722,7 @@ f4f8a136a4c23d0159675d993fa31973ec72d611 data/l2weaponry/tags/items/material/wit
 1590e2efc18f09b6d4c4d565f3c1eb4ccc583079 data/l2weaponry/tags/items/nunchaku.json
 c0f7c767af7b3d22517ed28032ad0b1d365d433f data/l2weaponry/tags/items/plate_shield.json
 d73dd5a88974153bad44d72bc6fbed49988901dc data/l2weaponry/tags/items/round_shield.json
-f54e8566dbe6cb72236c67035582b9d7b0f554b1 data/l2weaponry/tags/items/scythe.json
+b85d1985e80709a963565df4289fbc55e09675bb data/l2weaponry/tags/items/scythe.json
 3aee10b587e5d1cc7c553054975eb2823e0a2839 data/l2weaponry/tags/items/spear.json
 0d624b2249fcfaddf812550ddee07ab24f102884 data/l2weaponry/tags/items/throwing_axe.json
 4ab37eb3dc580ff1ff88e814ca291a0192381718 data/minecraft/tags/entity_types/impact_projectiles.json

@@ -10,7 +10,6 @@
     "l2weaponry:shulkerate_scythe",
     "l2weaponry:sculkium_scythe",
     "l2weaponry:eternium_scythe",
-    "l2weaponry:soul_harvester",
     {
       "id": "l2weaponry:ironwood_scythe",
       "required": false
@@ -73,6 +72,10 @@
     },
     {
       "id": "l2weaponry:black_steel_scythe",
+      "required": false
+    },
+    {
+      "id": "l2weaponry:soul_harvester",
       "required": false
     },
     {
