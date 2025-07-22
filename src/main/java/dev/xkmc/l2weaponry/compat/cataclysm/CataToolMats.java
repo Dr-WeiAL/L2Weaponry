@@ -27,11 +27,11 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public enum CataToolMats implements ILWToolMats {
-	IGNITIUM(new ModMats(CataTiers.IGNITIUM, new IgnitiumTool()), ModItems.IGNITIUM_INGOT, ModBlocks.IGNITIUM_BLOCK),
-	WITHERITE(new ModMats(CataTiers.WITHERITE, new WitheriteTool()), ModItems.WITHERITE_INGOT, ModBlocks.WITHERITE_BLOCK),
-	CURSIUM(new ModMats(CataTiers.CURSIUM, new CursiumTool()), ModItems.CURSIUM_INGOT, ModBlocks.CURSIUM_BLOCK),
-	ANCIENT_METAL(new ModMats(CataTiers.ANCIENT_METAL, new AncientMetalTool()), ModItems.ANCIENT_METAL_INGOT, ModBlocks.ANCIENT_METAL_BLOCK),
-	BLACK_STEEL(new ModMats(Tooltier.BLACK_STEEL, new ExtraToolConfig()), ModItems.BLACK_STEEL_INGOT, ModBlocks.BLACK_STEEL_BLOCK),
+	IGNITIUM(new ModMats(() -> CataTiers.IGNITIUM, new IgnitiumTool()), ModItems.IGNITIUM_INGOT, ModBlocks.IGNITIUM_BLOCK),
+	WITHERITE(new ModMats(() -> CataTiers.WITHERITE, new WitheriteTool()), ModItems.WITHERITE_INGOT, ModBlocks.WITHERITE_BLOCK),
+	CURSIUM(new ModMats(() -> CataTiers.CURSIUM, new CursiumTool()), ModItems.CURSIUM_INGOT, ModBlocks.CURSIUM_BLOCK),
+	ANCIENT_METAL(new ModMats(() -> CataTiers.ANCIENT_METAL, new AncientMetalTool()), ModItems.ANCIENT_METAL_INGOT, ModBlocks.ANCIENT_METAL_BLOCK),
+	BLACK_STEEL(new ModMats(() -> Tooltier.BLACK_STEEL, new ExtraToolConfig()), ModItems.BLACK_STEEL_INGOT, ModBlocks.BLACK_STEEL_BLOCK),
 	;
 
 	private final IMatToolType type;

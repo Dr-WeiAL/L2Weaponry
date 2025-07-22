@@ -18,9 +18,9 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public enum DragonToolMats implements ILWToolMats {
-	ICE_DRAGONSTEEL(new ModMats(IAFProxy.get().tierIce(), new IceDragonBoneTool()), true, IAFProxy.get().ingotIceSteel(), IAFProxy.get().blockIceSteel()),
-	FIRE_DRAGONSTEEL(new ModMats(IAFProxy.get().tierFire(), new FireDragonBoneTool()), true, IAFProxy.get().ingotFireSteel(), IAFProxy.get().blockFireSteel()),
-	LIGHTNING_DRAGONSTEEL(new ModMats(IAFProxy.get().tierLightning(), new LightningDragonBoneTool()), true, IAFProxy.get().ingotLightningSteel(), IAFProxy.get().blockLightningSteel()),
+	ICE_DRAGONSTEEL(new ModMats(() -> IAFProxy.get().tierIce(), new IceDragonBoneTool()), true, IAFProxy.get().ingotIceSteel(), IAFProxy.get().blockIceSteel()),
+	FIRE_DRAGONSTEEL(new ModMats(() -> IAFProxy.get().tierFire(), new FireDragonBoneTool()), true, IAFProxy.get().ingotFireSteel(), IAFProxy.get().blockFireSteel()),
+	LIGHTNING_DRAGONSTEEL(new ModMats(() -> IAFProxy.get().tierLightning(), new LightningDragonBoneTool()), true, IAFProxy.get().ingotLightningSteel(), IAFProxy.get().blockLightningSteel()),
 	;
 
 	private final IMatToolType type;

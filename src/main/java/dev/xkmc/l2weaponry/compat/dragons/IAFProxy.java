@@ -20,14 +20,11 @@ public interface IAFProxy {
 			if (CACHE != null) return CACHE;
 			try {
 				CACHE = new IAFProxyAlex();
-				CACHE.blockIceSteel();
 				return CACHE;
 			} catch (Throwable ignore) {
-
 			}
 			try {
 				CACHE = new IAFProxyCE();
-				CACHE.blockIceSteel();
 				return CACHE;
 			} catch (Throwable ignore) {
 			}

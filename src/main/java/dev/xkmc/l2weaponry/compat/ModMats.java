@@ -8,11 +8,17 @@ import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
 import dev.xkmc.l2damagetracker.contents.materials.vanilla.GenItemVanillaType;
 import net.minecraft.world.item.Tier;
 
-public record ModMats(Tier tier, ExtraToolConfig config) implements IMatToolType, IToolStats {
+import java.util.function.Supplier;
+
+public record ModMats(Supplier<Tier> tier, ExtraToolConfig config) implements IMatToolType, IToolStats {
+
+	public ModMats(Tier tier, ExtraToolConfig config) {
+		this(() -> tier, config);
+	}
 
 	@Override
 	public Tier getTier() {
-		return tier;
+		return tier.get();
 	}
 
 	@Override
@@ -32,19 +38,19 @@ public record ModMats(Tier tier, ExtraToolConfig config) implements IMatToolType
 
 
 	public int durability() {
-		return this.tier.getUses();
+		return this.getTier().getUses();
 	}
 
 	public int speed() {
-		return Math.round(this.tier.getSpeed());
+		return Math.round(this.getTier().getSpeed());
 	}
 
 	public int enchant() {
-		return this.tier.getEnchantmentValue();
+		return this.getTier().getEnchantmentValue();
 	}
 
 	public int getDamage(ITool tool) {
-		return tool.getDamage(Math.round(this.tier.getAttackDamageBonus()) + 4);
+		return tool.getDamage(Math.round(this.getTier().getAttackDamageBonus()) + 4);
 	}
 
 	public float getSpeed(ITool tool) {
