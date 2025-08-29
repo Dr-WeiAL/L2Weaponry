@@ -2,9 +2,9 @@ package dev.xkmc.l2weaponry.compat.dragons;
 
 import com.iafenvoy.iceandfire.IceAndFire;
 import com.iafenvoy.iceandfire.config.IafCommonConfig;
-import com.iafenvoy.iceandfire.data.component.IafEntityData;
-import com.iafenvoy.iceandfire.entity.EntityFireDragon;
-import com.iafenvoy.iceandfire.entity.EntityIceDragon;
+import com.iafenvoy.iceandfire.data.component.FrozenData;
+import com.iafenvoy.iceandfire.entity.FireDragonEntity;
+import com.iafenvoy.iceandfire.entity.IceDragonEntity;
 import com.iafenvoy.iceandfire.registry.IafBlocks;
 import com.iafenvoy.iceandfire.registry.IafItems;
 import com.iafenvoy.iceandfire.registry.IafToolMaterials;
@@ -30,7 +30,7 @@ public class IAFProxyCE implements IAFProxy {
 	@Override
 	public void fireHit(ItemStack stack, LivingEntity target, LivingEntity user) {
 		if (IafCommonConfig.INSTANCE.tools.dragonFireAbility.getValue()) {
-			if (target instanceof EntityIceDragon) {
+			if (target instanceof IceDragonEntity) {
 				target.hurt(user.level().damageSources().inFire(), 13.5F);
 			}
 			target.setRemainingFireTicks(100);
@@ -51,12 +51,12 @@ public class IAFProxyCE implements IAFProxy {
 	public void iceHit(ItemStack stack, LivingEntity target, LivingEntity user) {
 
 		if (IafCommonConfig.INSTANCE.tools.dragonIceAbility.getValue()) {
-			if (target instanceof EntityFireDragon) {
+			if (target instanceof FireDragonEntity) {
 				target.hurt(user.level().damageSources().drown(), 13.5F);
 			}
 
-			IafEntityData data = IafEntityData.get(target);
-			data.frozenData.setFrozen(target, 200);
+			FrozenData data = FrozenData.get(target);
+			data.setFrozen(target, 200);
 			target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 2));
 			target.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 100, 2));
 			target.knockback(1.0, user.getX() - target.getX(), user.getZ() - target.getZ());
@@ -80,7 +80,7 @@ public class IAFProxyCE implements IAFProxy {
 			}
 
 			if (!user.level().isClientSide && flag) {
-				LightningBolt e =  EntityType.LIGHTNING_BOLT.create(target.level());
+				LightningBolt e = EntityType.LIGHTNING_BOLT.create(target.level());
 				assert e != null;
 				e.getTags().add("iceandfire.bolt_skip_loot");
 				e.getTags().add(user.getStringUUID());
@@ -91,7 +91,7 @@ public class IAFProxyCE implements IAFProxy {
 				}
 			}
 
-			if (target instanceof EntityFireDragon || target instanceof EntityIceDragon) {
+			if (target instanceof FireDragonEntity || target instanceof IceDragonEntity) {
 				target.hurt(user.level().damageSources().lightningBolt(), 9.5F);
 			}
 
