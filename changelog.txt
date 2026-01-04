@@ -1,9 +1,13 @@
+3.0.16
+- Wrap Ice and Fire compatibility so that changes in code won't break
+
 3.0.15
 - Be compatible with Ice and Fire CE 2.0
 Note: It breaks compatibility with Ice and Fire CE 1.x
 
 3.0.14
 - Tag fix
+
 
 3.0.13
 - Add Ignitium, Witherite, Cursium, Ancient Metal, Black Steel weapons
