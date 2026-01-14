@@ -143,6 +143,17 @@
         "roll_set": -90.0
       }
     ],
+    "l2weaponry:one_handed_slash_diagonal_right": [
+      {
+        "particle_type": "slash45",
+        "x_addition": 0.0,
+        "y_addition": -0.1,
+        "z_addition": 0.0,
+        "pitch_addition": 0.0,
+        "local_yaw": 0.0,
+        "roll_set": -45.0
+      }
+    ],
     "l2weaponry:dual_handed_machete_backwards": [
       {
         "particle_type": "slash360",

@@ -1,6 +1,7 @@
 {
   "attributes": {
     "attack_range": 2,
+    "category": "dagger",
     "two_handed": false,
     "pose": "bettercombat:pose_one_handed_backwards",
     "attacks": [
@@ -45,7 +46,7 @@
       },
       {
         "conditions": [
-          "DUAL_WIELDING_SAME",
+          "DUAL_WIELDING_SAME_CATEGORY",
           "MAIN_HAND_ONLY"
         ],
         "hitbox": "FORWARD_BOX",
@@ -60,7 +61,7 @@
       },
       {
         "conditions": [
-          "DUAL_WIELDING_SAME",
+          "DUAL_WIELDING_SAME_CATEGORY",
           "OFF_HAND_ONLY"
         ],
         "hitbox": "FORWARD_BOX",
