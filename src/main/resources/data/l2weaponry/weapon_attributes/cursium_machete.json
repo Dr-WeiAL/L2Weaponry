@@ -5,9 +5,6 @@
     "two_handed": false,
     "attacks": [
       {
-        "conditions": [
-          "NOT_DUAL_WIELDING"
-        ],
         "hitbox": "HORIZONTAL_PLANE",
         "damage_multiplier": 1.0,
         "angle": 120,
