@@ -1,17 +1,32 @@
 {
   "attributes": {
     "attack_range": 4.0,
+    "category": "machete",
     "two_handed": false,
     "attacks": [
       {
+        "conditions": [
+          "NOT_DUAL_WIELDING"
+        ],
         "hitbox": "HORIZONTAL_PLANE",
         "damage_multiplier": 1.0,
         "angle": 120,
         "upswing": 0.5,
-        "animation": "bettercombat:one_handed_slash_horizontal_right",
+        "animation": "l2weaponry:one_handed_slash_diagonal_right",
         "swing_sound": {
           "id": "bettercombat:sword_slash"
-        }
+        },
+        "trail_particles": [
+          {
+            "particle_type": "slash45",
+            "x_addition": 0.0,
+            "y_addition": -0.1,
+            "z_addition": 0.0,
+            "pitch_addition": 0.0,
+            "local_yaw": 0.0,
+            "roll_set": -45.0
+          }
+        ]
       },
       {
         "conditions": [
@@ -28,7 +43,7 @@
       },
       {
         "conditions": [
-          "DUAL_WIELDING_SAME",
+          "DUAL_WIELDING_SAME_CATEGORY",
           "MAIN_HAND_ONLY"
         ],
         "hitbox": "HORIZONTAL_PLANE",
@@ -42,7 +57,7 @@
       },
       {
         "conditions": [
-          "DUAL_WIELDING_SAME",
+          "DUAL_WIELDING_SAME_CATEGORY",
           "OFF_HAND_ONLY"
         ],
         "hitbox": "HORIZONTAL_PLANE",
