@@ -15,7 +15,7 @@
         },
         "trail_particles": [
           {
-            "particle_type": "slash45",
+            "particle_type": "slash90",
             "x_addition": 0.0,
             "y_addition": -0.1,
             "z_addition": 0.0,

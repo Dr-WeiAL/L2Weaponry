@@ -41,7 +41,7 @@
         },
         "trail_particles": [
           {
-            "particle_type": "slash180",
+            "particle_type": "slash90",
             "x_addition": 0.0,
             "y_addition": 0.0,
             "z_addition": 0.0,
@@ -50,7 +50,7 @@
             "roll_set": 0.0
           },
           {
-            "particle_type": "slash180",
+            "particle_type": "slash90",
             "x_addition": 0.0,
             "y_addition": -0.1,
             "z_addition": 0.0,
@@ -59,7 +59,7 @@
             "roll_set": 0.0
           },
           {
-            "particle_type": "slash180",
+            "particle_type": "slash90",
             "x_addition": 0.0,
             "y_addition": -0.2,
             "z_addition": 0.0,
