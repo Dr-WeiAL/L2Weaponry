@@ -390,7 +390,7 @@
   "l2weaponry.mats.tf.shield_effect": "阻挡近战伤害时给予使用者%s",
   "l2weaponry.mats.tf.shield_reflect": "阻挡近战伤害时额外反射%s%%伤害",
   "l2weaponry.mats.tf.steeleaf": "对无护甲值的目标额外造成%s%%的伤害，并有%s%%概率使其流血",
-  "l2weaponry.mats.cata.ignitium": "攻击时叠加炽热烙印效果并回复生命值",
+  "l2weaponry.mats.cata.ignitium": "对攻击的目标叠加炽热烙印效果并回复自身生命值",
   "l2weaponry.mats.cata.witherite": "击中目标后制造小爆炸",
   "l2weaponry.mats.cata.cursium": "根据连击数增幅伤害",
   "l2weaponry.mats.cata.cursium_throw": "投掷命中实体或者地面时召唤断魂戟",
